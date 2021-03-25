@@ -1,6 +1,6 @@
 {
   "name": "@amsterdam/wonen-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "Shared functionality to be used by apps for 'Wonen'",
   "main": "index.js",
