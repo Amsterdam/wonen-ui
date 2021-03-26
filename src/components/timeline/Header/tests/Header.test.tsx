@@ -7,6 +7,6 @@ test("renders the component without ID", () => {
   expect(component.text()).toContain("onbekend")
 })
 test("renders the component with ID", () => {
-  const component = shallow(<Header caseId={1234} />)
-  expect(component.text()).toContain("1234")
+  const component = shallow(<Header caseId={12345} />)
+  expect(component.text()).toContain("12345")
 })
