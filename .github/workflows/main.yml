@@ -23,4 +23,3 @@ jobs:
 
       - name: Build
         run: npm run build
-          echo test, and build your project.
