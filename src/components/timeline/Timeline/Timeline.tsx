@@ -6,7 +6,7 @@ type Props = {
 }
 
 const TimeLine: React.FC<Props> = ({ caseId }) => (
-  <Header caseId={ caseId } />
+  <Header caseId={caseId} />
 )
 
 export default TimeLine
