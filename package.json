@@ -28,7 +28,8 @@
     "@amsterdam/asc-assets": "^0.28.0",
     "@amsterdam/asc-ui": "^0.28.0",
     "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2"
+    "@material-ui/icons": "^4.11.2",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@storybook/react": "^6.1.21",
