@@ -1,4 +1,4 @@
-import { Check, ExpandMore } from "./../../../components/Icons"
+import { Check, ExpandMore } from "./Icons"
 import React, { useCallback, useEffect, useState } from "react"
 import { useUID } from "react-uid"
 import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
