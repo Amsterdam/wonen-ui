@@ -6,9 +6,19 @@ import type { Field } from "./helpers/fields"
 import EventWrapper from "./EventWrapper"
 import { displayDate } from "../DateDisplay/DateDisplay"
 
+type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
 type Props = {
   fields: Field[]
-  caseEvents: Components.Schemas.CaseEvent[]
+  caseEvents: {
+    readonly id: number
+    event_values: {
+        [name: string]: any
+    }
+    readonly date_created: string // date-time
+    type: TypeEnum
+    emitter_id: number
+    case: number
+  }[]
   title?: string
   dateField?: string
   pathName?: string

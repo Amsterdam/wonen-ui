@@ -9,9 +9,19 @@ import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import { caseTypesMap } from "./helpers/dictionaries"
 
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
 export type TimelineEventItem = {
   type: string
-  caseEvents: Components.Schemas.CaseEvent[]
+  caseEvents: {
+    readonly id: number
+    event_values: {
+        [name: string]: any
+    }
+    readonly date_created: string // date-time
+    type: TypeEnum
+    emitter_id: number
+    case: number
+  }[]
 }
 
 type Props = {
