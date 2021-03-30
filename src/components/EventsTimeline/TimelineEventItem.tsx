@@ -5,20 +5,11 @@ import Timeline from "../Timeline/Timeline"
 import type { Field } from "./helpers/fields"
 import EventWrapper from "./EventWrapper"
 import { displayDate } from "../DateDisplay/DateDisplay"
+import { CaseEvent } from "./TimelineEvent"
 
-type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
 type Props = {
   fields: Field[]
-  caseEvents: {
-    readonly id: number
-    event_values: {
-        [name: string]: any
-    }
-    readonly date_created: string // date-time
-    type: TypeEnum
-    emitter_id: number
-    case: number
-  }[]
+  caseEvents: CaseEvent[]
   title?: string
   dateField?: string
   pathName?: string

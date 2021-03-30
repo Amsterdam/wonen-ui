@@ -1,21 +1,11 @@
 import React from "react"
 import type { Field } from "./helpers/fields"
 import EventData from "./EventData"
-
-type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
+import { CaseEvent } from "./TimelineEvent"
 
 type Props = {
   fields: Field[]
-  caseEvent: {
-    readonly id: number
-    event_values: {
-        [name: string]: any
-    }
-    readonly date_created: string // date-time
-    type: TypeEnum
-    emitter_id: number
-    case: number
-  }
+  caseEvent: CaseEvent
   isNested?: boolean
 }
 
