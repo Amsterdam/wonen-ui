@@ -1,7 +1,7 @@
 import React from "react"
 import TimelineEvent, { TimelineEventItem } from "./TimelineEvent"
 
-type Props = {
+export type Props = {
   items: TimelineEventItem[]
 }
 
