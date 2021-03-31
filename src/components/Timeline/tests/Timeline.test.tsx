@@ -2,7 +2,10 @@ import React from "react"
 import { shallow } from "enzyme"
 import Timeline from "../Timeline"
 
-test("renders the component with the right title", () => {
+describe("Timeline", () => {
   const component = shallow(<Timeline title={"Titel"} />)
-  expect(component.text()).toContain("Titel")
+
+  it("should render component with the right title", () => {
+    expect(component.text()).toContain("Titel")
+  })
 })

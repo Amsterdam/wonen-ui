@@ -3,6 +3,9 @@ import {  storiesOf  } from "@storybook/react"
 import Timeline from "../components/Timeline/Timeline"
 import TimelineEvents from "../components/EventsTimeline/TimelineEvents"
 import { CaseEvent } from "../components/EventsTimeline/TimelineEvent"
+import DateDisplay from "../components/DateDisplay/DateDisplay"
+import DayDisplay from "../components/DayDisplay/DayDisplay"
+import CaseIdDisplay from "../components/CaseIdDisplay/CaseIdDisplay"
 
 export type TimelineEventItem = {
   type: string
@@ -19,4 +22,27 @@ storiesOf("Timeline", module).add("Tijdlijn", () => (
   <Timeline title="Titel van het event">
     <p>Inhoud van het event</p>
   </Timeline>
+))
+
+storiesOf("DateDisplay", module).add("Datum in cijfers", () => (
+  <DateDisplay date="2021-03-31T10:51:48+0200" />
+))
+
+storiesOf("DateDisplay", module).add("Datum voluit", () => (
+  <DateDisplay date="2021-03-31T10:51:48+0200" full={true} />
+))
+
+storiesOf("DayDisplay", module).add("Dag, kleine letter", () => (
+  <DayDisplay date="2021-03-31T10:51:48+0200" />
+))
+
+storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
+  <DayDisplay date="2021-03-31T10:51:48+0200" capitalize={true} />
+))
+
+storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
+  <CaseIdDisplay id="1234" />
+))
+storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
+  <CaseIdDisplay />
 ))

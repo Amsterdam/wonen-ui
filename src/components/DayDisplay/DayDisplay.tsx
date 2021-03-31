@@ -4,7 +4,7 @@ import { capitalizeString } from "../Helpers/helpers"
 
 type Props = {
   date: string
-  capitalize: boolean
+  capitalize?: boolean
 }
 
 const days = [
