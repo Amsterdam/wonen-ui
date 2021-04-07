@@ -9,7 +9,7 @@ import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import { caseTypesMap } from "./helpers/dictionaries"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE"
 export type CaseEvent = {
   readonly id: number
   event_values: {
@@ -22,7 +22,7 @@ export type CaseEvent = {
 }
 export type TimelineEventItem = {
   type: string
-  caseEvents: 
+  caseEvents:
     CaseEvent[]
 }
 
@@ -32,7 +32,7 @@ type Props = {
 }
 
 const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false }) => (
-  <div role="button" tabIndex={ -1 } >
+  <div role="button" tabIndex={ -1 }>
     { type === "CASE" ?
         <TimelineEventItemComponent
           fields={ fields(reasonFields, reasonLabelsMap) }
