@@ -8,6 +8,8 @@ import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import { caseTypesMap } from "./helpers/dictionaries"
+import styled from "styled-components"
+import { themeSpacing } from "@amsterdam/asc-ui"
 
 export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
 export type CaseEvent = {
@@ -29,10 +31,38 @@ export type TimelineEventItem = {
 type Props = {
   timelineEventItem: TimelineEventItem
   isOpen?: boolean
+  spacingHorizontal: number
 }
 
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false }) => (
-  <div role="button" tabIndex={ -1 } >
+type StylingProps = {
+  spacingHorizontal: number
+}
+
+const Div = styled.div<StylingProps>`
+  position: relative;
+  margin-top: 0;
+  margin-bottom: ${ themeSpacing(5) };
+  margin-left: ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
+  margin-right: ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
+  padding: 0 ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
+
+  &:last-child {
+    > div:nth-child(2) {
+      > div:first-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  button {
+    outline: none;
+  }
+`
+
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0 }) => (
+  <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
         <TimelineEventItemComponent
           fields={ fields(reasonFields, reasonLabelsMap) }
@@ -75,7 +105,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
         /> :
       null
     }
-  </div>
+  </Div>
 )
 
 export default TimelineEvent
