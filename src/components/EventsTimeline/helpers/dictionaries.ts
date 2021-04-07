@@ -3,7 +3,8 @@ export const caseTypesMap = {
   "CASE": "Aanleiding",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
-  "VISIT": "Huisbezoek(en)"
+  "VISIT": "Huisbezoek(en)",
+  "SCHEDULE": "Inplanning"
 }
 
 // REASON
