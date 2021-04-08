@@ -40,7 +40,7 @@ export const summonLabelsMap = {
   "type": "Aanschrijving"
 }
 
-// SUMMON
+// DECISION
 export const decisionLabelsMap = {
   "date_added": "Datum",
   "author": "Projecthandhaver",
