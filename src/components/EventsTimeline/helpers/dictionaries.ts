@@ -4,7 +4,8 @@ export const caseTypesMap = {
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
   "VISIT": "Huisbezoek(en)",
-  "SCHEDULE": "Inplanning"
+  "SCHEDULE": "Inplanning",
+  "DECISION": "Besluit"
 }
 
 // REASON
@@ -37,6 +38,16 @@ export const summonLabelsMap = {
   "persons": "Aangeschrevene(n)",
   "description": "Toelichting",
   "type": "Aanschrijving"
+}
+
+// SUMMON
+export const decisionLabelsMap = {
+  "date_added": "Datum",
+  "author": "Projecthandhaver",
+  "persons": "Aangeschrevene(n)",
+  "description": "Toelichting",
+  "type": "Besluit",
+  "sanction_amount": "Bedrag"
 }
 
 // GENERIC EVENT

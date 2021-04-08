@@ -1,6 +1,6 @@
 import React from "react"
 import TimelineEventItemComponent from "./TimelineEventItem"
-import { debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap } from "./helpers/dictionaries"
+import { debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
 import genericTaskFields from "./events/genericTaskFields"
@@ -8,8 +8,9 @@ import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import { caseTypesMap } from "./helpers/dictionaries"
+import decisionFields from "./events/decisionFields"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE"
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION"
 export type CaseEvent = {
   readonly id: number
   event_values: {
@@ -60,6 +61,14 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
       type === "SUMMON" ?
         <TimelineEventItemComponent
           fields={ fields(summonFields, summonLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          dateField="date_added"
+          isOpen={ isOpen }
+        /> :
+        type === "DECISION" ?
+        <TimelineEventItemComponent
+          fields={ fields(decisionFields, decisionLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           dateField="date_added"
