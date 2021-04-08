@@ -20,7 +20,7 @@ npm install @amsterdam/wonen-ui
 
 ## Pulish the package to npm
 
-Merge any changes into master and pull master to your local machine.
+Merge any changes into main and pull main to your local machine.
 In the root folder do:
 ```
 npm install
