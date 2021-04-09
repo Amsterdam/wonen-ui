@@ -60,7 +60,7 @@ export const genericLabelsMap = {
 export const visitLabelsMap = {
   "date": "Datum",
   "start_time": "Starttijd",
-  "authors": "Toezichthouders",
+  "authors": "Toezichthouders en handhaver",
   "situation": "Situatie",
   "observations": "Kenmerken",
   "can_next_visit_go_ahead": "Vervolgactie",
