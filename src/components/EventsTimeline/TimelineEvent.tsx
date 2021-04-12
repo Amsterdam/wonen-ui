@@ -1,17 +1,20 @@
 import React from "react"
+import styled from "styled-components"
+import { themeSpacing } from "@amsterdam/asc-ui"
+
 import TimelineEventItemComponent from "./TimelineEventItem"
-import { debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap } from "./helpers/dictionaries"
+import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
+import scheduleFields from "./events/scheduleFields"
 import genericTaskFields from "./events/genericTaskFields"
 import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
+import decisionFields from "./events/decisionFields"
 import { caseTypesMap } from "./helpers/dictionaries"
-import styled from "styled-components"
-import { themeSpacing } from "@amsterdam/asc-ui"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK"
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION"
 export type CaseEvent = {
   readonly id: number
   event_values: {
@@ -24,7 +27,7 @@ export type CaseEvent = {
 }
 export type TimelineEventItem = {
   type: string
-  caseEvents: 
+  caseEvents:
     CaseEvent[]
 }
 
@@ -42,9 +45,9 @@ const Div = styled.div<StylingProps>`
   position: relative;
   margin-top: 0;
   margin-bottom: ${ themeSpacing(5) };
-  margin-left: ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
-  margin-right: ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
-  padding: 0 ${ ( { spacingHorizontal = 0 } ) => -themeSpacing( spacingHorizontal ) };
+  margin-left: ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
+  margin-right: ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
+  padding: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( spacingHorizontal ) };
 
   &:last-child {
     > div:nth-child(2) {
@@ -70,6 +73,13 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
         /> :
+      type === "SCHEDULE" ?
+        <TimelineEventItemComponent
+          fields={ fields(scheduleFields, scheduleLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          isOpen={ isOpen }
+        /> :
       type === "VISIT" ?
         <TimelineEventItemComponent
           fields={ fields(visitFields, visitLabelsMap) }
@@ -90,6 +100,14 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
       type === "SUMMON" ?
         <TimelineEventItemComponent
           fields={ fields(summonFields, summonLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          dateField="date_added"
+          isOpen={ isOpen }
+        /> :
+        type === "DECISION" ?
+        <TimelineEventItemComponent
+          fields={ fields(decisionFields, decisionLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           dateField="date_added"

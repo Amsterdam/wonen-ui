@@ -1,9 +1,11 @@
 // Events
 export const caseTypesMap = {
   "CASE": "Aanleiding",
+  "SCHEDULE": "Inplanning",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
-  "VISIT": "Huisbezoek(en)"
+  "VISIT": "Huisbezoek(en)",
+  "DECISION": "Besluit"
 }
 
 // REASON
@@ -12,6 +14,14 @@ export const reasonLabelsMap = {
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
   "description": "Toelichting"
+}
+
+// SCHEDULE
+export const scheduleLabelsMap = {
+  "date_added": "Datum",
+  "week_segment": "Weekdeel",
+  "day_segment": "Dagdeel",
+  "priority": "Urgentie"
 }
 
 // DEBRIEF
@@ -38,6 +48,16 @@ export const summonLabelsMap = {
   "type": "Aanschrijving"
 }
 
+// DECISION
+export const decisionLabelsMap = {
+  "date_added": "Datum",
+  "author": "Projecthandhaver",
+  "persons": "Aangeschrevene(n)",
+  "description": "Toelichting",
+  "type": "Besluit",
+  "sanction_amount": "Bedrag"
+}
+
 // GENERIC EVENT
 export const genericLabelsMap = {
   "date_added": "Datum",
@@ -48,7 +68,7 @@ export const genericLabelsMap = {
 export const visitLabelsMap = {
   "date": "Datum",
   "start_time": "Starttijd",
-  "authors": "Toezichthouders",
+  "authors": "Toezichthouders en handhaver",
   "situation": "Situatie",
   "observations": "Kenmerken",
   "can_next_visit_go_ahead": "Vervolgactie",
