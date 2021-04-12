@@ -1,10 +1,10 @@
 // Events
 export const caseTypesMap = {
   "CASE": "Aanleiding",
+  "SCHEDULE": "Inplanning",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
   "VISIT": "Huisbezoek(en)",
-  "SCHEDULE": "Inplanning",
   "DECISION": "Besluit"
 }
 
@@ -14,6 +14,14 @@ export const reasonLabelsMap = {
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
   "description": "Toelichting"
+}
+
+// SCHEDULE
+export const scheduleLabelsMap = {
+  "date_added": "Datum",
+  "week_segment": "Weekdeel",
+  "day_segment": "Dagdeel",
+  "priority": "Urgentie"
 }
 
 // DEBRIEF

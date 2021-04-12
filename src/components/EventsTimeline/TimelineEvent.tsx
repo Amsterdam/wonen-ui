@@ -1,8 +1,9 @@
 import React from "react"
 import TimelineEventItemComponent from "./TimelineEventItem"
-import { debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
+import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
+import scheduleFields from "./events/scheduleFields"
 import genericTaskFields from "./events/genericTaskFields"
 import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
@@ -37,6 +38,13 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
     { type === "CASE" ?
         <TimelineEventItemComponent
           fields={ fields(reasonFields, reasonLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          isOpen={ isOpen }
+        /> :
+      type === "SCHEDULE" ?
+        <TimelineEventItemComponent
+          fields={ fields(scheduleFields, scheduleLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
