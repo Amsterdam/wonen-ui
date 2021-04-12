@@ -1,4 +1,7 @@
 import React from "react"
+import styled from "styled-components"
+import { themeSpacing } from "@amsterdam/asc-ui"
+
 import TimelineEventItemComponent from "./TimelineEventItem"
 import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
@@ -8,8 +11,8 @@ import genericTaskFields from "./events/genericTaskFields"
 import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
-import { caseTypesMap } from "./helpers/dictionaries"
 import decisionFields from "./events/decisionFields"
+import { caseTypesMap } from "./helpers/dictionaries"
 
 export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION"
 export type CaseEvent = {
@@ -31,10 +34,35 @@ export type TimelineEventItem = {
 type Props = {
   timelineEventItem: TimelineEventItem
   isOpen?: boolean
+  spacingHorizontal?: number
 }
 
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false }) => (
-  <div role="button" tabIndex={ -1 }>
+type StylingProps = {
+  spacingHorizontal: number
+}
+
+const Div = styled.div<StylingProps>`
+  position: relative;
+  margin: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) } ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
+  padding: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( spacingHorizontal ) };
+
+  &:last-child {
+    > div:nth-child(2) {
+      > div:first-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  button {
+    outline: none;
+  }
+`
+
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0 }) => (
+  <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
         <TimelineEventItemComponent
           fields={ fields(reasonFields, reasonLabelsMap) }
@@ -92,7 +120,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
         /> :
       null
     }
-  </div>
+  </Div>
 )
 
 export default TimelineEvent
