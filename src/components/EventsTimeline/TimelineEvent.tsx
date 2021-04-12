@@ -34,7 +34,7 @@ export type TimelineEventItem = {
 type Props = {
   timelineEventItem: TimelineEventItem
   isOpen?: boolean
-  spacingHorizontal: number
+  spacingHorizontal?: number
 }
 
 type StylingProps = {
@@ -43,10 +43,7 @@ type StylingProps = {
 
 const Div = styled.div<StylingProps>`
   position: relative;
-  margin-top: 0;
-  margin-bottom: ${ themeSpacing(5) };
-  margin-left: ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
-  margin-right: ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
+  margin: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) } ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
   padding: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( spacingHorizontal ) };
 
   &:last-child {
