@@ -10,7 +10,13 @@ The package contains the following components:
 - Timeline
 - TimelineEvents
 
+## Options
+### TimelineEvents
+Depending on the style and size of parent-container one can add horizontal spacing to the TimelineEvents with the use of parameter ```spacingHorizontal```.
+This uses the ```themeSpacing``` of @amsterdam/amsterdam-styled-components.
+For instance, when you want a spacing of 16 pixels on both sides you can do:
 
+```<TimelineEvents items={ timelineEvents } spacingHorizontal={4} />```
 ## Install
 
 Install dependencies:
