@@ -15,15 +15,16 @@ type Props = {
   pathName?: string
   isOpen?: boolean
   useTransparentBackground?: boolean
+  itemCount?: number
 }
 
-const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", pathName, isOpen = false, useTransparentBackground = false }) => {
+const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", pathName, isOpen = false, useTransparentBackground = false, itemCount = 0 }) => {
 
   // This situation would be considered a problem within the data returned from the API
   if (caseEvents.length === 0) return null
 
   const hasPluralEvents = caseEvents.length > 1
-  const titleWithCounter = `${ title } ${ hasPluralEvents ? `(${ caseEvents.length })` : "" }`
+  const titleWithCounter = `${ title } ${ itemCount > 1 ? `(${ itemCount })` : "" }`
 
   return (
     <Timeline title={ titleWithCounter } isOpen={ isOpen } useTransparentBackground={ useTransparentBackground }>

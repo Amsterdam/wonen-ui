@@ -4,7 +4,7 @@ export const caseTypesMap = {
   "SCHEDULE": "Inplanning",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
-  "VISIT": "Huisbezoek(en)",
+  "VISIT": "Huisbezoek",
   "DECISION": "Besluit"
 }
 
