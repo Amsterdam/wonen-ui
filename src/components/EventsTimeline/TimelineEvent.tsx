@@ -35,6 +35,7 @@ type Props = {
   timelineEventItem: TimelineEventItem
   isOpen?: boolean
   spacingHorizontal?: number
+  useTransparentBackground?: boolean
 }
 
 type StylingProps = {
@@ -43,11 +44,12 @@ type StylingProps = {
 
 const Div = styled.div<StylingProps>`
   position: relative;
-  margin: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) } ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) };
+  margin: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) };
   padding: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( spacingHorizontal ) };
 
+  //hide the vertical line in the last item
   &:last-child {
-    > div:nth-child(2) {
+    > div:last-child {
       > div:first-child {
         &:after {
           display: none;
@@ -61,7 +63,7 @@ const Div = styled.div<StylingProps>`
   }
 `
 
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0 }) => (
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0, useTransparentBackground = false }) => (
   <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
         <TimelineEventItemComponent
@@ -69,6 +71,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
       type === "SCHEDULE" ?
         <TimelineEventItemComponent
@@ -76,6 +79,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
       type === "VISIT" ?
         <TimelineEventItemComponent
@@ -84,6 +88,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="start_time"
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
       type === "DEBRIEFING" ?
         <TimelineEventItemComponent
@@ -91,6 +96,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
           dateField="date_added"
           pathName="debriefing"
         /> :
@@ -101,6 +107,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="date_added"
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
         type === "DECISION" ?
         <TimelineEventItemComponent
@@ -109,6 +116,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="date_added"
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
       type === "GENERIC_TASK" ?
         <TimelineEventItemComponent
@@ -117,6 +125,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseEvents[0]?.event_values.description }
           dateField="date"
           isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
         /> :
       null
     }

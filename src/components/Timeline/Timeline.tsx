@@ -20,6 +20,7 @@ import styled from "styled-components"
 type Props = {
   onToggle?: (open: boolean) => void
   canBeOpened?: boolean
+  useTransparentBackground?: boolean
 } & StyleProps
 
 type ButtonVariant =
@@ -75,6 +76,7 @@ const Timeline: React.FC<
   onClick,
   isNested,
   canBeOpened = true,
+  useTransparentBackground = false,
   ...otherProps
 
 }) => {
@@ -96,7 +98,7 @@ const Timeline: React.FC<
 
   return (
     <>
-      <Background isOpen={open} />
+      { !useTransparentBackground && <Background isOpen={open} /> }
       <NestedContainer isNested={isNested}>
         <CircleWrapperStyle isOpen={open} isNested={isNested} >
           <CircleStyle
