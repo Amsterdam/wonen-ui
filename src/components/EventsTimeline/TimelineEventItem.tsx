@@ -24,9 +24,7 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
   if (caseEvents.length === 0) return null
 
   const hasPluralEvents = caseEvents.length > 1
-
-  // const titleWithCounter = `${ title } ${ hasPluralEvents ? `(${ caseEvents.length }) ${ numVisitsTotal }` : numVisitsTotal }`
-  const titleWithCounter = `${ title } ${ itemCount > 0 ? `(${ itemCount })` : "" }`
+  const titleWithCounter = `${ title } ${ itemCount > 1 ? `(${ itemCount })` : "" }`
 
   return (
     <Timeline title={ titleWithCounter } isOpen={ isOpen } useTransparentBackground={ useTransparentBackground }>
