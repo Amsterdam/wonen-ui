@@ -36,6 +36,7 @@ type Props = {
   isOpen?: boolean
   spacingHorizontal?: number
   useTransparentBackground?: boolean
+  itemCount?: number
 }
 
 type StylingProps = {
@@ -63,7 +64,7 @@ const Div = styled.div<StylingProps>`
   }
 `
 
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0, useTransparentBackground = false }) => (
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0, useTransparentBackground = false, itemCount }) => (
   <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
         <TimelineEventItemComponent
@@ -89,6 +90,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           dateField="start_time"
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
+          itemCount={ itemCount }
         /> :
       type === "DEBRIEFING" ?
         <TimelineEventItemComponent

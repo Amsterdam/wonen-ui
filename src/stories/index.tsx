@@ -12,6 +12,35 @@ export type TimelineEventItem = {
   caseEvents: CaseEvent[]
 }
 const eventsTimelineData: TimelineEventItem[] = [
+  {
+    type: "DEBRIEFING",
+    caseEvents: [
+      { id: 2535,
+        event_values: {
+          author: "A. Beecee",
+          date_added: "2021-03-26T19:19:26.345631Z",
+          violation: "YES",
+          feedback: "Hier de opmerkingen.."
+        },
+        date_created: "2021-03-26T20:19:26+0100",
+        emitter_id: 317,
+        case: 3394,
+        type: "DEBRIEFING"
+      },
+      { id: 2533,
+        event_values: {
+          author: "A. Beecee",
+          date_added: "2021-03-27T19:19:26.345631Z",
+          violation: "YES",
+          feedback: "Hier de opmerkingen..."
+        },
+        date_created: "2021-03-26T20:19:26+0100",
+        emitter_id: 317,
+        case: 3394,
+        type: "DEBRIEFING"
+      }
+    ]
+  },
   { 
     type: "DECISION", 
     caseEvents:[
@@ -62,6 +91,30 @@ const eventsTimelineData: TimelineEventItem[] = [
     ]
   },
   {
+    type: "VISIT",
+    caseEvents: [
+      { id: 227,
+        event_values: {
+          start_time: "2021-01-01T11:34:00Z",
+          authors: [
+            "Evqnzfqaeg",
+            "Sbtsjuwhnu"
+          ],
+          situation: "access_granted",
+          observations: [],
+          can_next_visit_go_ahead: true,
+          can_next_visit_go_ahead_description: null,
+          suggest_next_visit: null,
+          suggest_next_visit_description: null
+        },
+        date_created: "2021-04-08T11:25:07+0200",
+        type: "VISIT",
+        emitter_id: 81,
+        case: 3394
+      }
+    ]
+  },
+  {
     type: "CASE",
     caseEvents:[
       {
@@ -83,7 +136,7 @@ const eventsTimelineData: TimelineEventItem[] = [
 ]
 
 storiesOf("TimelineEvents", module).add("Tijdlijn", () => (
-  <TimelineEvents items={ eventsTimelineData } spacingHorizontal={6} />
+  <TimelineEvents items={ eventsTimelineData } spacingHorizontal={6} countItemType="VISIT" />
 ))
 
 storiesOf("Timeline", module).add("Tijdlijn", () => (
