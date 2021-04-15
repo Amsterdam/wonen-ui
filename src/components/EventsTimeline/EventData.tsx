@@ -17,7 +17,12 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"]) => {
       ) }
     </UnstyledList>
   )
-  return <>{ mapValue(value) }</>
+  const mappedValue = mapValue(value)
+
+  if (typeof mappedValue === "string"){
+    return <>{ mappedValue.split("\n").reduce((acc, s) => acc.concat(s, <br key={s} />), [] as React.ReactNode[]) }</>
+  }
+  return <>{ mappedValue }</>
 }
 
 type ValueProps = { value: React.ReactNode, displayItalic?: boolean }
