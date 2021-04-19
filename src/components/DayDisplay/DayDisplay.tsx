@@ -1,6 +1,6 @@
 import React from "react"
 import { isValidDate, invalidDateText } from "../DateDisplay/DateDisplay"
-import { capitalizeString, stringWithLinebreaks } from "../Helpers/Helpers"
+import { capitalizeString } from "../Helpers/helpers"
 
 type Props = {
   date: string
@@ -21,7 +21,7 @@ export const getDay = (date: string | Date, capitalize = false) => {
   const d = typeof date === "string" ? new Date(date) : date
   if (!isValidDate(d)) return invalidDateText
   const day = days[d.getDay()]
-  return capitalize ? capitalizeString(day) : stringWithLinebreaks(day)
+  return capitalize ? capitalizeString(day) : (day)
 }
 
 const DayDisplay: React.FC<Props> = ({ date, capitalize = false }) =>

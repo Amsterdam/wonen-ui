@@ -1,4 +1,4 @@
-import { stringWithLinebreaks } from "components/Helpers/Helpers"
+import StringWithLinebreaks from "./../Helpers/StringWithLinebreaks"
 import React from "react"
 import Dl from "./Dl"
 import type { Field } from "./helpers/fields"
@@ -21,8 +21,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"]) => {
   const mappedValue = mapValue(value)
 
   if (typeof mappedValue === "string"){
-    // return <>{ mappedValue.split("\n").reduce((acc, s) => acc.concat(s, <br key={s} />), [] as React.ReactNode[]) }</>
-    return stringWithLinebreaks(mappedValue)
+    return <StringWithLinebreaks s={mappedValue} />
   }
   return <>{ mappedValue }</>
 }
