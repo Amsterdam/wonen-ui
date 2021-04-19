@@ -1,4 +1,4 @@
-import { stringWithLinebreaks } from "components/Helpers/helpers"
+import { stringWithLinebreaks } from "components/Helpers/Helpers"
 import React from "react"
 import Dl from "./Dl"
 import type { Field } from "./helpers/fields"

@@ -1,6 +1,6 @@
 import React from "react"
 import { isValidDate, invalidDateText } from "../DateDisplay/DateDisplay"
-import { capitalizeString, stringWithLinebreaks } from "../Helpers/helpers"
+import { capitalizeString, stringWithLinebreaks } from "../Helpers/Helpers"
 
 type Props = {
   date: string

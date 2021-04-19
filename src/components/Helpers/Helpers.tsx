@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import { ReactNode } from "react"
 import styled from "styled-components"
 
 export const capitalizeString = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
