@@ -8,6 +8,6 @@ const Span = styled.span`
   white-space: pre-line;
 `
 
-const StringWithLinebreaks: React.FC<Props> = ({ s }) => <Span>{ s }</Span>
+const SpanWithLinebreaks: React.FC<Props> = ({ s }) => <Span>{ s }</Span>
 
-export default StringWithLinebreaks
+export default SpanWithLinebreaks
