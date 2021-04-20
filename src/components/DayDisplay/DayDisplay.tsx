@@ -21,7 +21,7 @@ export const getDay = (date: string | Date, capitalize = false) => {
   const d = typeof date === "string" ? new Date(date) : date
   if (!isValidDate(d)) return invalidDateText
   const day = days[d.getDay()]
-  return capitalize ? capitalizeString(day) : (day)
+  return capitalize ? capitalizeString(day) : day
 }
 
 const DayDisplay: React.FC<Props> = ({ date, capitalize = false }) =>
