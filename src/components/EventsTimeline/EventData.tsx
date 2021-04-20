@@ -1,3 +1,4 @@
+import SpanWithLinebreaks from "../Helpers/SpanWithLinebreaks"
 import React from "react"
 import Dl from "./Dl"
 import type { Field } from "./helpers/fields"
@@ -20,7 +21,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"]) => {
   const mappedValue = mapValue(value)
 
   if (typeof mappedValue === "string"){
-    return <>{ mappedValue.split("\n").reduce((acc, s) => acc.concat(s, <br key={s} />), [] as React.ReactNode[]) }</>
+    return <SpanWithLinebreaks s={mappedValue} />
   }
   return <>{ mappedValue }</>
 }
