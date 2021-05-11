@@ -1,8 +1,8 @@
 import React from "react"
-import TimelineEvent, { TimelineEventItem, TypeEnum } from "./TimelineEvent"
+import TimelineEvent, { TimelineEventItemType, TypeEnum } from "./TimelineEvent"
 
 export type Props = {
-  items: TimelineEventItem[]
+  items: TimelineEventItemType[]
   spacingHorizontal?: number
   useTransparentBackground?: boolean
   countItemType?: TypeEnum
