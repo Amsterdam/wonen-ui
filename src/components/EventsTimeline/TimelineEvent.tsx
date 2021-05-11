@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { themeSpacing } from "@amsterdam/asc-ui"
 
-import TimelineEventItem from "./TimelineEventItem"
+import TimelineEventItemComponent from "./TimelineEventItem"
 import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
@@ -13,7 +13,6 @@ import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import decisionFields from "./events/decisionFields"
 import { caseTypesMap } from "./helpers/dictionaries"
-import GenericTimelineEventItem from "./GenericTimelineEventItem"
 
 export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION"
 export type CaseEvent = {
@@ -26,14 +25,14 @@ export type CaseEvent = {
   emitter_id: number
   case: number
 }
-export type TimelineEventItemType = {
+export type TimelineEventItem = {
   type: string
   caseEvents:
     CaseEvent[]
 }
 
 type Props = {
-  timelineEventItem: TimelineEventItemType
+  timelineEventItem: TimelineEventItem
   isOpen?: boolean
   spacingHorizontal?: number
   useTransparentBackground?: boolean
@@ -68,7 +67,7 @@ const Div = styled.div<StylingProps>`
 const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0, useTransparentBackground = false, itemCount }) => (
   <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(reasonFields, reasonLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -76,7 +75,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           useTransparentBackground={ useTransparentBackground }
         /> :
       type === "SCHEDULE" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(scheduleFields, scheduleLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -84,7 +83,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           useTransparentBackground={ useTransparentBackground }
         /> :
       type === "VISIT" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(visitFields, visitLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -94,7 +93,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           itemCount={ itemCount }
         /> :
       type === "DEBRIEFING" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(debriefingFields, debriefLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -104,7 +103,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           pathName="debriefing"
         /> :
       type === "SUMMON" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(summonFields, summonLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -113,7 +112,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           useTransparentBackground={ useTransparentBackground }
         /> :
         type === "DECISION" ?
-        <TimelineEventItem
+        <TimelineEventItemComponent
           fields={ fields(decisionFields, decisionLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
@@ -121,8 +120,8 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-      type === "GENERIC_TASK" && Object.keys(caseEvents[0]?.event_values.variables ?? {} ).length === 0 ?
-        <TimelineEventItem
+      type === "GENERIC_TASK" ?
+        <TimelineEventItemComponent
           fields={ fields(genericTaskFields, genericLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseEvents[0]?.event_values.description }
@@ -130,14 +129,6 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-        type === "GENERIC_TASK" && Object.keys(caseEvents[0]?.event_values.variables ?? {} ).length > 0 ? 
-        <GenericTimelineEventItem
-          fields={ fields(genericTaskFields, genericLabelsMap) }
-          caseEvents={ caseEvents }
-          isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
-        />
-        :
       null
     }
   </Div>

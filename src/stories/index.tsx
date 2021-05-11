@@ -11,38 +11,7 @@ export type TimelineEventItem = {
   type: string
   caseEvents: CaseEvent[]
 }
-
 const eventsTimelineData: TimelineEventItem[] = [
-  {
-    type: "GENERIC_TASK",
-    caseEvents: [
-      { id: 437,
-        event_values: {
-          author: "Local User",
-          date_added: "2021-05-11T12:54:04.349717Z",
-          description: "Dynamisch formulier 1",
-          variables: {
-            field_1: {
-              label: "Dit is het label",
-              value: "Eerste veld"
-            },
-            field_2: {
-              label: "Dit is het label voor een boolean",
-              value: "true"
-            },
-            field_3: {
-              label: "Label Enum",
-              value: "waarde_2"
-            }
-          }
-        },
-        date_created: "2021-05-11T14:54:04+0200",
-        type: "GENERIC_TASK",
-        emitter_id: 137,
-        case: 90
-      }
-    ]
-  },
   {
     type: "DEBRIEFING",
     caseEvents: [
