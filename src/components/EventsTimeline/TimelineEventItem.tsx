@@ -61,7 +61,7 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
                     return (
                       <div key={ `${ label }_${ index }` }>
                         <dt>{ label }</dt>
-                        <dd>{ typeof value === "string" && value_verbose }</dd>
+                        <dd>{ typeof value === "string" && value_verbose }</dd> {/** if value is not a string, it's a boolean. We don't want to show the value of a boolean ("true" or "false") to the user */}
                       </div>
                     )
                   })}
