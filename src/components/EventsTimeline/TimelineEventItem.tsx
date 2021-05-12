@@ -22,6 +22,7 @@ type Props = {
 type ItemType = {
   label: string
   value: string | boolean
+  value_verbose: string
 }
 
 const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", pathName, isOpen = false, useTransparentBackground = false, itemCount = 0 }) => {
@@ -55,23 +56,21 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
               <EventWrapper fields={ fields } caseEvent={ caseEvent } />
               { items.length > 0 &&
                 <Dl>
-                  { items.map(({ label, value }, index) => {
+                  { items.map(({ label, value, value_verbose }, index) => { //value_verbose is the humanreadable variant of value
                     if(value === false) return null //hide unchecked checkboxes
-
                     return (
                       <div key={ `${ label }_${ index }` }>
                         <dt>{ label }</dt>
-                        <dd>{ typeof value === "string" && value }</dd>
+                        <dd>{ typeof value === "string" && value_verbose }</dd>
                       </div>
                     )
                   })}
                 </Dl>
-                }
-              </>
-            }
-          
-          </div>
-      ) ) }
+              }
+            </>
+          }
+        </div>
+      ))}
     </Timeline>
   )
 }
