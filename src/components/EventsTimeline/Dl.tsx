@@ -5,6 +5,10 @@ import { themeColor, themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 export default styled.dl`
   max-width: 800px;
   margin: 0;
+
+  + dl {
+    margin-top: -${ themeSpacing(4) }
+  }
   
   >div:not(:last-of-type) {
     margin-bottom: ${ themeSpacing(4) };
