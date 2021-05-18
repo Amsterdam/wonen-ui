@@ -4,6 +4,7 @@ import styled from "styled-components"
 type Props = {
   date: string
   full?: boolean
+  className?: string
 }
 
 const months = [
@@ -41,6 +42,6 @@ const Span = styled.span`
   white-space: nowrap;
 `
 
-const DateDisplay: React.FC<Props> = ({ date, full = false }) => <Span>{ displayDate(date, full) }</Span>
+const DateDisplay: React.FC<Props> = ({ date, full = false, className }) => <Span className={ className }>{ displayDate(date, full) }</Span>
 
 export default DateDisplay
