@@ -85,6 +85,7 @@ const CircleStyle = styled(Icon)<Props>`
 
 const TimelineItem = styled.div`
   flex: 1;
+  max-width: calc(100% - 40px);
 `
 
 const NestedContainer = styled.div<Props>`
@@ -117,6 +118,8 @@ const TimelineButtonContent = styled.span`
   text-align: left;
   position: relative;
   font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 
 const TimelineButton = styled(Button)<Props>`
