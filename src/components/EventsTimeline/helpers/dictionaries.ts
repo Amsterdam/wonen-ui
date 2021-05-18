@@ -5,7 +5,8 @@ export const caseTypesMap = {
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
   "VISIT": "Huisbezoek",
-  "DECISION": "Besluit"
+  "DECISION": "Besluit",
+  "CITIZEN_REPORT": "Melding"
 }
 
 // REASON
@@ -59,6 +60,16 @@ export const decisionLabelsMap = {
   "sanction_amount": "Bedrag"
 }
 
+// SUMMON
+export const citizenReportLabelsMap = {
+  "date_added": "Datum",
+  "author": "Projectmedewerker",
+  "identification": "SIA-nummer",
+  "reporter_name": "Naam melder",
+  "reporter_phone": "Telefoonnummer melder",
+  "description": "Toelichting",
+  "advertisement_linklist": "Advertenties"
+}
 // GENERIC EVENT
 export const genericLabelsMap = {
   "date_added": "Datum",
