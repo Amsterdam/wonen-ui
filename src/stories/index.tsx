@@ -14,6 +14,30 @@ export type TimelineEventItem = {
 
 const eventsTimelineData: TimelineEventItem[] = [
   {
+    type: "CITIZEN_REPORT",
+    caseEvents: [
+      {
+        id: 3956,
+        event_values: {
+          date_added: "2021-05-18T09:52:03.154320Z",
+          identification: 123456,
+          reporter_name: "Donald Duck",
+          reporter_phone: "1234567890",
+          advertisement_linklist: [
+            "http://www.nu.nl",
+            "http://www.amsterdam.nl"
+          ],
+          description: "Korte toelichting..",
+          author: "Remco Hoff"
+        },
+        date_created: "2021-05-18T11:52:03+0200",
+        type: "CITIZEN_REPORT",
+        emitter_id: 1,
+        case: 3766
+      }
+    ]
+  },
+  {
     type: "GENERIC_TASK",
     caseEvents: [
       { id: 437,
