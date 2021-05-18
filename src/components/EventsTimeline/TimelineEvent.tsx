@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { themeSpacing } from "@amsterdam/asc-ui"
 
 import TimelineEventItem from "./TimelineEventItem"
-import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap } from "./helpers/dictionaries"
+import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap, citizenReportLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
 import scheduleFields from "./events/scheduleFields"
@@ -12,9 +12,10 @@ import summonFields from "./events/summonFields"
 import debriefingFields from "./events/debriefingFields"
 import visitFields from "./events/visitFields"
 import decisionFields from "./events/decisionFields"
+import citizenReportFields from "./events/citizenReportFields"
 import { caseTypesMap } from "./helpers/dictionaries"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION"
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
 export type CaseEvent = {
   readonly id: number
   event_values: {
@@ -120,6 +121,15 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
+        type === "CITIZEN_REPORT" ?
+          <TimelineEventItem
+            fields={ fields(citizenReportFields, citizenReportLabelsMap) }
+            caseEvents={ caseEvents }
+            title={ caseTypesMap[type] }
+            dateField="date_added"
+            isOpen={ isOpen }
+            useTransparentBackground={ useTransparentBackground }
+          /> :
       type === "GENERIC_TASK" ?
         <TimelineEventItem
           fields={ fields(genericTaskFields, genericLabelsMap) }

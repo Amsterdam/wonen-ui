@@ -14,7 +14,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"]) => {
   if (Array.isArray(value)) return (
     <UnstyledList>
       { value.map(mapValue).map((item, index) =>
-        <li key={ `${ JSON.stringify(item) }_${ index }` }>{ item }</li>
+        <li key={ `${ JSON.stringify(item) }_${ index }` }><SpanWithLinebreaks s={ item } /></li>
       ) }
     </UnstyledList>
   )
