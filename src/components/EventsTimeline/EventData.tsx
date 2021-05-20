@@ -6,17 +6,20 @@ import UnstyledList from "./UnstyledList"
 
 type Props = {
   fields: Field[]
-  values: Record<string, unknown>
+  values: Record<string, unknown >
   isNested?: boolean
 }
 
 const displayValue = (value: unknown, mapValue: Field["mapValue"]) => {
   if (Array.isArray(value)) return (
+    value.length > 0 ?
     <UnstyledList>
       { value.map(mapValue).map((item, index) =>
         <li key={ `${ JSON.stringify(item) }_${ index }` }><SpanWithLinebreaks s={ item } /></li>
       ) }
-    </UnstyledList>
+    </UnstyledList> :
+    "-"
+
   )
   const mappedValue = mapValue(value)
 
