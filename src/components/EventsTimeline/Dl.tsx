@@ -7,7 +7,7 @@ export default styled.dl`
   margin: 0;
 
   + dl {
-    margin-top: -${ themeSpacing(4) }
+    margin-top: ${ themeSpacing(4) }
   }
   
   >div:not(:last-of-type) {
@@ -32,6 +32,10 @@ export default styled.dl`
       clear: both;
       content: "";
       display: table;
+    }
+
+    + dl {
+      margin-top: -${ themeSpacing(4) }
     }
 
     dd, dt {
