@@ -14,6 +14,26 @@ export type TimelineEventItem = {
 
 const eventsTimelineData: TimelineEventItem[] = [
   {
+    type: "SCHEDULE",
+    caseEvents: [
+      {
+        id: 4040,
+        event_values: {
+          date_added: "2021-05-20T12:31:45.232760Z",
+          action: "Huisbezoek",
+          week_segment: "Doordeweeks",
+          day_segment: "Overdag",
+          priority: "Normaal",
+          author: "Remco Hoff"
+        },
+        date_created: "2021-05-20T14:31:45+0200",
+        type: "SCHEDULE",
+        emitter_id: 219,
+        case: 3785 
+      }
+    ]
+  },
+  {
     type: "CITIZEN_REPORT",
     caseEvents: [
       {

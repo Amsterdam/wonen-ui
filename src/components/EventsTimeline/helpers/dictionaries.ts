@@ -1,7 +1,7 @@
 // Events
 export const caseTypesMap = {
   "CASE": "Aanleiding",
-  "SCHEDULE": "Inplanning",
+  "SCHEDULE": "Huisbezoek inplannen",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
   "VISIT": "Huisbezoek",
