@@ -14,6 +14,10 @@ export const reasonLabelsMap = {
   "start_date": "Datum",
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
+  "identification": "SIA-nummer",
+  "reporter_name": "Naam melder",
+  "reporter_phone": "Telefoonnummer melder",
+  "advertisement_linklist": "Advertenties",
   "description": "Toelichting"
 }
 
@@ -60,7 +64,7 @@ export const decisionLabelsMap = {
   "sanction_amount": "Bedrag"
 }
 
-// SUMMON
+// CITIZENREPORT
 export const citizenReportLabelsMap = {
   "date_added": "Datum",
   "author": "Projectmedewerker",

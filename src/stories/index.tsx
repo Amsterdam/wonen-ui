@@ -202,7 +202,14 @@ const eventsTimelineData: TimelineEventItem[] = [
           end_date: null,
           reason: "Melding",
           description: "19:31",
-          author: "A. Beecee"
+          author: "A. Beecee",
+          identification: 123456,
+          reporter_name: "Donald Duck",
+          reporter_phone: "1234567890",
+          advertisement_linklist: [
+            "http://www.nu.nl",
+            "http://www.amsterdam.nl"
+          ]
         },
         date_created: "2021-03-17T19:31:11+0100",
         type: "CASE",
