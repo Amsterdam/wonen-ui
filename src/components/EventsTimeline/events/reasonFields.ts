@@ -7,6 +7,10 @@ export default [
   },
   "author",
   "reason",
+  "identification",
+  "reporter_name",
+  "reporter_phone",
+  "advertisement_linklist",
   {
     key: "description",
     italic: true
