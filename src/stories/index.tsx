@@ -24,7 +24,8 @@ const eventsTimelineData: TimelineEventItem[] = [
           week_segment: "Doordeweeks",
           day_segment: "Overdag",
           priority: "Normaal",
-          author: "Remco Hoff"
+          author: "Remco Hoff",
+          description: "Toelichting"
         },
         date_created: "2021-05-20T14:31:45+0200",
         type: "SCHEDULE",

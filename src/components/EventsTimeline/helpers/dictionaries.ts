@@ -27,7 +27,8 @@ export const scheduleLabelsMap = {
   "week_segment": "Weekdeel",
   "day_segment": "Dagdeel",
   "priority": "Urgentie",
-  "author": "Projectmedewerker"
+  "author": "Projectmedewerker",
+  "description": "Toelichting"
 }
 
 // DEBRIEF
