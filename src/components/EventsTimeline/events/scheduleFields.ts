@@ -8,5 +8,6 @@ export default [
   "author",
   "week_segment",
   "day_segment",
-  "priority"
+  "priority",
+  "description"
 ]
