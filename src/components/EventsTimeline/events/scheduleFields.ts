@@ -9,5 +9,8 @@ export default [
   "week_segment",
   "day_segment",
   "priority",
-  "description"
+  {
+    key: "description",
+    italic: true
+  }
 ]

@@ -48,7 +48,7 @@ const eventsTimelineData: TimelineEventItem[] = [
             "http://www.nu.nl",
             "http://www.amsterdam.nl"
           ],
-          description: "Korte toelichting..",
+          description_citizenreport: "Korte toelichting..",
           author: "Remco Hoff"
         },
         date_created: "2021-05-18T11:52:03+0200",
