@@ -14,9 +14,6 @@ export const reasonLabelsMap = {
   "start_date": "Datum",
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
-  "identification": "SIA-nummer",
-  "reporter_name": "Naam melder",
-  "reporter_phone": "Telefoonnummer melder",
   "advertisement_linklist": "Advertenties",
   "description": "Toelichting"
 }
@@ -72,7 +69,7 @@ export const citizenReportLabelsMap = {
   "identification": "SIA-nummer",
   "reporter_name": "Naam melder",
   "reporter_phone": "Telefoonnummer melder",
-  "description": "Toelichting",
+  "description_citizenreport": "Samenvatting melding",
   "advertisement_linklist": "Advertenties"
 }
 // GENERIC EVENT

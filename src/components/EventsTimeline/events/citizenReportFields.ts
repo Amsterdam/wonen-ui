@@ -12,7 +12,7 @@ export default [
   "reporter_phone",
   "advertisement_linklist",
   {
-    key: "description",
+    key: "description_citizenreport",
     italic: true
   }
 ]
