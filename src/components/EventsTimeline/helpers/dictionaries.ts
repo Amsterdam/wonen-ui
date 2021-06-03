@@ -40,7 +40,9 @@ export const debriefViolationMap = {
   "YES": "Ja, overtreding",
   "NO": "Nee, geen overtreding",
   "ADDITIONAL_RESEARCH_REQUIRED": "Nader intern onderzoek nodig",
-  "ADDITIONAL_VISIT_REQUIRED": "Aanvullend huisbezoek nodig"
+  "ADDITIONAL_VISIT_REQUIRED": "Aanvullend huisbezoek nodig",
+  "SEND_TO_OTHER_THEME": "Naar ander thema",
+  "AUTHORIZATION_REQUEST": "Aanvraag machtiging"
 }
 
 // SUMMON
