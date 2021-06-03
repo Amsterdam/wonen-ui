@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.0.35] 2021-06-03
+
+### Added
+
+-   Added new fields to Debrief.
 ## [0.0.34] 2021-06-01
 
 ### Added
