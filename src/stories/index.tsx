@@ -131,7 +131,8 @@ const eventsTimelineData: TimelineEventItem[] = [
           persons: ["Donald Duck"],
           description: "Toelichting",
           type: "Boete",
-          sanction_amount: 456
+          sanction_amount: 456,
+          sanction_id: "AZA30-4"
         },
         date_created: "2021-04-08T10:56:54+0200",
         type: "DECISION",

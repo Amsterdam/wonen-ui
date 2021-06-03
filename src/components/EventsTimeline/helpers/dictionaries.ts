@@ -61,7 +61,8 @@ export const decisionLabelsMap = {
   "persons": "Aangeschrevene(n)",
   "description": "Toelichting",
   "type": "Besluit",
-  "sanction_amount": "Bedrag"
+  "sanction_amount": "Bedrag",
+  "sanction_id": "Invorderingskenmerk"
 }
 
 // CITIZENREPORT
