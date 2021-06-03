@@ -33,7 +33,8 @@ export const debriefLabelsMap = {
   "date_added": "Datum",
   "author": "Projecthandhaver",
   "violation": "Overtreding",
-  "feedback": "Terugkoppeling"
+  "feedback": "Terugkoppeling",
+  "theme": "Thema"
 }
 
 export const debriefViolationMap = {

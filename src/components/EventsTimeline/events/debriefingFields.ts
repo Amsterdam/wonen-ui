@@ -11,6 +11,7 @@ export default [
     key: "violation",
     mapValue: (v: keyof typeof debriefViolationMap) => debriefViolationMap[v]
   },
+  "theme",
   {
     key: "feedback",
     italic: true
