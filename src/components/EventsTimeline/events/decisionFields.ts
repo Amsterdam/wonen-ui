@@ -9,6 +9,7 @@ export default [
   "author",
   "type",
   "sanction_amount",
+  "sanction_id",
   "persons",
   {
     key: "description",
