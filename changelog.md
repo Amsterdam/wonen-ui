@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 -   Added sanction_id to Decision in Timeline.
+-   Added theme to Debrief in Timeline.
 ## [0.0.35] 2021-06-03
 
 ### Added

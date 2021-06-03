@@ -148,8 +148,9 @@ const eventsTimelineData: TimelineEventItem[] = [
         event_values: {
           author: "A. Beecee",
           date_added: "2021-03-26T19:19:26.345631Z",
-          violation: "YES",
-          feedback: "Advertentie gevonden op https://www.nu.nl, en http://www.nos.nl."
+          violation: "SEND_TO_OTHER_THEME",
+          feedback: "Advertentie gevonden op https://www.nu.nl, en http://www.nos.nl.",
+          theme: "Kamerverhuur"
         },
         date_created: "2021-03-26T20:19:26+0100",
         emitter_id: 317,
