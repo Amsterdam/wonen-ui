@@ -1,10 +1,10 @@
 // Events
 export const caseTypesMap = {
   "CASE": "Aanleiding",
-  "SCHEDULE": "Huisbezoek inplannen",
+  "SCHEDULE": "Bezoek inplannen",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
-  "VISIT": "Huisbezoek",
+  "VISIT": "Bezoek",
   "DECISION": "Besluit",
   "CITIZEN_REPORT": "Melding"
 }
@@ -41,9 +41,10 @@ export const debriefViolationMap = {
   "YES": "Ja, overtreding",
   "NO": "Nee, geen overtreding",
   "ADDITIONAL_RESEARCH_REQUIRED": "Nader intern onderzoek nodig",
-  "ADDITIONAL_VISIT_REQUIRED": "Aanvullend huisbezoek nodig",
+  "ADDITIONAL_VISIT_REQUIRED": "Aanvullend bezoek nodig",
   "SEND_TO_OTHER_THEME": "Naar ander thema",
-  "AUTHORIZATION_REQUEST": "Aanvraag machtiging"
+  "AUTHORIZATION_REQUEST": "Aanvraag machtiging",
+  "ADDITIONAL_VISIT_WITH_AUTHORIZATION": "Nieuw bezoek inclusief machtigingsaanvraag"
 }
 
 // SUMMON

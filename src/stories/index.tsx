@@ -20,7 +20,7 @@ const eventsTimelineData: TimelineEventItem[] = [
         id: 4040,
         event_values: {
           date_added: "2021-05-20T12:31:45.232760Z",
-          action: "Huisbezoek",
+          action: "Bezoek",
           week_segment: "Doordeweeks",
           day_segment: "Overdag",
           priority: "Normaal",
@@ -161,7 +161,7 @@ const eventsTimelineData: TimelineEventItem[] = [
         event_values: {
           author: "A. Beecee",
           date_added: "2021-03-27T19:19:26.345631Z",
-          violation: "YES",
+          violation: "ADDITIONAL_VISIT_WITH_AUTHORIZATION",
           feedback: "Hier de opmerkingen..."
         },
         date_created: "2021-03-26T20:19:26+0100",
