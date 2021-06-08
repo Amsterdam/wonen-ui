@@ -32,14 +32,14 @@ export const scheduleLabelsMap = {
 export const debriefLabelsMap = {
   "date_added": "Datum",
   "author": "Projecthandhaver",
-  "violation": "Overtreding",
+  "violation": "Uitkomst",
   "feedback": "Terugkoppeling",
   "theme": "Thema"
 }
 
 export const debriefViolationMap = {
-  "YES": "Ja, overtreding",
-  "NO": "Nee, geen overtreding",
+  "YES": "Overtreding",
+  "NO": "Geen overtreding",
   "ADDITIONAL_RESEARCH_REQUIRED": "Nader intern onderzoek nodig",
   "ADDITIONAL_VISIT_REQUIRED": "Aanvullend bezoek nodig",
   "SEND_TO_OTHER_THEME": "Naar ander thema",
