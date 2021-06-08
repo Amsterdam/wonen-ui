@@ -43,7 +43,6 @@ export const debriefViolationMap = {
   "ADDITIONAL_RESEARCH_REQUIRED": "Nader intern onderzoek nodig",
   "ADDITIONAL_VISIT_REQUIRED": "Aanvullend bezoek nodig",
   "SEND_TO_OTHER_THEME": "Naar ander thema",
-  "AUTHORIZATION_REQUEST": "Aanvraag machtiging",
   "ADDITIONAL_VISIT_WITH_AUTHORIZATION": "Nieuw bezoek inclusief machtigingsaanvraag"
 }
 
