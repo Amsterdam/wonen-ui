@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { themeSpacing } from "@amsterdam/asc-ui"
+import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
 import TimelineEventItem from "./TimelineEventItem"
 import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap, citizenReportLabelsMap } from "./helpers/dictionaries"
@@ -46,9 +46,13 @@ type StylingProps = {
 
 const Div = styled.div<StylingProps>`
   position: relative;
-  margin: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) };
-  padding: 0 ${ ( { spacingHorizontal = 0 } ) => themeSpacing( spacingHorizontal ) };
+  margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) };
+  padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( spacingHorizontal ) };
 
+  @media screen and ${ breakpoint("min-width", "tabletS") } {
+    margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -(3 - spacingHorizontal) ) } ${ themeSpacing(5) };
+    padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( 3 - spacingHorizontal ) };
+  }
   //hide the vertical line in the last item
   &:last-child {
     > div:last-child {
@@ -65,7 +69,7 @@ const Div = styled.div<StylingProps>`
   }
 `
 
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 0, useTransparentBackground = false, itemCount }) => (
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 3, useTransparentBackground = false, itemCount }) => (
   <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
     { type === "CASE" ?
         <TimelineEventItem
