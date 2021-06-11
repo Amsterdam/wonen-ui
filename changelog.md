@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.0.42] 2021-06-11
+### Added
+
+-   Crossbrowser fix: set minimumFractionDigits to 0
 ## [0.0.41] 2021-06-11
 ### Added
 
