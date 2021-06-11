@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.0.41] 2021-06-11
+### Added
+
+-   Added FinancialDisplay for displaying amounts with a eurosign and dots
 ## [0.0.40] 2021-06-09
 
 -   Added responsive styling for background in timeline
