@@ -6,7 +6,8 @@ type Props = {
 const formatter = new Intl.NumberFormat("nl-NL", {
   style: "currency",
   currency: "EUR",
-  maximumFractionDigits: 0
+  maximumFractionDigits: 0,
+  minimumFractionDigits: 0
 })
 
 const FinancialDisplay: React.FC<Props> = ( { amount } ) => <> { formatter.format( amount ) }</>
