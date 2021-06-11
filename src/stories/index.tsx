@@ -13,6 +13,27 @@ export type TimelineEventItem = {
 }
 
 const eventsTimelineData: TimelineEventItem[] = [
+  { 
+    type: "DECISION", 
+    caseEvents:[
+      { 
+        id: 222,
+        event_values: {
+          author: "A. Beecee",
+          date_added: "2021-04-08T08:56:54.371354Z",
+          persons: ["Donald Duck"],
+          description: "Toelichting",
+          type: "Boete",
+          sanction_amount: 45678,
+          sanction_id: "AZA30-4"
+        },
+        date_created: "2021-04-08T10:56:54+0200",
+        type: "DECISION",
+        emitter_id: 3394,
+        case: 3394
+      }
+    ]
+  },
   {
     type: "SCHEDULE",
     caseEvents: [
@@ -117,27 +138,6 @@ const eventsTimelineData: TimelineEventItem[] = [
         emitter_id: 317,
         case: 3394,
         type: "DEBRIEFING"
-      }
-    ]
-  },
-  { 
-    type: "DECISION", 
-    caseEvents:[
-      { 
-        id: 222,
-        event_values: {
-          author: "A. Beecee",
-          date_added: "2021-04-08T08:56:54.371354Z",
-          persons: ["Donald Duck"],
-          description: "Toelichting",
-          type: "Boete",
-          sanction_amount: 456,
-          sanction_id: "AZA30-4"
-        },
-        date_created: "2021-04-08T10:56:54+0200",
-        type: "DECISION",
-        emitter_id: 3394,
-        case: 3394
       }
     ]
   },

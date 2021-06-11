@@ -8,7 +8,10 @@ export default [
   },
   "author",
   "type",
-  "sanction_amount",
+  {
+    key: "sanction_amount",
+    isCurrency: true
+  },
   "sanction_id",
   "persons",
   {
