@@ -3,9 +3,10 @@ import styled from "styled-components"
 import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
 import TimelineEventItem from "./TimelineEventItem"
-import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap, citizenReportLabelsMap } from "./helpers/dictionaries"
+import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap, citizenReportLabelsMap, caseCloseLabelsMap } from "./helpers/dictionaries"
 import fields from "./helpers/fields"
 import reasonFields from "./events/reasonFields"
+import caseCloseFields from "./events/caseCloseFields"
 import scheduleFields from "./events/scheduleFields"
 import genericTaskFields from "./events/genericTaskFields"
 import summonFields from "./events/summonFields"
@@ -15,7 +16,7 @@ import decisionFields from "./events/decisionFields"
 import citizenReportFields from "./events/citizenReportFields"
 import { caseTypesMap } from "./helpers/dictionaries"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
+export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "CASE_CLOSE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
 export type CaseEvent = {
   readonly id: number
   event_values: {
@@ -74,6 +75,14 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
     { type === "CASE" ?
         <TimelineEventItem
           fields={ fields(reasonFields, reasonLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
+        /> :
+      type === "CASE_CLOSE" ?
+        <TimelineEventItem
+          fields={ fields(caseCloseFields, caseCloseLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }

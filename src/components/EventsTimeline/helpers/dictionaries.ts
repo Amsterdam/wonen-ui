@@ -1,7 +1,8 @@
 // Events
 export const caseTypesMap = {
   "CASE": "Aanleiding",
-  "SCHEDULE": "Bezoek inplannen",
+  "CASE_CLOSE": "Zaak afgerond",
+  "SCHEDULE": "Bezoek ingepland",
   "DEBRIEFING": "Debrief",
   "SUMMON": "Aanschrijving",
   "VISIT": "Bezoek",
@@ -12,6 +13,15 @@ export const caseTypesMap = {
 // REASON
 export const reasonLabelsMap = {
   "start_date": "Datum",
+  "author": "Projectmedewerker",
+  "reason": "Reden",
+  "result": "Resultaat",
+  "description": "Toelichting"
+}
+
+// CASE_CLOSE
+export const caseCloseLabelsMap = {
+  "date_added": "Datum",
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
   "advertisement_linklist": "Advertenties",
