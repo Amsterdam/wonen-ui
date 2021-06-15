@@ -14,6 +14,25 @@ export type TimelineEventItem = {
 
 const eventsTimelineData: TimelineEventItem[] = [
   { 
+    type: "CASE_CLOSE", 
+    caseEvents:[
+      { 
+        id: 2221,
+        event_values: {
+          author: "A. Beecee",
+          date_added: "2021-04-08T08:56:54.371354Z",
+          description: "Toelichting",
+          reason: "Reden..",
+          result: "Resultaat.."
+        },
+        date_created: "2021-04-08T10:56:54+0200",
+        type: "CASE_CLOSE",
+        emitter_id: 3394,
+        case: 3394
+      }
+    ]
+  },
+  { 
     type: "DECISION", 
     caseEvents:[
       { 
