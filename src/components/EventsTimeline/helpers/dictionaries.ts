@@ -14,8 +14,8 @@ export const caseTypesMap = {
 export const reasonLabelsMap = {
   "start_date": "Datum",
   "author": "Projectmedewerker",
-  "reason": "Reden",
-  "result": "Resultaat",
+  "reason": "Aanleiding",
+  "advertisement_linklist": "Advertenties",
   "description": "Toelichting"
 }
 
@@ -23,8 +23,8 @@ export const reasonLabelsMap = {
 export const caseCloseLabelsMap = {
   "date_added": "Datum",
   "author": "Projectmedewerker",
-  "reason": "Aanleiding",
-  "advertisement_linklist": "Advertenties",
+  "reason": "Reden",
+  "result": "Resultaat",
   "description": "Toelichting"
 }
 
