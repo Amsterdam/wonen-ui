@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.29.3",
-    "@amsterdam/asc-ui": "^0.29.3",
+    "@amsterdam/asc-ui": "^0.30.0",
     "@storybook/react": "^6.1.21",
     "@types/enzyme": "3.10.8",
     "@types/enzyme-adapter-react-16": "1.0.6",
