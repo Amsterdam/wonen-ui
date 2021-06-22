@@ -8,6 +8,7 @@ export default [
   },
   "author",
   "type",
+  "number_of_accommodations",
   "persons",
   {
     key: "description",
