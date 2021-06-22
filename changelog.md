@@ -5,11 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.0.43] 2021-06-15
+## [0.0.46] 2021-06-22
+### Added
+
+-   New summontype "Sluitingsproces"
+
+## [0.0.45] 2021-06-15
 ### Added
 
 -   Type CASE_CLOSE added to Timeline
-## [0.0.42] 2021-06-11
+## [0.0.44] 2021-06-11
 ### Added
 
 -   Crossbrowser fix: set minimumFractionDigits to 0

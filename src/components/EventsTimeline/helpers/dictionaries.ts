@@ -62,7 +62,8 @@ export const summonLabelsMap = {
   "author": "Projecthandhaver",
   "persons": "Aangeschrevene(n)",
   "description": "Toelichting",
-  "type": "Aanschrijving"
+  "type": "Aanschrijving",
+  "number_of_accommodations": "Aantal gesloten logiesverblijven"
 }
 
 // DECISION

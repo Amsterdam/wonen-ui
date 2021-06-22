@@ -13,6 +13,27 @@ export type TimelineEventItem = {
 }
 
 const eventsTimelineData: TimelineEventItem[] = [
+  {
+    type: "SUMMON", 
+    caseEvents:[
+      { 
+        case: 3898,
+        date_created: "2021-06-22T12:05:11+0200",
+        event_values: {
+          author: "Remco Hoff",
+          date_added: "2021-06-22T10:05:11.364215Z",
+          description: "Korte toelichting..",
+          number_of_accommodations: 6,
+          persons: ["Donald Duck"],
+          type: "Sluiting"
+        
+        },
+        emitter_id: 213,
+        id: 4884,
+        type: "SUMMON"
+      }
+    ]
+  },
   { 
     type: "CASE_CLOSE", 
     caseEvents:[
