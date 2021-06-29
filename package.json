@@ -10,8 +10,7 @@
     "lint": "eslint --max-warnings 0 --cache --ext .ts,.tsx src",
     "storybook:build": "build-storybook -o docs",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build": "rm -Rf ./dist && tsc ./src/index.ts --strict --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json",
-    "publish": "cp package.json dist/ && cd dist && npm publish"
+    "build": "rm -Rf ./dist && tsc ./src/index.ts --strict --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json"
   },
   "repository": {
     "type": "git",
