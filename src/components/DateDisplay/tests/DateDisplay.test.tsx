@@ -1,5 +1,33 @@
 import { shallow } from "enzyme"
-import DateDisplay from "../DateDisplay"
+import DateDisplay, { isDate, isValidDate } from "../DateDisplay"
+
+describe("isDate", () => {
+
+  it("Date", () => {
+    expect(isDate(new Date("2021-03-31"))).toBeTruthy()
+  })
+
+  it("string", () => {
+    expect(isDate("2021-03-31")).toBeTruthy()
+  })
+
+  it("non string", () => {
+    expect(isDate(undefined)).toBeFalsy()
+    expect(isDate(null)).toBeFalsy()
+    expect(isDate(5)).toBeFalsy()
+  })
+})
+
+describe("isValidDate", () => {
+
+  it("Date", () => {
+    expect(isValidDate(new Date("2021-03-31"))).toBeTruthy()
+  })
+
+  it("Date", () => {
+    expect(isValidDate(new Date("ongeldig"))).toBeFalsy()
+  })
+})
 
 describe("DateDisplay", () => {
 

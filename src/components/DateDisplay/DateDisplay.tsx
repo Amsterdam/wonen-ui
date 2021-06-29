@@ -27,7 +27,13 @@ const months = [
   "december"
 ]
 
+export const isDate = (d: unknown) => {
+  if (d instanceof Date) return isValidDate(d)
+  if (typeof d === "string") return isValidDate(new Date(d))
+  return false
+}
 export const isValidDate = (d: Date) => !Number.isNaN(d.getFullYear())
+
 const twoCharNum = (num: number) => `${ num < 10 ? "0" : "" }${ num }`
 export const displayDate = (date: string | Date, full = false, invalidDateText = invalidDateTextDefault) => {
   const d = typeof date === "string" ? new Date(date) : date
