@@ -47,6 +47,6 @@ const Span = styled.span`
 `
 
 const DateDisplay: React.FC<Props> = ({ date, full = false, emptyText = emptyTextDefault, invalidDateText = invalidDateTextDefault, className }) =>
-  <Span className={ className }>{ date !== undefined ? displayDate(date, full) : emptyText }</Span>
+  <Span className={ className }>{ date !== undefined ? displayDate(date, full, invalidDateText) : emptyText }</Span>
 
 export default DateDisplay
