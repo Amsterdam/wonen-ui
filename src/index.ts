@@ -1,6 +1,6 @@
 import Timeline from "./components/Timeline/Timeline"
 import TimelineEvents from "./components/EventsTimeline/TimelineEvents"
-import DateDisplay, { displayDate, displayTime, isValidDate } from "./components/DateDisplay/DateDisplay"
+import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DayDisplay from "./components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 
@@ -10,6 +10,7 @@ export {
   displayDate,
   displayTime,
   isValidDate,
+  isDate,
   DayDisplay,
   Timeline,
   TimelineEvents,
