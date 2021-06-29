@@ -7,8 +7,9 @@ The package contains the following components:
 - CaseIdDisplay
 - DateDisplay
 - DayDisplay
+- FinancialDisplay
+- EventsTimeline
 - Timeline
-- TimelineEvents
 
 ## Options
 ### TimelineEvents
@@ -22,7 +23,7 @@ For instance, when you want a spacing of 16 pixels on both sides you can do:
 #### countItemType
 In order to add a counter to a specific event-type, you can add the property ```countItemType```.
 It shows the couner from #2 and up.
-This is only mvp which means you can add it for one event-type only. 
+This is only mvp which means you can add it for one event-type only.
 For instance, to count the number of Visits:
 
 ```<TimelineEvents items={ eventsTimelineData } countItemType="VISIT" />```
@@ -52,14 +53,21 @@ npm run publish
 ```
 The package-versionnumber will automatically update.
 
-To use the latest package in your project, go to the root folder of your project and do 
+To use the latest package in your project, go to the root folder of your project and do
 ```
 npm install @amsterdam/wonen-ui@latest
 ```
 ## Storybook
+See [Storybook](https://amsterdam.github.io/wonen-ui/)
+
 You can check the behavior of the components locally in Storybook (styling is not working properly in Storybook)
 ```
 npm run storybook
+```
+
+Build Storybook in `/docs` folder
+```
+npm run storybook:build
 ```
 
 ## Testing
