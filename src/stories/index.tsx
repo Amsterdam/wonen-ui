@@ -1,5 +1,5 @@
 import React from "react"
-import { GlobalStyle, ThemeProvider } from '@amsterdam/asc-ui'
+import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
 import {  storiesOf  } from "@storybook/react"
 import Timeline from "../components/Timeline/Timeline"
 import TimelineEvents from "../components/EventsTimeline/TimelineEvents"
