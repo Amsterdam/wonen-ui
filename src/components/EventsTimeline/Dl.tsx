@@ -10,11 +10,16 @@ export default styled.dl`
     margin-top: ${ themeSpacing(4) }
   }
   
+  >div {
+    display: flex;
+    border-bottom: 1px solid rgba(180, 180, 180, .4);
+  }
+
   >div:not(:last-of-type) {
     margin-bottom: ${ themeSpacing(4) };
   }
   dd, dt {
-    padding: ${ themeSpacing(1) } 0;
+    padding: ${ themeSpacing(3) } 0;
   }
   dt {
     word-wrap: break-word;
