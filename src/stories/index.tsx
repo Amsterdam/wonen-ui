@@ -1,4 +1,5 @@
 import React from "react"
+import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
 import {  storiesOf  } from "@storybook/react"
 import Timeline from "../components/Timeline/Timeline"
 import TimelineEvents from "../components/EventsTimeline/TimelineEvents"
@@ -264,42 +265,72 @@ const eventsTimelineData: TimelineEventItem[] = [
 ]
 
 storiesOf("TimelineEvents", module).add("Tijdlijn", () => (
-  <TimelineEvents items={ eventsTimelineData } spacingHorizontal={6} countItemType="VISIT" />
+  <ThemeProvider>
+    <GlobalStyle />
+    <TimelineEvents items={ eventsTimelineData } spacingHorizontal={6} countItemType="VISIT" />
+  </ThemeProvider>
 ))
 
 storiesOf("Timeline", module).add("Tijdlijn", () => (
-  <Timeline title="Titel van het event">
-    <p>Inhoud van het event</p>
-  </Timeline>
+  <ThemeProvider>
+    <GlobalStyle />
+    <Timeline title="Titel van het event">
+      <p>Inhoud van het event</p>
+    </Timeline>
+  </ThemeProvider>
 ))
 
 storiesOf("DateDisplay", module).add("Datum in cijfers", () => (
-  <DateDisplay date="2021-03-31T10:51:48+0200" />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DateDisplay date="2021-03-31T10:51:48+0200" />
+  </ThemeProvider>
 ))
 
 storiesOf("DateDisplay", module).add("Datum voluit", () => (
-  <DateDisplay date="2021-03-31T10:51:48+0200" full={true} />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DateDisplay date="2021-03-31T10:51:48+0200" full={true} />
+  </ThemeProvider>
 ))
 
 storiesOf("DateDisplay", module).add("Datum leeg", () => (
-  <DateDisplay date={ undefined } emptyText="Geen datum" />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DateDisplay date={ undefined } emptyText="Geen datum" />
+  </ThemeProvider>
 ))
 
 storiesOf("DateDisplay", module).add("Datum ongeldig", () => (
-  <DateDisplay date={ "ongeldig" } />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DateDisplay date={ "ongeldig" } />
+  </ThemeProvider>
 ))
 
 storiesOf("DayDisplay", module).add("Dag, kleine letter", () => (
-  <DayDisplay date="2021-03-31T10:51:48+0200" />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DayDisplay date="2021-03-31T10:51:48+0200" />
+  </ThemeProvider>
 ))
 
 storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
-  <DayDisplay date="2021-03-31T10:51:48+0200" capitalize={true} />
+  <ThemeProvider>
+    <GlobalStyle />
+    <DayDisplay date="2021-03-31T10:51:48+0200" capitalize={true} />
+  </ThemeProvider>
 ))
 
 storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
-  <CaseIdDisplay id="1234" />
+  <ThemeProvider>
+    <GlobalStyle />
+    <CaseIdDisplay id="1234" />
+  </ThemeProvider>
 ))
 storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
-  <CaseIdDisplay />
+  <ThemeProvider>
+    <GlobalStyle />
+    <CaseIdDisplay />
+  </ThemeProvider>
 ))
