@@ -1,5 +1,5 @@
 # wonen-ui
-In order to be able to share functionalities between the different applications of Wonen (ZKS & TOP), we want to make npm packages out of this.
+This npm package allows sharing functionalities / components between different applications (AZA & TOP) of Gemeente Amsterdam Wonen.
 
 ## Components
 The package contains the following components:
