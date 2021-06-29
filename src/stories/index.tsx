@@ -14,9 +14,9 @@ export type TimelineEventItem = {
 
 const eventsTimelineData: TimelineEventItem[] = [
   {
-    type: "SUMMON", 
+    type: "SUMMON",
     caseEvents:[
-      { 
+      {
         case: 3898,
         date_created: "2021-06-22T12:05:11+0200",
         event_values: {
@@ -26,7 +26,7 @@ const eventsTimelineData: TimelineEventItem[] = [
           number_of_accommodations: 6,
           persons: ["Donald Duck"],
           type: "Sluiting"
-        
+
         },
         emitter_id: 213,
         id: 4884,
@@ -34,10 +34,10 @@ const eventsTimelineData: TimelineEventItem[] = [
       }
     ]
   },
-  { 
-    type: "CASE_CLOSE", 
+  {
+    type: "CASE_CLOSE",
     caseEvents:[
-      { 
+      {
         id: 2221,
         event_values: {
           author: "A. Beecee",
@@ -53,10 +53,10 @@ const eventsTimelineData: TimelineEventItem[] = [
       }
     ]
   },
-  { 
-    type: "DECISION", 
+  {
+    type: "DECISION",
     caseEvents:[
-      { 
+      {
         id: 222,
         event_values: {
           author: "A. Beecee",
@@ -91,7 +91,7 @@ const eventsTimelineData: TimelineEventItem[] = [
         date_created: "2021-05-20T14:31:45+0200",
         type: "SCHEDULE",
         emitter_id: 219,
-        case: 3785 
+        case: 3785
       }
     ]
   },
@@ -279,6 +279,14 @@ storiesOf("DateDisplay", module).add("Datum in cijfers", () => (
 
 storiesOf("DateDisplay", module).add("Datum voluit", () => (
   <DateDisplay date="2021-03-31T10:51:48+0200" full={true} />
+))
+
+storiesOf("DateDisplay", module).add("Datum leeg", () => (
+  <DateDisplay date={ undefined } emptyText="Geen datum" />
+))
+
+storiesOf("DateDisplay", module).add("Datum ongeldig", () => (
+  <DateDisplay date={ "ongeldig" } />
 ))
 
 storiesOf("DayDisplay", module).add("Dag, kleine letter", () => (
