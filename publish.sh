@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-# increment version and build
+# make sure dependencies are up-to-date
+npm install .
+
+# increment version
 npm version patch || exit
-npm run build
 git push origin main --follow-tags
+
+# build
+npm run build
 
 # publish to npm
 cd ./dist || exit
