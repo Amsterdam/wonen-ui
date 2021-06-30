@@ -244,7 +244,8 @@ const eventsTimelineData: TimelineEventItem[] = [
         event_values: {
           start_date: "2021-03-17",
           end_date: null,
-          reason: "Melding",
+          reason: "Project",
+          project: "Levant",
           description: "19:31",
           author: "A. Beecee",
           identification: 123456,
