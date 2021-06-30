@@ -15,6 +15,7 @@ export const reasonLabelsMap = {
   "start_date": "Datum",
   "author": "Projectmedewerker",
   "reason": "Aanleiding",
+  "project": "Project",
   "advertisement_linklist": "Advertenties",
   "description": "Toelichting"
 }
