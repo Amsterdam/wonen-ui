@@ -158,10 +158,10 @@ const eventsTimelineData: TimelineEventItem[] = [
     caseEvents: [
       { id: 2535,
         event_values: {
-          author: "A. Beecee",
+          author: ["A. Beecee", "D.Eef"],
           date_added: "2021-03-26T19:19:26.345631Z",
           violation: "YES",
-          feedback: "Hier de opmerkingen.."
+          feedback: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris imperdiet urna erat. Cras porttitor lorem nibh, vel scelerisque odio tincidunt non. Aliquam id velit venenatis, iaculis turpis ac, tristique ex. In consectetur ante non justo sodales, non vestibulum urna fringilla. Aenean sit amet dictum neque. Suspendisse egestas rhoncus orci, nec sagittis risus rutrum finibus. Duis ut dui vel ipsum consectetur lacinia id eget mi."
         },
         date_created: "2021-03-26T20:19:26+0100",
         emitter_id: 317,

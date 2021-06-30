@@ -15,11 +15,8 @@ export default styled.dl`
     border-bottom: 1px solid rgba(180, 180, 180, .4);
   }
 
-  >div:not(:last-of-type) {
-    margin-bottom: ${ themeSpacing(4) };
-  }
   dd, dt {
-    padding: ${ themeSpacing(3) } 0;
+    padding: ${ themeSpacing(2) } 0;
   }
   dt {
     word-wrap: break-word;
