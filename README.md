@@ -38,13 +38,13 @@ npm install @amsterdam/wonen-ui
 ## Pulish the package to npm
 
 Merge any changes into main and pull main to your local machine.
-In the root folder do:
+In the root folder run:
 ```
 ./publish.sh
 ```
 The package-versionnumber will automatically update.
 
-To use the latest package in your project, go to the root folder of your project and do
+To use the latest package in your project, go to the root folder of your project and run:
 ```
 npm install @amsterdam/wonen-ui@latest
 ```
