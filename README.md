@@ -40,16 +40,7 @@ npm install @amsterdam/wonen-ui
 Merge any changes into main and pull main to your local machine.
 In the root folder do:
 ```
-npm install
-```
-```
-npm run build
-```
-```
-npm version patch
-```
-```
-npm run publish
+./publish.sh
 ```
 The package-versionnumber will automatically update.
 
