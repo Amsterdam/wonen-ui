@@ -1,5 +1,5 @@
 import React from "react"
-import type { Field } from "./helpers/fields"
+import type { Field } from "../helpers/fields"
 import EventData from "./EventData"
 import { CaseEvent } from "./TimelineEvent"
 
