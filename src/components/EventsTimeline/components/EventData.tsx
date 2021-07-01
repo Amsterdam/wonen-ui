@@ -1,9 +1,9 @@
-import SpanWithLinebreaks from "../Helpers/SpanWithLinebreaks"
+import SpanWithLinebreaks from "../../Helpers/SpanWithLinebreaks"
 import React from "react"
 import Dl from "./Dl"
-import type { Field } from "./helpers/fields"
-import UnstyledList from "./UnstyledList"
-import FinancialDisplay from "../FinancialDisplay/FinancialDisplay"
+import type { Field } from "../helpers/fields"
+import UnstyledList from "../UnstyledList"
+import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
 
 type Props = {
   fields: Field[]
@@ -35,10 +35,10 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
   return <>{ mappedValue }</>
 }
 
-type ValueProps = { 
+type ValueProps = {
   value: React.ReactNode
   displayItalic?: boolean
-  isCurrency?: boolean 
+  isCurrency?: boolean
 }
 
 const Value: React.FC<ValueProps> = ({ value , displayItalic = false }) => displayItalic ? <i>{( value )}</i> : <>{( value )}</>

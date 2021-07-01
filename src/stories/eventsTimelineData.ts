@@ -1,4 +1,4 @@
-import { CaseEvent } from "../components/EventsTimeline/TimelineEvent"
+import { CaseEvent } from "../components/EventsTimeline/components/TimelineEvent"
 
 type TimelineEventItem = {
   type: string

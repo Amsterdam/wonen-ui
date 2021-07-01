@@ -1,4 +1,4 @@
-import TimelineEvent, { TimelineEventItemType } from "./TimelineEvent"
+import TimelineEvent, { TimelineEventItemType } from "./components/TimelineEvent"
 
 export type Props = {
   items: TimelineEventItemType[]
