@@ -1,3 +1,4 @@
+import React from "react"
 import TimelineEvent, { TimelineEventItemType } from "./components/TimelineEvent"
 
 export type Props = {
