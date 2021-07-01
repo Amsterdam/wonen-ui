@@ -14,7 +14,7 @@ const TimelineEvents: React.FC<Props> = ({ items, spacingHorizontal = 0, useTran
   return (
 
     <div>
-    { items.reverse().map((item, index) => {
+    { JSON.parse(JSON.stringify(items)).reverse().map((item: TimelineEventItemType, index: number) => {
 
       if(item.type === countItemType ){
         numTotal += item.caseEvents.length

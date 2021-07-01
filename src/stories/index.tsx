@@ -244,15 +244,17 @@ const eventsTimelineData: TimelineEventItem[] = [
         event_values: {
           start_date: "2021-03-17",
           end_date: null,
-          reason: "Melding",
+          reason: "Project",
+          project: "Levant",
           description: "19:31",
           author: "A. Beecee",
           identification: 123456,
           reporter_name: "Donald Duck",
           reporter_phone: "1234567890",
           advertisement_linklist: [
-            "http://www.nu.nl",
-            "http://www.amsterdam.nl"
+            "www.nu.nl",
+            "http://www.amsterdam.nl",
+            "https://www.amsterdam.nl"
           ]
         },
         date_created: "2021-03-17T19:31:11+0100",

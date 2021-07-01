@@ -14,11 +14,11 @@ The package contains the following components:
 ## Options
 ### TimelineEvents
 #### spacingHorizontal
-Depending on the style and size of parent-container one can add horizontal spacing to the TimelineEvents with the use of parameter ```spacingHorizontal```.
-This uses the ```themeSpacing``` of @amsterdam/amsterdam-styled-components.
+Depending on the style and size of parent-container one can add horizontal spacing to the TimelineEvents with the use of parameter `spacingHorizontal`.
+This uses the `themeSpacing` of @amsterdam/asc-ui.
 For instance, when you want a spacing of 16 pixels on both sides you can do:
 
-```<TimelineEvents items={ timelineEvents } spacingHorizontal={4} />```
+```<TimelineEvents items={ timelineEvents } spacingHorizontal={ 4 } />```
 
 #### countItemType
 In order to add a counter to a specific event-type, you can add the property ```countItemType```.
@@ -32,28 +32,19 @@ For instance, to count the number of Visits:
 
 Install dependencies:
 ```
-npm install @amsterdam/wonen-ui
+npm install .
 ```
 
 ## Pulish the package to npm
 
 Merge any changes into main and pull main to your local machine.
-In the root folder do:
+In the root folder run:
 ```
-npm install
-```
-```
-npm run build
-```
-```
-npm version patch
-```
-```
-npm run publish
+./publish.sh
 ```
 The package-versionnumber will automatically update.
 
-To use the latest package in your project, go to the root folder of your project and do
+To use the latest package in your project, go to the root folder of your project and run:
 ```
 npm install @amsterdam/wonen-ui@latest
 ```
