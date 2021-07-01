@@ -36,5 +36,4 @@ const TimelineEvents: React.FC<Props> = ({ items, spacingHorizontal = 0, useTran
 
 }
 
-
 export default TimelineEvents
