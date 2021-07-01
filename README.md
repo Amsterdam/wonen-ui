@@ -18,15 +18,7 @@ Depending on the style and size of parent-container one can add horizontal spaci
 This uses the `themeSpacing` of @amsterdam/asc-ui.
 For instance, when you want a spacing of 16 pixels on both sides you can do:
 
-```<TimelineEvents items={ timelineEvents } spacingHorizontal={ 4 } />```
-
-#### countItemType
-In order to add a counter to a specific event-type, you can add the property ```countItemType```.
-It shows the couner from #2 and up.
-This is only mvp which means you can add it for one event-type only.
-For instance, to count the number of Visits:
-
-```<TimelineEvents items={ eventsTimelineData } countItemType="VISIT" />```
+```<EventsTimeline items={ timelineEvents } spacingHorizontal={ 4 } />```
 
 ## Install
 
