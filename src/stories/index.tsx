@@ -6,9 +6,10 @@ import DateDisplay from "../components/DateDisplay/DateDisplay"
 import DayDisplay from "../components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "../components/CaseIdDisplay/CaseIdDisplay"
 import eventsTimelineData from "./eventsTimelineData"
+import DefinitionList from "../components/DefinitionList/DefinitionList"
+import definitionListData from "./definitionListData"
 
 // Timeline
-
 storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
   <ThemeProvider>
     <GlobalStyle />
@@ -86,5 +87,15 @@ storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
   <ThemeProvider>
     <GlobalStyle />
     <CaseIdDisplay />
+  </ThemeProvider>
+))
+
+storiesOf("DefinitionList", module).add("Met titel", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <DefinitionList
+      title="Objectdetails"
+      values={ definitionListData }
+    />
   </ThemeProvider>
 ))
