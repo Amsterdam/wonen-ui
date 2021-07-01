@@ -104,7 +104,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           dateField="start_time"
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
-          itemCount={ itemCount }
+          showCount={ true }
         /> :
       type === "DEBRIEFING" ?
         <TimelineEventItem
@@ -125,7 +125,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-        type === "DECISION" ?
+      type === "DECISION" ?
         <TimelineEventItem
           fields={ fields(decisionFields, decisionLabelsMap) }
           caseEvents={ caseEvents }
@@ -134,15 +134,15 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-        type === "CITIZEN_REPORT" ?
-          <TimelineEventItem
-            fields={ fields(citizenReportFields, citizenReportLabelsMap) }
-            caseEvents={ caseEvents }
-            title={ caseTypesMap[type] }
-            dateField="date_added"
-            isOpen={ isOpen }
-            useTransparentBackground={ useTransparentBackground }
-          /> :
+      type === "CITIZEN_REPORT" ?
+        <TimelineEventItem
+          fields={ fields(citizenReportFields, citizenReportLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          dateField="date_added"
+          isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
+        /> :
       type === "GENERIC_TASK" ?
         <TimelineEventItem
           fields={ fields(genericTaskFields, genericLabelsMap) }

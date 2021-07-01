@@ -16,7 +16,7 @@ type Props = {
   pathName?: string
   isOpen?: boolean
   useTransparentBackground?: boolean
-  itemCount?: number
+  showCount?: boolean
 }
 
 type ItemType = {
@@ -25,13 +25,13 @@ type ItemType = {
   value_verbose: string
 }
 
-const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, useTransparentBackground = false, itemCount = 0 }) => {
+const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, useTransparentBackground = false, showCount = false }) => {
 
   // This situation would be considered a problem within the data returned from the API
   if (caseEvents.length === 0) return null
 
   const hasPluralEvents = caseEvents.length > 1
-  const titleWithCounter = `${ title } ${ itemCount > 1 ? `(${ itemCount })` : "" }`
+  const titleWithCounter = `${ title } ${ showCount ? `(${ caseEvents.length })` : "" }`
   const items = Object.values(caseEvents[0]?.event_values.variables ?? {} ) as ItemType[]
 
   return (
