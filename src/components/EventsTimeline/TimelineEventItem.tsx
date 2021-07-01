@@ -6,7 +6,7 @@ import type { Field } from "./helpers/fields"
 import EventWrapper from "./EventWrapper"
 import { displayDate } from "../DateDisplay/DateDisplay"
 import { CaseEvent } from "./TimelineEvent"
-import Dl from "../DefinitionList/DefinitionList"
+import Dl from "./Dl"
 
 type Props = {
   fields: Field[]
