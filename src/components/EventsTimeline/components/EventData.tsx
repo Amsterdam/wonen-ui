@@ -2,7 +2,7 @@ import SpanWithLinebreaks from "../../Helpers/SpanWithLinebreaks"
 import React from "react"
 import Dl from "./Dl"
 import type { Field } from "../helpers/fields"
-import UnstyledList from "../UnstyledList"
+import UnstyledList from "./UnstyledList"
 import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
 
 type Props = {
