@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import React,{ ReactNode } from "react"
 import { Heading } from "@amsterdam/asc-ui"
 
 type Props = {

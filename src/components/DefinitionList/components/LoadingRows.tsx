@@ -1,3 +1,4 @@
+import React from "react"
 import SmallSkeleton from "../../Skeleton/SmallSkeleton"
 import Definition from "./Definition"
 

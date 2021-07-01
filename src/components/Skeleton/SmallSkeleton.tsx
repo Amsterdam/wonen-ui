@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import React, { useMemo } from "react"
 import styled, { keyframes } from "styled-components"
 import { themeColor, themeSpacing } from "@amsterdam/asc-ui"
 
