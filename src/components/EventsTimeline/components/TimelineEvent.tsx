@@ -3,18 +3,28 @@ import styled from "styled-components"
 import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
 import TimelineEventItem from "./TimelineEventItem"
-import { scheduleLabelsMap, debriefLabelsMap, genericLabelsMap, reasonLabelsMap, summonLabelsMap, visitLabelsMap, decisionLabelsMap, citizenReportLabelsMap, caseCloseLabelsMap } from "./helpers/dictionaries"
-import fields from "./helpers/fields"
-import reasonFields from "./events/reasonFields"
-import caseCloseFields from "./events/caseCloseFields"
-import scheduleFields from "./events/scheduleFields"
-import genericTaskFields from "./events/genericTaskFields"
-import summonFields from "./events/summonFields"
-import debriefingFields from "./events/debriefingFields"
-import visitFields from "./events/visitFields"
-import decisionFields from "./events/decisionFields"
-import citizenReportFields from "./events/citizenReportFields"
-import { caseTypesMap } from "./helpers/dictionaries"
+import {
+  scheduleLabelsMap,
+  debriefLabelsMap,
+  genericLabelsMap,
+  reasonLabelsMap,
+  summonLabelsMap,
+  visitLabelsMap,
+  decisionLabelsMap,
+  citizenReportLabelsMap,
+  caseCloseLabelsMap
+} from "../helpers/dictionaries"
+import fields from "../helpers/fields"
+import reasonFields from "../events/reasonFields"
+import caseCloseFields from "../events/caseCloseFields"
+import scheduleFields from "../events/scheduleFields"
+import genericTaskFields from "../events/genericTaskFields"
+import summonFields from "../events/summonFields"
+import debriefingFields from "../events/debriefingFields"
+import visitFields from "../events/visitFields"
+import decisionFields from "../events/decisionFields"
+import citizenReportFields from "../events/citizenReportFields"
+import { caseTypesMap } from "../helpers/dictionaries"
 
 export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "CASE_CLOSE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
 export type CaseEvent = {
@@ -104,7 +114,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           dateField="start_time"
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
-          itemCount={ itemCount }
+          showCount={ true }
         /> :
       type === "DEBRIEFING" ?
         <TimelineEventItem
@@ -125,7 +135,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-        type === "DECISION" ?
+      type === "DECISION" ?
         <TimelineEventItem
           fields={ fields(decisionFields, decisionLabelsMap) }
           caseEvents={ caseEvents }
@@ -134,15 +144,15 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           useTransparentBackground={ useTransparentBackground }
         /> :
-        type === "CITIZEN_REPORT" ?
-          <TimelineEventItem
-            fields={ fields(citizenReportFields, citizenReportLabelsMap) }
-            caseEvents={ caseEvents }
-            title={ caseTypesMap[type] }
-            dateField="date_added"
-            isOpen={ isOpen }
-            useTransparentBackground={ useTransparentBackground }
-          /> :
+      type === "CITIZEN_REPORT" ?
+        <TimelineEventItem
+          fields={ fields(citizenReportFields, citizenReportLabelsMap) }
+          caseEvents={ caseEvents }
+          title={ caseTypesMap[type] }
+          dateField="date_added"
+          isOpen={ isOpen }
+          useTransparentBackground={ useTransparentBackground }
+        /> :
       type === "GENERIC_TASK" ?
         <TimelineEventItem
           fields={ fields(genericTaskFields, genericLabelsMap) }
