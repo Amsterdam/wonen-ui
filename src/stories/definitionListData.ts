@@ -1,4 +1,4 @@
-const definitionListData: Record<string, React.ReactNode> | undefined = {
+const definitionListData = {
 	"Bestemming": "ligplaats",
 	"Oppervlakte": "60m²",
 	"Bouwlagen": 2,
