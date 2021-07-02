@@ -2,7 +2,7 @@ import React from "react"
 import { getDay }from "../../DayDisplay/DayDisplay"
 import { displayDate } from "../../DateDisplay/DateDisplay"
 
-import Timeline from "../../Timeline/Timeline"
+import Timeline from "./Timeline/Timeline"
 import type { Field } from "../helpers/fields"
 import EventWrapper from "./EventWrapper"
 import { CaseEvent } from "./TimelineEvent"

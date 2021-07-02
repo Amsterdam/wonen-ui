@@ -7,7 +7,7 @@ export type Props = {
   useTransparentBackground?: boolean
 }
 
-const TimelineEvents: React.FC<Props> = ({ items, spacingHorizontal = 0, useTransparentBackground = false } ) => (
+const EventsTimeline: React.FC<Props> = ({ items, spacingHorizontal = 0, useTransparentBackground = false } ) => (
   <div>
   { items.map((item: TimelineEventItemType, index: number) => (
       <TimelineEvent
@@ -22,4 +22,4 @@ const TimelineEvents: React.FC<Props> = ({ items, spacingHorizontal = 0, useTran
   </div>
 )
 
-export default TimelineEvents
+export default EventsTimeline
