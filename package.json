@@ -31,7 +31,7 @@
     "@material-ui/icons": "^4.11.2"
   },
   "devDependencies": {
-    "@amsterdam/asc-assets": "^0.30.0",
+    "@amsterdam/asc-assets": "^0.31.0",
     "@amsterdam/asc-ui": "^0.31.0",
     "@storybook/react": "^6.1.21",
     "@types/enzyme": "^3.10.8",
