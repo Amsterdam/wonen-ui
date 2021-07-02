@@ -9,7 +9,6 @@ The package contains the following components:
 - DayDisplay
 - FinancialDisplay
 - EventsTimeline
-- Timeline
 
 ## Options
 ### TimelineEvents

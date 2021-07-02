@@ -27,7 +27,7 @@ const CircleWrapperStyle = styled.div<Props>`
   margin-right: ${ themeSpacing(2) };
   justify-content: center;
   z-index: 1;
-  padding: ${ themeSpacing(2) } 0; 
+  padding: ${ themeSpacing(2) } 0;
   background-color: transparent;
   @media ${ breakpoint("min-width", "laptop") } {
     width: 60px;
@@ -64,7 +64,7 @@ const CircleStyle = styled(Icon)<Props>`
   transition: background-color 0.2s ease-in-out;
   z-index: 1;
   color: ${ themeColor("tint", "level1") };
-  
+
   @media ${ breakpoint("min-width", "laptop") } {
     width: ${ circleSize.desktop.large };
     height: ${ circleSize.desktop.large };
@@ -80,7 +80,7 @@ const CircleStyle = styled(Icon)<Props>`
         height: ${ circleSize.desktop.small };
       }
     ` }
-  
+
 `
 
 const TimelineItem = styled.div`
@@ -103,7 +103,7 @@ const NestedContainer = styled.div<Props>`
       }
     }
   }
-  
+
 `
 
 const TimelineContent = styled.div<Props>`
@@ -139,7 +139,7 @@ const TimelineButton = styled(Button)<Props>`
     }
   }
 // TODO This doesn't seem to do anything
-  ${ IconStyle } { 
+  ${ IconStyle } {
     align-self: flex-start;
     transform: rotate(${ ({ isOpen }) => (isOpen ? "180deg" : "0deg") });
     transition: transform 0.3s ease;

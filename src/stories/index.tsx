@@ -1,7 +1,6 @@
 import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
 import {  storiesOf  } from "@storybook/react"
-import Timeline from "../components/Timeline/Timeline"
-import TimelineEvents from "../components/EventsTimeline/EventsTimeline"
+import EventsTimeline from "../components/EventsTimeline/EventsTimeline"
 import DateDisplay from "../components/DateDisplay/DateDisplay"
 import DayDisplay from "../components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "../components/CaseIdDisplay/CaseIdDisplay"
@@ -13,19 +12,9 @@ import definitionListData from "./definitionListData"
 storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <TimelineEvents items={ eventsTimelineData } spacingHorizontal={ 6 } />
+    <EventsTimeline items={ eventsTimelineData } spacingHorizontal={ 6 } />
   </ThemeProvider>
 ))
-
-storiesOf("Timeline", module).add("Tijdlijn", () => (
-  <ThemeProvider>
-    <GlobalStyle />
-    <Timeline title="Titel van het event">
-      <p>Inhoud van het event</p>
-    </Timeline>
-  </ThemeProvider>
-))
-
 
 // DateDisplay
 

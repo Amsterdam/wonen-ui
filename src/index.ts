@@ -1,4 +1,4 @@
-import Timeline from "./components/Timeline/Timeline"
+import Timeline from "./components/EventsTimeline/components/Timeline/Timeline"
 import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DayDisplay from "./components/DayDisplay/DayDisplay"
@@ -7,7 +7,7 @@ import SmallSkeleton from "./components/Skeleton/SmallSkeleton"
 import InfoHeading from "./components/InfoHeading/InfoHeading"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
 
-export * from "./components/Timeline/TimelineStyle"
+export * from "./components/EventsTimeline/components/Timeline/TimelineStyle"
 export {
   DateDisplay,
   displayDate,
