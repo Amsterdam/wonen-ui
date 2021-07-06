@@ -48,7 +48,7 @@ const Div = styled.div<StylingProps>`
     margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -(3 - spacingHorizontal) ) } ${ themeSpacing(5) };
     padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( 3 - spacingHorizontal ) };
   }
-  //hide the vertical line in the last item
+  // hide the vertical line in the last item
   &:last-child {
     > div:last-child {
       > div:first-child {
