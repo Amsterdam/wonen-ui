@@ -4,6 +4,7 @@ import Dl from "./Dl"
 import type { Field } from "../helpers/fields"
 import UnstyledList from "./UnstyledList"
 import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
+import Value from "./Value"
 
 type Props = {
   fields: Field[]
@@ -35,13 +36,6 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
   return <>{ mappedValue }</>
 }
 
-type ValueProps = {
-  value: React.ReactNode
-  displayItalic?: boolean
-  isCurrency?: boolean
-}
-
-const Value: React.FC<ValueProps> = ({ value, displayItalic = false }) => displayItalic ? <i>{ value }</i> : <>{ value }</>
 const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => (
   <Dl>
     { fields.map(({ key, label, shouldShow, mapValue, italic, isCurrency }, index) => {
