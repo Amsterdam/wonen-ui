@@ -14,7 +14,6 @@ type Props = {
   caseEvents: CaseEvent[]
   title?: string
   dateField?: string
-  pathName?: string
   isOpen?: boolean
   hasTransparentBackground?: boolean
   showCount?: boolean
@@ -25,7 +24,15 @@ type ItemType = {
   value: string | boolean
 }
 
-const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, hasTransparentBackground = false, showCount = false }) => {
+const TimelineEventItem: React.FC<Props> = ({
+  fields,
+  caseEvents,
+  title = "",
+  dateField = "date_created",
+  isOpen = false,
+  hasTransparentBackground = false,
+  showCount = false
+}) => {
 
   if (caseEvents.length === 0) return null
 

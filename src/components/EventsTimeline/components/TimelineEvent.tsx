@@ -108,7 +108,6 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           isOpen={ isOpen }
           hasTransparentBackground={ hasTransparentBackground }
           dateField="date_added"
-          pathName="debriefing"
         /> :
       type === "SUMMON" ?
         <TimelineEventItem
