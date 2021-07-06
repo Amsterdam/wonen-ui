@@ -6,10 +6,10 @@ import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents"
 export type Props = {
   events: CaseEvent[]
   spacingHorizontal?: number
-  useTransparentBackground?: boolean
+  hasTransparentBackground?: boolean
 }
 
-const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, useTransparentBackground = false } ) => {
+const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground = false } ) => {
   const items = useGroupedCaseEvents(events)
   return (
     <div>
@@ -19,7 +19,7 @@ const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, useTra
           timelineEventItem={ item }
           isOpen={ index === items.length - 1 }
           spacingHorizontal={ spacingHorizontal }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         />
       ))
     }

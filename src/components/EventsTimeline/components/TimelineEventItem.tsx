@@ -16,7 +16,7 @@ type Props = {
   dateField?: string
   pathName?: string
   isOpen?: boolean
-  useTransparentBackground?: boolean
+  hasTransparentBackground?: boolean
   showCount?: boolean
 }
 
@@ -25,7 +25,7 @@ type ItemType = {
   value: string | boolean
 }
 
-const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, useTransparentBackground = false, showCount = false }) => {
+const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, hasTransparentBackground = false, showCount = false }) => {
 
   // This situation would be considered a problem within the data returned from the API
   if (caseEvents.length === 0) return null
@@ -36,7 +36,7 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
   const items = Object.values(caseEvents[0]?.event_values.variables ?? {} ) as ItemType[]
 
   return (
-    <Timeline title={ titleWithCounter } isOpen={ isOpen } useTransparentBackground={ useTransparentBackground }>
+    <Timeline title={ titleWithCounter } isOpen={ isOpen } hasTransparentBackground={ hasTransparentBackground }>
       { caseEvents.map(caseEvent => (
           <div key={ caseEvent.id }>
           { hasPluralEvents ?
@@ -47,7 +47,7 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
                   `${ title }`
               }
               isOpen={ isOpen }
-              useTransparentBackground={ useTransparentBackground }
+              hasTransparentBackground={ hasTransparentBackground }
               largeCircle={ false }
               isNested={ true }
               >
