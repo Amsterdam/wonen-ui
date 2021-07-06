@@ -12,7 +12,7 @@ import definitionListData from "./definitionListData"
 storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <EventsTimeline events={ eventsTimelineData } spacingHorizontal={ 6 } />
+    <EventsTimeline events={ eventsTimelineData } spacingHorizontal={ 6 } hasTransparentBackground={ false } />
   </ThemeProvider>
 ))
 

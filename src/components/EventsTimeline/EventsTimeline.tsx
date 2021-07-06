@@ -9,7 +9,7 @@ export type Props = {
   hasTransparentBackground?: boolean
 }
 
-const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground = false } ) => {
+const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground } ) => {
   const items = useGroupedCaseEvents(events)
   return (
     <div>
