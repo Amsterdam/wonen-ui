@@ -66,6 +66,12 @@ export const summonLabelsMap = {
   "type": "Aanschrijving",
   "number_of_accommodations": "Aantal gesloten logiesverblijven"
 }
+export const personRoleMap = {
+  "PERSON_ROLE_OWNER": "Eigenaar",
+  "PERSON_ROLE_RESIDENT": "Bewoner",
+  "PERSON_ROLE_MIDDLEMAN": "Verhuurder"
+}
+
 
 // DECISION
 export const decisionLabelsMap = {

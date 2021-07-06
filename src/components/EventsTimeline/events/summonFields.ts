@@ -1,4 +1,5 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
+import DisplayPersonWithRole, { Person } from "../helpers/DisplayPersonWithRole"
 
 export default [
   {
@@ -9,7 +10,17 @@ export default [
   "author",
   "type",
   "number_of_accommodations",
-  "persons",
+  {
+    key: "persons",
+    mapValue: (v: string | Person ) => {
+      if (typeof v === "string") {
+        return v
+      }
+      else {
+        return DisplayPersonWithRole(v)
+      }
+    }
+  },
   {
     key: "description",
     italic: true
