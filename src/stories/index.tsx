@@ -12,12 +12,11 @@ import definitionListData from "./definitionListData"
 storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <EventsTimeline items={ eventsTimelineData } spacingHorizontal={ 6 } />
+    <EventsTimeline events={ eventsTimelineData } spacingHorizontal={ 6 } />
   </ThemeProvider>
 ))
 
 // DateDisplay
-
 storiesOf("DateDisplay", module).add("Datum in cijfers", () => (
   <ThemeProvider>
     <GlobalStyle />
@@ -65,7 +64,6 @@ storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
 
 
 // CaseIdDisplay
-
 storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
   <ThemeProvider>
     <GlobalStyle />

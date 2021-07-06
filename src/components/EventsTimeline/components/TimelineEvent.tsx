@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
+import type { GroupedTimelineEventItem } from "../hooks/useGroupedCaseEvents"
 import TimelineEventItem from "./TimelineEventItem"
 import {
   scheduleLabelsMap,
@@ -26,25 +27,8 @@ import decisionFields from "../events/decisionFields"
 import citizenReportFields from "../events/citizenReportFields"
 import { caseTypesMap } from "../helpers/dictionaries"
 
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "CASE_CLOSE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
-export type CaseEvent = {
-  readonly id: number
-  event_values: {
-      [name: string]: any
-  }
-  readonly date_created: string // date-time
-  type: TypeEnum
-  emitter_id: number
-  case: number
-}
-export type TimelineEventItemType = {
-  type: string
-  caseEvents:
-    CaseEvent[]
-}
-
 type Props = {
-  timelineEventItem: TimelineEventItemType
+  timelineEventItem: GroupedTimelineEventItem
   isOpen?: boolean
   spacingHorizontal?: number
   useTransparentBackground?: boolean

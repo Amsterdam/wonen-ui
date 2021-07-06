@@ -1,7 +1,8 @@
 import React from "react"
 import type { Field } from "../helpers/fields"
+import type CaseEvent from "../CaseEvent"
+
 import EventData from "./EventData"
-import { CaseEvent } from "./TimelineEvent"
 
 type Props = {
   fields: Field[]

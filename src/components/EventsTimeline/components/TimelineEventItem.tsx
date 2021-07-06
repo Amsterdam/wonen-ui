@@ -1,12 +1,13 @@
 import React from "react"
-import { getDay }from "../../DayDisplay/DayDisplay"
-import { displayDate } from "../../DateDisplay/DateDisplay"
+
+import type CaseEvent from "../CaseEvent"
+import type { Field } from "../helpers/fields"
 
 import Timeline from "./Timeline/Timeline"
-import type { Field } from "../helpers/fields"
 import EventWrapper from "./EventWrapper"
-import { CaseEvent } from "./TimelineEvent"
 import Dl from "./Dl"
+import { getDay }from "../../DayDisplay/DayDisplay"
+import { displayDate } from "../../DateDisplay/DateDisplay"
 
 type Props = {
   fields: Field[]
