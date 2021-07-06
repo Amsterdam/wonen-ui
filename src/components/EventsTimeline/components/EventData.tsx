@@ -1,5 +1,5 @@
-import SpanWithLinebreaks from "../../Helpers/SpanWithLinebreaks"
 import React from "react"
+import SpanWithLinebreaks from "../../Helpers/SpanWithLinebreaks"
 import Dl from "./Dl"
 import type { Field } from "../helpers/fields"
 import UnstyledList from "./UnstyledList"
@@ -7,7 +7,7 @@ import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
 
 type Props = {
   fields: Field[]
-  values: Record<string, unknown >
+  values: Record<string, unknown>
   isNested?: boolean
 }
 
@@ -20,15 +20,15 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
       ) }
     </UnstyledList> :
     "-"
-
   )
+
   const mappedValue = mapValue(value)
 
-  if (typeof mappedValue === "string"){
-    return <SpanWithLinebreaks s={mappedValue} />
+  if (typeof mappedValue === "string") {
+    return <SpanWithLinebreaks s={ mappedValue } />
   }
 
-  if ( isCurrency && typeof value === "number") {
+  if (isCurrency && typeof value === "number") {
     return <FinancialDisplay amount={ value } />
   }
 
@@ -41,7 +41,7 @@ type ValueProps = {
   isCurrency?: boolean
 }
 
-const Value: React.FC<ValueProps> = ({ value , displayItalic = false }) => displayItalic ? <i>{( value )}</i> : <>{( value )}</>
+const Value: React.FC<ValueProps> = ({ value, displayItalic = false }) => displayItalic ? <i>{ value }</i> : <>{ value }</>
 const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => (
   <Dl>
     { fields.map(({ key, label, shouldShow, mapValue, italic, isCurrency }, index) => {
