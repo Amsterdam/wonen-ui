@@ -16,14 +16,8 @@ export default [
   "sanction_id",
   {
     key: "persons",
-    mapValue: (v: string | Person ) => {
-      if (typeof v === "string") {
-        return v
-      }
-      else {
-        return DisplayPersonWithRole(v)
-      }
-    }
+    mapValue: (v: string | Person ) => 
+       typeof v === "string" ? v : v !== undefined ? DisplayPersonWithRole(v) : "-"
   },
   {
     key: "description",

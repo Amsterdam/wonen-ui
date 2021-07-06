@@ -17,7 +17,7 @@ const eventsTimelineData: TimelineEventItem[] = [
           date_added: "2021-06-22T10:05:11.364215Z",
           description: "Korte toelichting..",
           number_of_accommodations: 6,
-          persons: [{ person_full_name: "Donald Duck", person_role: "PERSON_ROLE_OWNER" },{ person_full_name: "Katrien Duck", person_role: "PERSON_ROLE_RESIDENT" }],
+          persons: [{ person_full_name: "Donald Duck", person_role: null },{ person_full_name: "Katrien Duck", person_role: "PERSON_ROLE_RESIDENT" }],
           type: "Sluiting"
 	      },
 	      emitter_id: 213,
@@ -53,7 +53,7 @@ const eventsTimelineData: TimelineEventItem[] = [
 	      event_values: {
           author: "A. Beecee",
           date_added: "2021-04-08T08:56:54.371354Z",
-          persons: [{ person_full_name: "Donald Duck", person_role: "PERSON_ROLE_OWNER" },{ person_full_name: "Katrien Duck", person_role: "PERSON_ROLE_RESIDENT" }],
+          persons: ["Donald Duck", "Katrien Duck"],
           description: "Toelichting",
           type: "Boete",
           sanction_amount: 45678,
