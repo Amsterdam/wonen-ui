@@ -1,10 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
 import type { GroupedTimelineEventItem } from "../hooks/useGroupedCaseEvents"
 import TimelineEventItem from "./TimelineEventItem"
 import {
+  caseTypesMap,
   scheduleLabelsMap,
   debriefLabelsMap,
   genericLabelsMap,
@@ -25,47 +24,16 @@ import debriefingFields from "../events/debriefingFields"
 import visitFields from "../events/visitFields"
 import decisionFields from "../events/decisionFields"
 import citizenReportFields from "../events/citizenReportFields"
-import { caseTypesMap } from "../helpers/dictionaries"
 
 type Props = {
   timelineEventItem: GroupedTimelineEventItem
   isOpen?: boolean
-  spacingHorizontal?: number
   hasTransparentBackground?: boolean
   itemCount?: number
 }
 
-type StylingProps = {
-  spacingHorizontal: number
-}
-
-const Div = styled.div<StylingProps>`
-  position: relative;
-  margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) };
-  padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( spacingHorizontal ) };
-
-  @media screen and ${ breakpoint("min-width", "tabletS") } {
-    margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -(3 - spacingHorizontal) ) } ${ themeSpacing(5) };
-    padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( 3 - spacingHorizontal ) };
-  }
-  // hide the vertical line in the last item
-  &:last-child {
-    > div:last-child {
-      > div:first-child {
-        &:after {
-          display: none;
-        }
-      }
-    }
-  }
-
-  button {
-    outline: none;
-  }
-`
-
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 3, hasTransparentBackground }) => (
-  <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, hasTransparentBackground }) => (
+  <div role="button" tabIndex={ -1 }>
     { type === "CASE" ?
         <TimelineEventItem
           fields={ fields(reasonFields, reasonLabelsMap) }
@@ -147,7 +115,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
         /> :
       null
     }
-  </Div>
+  </div>
 )
 
 export default TimelineEvent

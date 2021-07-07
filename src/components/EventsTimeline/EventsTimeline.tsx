@@ -1,5 +1,6 @@
 import React from "react"
 import CaseEvent from "./CaseEvent"
+import Div from "./components/Timeline/EventsTimeline"
 import TimelineEvent from "./components/TimelineEvent"
 import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents"
 
@@ -12,18 +13,17 @@ export type Props = {
 const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground } ) => {
   const items = useGroupedCaseEvents(events)
   return (
-    <div>
+    <Div spacingHorizontal={ spacingHorizontal }>
     { items.map((item, index) => (
         <TimelineEvent
           key={ item.caseEvents[0].id }
           timelineEventItem={ item }
           isOpen={ index === items.length - 1 }
-          spacingHorizontal={ spacingHorizontal }
           hasTransparentBackground={ hasTransparentBackground }
         />
       ))
     }
-    </div>
+    </Div>
   )
 }
 
