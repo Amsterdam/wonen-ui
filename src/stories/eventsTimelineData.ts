@@ -122,18 +122,15 @@ const eventsTimelineData: TimelineEventItem[] = [
 		variables: {
 		  field_1: {
 		    label: "Dit is het label",
-		    value: "Eerste veld",
-		    value_verbose: "Eerste veld (verbose)"
+		    value: "Eerste veld"
 		  },
 		  field_2: {
 		    label: "Dit is het label voor een boolean",
-		    value: true,
-		    value_verbose: true
+		    value: false
 		  },
 		  field_3: {
 		    label: "Label Enum",
-		    value: "waarde_2",
-		    value_verbose: "Waarde 2"
+		    value: "waarde_2"
 		  }
 		}
 	      },
