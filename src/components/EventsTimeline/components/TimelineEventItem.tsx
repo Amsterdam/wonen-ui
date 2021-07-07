@@ -4,10 +4,10 @@ import type CaseEvent from "../CaseEvent"
 import type { Field } from "../helpers/fields"
 
 import Timeline from "./Timeline/Timeline"
-import EventWrapper from "./EventWrapper"
 import Dl from "./Dl"
 import { getDay } from "../../DayDisplay/DayDisplay"
 import { displayDate } from "../../DateDisplay/DateDisplay"
+import EventData from "./EventData"
 
 type Props = {
   fields: Field[]
@@ -56,10 +56,10 @@ const TimelineEventItem: React.FC<Props> = ({
               largeCircle={ false }
               isNested={ true }
               >
-              <EventWrapper fields={ fields } caseEvent={ caseEvent } isNested={ true } />
+              <EventData fields={ fields } values={ caseEvent.event_values } isNested={ true } />
             </Timeline> :
             <>
-              <EventWrapper fields={ fields } caseEvent={ caseEvent } />
+              <EventData fields={ fields } values={ caseEvent.event_values } />
               { items.length > 0 &&
                 <Dl>
                   { items.map(({ label, value }, index) =>
