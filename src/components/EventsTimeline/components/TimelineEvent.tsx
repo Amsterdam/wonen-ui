@@ -108,7 +108,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
         <TimelineEventItem
           fields={ fields(genericTaskFields, genericLabelsMap) }
           caseEvents={ caseEvents }
-          title={ caseEvents[0]?.event_values.description }
+          title={ typeof caseEvents[0]?.event_values.description === "string" ? caseEvents[0]?.event_values.description : "Generiek event" }
           dateField="date"
           isOpen={ isOpen }
           hasTransparentBackground={ hasTransparentBackground }
