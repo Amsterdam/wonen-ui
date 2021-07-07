@@ -1,7 +1,8 @@
 type CaseEvent = {
   id: number
   event_values: {
-    [name: string]: any
+    variables?: Record<string, unknown>
+    [name: string]: unknown
   }
   date_created: string // date-time
   type: string
