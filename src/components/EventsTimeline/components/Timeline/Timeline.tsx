@@ -1,8 +1,10 @@
-import { Check, ExpandMore } from "./Icons"
 import React, { useCallback, useEffect, useState } from "react"
+import styled from "styled-components"
 import { useUID } from "react-uid"
-import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
 import { Icon, themeSpacing } from "@amsterdam/asc-ui"
+import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
+import { ButtonVariant } from "@amsterdam/asc-ui/lib/components/Button/Button"
+import { Check, ExpandMore } from "./Icons"
 
 import {
   TimelineItem,
@@ -15,23 +17,12 @@ import {
   NestedContainer,
   Props as StyleProps
 } from "./TimelineStyle"
-import styled from "styled-components"
 
 type Props = {
   onToggle?: (open: boolean) => void
   canBeOpened?: boolean
   hasTransparentBackground?: boolean
 } & StyleProps
-
-type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "primaryInverted"
-  | "textButton"
-  | "blank"
-  | "application"
-
 
 type ButtonStyleProps = {
   /**
