@@ -1,10 +1,10 @@
 import React from "react"
 
 import type CaseEvent from "../CaseEvent"
-import type { Field } from "../helpers/fields"
+import { Field } from "../helpers/fields"
+import { variablesToFields, variablesToValues } from "../helpers/variablesMappings"
 
 import Timeline from "./Timeline/Timeline"
-import Dl from "./Dl"
 import { getDay } from "../../DayDisplay/DayDisplay"
 import { displayDate } from "../../DateDisplay/DateDisplay"
 import EventData from "./EventData"
@@ -17,11 +17,6 @@ type Props = {
   isOpen?: boolean
   hasTransparentBackground?: boolean
   showCount?: boolean
-}
-
-type ItemType = {
-  label: string
-  value: string | boolean
 }
 
 const TimelineEventItem: React.FC<Props> = ({
@@ -38,47 +33,40 @@ const TimelineEventItem: React.FC<Props> = ({
 
   const hasPluralEvents = caseEvents.length > 1
   const titleWithCounter = `${ title } ${ showCount ? `(${ caseEvents.length })` : "" }`
-  const items = Object.values(caseEvents[0]?.event_values.variables ?? {}) as ItemType[]
 
   return (
     <Timeline title={ titleWithCounter } isOpen={ isOpen } hasTransparentBackground={ hasTransparentBackground }>
-      { caseEvents.map(caseEvent => (
-          <div key={ caseEvent.id }>
-          { hasPluralEvents ?
-            <Timeline
-              title={
-                caseEvent.event_values[dateField] ?
-                  `${ getDay(caseEvent.event_values[dateField], true) } ${ displayDate(caseEvent.event_values[dateField]) }` :
-                  `${ title }`
-              }
-              isOpen={ isOpen }
-              hasTransparentBackground={ hasTransparentBackground }
-              largeCircle={ false }
-              isNested={ true }
+      { caseEvents.map(caseEvent => {
+
+          const variablesFields = variablesToFields(caseEvent.event_values.variables)
+          const variablesValues = variablesToValues(caseEvent.event_values.variables)
+          const showVariables = variablesFields !== undefined && variablesValues !== undefined
+
+          return (
+            <div key={ caseEvent.id }>
+            { hasPluralEvents ?
+              <Timeline
+                title={
+                  caseEvent.event_values[dateField] ?
+                    `${ getDay(caseEvent.event_values[dateField], true) } ${ displayDate(caseEvent.event_values[dateField]) }` :
+                    `${ title }`
+                }
+                isOpen={ isOpen }
+                hasTransparentBackground={ hasTransparentBackground }
+                largeCircle={ false }
+                isNested={ true }
               >
-              <EventData fields={ fields } values={ caseEvent.event_values } isNested={ true } />
-            </Timeline> :
-            <>
-              <EventData fields={ fields } values={ caseEvent.event_values } />
-              { items.length > 0 &&
-                <Dl>
-                  { items.map(({ label, value }, index) =>
-                    <div key={ `${ label }_${ index }` }>
-                      <dt>{ label }</dt>
-                      <dd>{ typeof value === "string" ?
-                        value :
-                        value === true ?  "Ja" :
-                        value === false ? "Nee" :
-                        "-"}
-                      </dd>
-                    </div>
-                  )}
-                </Dl>
-              }
-            </>
-          }
-          </div>
-        ))
+                <EventData fields={ fields } values={ caseEvent.event_values } isNested={ true } />
+                { showVariables && <EventData fields={ variablesFields! } values={ variablesValues! } /> }
+              </Timeline> :
+              <>
+                <EventData fields={ fields } values={ caseEvent.event_values } />
+                { showVariables && <EventData fields={ variablesFields! } values={ variablesValues! } /> }
+              </>
+            }
+            </div>
+          )
+        } )
       }
     </Timeline>
   )

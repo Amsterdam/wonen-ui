@@ -33,6 +33,10 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
     return <FinancialDisplay amount={ value } />
   }
 
+  if (typeof mappedValue === "boolean") {
+    return <>{ mappedValue === true ? "Ja" : "Nee" }</>
+  }
+
   return <>{ mappedValue }</>
 }
 
