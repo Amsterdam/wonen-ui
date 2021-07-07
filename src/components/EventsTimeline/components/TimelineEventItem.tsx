@@ -22,7 +22,6 @@ type Props = {
 type ItemType = {
   label: string
   value: string | boolean
-  value_verbose: string
 }
 
 const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", dateField = "date_created", isOpen = false, useTransparentBackground = false, showCount = false }) => {
@@ -32,6 +31,7 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
 
   const hasPluralEvents = caseEvents.length > 1
   const titleWithCounter = `${ title } ${ showCount ? `(${ caseEvents.length })` : "" }`
+  // TODO refactor next line
   const items = Object.values(caseEvents[0]?.event_values.variables ?? {} ) as ItemType[]
 
   return (
@@ -56,15 +56,17 @@ const TimelineEventItem: React.FC<Props> = ({ fields, caseEvents, title = "", da
               <EventWrapper fields={ fields } caseEvent={ caseEvent } />
               { items.length > 0 &&
                 <Dl>
-                  { items.map(({ label, value, value_verbose }, index) => { //value_verbose is the humanreadable variant of value
-                    if(value === false) return null //hide unchecked checkboxes
-                    return (
-                      <div key={ `${ label }_${ index }` }>
-                        <dt>{ label }</dt>
-                        <dd>{ typeof value === "string" && value_verbose }</dd> {/** if value is not a string, it's a boolean. We don't want to show the value of a boolean ("true" or "false") to the user */}
-                      </div>
-                    )
-                  })}
+                  { items.map(({ label, value }, index) => 
+                    <div key={ `${ label }_${ index }` }>
+                      <dt>{ label }</dt>
+                      <dd>{ typeof value === "string" ?
+                        value :
+                        value === true ?  "Ja" :
+                        value === false ? "Nee" :
+                        "-"}
+                      </dd>
+                    </div>
+                  )}
                 </Dl>
               }
             </>
