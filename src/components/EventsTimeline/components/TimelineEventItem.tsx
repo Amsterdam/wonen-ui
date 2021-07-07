@@ -77,8 +77,9 @@ const TimelineEventItem: React.FC<Props> = ({
               }
             </>
           }
-        </div>
-      ))}
+          </div>
+        ))
+      }
     </Timeline>
   )
 }
