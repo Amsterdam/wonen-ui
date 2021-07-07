@@ -41,14 +41,15 @@ const TimelineEventItem: React.FC<Props> = ({
           const variablesFields = variablesToFields(caseEvent.event_values.variables)
           const variablesValues = variablesToValues(caseEvent.event_values.variables)
           const showVariables = variablesFields !== undefined && variablesValues !== undefined
+          const date = caseEvent.event_values[dateField]
 
           return (
             <div key={ caseEvent.id }>
             { hasPluralEvents ?
               <Timeline
                 title={
-                  caseEvent.event_values[dateField] ?
-                    `${ getDay(caseEvent.event_values[dateField], true) } ${ displayDate(caseEvent.event_values[dateField]) }` :
+                   typeof date === "string" ?
+                    `${ getDay(date, true) } ${ displayDate(date) }` :
                     `${ title }`
                 }
                 isOpen={ isOpen }
