@@ -82,7 +82,7 @@ const eventsTimelineData: CaseEvent[] = [
     case: 3766
 	},
   {
-    id: 437,
+    id: 439,
     event_values: {
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
@@ -121,7 +121,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "DEBRIEFING"
   },
   {
-    id: 2533,
+    id: 2539,
     event_values: {
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
