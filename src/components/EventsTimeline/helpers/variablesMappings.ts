@@ -5,7 +5,7 @@ type Variable = {
   value: unknown
 }
 
-const isObject = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null
+const isObject = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null
 
 const validateVariable = (variable: unknown): variable is Variable =>
   isObject(variable) ? variable.hasOwnProperty("label") && variable.hasOwnProperty("value") : false
