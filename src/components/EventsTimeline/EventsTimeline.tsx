@@ -18,7 +18,7 @@ const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTra
         <TimelineEvent
           key={ item.caseEvents[0].id }
           timelineEventItem={ item }
-          isOpen={ index === items.length - 1 }
+          isOpen={ index === 0 }
           hasTransparentBackground={ hasTransparentBackground }
         />
       ))
