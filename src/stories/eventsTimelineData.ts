@@ -86,7 +86,7 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
-      description: "Dynamisch formulier 1",
+      description: "Dynamisch formulier 1"
     },
     event_variables: {
       field_1: {
