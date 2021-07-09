@@ -1,4 +1,4 @@
-import CaseEvent from "../CaseEvent"
+import type CaseEvent from "../CaseEvent"
 
 export type GroupedTimelineEventItem = {
   type: CaseEvent["type"]

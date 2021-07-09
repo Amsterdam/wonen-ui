@@ -1,5 +1,5 @@
 import React from "react"
-import CaseEvent from "./CaseEvent"
+import type CaseEvent from "./CaseEvent"
 import Div from "./components/Timeline/EventsTimeline"
 import TimelineEvent from "./components/TimelineEvent"
 import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents"
