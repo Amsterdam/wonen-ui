@@ -38,20 +38,17 @@ const TimelineEventItem: React.FC<Props> = ({
     <Timeline title={ titleWithCounter } isOpen={ isOpen } hasTransparentBackground={ hasTransparentBackground }>
       { caseEvents.map(caseEvent => {
 
-          const variablesFields = variablesToFields(caseEvent.event_values.variables)
-          const variablesValues = variablesToValues(caseEvent.event_values.variables)
+          const variablesFields = variablesToFields(caseEvent.event_variables)
+          const variablesValues = variablesToValues(caseEvent.event_variables)
           const showVariables = variablesFields !== undefined && variablesValues !== undefined
           const date = caseEvent.event_values[dateField]
+          const titleDisplay = typeof date === "string" ? `${ getDay(date, true) } ${ displayDate(date) }` : title
 
           return (
             <div key={ caseEvent.id }>
             { hasPluralEvents ?
               <Timeline
-                title={
-                   typeof date === "string" ?
-                    `${ getDay(date, true) } ${ displayDate(date) }` :
-                    `${ title }`
-                }
+                title={ titleDisplay }
                 isOpen={ isOpen }
                 hasTransparentBackground={ hasTransparentBackground }
                 largeCircle={ false }

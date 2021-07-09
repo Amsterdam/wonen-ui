@@ -87,19 +87,19 @@ const eventsTimelineData: CaseEvent[] = [
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
       description: "Dynamisch formulier 1",
-      variables: {
-        field_1: {
-          label: "Dit is het label",
-          value: "Eerste veld"
-        },
-        field_2: {
-          label: "Dit is het label voor een boolean",
-          value: true
-        },
-        field_3: {
-          label: "Label Enum",
-          value: "waarde_2"
-        }
+    },
+    event_variables: {
+      field_1: {
+        label: "Dit is het label",
+        value: "Eerste veld"
+      },
+      field_2: {
+        label: "Dit is het label voor een boolean",
+        value: true
+      },
+      field_3: {
+        label: "Label Enum",
+        value: "waarde_2"
       }
     },
     date_created: "2021-05-11T14:54:04+0200",
@@ -164,20 +164,20 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
-      description: "Dynamisch formulier 1",
-      variables: {
-        field_1: {
-          label: "Dit is het label",
-          value: "Eerste veld"
-        },
-        field_2: {
-          label: "Dit is het label voor een boolean",
-          value: false
-        },
-        field_3: {
-          label: "Label Enum",
-          value: "waarde_2"
-        }
+      description: "Dynamisch formulier 1"
+    },
+    event_variables: {
+      field_1: {
+        label: "Dit is het label",
+        value: "Eerste veld"
+      },
+      field_2: {
+        label: "Dit is het label voor een boolean",
+        value: false
+      },
+      field_3: {
+        label: "Label Enum",
+        value: "waarde_2"
       }
     },
     date_created: "2021-05-11T14:54:04+0200",
