@@ -14,7 +14,7 @@ const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTra
   const items = useGroupedCaseEvents(events)
   return (
     <Div spacingHorizontal={ spacingHorizontal }>
-    { items.map((item, index) => (
+    { items.reverse().map((item, index) => (
         <TimelineEvent
           key={ item.caseEvents[0].id }
           timelineEventItem={ item }
