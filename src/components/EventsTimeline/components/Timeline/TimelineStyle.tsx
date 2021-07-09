@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
-import { Button } from "@amsterdam/asc-ui"
-import { themeColor, themeSpacing, breakpoint, Icon } from "@amsterdam/asc-ui"
+import { themeColor, themeSpacing, breakpoint, Icon, Button } from "@amsterdam/asc-ui"
 import { IconStyle } from "@amsterdam/asc-ui/lib/components/Icon"
 
 export type Props = {
@@ -138,7 +137,7 @@ const TimelineButton = styled(Button)<Props>`
       border: 0;
     }
   }
-// TODO This doesn't seem to do anything
+  // TODO This doesn't seem to do anything
   ${ IconStyle } {
     align-self: flex-start;
     transform: rotate(${ ({ isOpen }) => (isOpen ? "180deg" : "0deg") });
@@ -154,9 +153,9 @@ const Background = styled.div<Props>`
   top: 0px;
   left: 0;
   // right: 0;
-  background-color: ${ ({ isOpen }) => isOpen ?  themeColor("tint","level2") : "transparent" };
+  background-color: ${ ({ isOpen }) => isOpen ? themeColor("tint","level2") : "transparent" };
   pointer-events: none;
   z-index: -1;
-  `
+`
 
 export { TimelineItem, TimelineButton, TimelineContent, TimelineButtonContent, CircleWrapperStyle, CircleStyle, Background, NestedContainer }
