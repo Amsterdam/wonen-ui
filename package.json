@@ -28,12 +28,14 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2"
+    "@material-ui/icons": "^4.11.2",
+    "dompurify": "^2.3.0"
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.31.0",
     "@amsterdam/asc-ui": "^0.31.0",
     "@storybook/react": "^6.1.21",
+    "@types/dompurify": "^2.2.3",
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.23",

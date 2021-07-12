@@ -1,11 +1,11 @@
 import React from "react"
 import replaceURLs from "./utils/replaceUrls"
+import DOMPurify from "dompurify"
 
 type Props = {
   text: string
 }
 
-// TODO: This allows for XSS attacks!
-const TextWithURLs: React.FC<Props> = ({ text }) => <span dangerouslySetInnerHTML={ { __html: replaceURLs(text) } } />
+const TextWithURLs: React.FC<Props> = ({ text }) => <span dangerouslySetInnerHTML={ { __html: DOMPurify.sanitize(replaceURLs(text)) } } />
 
 export default TextWithURLs
