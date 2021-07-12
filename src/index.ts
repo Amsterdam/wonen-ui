@@ -7,6 +7,8 @@ import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import SmallSkeleton from "./components/Skeleton/SmallSkeleton"
 import InfoHeading from "./components/InfoHeading/InfoHeading"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
+import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
+import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
 
 export type { CaseEvent }
 
@@ -21,5 +23,7 @@ export {
   CaseIdDisplay,
   DefinitionList,
   SmallSkeleton,
-  InfoHeading
+  InfoHeading,
+  TextWithLinebreaks,
+  TextWithURLs
  }
