@@ -1,5 +1,6 @@
 import React from "react"
-import SpanWithLinebreaks from "../../Helpers/SpanWithLinebreaks"
+import TextWithLinebreaks from "../../TextWithLinebreaks/TextWithLinebreaks"
+import TextWithURLs from "../../TextWithURLs/TextWithURLs"
 import Dl from "./Dl"
 import type { Field } from "../helpers/fields"
 import UnstyledList from "./UnstyledList"
@@ -17,7 +18,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
     value.length > 0 ?
     <UnstyledList>
       { value.map(mapValue).map((item, index) =>
-        <li key={ `${ JSON.stringify(item) }_${ index }` }><SpanWithLinebreaks s={ item } /></li>
+        <li key={ `${ JSON.stringify(item) }_${ index }` }><TextWithLinebreaks><TextWithURLs text={ item }/></TextWithLinebreaks></li>
       ) }
     </UnstyledList> :
     "-"
@@ -26,7 +27,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
   const mappedValue = mapValue(value)
 
   if (typeof mappedValue === "string") {
-    return <SpanWithLinebreaks s={ mappedValue } />
+    return <TextWithLinebreaks><TextWithURLs text={ mappedValue }/></TextWithLinebreaks>
   }
 
   if (isCurrency && typeof value === "number") {

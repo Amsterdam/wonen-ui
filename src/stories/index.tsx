@@ -1,11 +1,15 @@
 import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
-import {  storiesOf  } from "@storybook/react"
-import EventsTimeline from "../components/EventsTimeline/EventsTimeline"
-import DateDisplay from "../components/DateDisplay/DateDisplay"
-import DayDisplay from "../components/DayDisplay/DayDisplay"
-import CaseIdDisplay from "../components/CaseIdDisplay/CaseIdDisplay"
+import { storiesOf } from "@storybook/react"
+import {
+  EventsTimeline,
+  DateDisplay,
+  DayDisplay,
+  CaseIdDisplay,
+  DefinitionList,
+  TextWithLinebreaks,
+  TextWithURLs
+} from "../index"
 import eventsTimelineData from "./eventsTimelineData"
-import DefinitionList from "../components/DefinitionList/DefinitionList"
 import definitionListData from "./definitionListData"
 
 // Timeline
@@ -84,5 +88,29 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
       title="Objectdetails"
       values={ definitionListData }
     />
+  </ThemeProvider>
+))
+
+// TextWithLineBreaks
+
+storiesOf("TextWithLinebreaks", module).add("Text inclusief linebreaks", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <TextWithLinebreaks>{ `line 1
+line 2
+
+line 4`
+
+}
+    </TextWithLinebreaks>
+  </ThemeProvider>
+))
+
+// TextWithURLs
+
+storiesOf("TextWithURLs", module).add("Text inclusief URL's", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <TextWithURLs text="http://example.com/ https://www.example.com" />
   </ThemeProvider>
 ))
