@@ -1,9 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
 
+import type { GroupedTimelineEventItem } from "../hooks/useGroupedCaseEvents"
 import TimelineEventItem from "./TimelineEventItem"
 import {
+  caseTypesMap,
   scheduleLabelsMap,
   debriefLabelsMap,
   genericLabelsMap,
@@ -24,71 +24,23 @@ import debriefingFields from "../events/debriefingFields"
 import visitFields from "../events/visitFields"
 import decisionFields from "../events/decisionFields"
 import citizenReportFields from "../events/citizenReportFields"
-import { caseTypesMap } from "../helpers/dictionaries"
-
-export type TypeEnum = "DEBRIEFING" | "VISIT" | "CASE" | "CASE_CLOSE" | "SUMMON" | "GENERIC_TASK" | "SCHEDULE" | "DECISION" | "CITIZEN_REPORT"
-export type CaseEvent = {
-  readonly id: number
-  event_values: {
-      [name: string]: any
-  }
-  readonly date_created: string // date-time
-  type: TypeEnum
-  emitter_id: number
-  case: number
-}
-export type TimelineEventItemType = {
-  type: string
-  caseEvents:
-    CaseEvent[]
-}
 
 type Props = {
-  timelineEventItem: TimelineEventItemType
+  timelineEventItem: GroupedTimelineEventItem
   isOpen?: boolean
-  spacingHorizontal?: number
-  useTransparentBackground?: boolean
+  hasTransparentBackground?: boolean
   itemCount?: number
 }
 
-type StylingProps = {
-  spacingHorizontal: number
-}
-
-const Div = styled.div<StylingProps>`
-  position: relative;
-  margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -spacingHorizontal ) } ${ themeSpacing(5) };
-  padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( spacingHorizontal ) };
-
-  @media screen and ${ breakpoint("min-width", "tabletS") } {
-    margin: 0 ${ ( { spacingHorizontal } ) => themeSpacing( -(3 - spacingHorizontal) ) } ${ themeSpacing(5) };
-    padding: 0 ${ ( { spacingHorizontal } ) => themeSpacing( 3 - spacingHorizontal ) };
-  }
-  //hide the vertical line in the last item
-  &:last-child {
-    > div:last-child {
-      > div:first-child {
-        &:after {
-          display: none;
-        }
-      }
-    }
-  }
-
-  button {
-    outline: none;
-  }
-`
-
-const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, spacingHorizontal = 3, useTransparentBackground = false, itemCount }) => (
-  <Div role="button" tabIndex={ -1 } spacingHorizontal={ spacingHorizontal } >
+const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents }, isOpen = false, hasTransparentBackground }) => (
+  <div role="button" tabIndex={ -1 }>
     { type === "CASE" ?
         <TimelineEventItem
           fields={ fields(reasonFields, reasonLabelsMap) }
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "CASE_CLOSE" ?
         <TimelineEventItem
@@ -96,7 +48,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "SCHEDULE" ?
         <TimelineEventItem
@@ -104,7 +56,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "VISIT" ?
         <TimelineEventItem
@@ -113,7 +65,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="start_time"
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
           showCount={ true }
         /> :
       type === "DEBRIEFING" ?
@@ -122,9 +74,8 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           caseEvents={ caseEvents }
           title={ caseTypesMap[type] }
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
           dateField="date_added"
-          pathName="debriefing"
         /> :
       type === "SUMMON" ?
         <TimelineEventItem
@@ -133,7 +84,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="date_added"
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "DECISION" ?
         <TimelineEventItem
@@ -142,7 +93,7 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="date_added"
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "CITIZEN_REPORT" ?
         <TimelineEventItem
@@ -151,20 +102,20 @@ const TimelineEvent: React.FC<Props> = ({ timelineEventItem: { type, caseEvents 
           title={ caseTypesMap[type] }
           dateField="date_added"
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       type === "GENERIC_TASK" ?
         <TimelineEventItem
           fields={ fields(genericTaskFields, genericLabelsMap) }
           caseEvents={ caseEvents }
-          title={ caseEvents[0]?.event_values.description }
+          title={ typeof caseEvents[0]?.event_values.description === "string" ? caseEvents[0]?.event_values.description : "Generiek event" }
           dateField="date"
           isOpen={ isOpen }
-          useTransparentBackground={ useTransparentBackground }
+          hasTransparentBackground={ hasTransparentBackground }
         /> :
       null
     }
-  </Div>
+  </div>
 )
 
 export default TimelineEvent

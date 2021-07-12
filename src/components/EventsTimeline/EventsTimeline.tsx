@@ -1,25 +1,30 @@
 import React from "react"
-import TimelineEvent, { TimelineEventItemType } from "./components/TimelineEvent"
+import type CaseEvent from "./CaseEvent"
+import Div from "./components/Timeline/EventsTimeline"
+import TimelineEvent from "./components/TimelineEvent"
+import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents"
 
 export type Props = {
-  items: TimelineEventItemType[]
+  events: CaseEvent[]
   spacingHorizontal?: number
-  useTransparentBackground?: boolean
+  hasTransparentBackground?: boolean
 }
 
-const EventsTimeline: React.FC<Props> = ({ items, spacingHorizontal = 0, useTransparentBackground = false } ) => (
-  <div>
-  { items.map((item: TimelineEventItemType, index: number) => (
-      <TimelineEvent
-        key={ item.caseEvents[0].id }
-        timelineEventItem={ item }
-        isOpen={ index === 0 }
-        spacingHorizontal={ spacingHorizontal }
-        useTransparentBackground={ useTransparentBackground }
-      />
-    ))
-  }
-  </div>
-)
+const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground } ) => {
+  const items = useGroupedCaseEvents(events)
+  return (
+    <Div spacingHorizontal={ spacingHorizontal }>
+    { items.reverse().map((item, index) => (
+        <TimelineEvent
+          key={ item.caseEvents[0].id }
+          timelineEventItem={ item }
+          isOpen={ index === 0 }
+          hasTransparentBackground={ hasTransparentBackground }
+        />
+      ))
+    }
+    </Div>
+  )
+}
 
 export default EventsTimeline

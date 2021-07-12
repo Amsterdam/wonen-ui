@@ -21,3 +21,9 @@ export default (fields: Array<FieldConfig | string>, translations: Record<string
     const label = translations[o.key] ?? ""
     return { ...defaultField, label, ...o }
   })
+
+export const variableToField = (key: string, label: string) => ({
+  key,
+  label,
+  ...defaultField
+})

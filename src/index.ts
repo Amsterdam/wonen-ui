@@ -1,4 +1,5 @@
-import Timeline from "./components/EventsTimeline/components/Timeline/Timeline"
+import type CaseEvent from "./components/EventsTimeline/CaseEvent"
+
 import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DayDisplay from "./components/DayDisplay/DayDisplay"
@@ -7,7 +8,8 @@ import SmallSkeleton from "./components/Skeleton/SmallSkeleton"
 import InfoHeading from "./components/InfoHeading/InfoHeading"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
 
-export * from "./components/EventsTimeline/components/Timeline/TimelineStyle"
+export type { CaseEvent }
+
 export {
   DateDisplay,
   displayDate,
@@ -15,7 +17,6 @@ export {
   isValidDate,
   isDate,
   DayDisplay,
-  Timeline,
   EventsTimeline,
   CaseIdDisplay,
   DefinitionList,
