@@ -1,5 +1,5 @@
 import React from "react"
-import SmallSkeleton from "../../Skeleton/SmallSkeleton"
+import SmallSkeleton from "./SmallSkeleton"
 import Definition from "./Definition"
 
 type Props = {
