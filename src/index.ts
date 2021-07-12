@@ -7,6 +7,8 @@ import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import SmallSkeleton from "./components/Skeleton/SmallSkeleton"
 import InfoHeading from "./components/InfoHeading/InfoHeading"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
+import PersonDisplay from "./components/PersonDisplay/PersonDisplay"
+import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
 
 export type { CaseEvent }
 
@@ -21,5 +23,7 @@ export {
   CaseIdDisplay,
   DefinitionList,
   SmallSkeleton,
-  InfoHeading
+  InfoHeading,
+  PersonDisplay,
+  PersonRoleDisplay
  }
