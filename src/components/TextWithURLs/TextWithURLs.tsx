@@ -1,6 +1,6 @@
 import React from "react"
-import replaceURLs from "./utils/replaceUrls"
 import DOMPurify from "dompurify"
+import replaceURLs from "./utils/replaceUrls"
 
 type Props = {
   text: string
