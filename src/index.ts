@@ -4,7 +4,6 @@ import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DayDisplay from "./components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
-import SmallSkeleton from "./components/Skeleton/SmallSkeleton"
 import InfoHeading from "./components/InfoHeading/InfoHeading"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
@@ -22,8 +21,7 @@ export {
   EventsTimeline,
   CaseIdDisplay,
   DefinitionList,
-  SmallSkeleton,
   InfoHeading,
   TextWithLinebreaks,
   TextWithURLs
- }
+}
