@@ -1,4 +1,5 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
+import DisplayPersonWithRole, { Person } from "../helpers/DisplayPersonWithRole"
 
 export default [
   {
@@ -13,7 +14,11 @@ export default [
     isCurrency: true
   },
   "sanction_id",
-  "persons",
+  {
+    key: "persons",
+    mapValue: (v: string | Person ) => 
+       typeof v === "string" ? v : v !== undefined ? DisplayPersonWithRole(v) : "-"
+  },
   {
     key: "description",
     italic: true
