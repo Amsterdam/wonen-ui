@@ -85,6 +85,7 @@ export const citizenReportLabelsMap = {
   "identification": "SIA-nummer",
   "reporter_name": "Naam melder",
   "reporter_phone": "Telefoonnummer melder",
+  "reporter_email": "E-mailadres melder",
   "description_citizenreport": "Samenvatting melding",
   "advertisement_linklist": "Advertenties"
 }

@@ -10,6 +10,7 @@ export default [
   "identification",
   "reporter_name",
   "reporter_phone",
+  "reporter_email",
   "advertisement_linklist",
   {
     key: "description_citizenreport",

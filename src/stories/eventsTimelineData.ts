@@ -31,6 +31,7 @@ const eventsTimelineData: CaseEvent[] = [
       identification: 123456,
       reporter_name: "Donald Duck",
       reporter_phone: "1234567890",
+      reporter_email: "mail@mail.com",
       advertisement_linklist: [
         "http://www.example.com",
         "http://www.example.com"
