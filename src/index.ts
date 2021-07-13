@@ -5,7 +5,7 @@ import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./co
 import DayDisplay from "./components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
-import PersonDisplay from "./components/PersonDisplay/PersonDisplay"
+import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
 import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
@@ -22,7 +22,7 @@ export {
   EventsTimeline,
   CaseIdDisplay,
   DefinitionList,
-  PersonDisplay,
+  PersonNameDisplay,
   PersonRoleDisplay,
   TextWithLinebreaks,
   TextWithURLs
