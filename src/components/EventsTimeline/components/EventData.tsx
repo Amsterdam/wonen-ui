@@ -26,7 +26,7 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
 
   const mappedValue = mapValue(value)
 
-  if(mappedValue === undefined) return null
+  if (mappedValue === undefined) return null
 
   if (typeof mappedValue === "string") {
     return <TextWithLinebreaks><TextWithURLs text={ mappedValue }/></TextWithLinebreaks>
