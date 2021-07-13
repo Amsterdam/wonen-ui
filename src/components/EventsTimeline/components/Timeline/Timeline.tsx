@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
-import styled from "styled-components"
 import { useUID } from "react-uid"
-import { Icon, themeSpacing } from "@amsterdam/asc-ui"
+import { Icon } from "@amsterdam/asc-ui"
 import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
 import { ButtonVariant } from "@amsterdam/asc-ui/lib/components/Button/Button"
 import { Check, ExpandMore } from "./Icons"
@@ -20,7 +19,6 @@ import {
 
 type Props = {
   onToggle?: (open: boolean) => void
-  canBeOpened?: boolean
   hasTransparentBackground?: boolean
 } & StyleProps
 
@@ -47,11 +45,6 @@ type ButtonStyleProps = {
   taskflow?: boolean
 }
 
-const Label = styled.span`
-  display: inline-block;
-  padding: ${ themeSpacing(3) } 0;
-`
-
 const Timeline: React.FC<
   Props &
   ButtonStyleProps &
@@ -66,7 +59,6 @@ const Timeline: React.FC<
   largeCircle = true,
   onClick,
   isNested,
-  canBeOpened = true,
   hasTransparentBackground = false,
   ...otherProps
 
@@ -100,34 +92,25 @@ const Timeline: React.FC<
           </CircleStyle>
         </CircleWrapperStyle>
         <TimelineItem>
-          { canBeOpened
-            ?
-            <>
-              <TimelineButton
-                aria-controls={id}
-                aria-expanded={open}
-                id={`label-${ id }`}
-                type="button"
-                variant="blank"
-                iconRight={<Icon size={20}><ExpandMore /></Icon>}
-                isOpen={open}
-                title={title}
-                onClick={handleClick}
-                {...otherProps}
-              >
-                <TimelineButtonContent>
-                  {title}
-                </TimelineButtonContent>
-              </TimelineButton>
-              <TimelineContent isOpen={open} aria-labelledby={`label-${ id }`} id={id} isNested={isNested}>
-                {children}
-              </TimelineContent>
-            </>
-            :
+          <TimelineButton
+            aria-controls={id}
+            aria-expanded={open}
+            id={`label-${ id }`}
+            type="button"
+            variant="blank"
+            iconRight={<Icon size={20}><ExpandMore /></Icon>}
+            isOpen={open}
+            title={title}
+            onClick={handleClick}
+            {...otherProps}
+          >
             <TimelineButtonContent>
-              <Label>{title}</Label>
+              {title}
             </TimelineButtonContent>
-          }
+          </TimelineButton>
+          <TimelineContent isOpen={open} aria-labelledby={`label-${ id }`} id={id} isNested={isNested}>
+            {children}
+          </TimelineContent>
         </TimelineItem>
       </NestedContainer>
     </>

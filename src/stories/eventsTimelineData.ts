@@ -10,14 +10,7 @@ const eventsTimelineData: CaseEvent[] = [
       project: "Levant",
       description: "19:31",
       author: "A. Beecee",
-      identification: 123456,
-      reporter_name: "Donald Duck",
-      reporter_phone: "1234567890",
-      advertisement_linklist: [
-        "www.example.com",
-        "http://www.example.com",
-        "https://www.example.com"
-      ]
+      identification: 123456
     },
     date_created: "2021-03-17T19:31:11+0100",
     type: "CASE",
@@ -31,6 +24,7 @@ const eventsTimelineData: CaseEvent[] = [
       identification: 123456,
       reporter_name: "Donald Duck",
       reporter_phone: "1234567890",
+      reporter_email: "mail@mail.com",
       advertisement_linklist: [
         "http://www.example.com",
         "http://www.example.com"
