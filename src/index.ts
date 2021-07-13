@@ -7,6 +7,8 @@ import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
+import SmallSkeleton from "./components/Helpers/SmallSkeleton"
+import LoadingRows from "./components/Helpers/LoadingRows"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
 import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
 
@@ -22,8 +24,10 @@ export {
   EventsTimeline,
   CaseIdDisplay,
   DefinitionList,
+  LoadingRows,
   PersonNameDisplay,
   PersonRoleDisplay,
+  SmallSkeleton,
   TextWithLinebreaks,
   TextWithURLs
 }
