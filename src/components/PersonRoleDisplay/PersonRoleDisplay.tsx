@@ -1,5 +1,5 @@
 import React from "react"
-import { personRoleMap } from "./../Helpers/dictionaries"
+import { personRoleMap } from "../Helpers/dictionaries"
 
 export type PersonRole = "PERSON_ROLE_OWNER" | "PERSON_ROLE_RESIDENT" | "PERSON_ROLE_MIDDLEMAN"
 
@@ -8,11 +8,9 @@ type Props = {
   addToEndOfString?: boolean
 }
   
-  const PersonRoleDisplay: React.FC<Props> = ({ personRole, addToEndOfString = false }) => {
-    const preFix = addToEndOfString ? ", " : ""
-    return <>{ personRole ? `${ preFix }${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
-  }
-    
-  
-  export default PersonRoleDisplay
-  
+const PersonRoleDisplay: React.FC<Props> = ({ personRole, addToEndOfString = false }) => {
+  const preFix = addToEndOfString ? ", " : ""
+  return <>{ personRole ? `${ preFix }${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
+}
+
+export default PersonRoleDisplay
