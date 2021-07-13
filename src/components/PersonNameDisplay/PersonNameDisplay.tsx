@@ -16,7 +16,7 @@ const mapSex = (value?: GeslachtsaanduidingEnum) => {
   }
 }
 
-const PersonDisplay: React.FC<Props> = ({ sex, firstName, namePrefix, name }) =>
+const PersonNameDisplay: React.FC<Props> = ({ sex, firstName, namePrefix, name }) =>
   <>{ `${ mapSex(sex) }${ firstName ?  `${ firstName } ` : "" } ${ namePrefix ? `${ namePrefix } ` : "" }${ name }` }</>
 
-export default PersonDisplay
+export default PersonNameDisplay
