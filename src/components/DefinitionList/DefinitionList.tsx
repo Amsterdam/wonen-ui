@@ -2,9 +2,9 @@ import React from "react"
 import { Heading, themeSpacing } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
-import SmallSkeleton from "./components/SmallSkeleton"
+import SmallSkeleton from "../Helpers/SmallSkeleton"
+import LoadingRows from "../Helpers/LoadingRows"
 import Definition from "./components/Definition"
-import LoadingRows from "./components/LoadingRows"
 
 type Props = {
   numLoadingRows?: number

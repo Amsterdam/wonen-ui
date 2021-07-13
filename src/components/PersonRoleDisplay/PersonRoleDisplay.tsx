@@ -1,5 +1,5 @@
 import React from "react"
-import { PersonRole, personRoleMap } from "../Helpers/dictionaries"
+import { PersonRole, personRoleMap } from "../../helpers/dictionaries"
 
 
 type Props = {

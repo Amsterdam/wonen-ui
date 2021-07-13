@@ -1,4 +1,4 @@
-import { PersonRole, personRoleMap } from "../../Helpers/dictionaries"
+import { PersonRole, personRoleMap } from "../../../helpers/dictionaries"
 
 export type Person = {
   person_full_name: string
