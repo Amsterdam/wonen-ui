@@ -10,8 +10,9 @@ type Props = {
   numLoadingRows?: number
   isLoading?: boolean
   title?: React.ReactNode
-  values: Record<string, React.ReactNode> | undefined
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
+  values: Record<string, React.ReactNode> | undefined
+  noValuesPlaceholder?: React.ReactNode
 }
 
 const Dl = styled.dl`
@@ -22,8 +23,9 @@ const DefinitionList: React.FC<Props> = ({
   isLoading = false,
   numLoadingRows = 5,
   title,
+  headingSize = "h2",
   values,
-  headingSize = "h2"
+  noValuesPlaceholder
 }) => {
 
   const rows = Object.entries(values ?? {})
@@ -37,10 +39,10 @@ const DefinitionList: React.FC<Props> = ({
       }
       <Dl>
         { isLoading ?
-          <LoadingRows numRows={ numLoadingRows } /> :
-          <>
-            { rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } />) }
-          </>
+            <LoadingRows numRows={ numLoadingRows } /> :
+          values === undefined && noValuesPlaceholder !== undefined ?
+            <>{ noValuesPlaceholder }</> :
+            <>{ rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } />) }</>
         }
       </Dl>
     </div>
