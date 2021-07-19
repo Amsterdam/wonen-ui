@@ -1,6 +1,6 @@
 import React from "react"
 import SmallSkeleton from "./SmallSkeleton"
-import Definition from "../DefinitionList/components/Definition"
+import Definition from "../Data/DefinitionList/components/Definition"
 
 type Props = {
   numRows: number
