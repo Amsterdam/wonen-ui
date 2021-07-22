@@ -13,10 +13,11 @@ type Props = {
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
   values: Record<string, React.ReactNode> | undefined
   noValuesPlaceholder?: React.ReactNode
+  hasRowsSeperated?: boolean
 }
 
 const Dl = styled.dl`
-  margin-bottom: ${ themeSpacing(10) };
+  margin: 0;
 `
 
 const DefinitionList: React.FC<Props> = ({
@@ -25,7 +26,8 @@ const DefinitionList: React.FC<Props> = ({
   title,
   headingSize = "h2",
   values,
-  noValuesPlaceholder
+  noValuesPlaceholder,
+  hasRowsSeperated = true
 }) => {
 
   const rows = Object.entries(values ?? {})
@@ -42,7 +44,7 @@ const DefinitionList: React.FC<Props> = ({
             <LoadingRows numRows={ numLoadingRows } /> :
           values === undefined && noValuesPlaceholder !== undefined ?
             <>{ noValuesPlaceholder }</> :
-            <>{ rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } />) }</>
+            <>{ rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } hasRowsSeperated={ hasRowsSeperated } />) }</>
         }
       </Dl>
     </div>

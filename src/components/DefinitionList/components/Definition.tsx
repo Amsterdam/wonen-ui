@@ -5,28 +5,53 @@ import styled from "styled-components"
 type Props = {
   term: React.ReactNode
   value: React.ReactNode
+  hasRowsSeperated?: boolean
 }
 
-const Div = styled.div`
-  display: flex;
-  border-bottom: 1px solid ${ themeColor("tint","level3") };
+type StyleProps = {
+  hasRowsSeperated?: boolean
+}
+
+const Div = styled.div<StyleProps>`
+  border-bottom: ${ ({ hasRowsSeperated }) => hasRowsSeperated ? "1px solid #E6E6E6" : "none" };
   &:last-child {
     border-bottom: none;
+  }
+
+  max-width: 800px;
+  margin: 0;
+  
+  @media ${ breakpoint("min-width", "tabletM") } {
+    margin-top: ${ themeSpacing(2) };
+    margin-bottom: ${ themeSpacing(2) };
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
   }
 `
 
 const Dt = styled.dt`
-  width: 45%;
-  @media screen and ${ breakpoint("min-width", "laptopM") } {
+  color: ${ themeColor("tint","level5") };
+  padding: ${ themeSpacing(3) } 0 0;
+  @media ${ breakpoint("min-width", "tabletM") } {
+    float: left;
+    clear: both;
+    word-wrap: break-word;
     width: 30%;
+    padding: ${ themeSpacing(3) };
   }
-  padding: ${ themeSpacing(3) } 0;
-  color: ${ themeColor("tint", "level5") };
 `
 
 const Dd = styled.dd`
+  margin: 0;
   padding: ${ themeSpacing(3) } 0;
-  width: 70%;
+  @media ${ breakpoint("min-width", "tabletM") } {
+    float: right;
+    clear: right;
+    width: 70%;
+  }
 `
 
 const castValue = (value: React.ReactNode) => {
@@ -35,8 +60,8 @@ const castValue = (value: React.ReactNode) => {
   return value
 }
 
-const Definition: React.FC<Props> = ({ term, value }) => (
-  <Div>
+const Definition: React.FC<Props> = ({ term, value, hasRowsSeperated }) => (
+  <Div hasRowsSeperated={ hasRowsSeperated }>
     <Dt>{ term }</Dt>
     <Dd>{ castValue(value) }</Dd>
   </Div>
