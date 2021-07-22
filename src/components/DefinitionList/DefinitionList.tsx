@@ -1,5 +1,5 @@
 import React from "react"
-import { Heading, themeSpacing } from "@amsterdam/asc-ui"
+import { Heading } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
 import SmallSkeleton from "../Helpers/SmallSkeleton"
