@@ -1,11 +1,11 @@
 import React from "react"
 import TextWithLinebreaks from "../../TextWithLinebreaks/TextWithLinebreaks"
 import TextWithURLs from "../../TextWithURLs/TextWithURLs"
-import Dl from "./Dl"
 import type { Field } from "../helpers/fields"
 import UnstyledList from "./UnstyledList"
 import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
 import Value from "./Value"
+import DefinitionList from "../../../components/DefinitionList/DefinitionList"
 
 type Props = {
   fields: Field[]
@@ -43,20 +43,20 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
   return <>{ mappedValue }</>
 }
 
-const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => (
-  <Dl>
-    { fields.map(({ key, label, shouldShow, mapValue, italic, isCurrency }, index) => {
-        const value = values[key]
-        return (
-          value != null && shouldShow(value, isNested) ?
-          <div key={ `${ key }_${ index }` }>
-            <dt>{ label }</dt>
-            <dd><Value value={ displayValue(value, mapValue, isCurrency) } displayItalic={ italic }/></dd>
-          </div> :
-          null
-        )
-    }) }
-  </Dl>
-)
+const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => {
+  
+  const displayValues =  fields.reduce((acc, { key, label, shouldShow, mapValue, italic, isCurrency }) => {
+    const value = values[key]
+    if (value == null || shouldShow(value, isNested) === false) return acc
+
+    acc[ label ] = <Value value={ displayValue(value, mapValue, isCurrency) } displayItalic={ italic }/>
+    
+    return acc
+
+  }, {} as Record<string, React.ReactNode>)
+
+  return <DefinitionList values={ displayValues } hasRowsSeperated={ false } />
+    
+}
 
 export default EventData
