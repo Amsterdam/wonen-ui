@@ -1,12 +1,12 @@
 import React from "react"
 
 type Props = {
-  num: number
+  times: number
 }
 
-const RepeatChildren: React.FC<Props> = ({ num = 1, children }) =>
+const RepeatChildren: React.FC<Props> = ({ times = 1, children }) =>
   <>
-    { [...Array(num)].map((_, index) =>
+    { [...Array(times)].map((_, index) =>
         <React.Fragment key={ index }>{ children }</React.Fragment>)
     }
   </>

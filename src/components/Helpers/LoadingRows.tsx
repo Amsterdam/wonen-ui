@@ -8,7 +8,7 @@ type Props = {
 }
 
 const LoadingRows: React.FC<Props> = ({ numRows }) =>
-  <RepeatChildren num={ numRows }>
+  <RepeatChildren times={ numRows }>
     <Definition term={ <SmallSkeleton /> } value={ <SmallSkeleton /> } />
   </RepeatChildren>
 

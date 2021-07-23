@@ -32,7 +32,7 @@ const List: React.FC<Props> = ({ numLoadingRows = 0, isLoading, title, headingSi
     }
     { isLoading && numLoadingRows > 0 &&
       <Ul>
-        <RepeatChildren num={ numLoadingRows }>
+        <RepeatChildren times={ numLoadingRows }>
           <li><SmallSkeleton /></li>
         </RepeatChildren>
       </Ul>
