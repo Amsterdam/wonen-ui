@@ -1,6 +1,6 @@
 import React from "react"
 import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 type Props = {
   term: React.ReactNode
@@ -13,17 +13,33 @@ type StyleProps = {
 }
 
 const Div = styled.div<StyleProps>`
-  border-bottom: ${ ({ hasRowsSeperated }) => hasRowsSeperated ? "1px solid #E6E6E6" : "none" };
+  border-bottom: 0 solid ${ themeColor("tint","level3") };
+  
+  ${ ({ hasRowsSeperated }) => 
+    hasRowsSeperated && 
+    css`
+      padding: ${ themeSpacing(2) };
+      border-width: 1px;
+    `
+  }
   &:last-child {
     border-bottom: none;
   }
 
   max-width: 800px;
-  margin: 0;
+  ${ ({ hasRowsSeperated }) => 
+    hasRowsSeperated ? 
+    css`
+      margin-bottom: 0;
+    `
+    :
+    css`
+      margin-bottom: ${ themeSpacing(2) };
+    `
+  }
   
   @media ${ breakpoint("min-width", "tabletM") } {
-    margin-top: ${ themeSpacing(2) };
-    margin-bottom: ${ themeSpacing(2) };
+    margin-bottom: 0;
     &:after {
       clear: both;
       content: "";
@@ -32,25 +48,26 @@ const Div = styled.div<StyleProps>`
   }
 `
 
-const Dt = styled.dt`
+const Dt = styled.dt<StyleProps>`
   color: ${ themeColor("tint","level5") };
-  padding: ${ themeSpacing(3) } 0 0;
+  padding: ${ themeSpacing(1) } 0 ;
   @media ${ breakpoint("min-width", "tabletM") } {
     float: left;
     clear: both;
     word-wrap: break-word;
     width: 30%;
-    padding: ${ themeSpacing(3) };
+    padding-right: ${ themeSpacing(3) };
   }
 `
 
-const Dd = styled.dd`
+const Dd = styled.dd<StyleProps>`
   margin: 0;
-  padding: ${ themeSpacing(3) } 0;
+  padding: ${ themeSpacing(1) } 0;
   @media ${ breakpoint("min-width", "tabletM") } {
     float: right;
     clear: right;
     width: 70%;
+    
   }
 `
 
@@ -62,8 +79,8 @@ const castValue = (value: React.ReactNode) => {
 
 const Definition: React.FC<Props> = ({ term, value, hasRowsSeperated }) => (
   <Div hasRowsSeperated={ hasRowsSeperated }>
-    <Dt>{ term }</Dt>
-    <Dd>{ castValue(value) }</Dd>
+    <Dt hasRowsSeperated={ hasRowsSeperated }>{ term }</Dt>
+    <Dd hasRowsSeperated={ hasRowsSeperated }>{ castValue(value) }</Dd>
   </Div>
 )
 export default Definition
