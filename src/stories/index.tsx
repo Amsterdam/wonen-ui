@@ -5,6 +5,7 @@ import {
   DateDisplay,
   DayDisplay,
   CaseIdDisplay,
+  List,
   DefinitionList,
   TextWithLinebreaks,
   TextWithURLs
@@ -81,6 +82,18 @@ storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
   </ThemeProvider>
 ))
 
+
+// Data
+
+// List
+storiesOf("List", module).add("Met titel", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <List title="Lijst" data={ ["Alfa", "Beta", "Gamma"] } />
+  </ThemeProvider>
+))
+
+// DefinitionList
 storiesOf("DefinitionList", module).add("Met titel", () => (
   <ThemeProvider>
     <GlobalStyle />
@@ -90,6 +103,7 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
     />
   </ThemeProvider>
 ))
+
 
 // TextWithLineBreaks
 
