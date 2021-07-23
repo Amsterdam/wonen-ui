@@ -99,7 +99,7 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
     <GlobalStyle />
     <DefinitionList
       title="Objectdetails"
-      values={ definitionListData }
+      data={ definitionListData }
     />
   </ThemeProvider>
 ))
