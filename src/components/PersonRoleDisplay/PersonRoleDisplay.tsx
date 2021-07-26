@@ -7,9 +7,7 @@ type Props = {
   addToEndOfString?: boolean
 }
   
-const PersonRoleDisplay: React.FC<Props> = ({ personRole, addToEndOfString = false }) => {
-  const preFix = addToEndOfString ? ", " : ""
-  return <>{ personRole ? `${ preFix }${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
-}
+const PersonRoleDisplay: React.FC<Props> = ({ personRole }) => 
+  <>{ personRole ? `${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
 
 export default PersonRoleDisplay
