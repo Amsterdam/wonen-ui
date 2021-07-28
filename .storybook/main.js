@@ -1,4 +1,10 @@
 module.exports = {
   stories: ["../src/stories/index.stories"],
-  addons: ['@storybook/addon-essentials'],
+  addons: [{
+    name: '@storybook/addon-essentials',
+    options: {
+      actions: false,
+      controls: false,
+    }
+  }]
 };

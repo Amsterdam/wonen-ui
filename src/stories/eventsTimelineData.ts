@@ -194,18 +194,18 @@ const eventsTimelineData: CaseEvent[] = [
     emitter_id: 137,
     case: 90
 	},
-  {
-    id: 2535,
+  { id: 2532,
     event_values: {
       author: "A. Beecee",
       date_added: "2021-03-26T19:19:26.345631Z",
-      violation: "YES",
-      feedback: "Hier de opmerkingen.."
+      violation: "SEND_TO_OTHER_THEME",
+      feedback: "Advertentie gevonden op https://www.example.com, en http://www.example.com/two.",
+      theme: "Kamerverhuur"
     },
-    date_created: "2021-03-26T20:19:26+0100",
-    emitter_id: 317,
-    case: 3394,
-    type: "DEBRIEFING"
+	  date_created: "2021-03-26T20:19:26+0100",
+	  emitter_id: 317,
+	  case: 3394,
+	  type: "DEBRIEFING"
   },
   {
     id: 2539,
@@ -220,20 +220,6 @@ const eventsTimelineData: CaseEvent[] = [
     case: 3394,
     type: "DEBRIEFING"
   },
-  { id: 2532,
-    event_values: {
-      author: "A. Beecee",
-      date_added: "2021-03-26T19:19:26.345631Z",
-      violation: "SEND_TO_OTHER_THEME",
-      feedback: "Advertentie gevonden op https://www.example.com, en http://www.example.com/two.",
-      theme: "Kamerverhuur"
-    },
-	  date_created: "2021-03-26T20:19:26+0100",
-	  emitter_id: 317,
-	  case: 3394,
-	  type: "DEBRIEFING"
-  },
-
   {
     id: 437,
     event_values: {
