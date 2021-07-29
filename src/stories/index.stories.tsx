@@ -109,21 +109,21 @@ storiesOf("PersonNameDisplay", module).add("default", () => (
 storiesOf("PersonRoleDisplay", module).add("Eigenaar", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <PersonRoleDisplay personRole={ "PERSON_ROLE_OWNER" } />
+    <PersonRoleDisplay personRole="PERSON_ROLE_OWNER" />
   </ThemeProvider>
 ))
 
 storiesOf("PersonRoleDisplay", module).add("Bewoner", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <PersonRoleDisplay personRole={ "PERSON_ROLE_RESIDENT" } />
+    <PersonRoleDisplay personRole="PERSON_ROLE_RESIDENT" />
   </ThemeProvider>
 ))
 
 storiesOf("PersonRoleDisplay", module).add("Tussenpersoon", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <PersonRoleDisplay personRole={ "PERSON_ROLE_MIDDLEMAN" } />
+    <PersonRoleDisplay personRole="PERSON_ROLE_MIDDLEMAN" />
   </ThemeProvider>
 ))
 
