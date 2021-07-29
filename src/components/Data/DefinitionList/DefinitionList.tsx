@@ -2,8 +2,8 @@ import React from "react"
 import { Heading } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
-import SmallSkeleton from "../Helpers/SmallSkeleton"
-import LoadingRows from "../Helpers/LoadingRows"
+import SmallSkeleton from "../../Helpers/SmallSkeleton"
+import LoadingRows from "../../Helpers/LoadingRows"
 import Definition from "./components/Definition"
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   isLoading?: boolean
   title?: React.ReactNode
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
-  values: Record<string, React.ReactNode> | undefined
+  data: Record<string, React.ReactNode> | undefined
   noValuesPlaceholder?: React.ReactNode
   hasRowsSeperated?: boolean
 }
@@ -25,12 +25,12 @@ const DefinitionList: React.FC<Props> = ({
   numLoadingRows = 5,
   title,
   headingSize = "h2",
-  values,
+  data,
   noValuesPlaceholder,
   hasRowsSeperated = true
 }) => {
 
-  const rows = Object.entries(values ?? {})
+  const rows = Object.entries(data ?? {})
 
   return (
     <div>
@@ -42,7 +42,7 @@ const DefinitionList: React.FC<Props> = ({
       <Dl>
         { isLoading ?
             <LoadingRows numRows={ numLoadingRows } /> :
-          values === undefined && noValuesPlaceholder !== undefined ?
+          data === undefined && noValuesPlaceholder !== undefined ?
             <>{ noValuesPlaceholder }</> :
             <>{ rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } hasRowsSeperated={ hasRowsSeperated } />) }</>
         }

@@ -1,14 +1,15 @@
 import React from "react"
+import RepeatChildren from "../Data/components/RepeatChildren"
 import SmallSkeleton from "./SmallSkeleton"
-import Definition from "../DefinitionList/components/Definition"
+import Definition from "../Data/DefinitionList/components/Definition"
 
 type Props = {
   numRows: number
 }
 
-const LoadingRows: React.FC<Props> = ({ numRows }) => <>
-  { [...Array(numRows)].map((_, index) =>
-    <Definition key={ index } term={ <SmallSkeleton /> } value={ <SmallSkeleton /> } />
-  ) }
-</>
+const LoadingRows: React.FC<Props> = ({ numRows }) =>
+  <RepeatChildren times={ numRows }>
+    <Definition term={ <SmallSkeleton /> } value={ <SmallSkeleton /> } />
+  </RepeatChildren>
+
 export default LoadingRows

@@ -4,6 +4,7 @@ import {
   CaseIdDisplay,
   DateDisplay,
   DayDisplay,
+  List,
   DefinitionList,
   EventsTimeline,
   FinancialDisplay,
@@ -73,13 +74,23 @@ storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
   </ThemeProvider>
 ))
 
+// Data
+
+// List
+storiesOf("List", module).add("Met titel", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <List title="Lijst" data={ ["Alfa", "Beta", "Gamma"] } />
+  </ThemeProvider>
+))
+
 // DefinitionList
 storiesOf("DefinitionList", module).add("Default, met titel", () => (
   <ThemeProvider>
     <GlobalStyle />
     <DefinitionList
       title="Objectdetails"
-      values={ definitionListData }
+      data={ definitionListData }
     />
   </ThemeProvider>
 ))
@@ -87,7 +98,7 @@ storiesOf("DefinitionList", module).add("Default, zonder titel", () => (
   <ThemeProvider>
     <GlobalStyle />
     <DefinitionList
-      values={ definitionListData }
+      data={ definitionListData }
     />
   </ThemeProvider>
 ))
@@ -96,7 +107,7 @@ storiesOf("DefinitionList", module).add("Zonder borders", () => (
     <GlobalStyle />
     <DefinitionList
       title="Objectdetails"
-      values={ definitionListData }
+      data={ definitionListData }
       hasRowsSeperated={ false }
     />
   </ThemeProvider>
