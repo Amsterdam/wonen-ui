@@ -74,7 +74,7 @@ storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
 ))
 
 // DefinitionList
-storiesOf("DefinitionList", module).add("Met titel", () => (
+storiesOf("DefinitionList", module).add("Default, met titel", () => (
   <ThemeProvider>
     <GlobalStyle />
     <DefinitionList
@@ -83,6 +83,25 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
     />
   </ThemeProvider>
 ))
+storiesOf("DefinitionList", module).add("Default, zonder titel", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <DefinitionList
+      values={ definitionListData }
+    />
+  </ThemeProvider>
+))
+storiesOf("DefinitionList", module).add("Zonder borders", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <DefinitionList
+      title="Objectdetails"
+      values={ definitionListData }
+      hasRowsSeperated={ false }
+    />
+  </ThemeProvider>
+))
+
 
 // EventsTimeline
 storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
