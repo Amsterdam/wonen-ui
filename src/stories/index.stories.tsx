@@ -6,6 +6,8 @@ import {
   DayDisplay,
   CaseIdDisplay,
   DefinitionList,
+  PersonNameDisplay,
+  PersonRoleDisplay,
   TextWithLinebreaks,
   TextWithURLs
 } from "../index"
@@ -91,8 +93,42 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
   </ThemeProvider>
 ))
 
-// TextWithLineBreaks
+storiesOf("PersonNameDisplay", module).add("default", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <PersonNameDisplay
+        sex="V"
+        firstName="Gouderinge"
+        namePrefix="van"
+        name="A.C."
+    />
+  </ThemeProvider>
+))
 
+
+storiesOf("PersonRoleDisplay", module).add("Eigenaar", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <PersonRoleDisplay personRole="PERSON_ROLE_OWNER" />
+  </ThemeProvider>
+))
+
+storiesOf("PersonRoleDisplay", module).add("Bewoner", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <PersonRoleDisplay personRole="PERSON_ROLE_RESIDENT" />
+  </ThemeProvider>
+))
+
+storiesOf("PersonRoleDisplay", module).add("Tussenpersoon", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <PersonRoleDisplay personRole="PERSON_ROLE_MIDDLEMAN" />
+  </ThemeProvider>
+))
+
+
+// TextWithLineBreaks
 storiesOf("TextWithLinebreaks", module).add("Text inclusief linebreaks", () => (
   <ThemeProvider>
     <GlobalStyle />
