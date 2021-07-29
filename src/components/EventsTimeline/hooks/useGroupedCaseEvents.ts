@@ -15,7 +15,7 @@ export default (caseEvents: CaseEvent[]) =>
 
     // group
     if (shouldBeGrouped(item) && equalItems(last, item)) {
-      last.caseEvents.push(item)
+      last.caseEvents.unshift(item)
     }
     // new row
     else {
