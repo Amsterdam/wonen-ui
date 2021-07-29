@@ -5,7 +5,7 @@ import type { Field } from "../helpers/fields"
 import UnstyledList from "./UnstyledList"
 import FinancialDisplay from "../../FinancialDisplay/FinancialDisplay"
 import Value from "./Value"
-import DefinitionList from "../../../components/DefinitionList/DefinitionList"
+import DefinitionList from "../../../components/Data/DefinitionList/DefinitionList"
 
 type Props = {
   fields: Field[]
@@ -44,19 +44,19 @@ const displayValue = (value: unknown, mapValue: Field["mapValue"], isCurrency = 
 }
 
 const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => {
-  
+
   const displayValues =  fields.reduce((acc, { key, label, shouldShow, mapValue, italic, isCurrency }) => {
     const value = values[key]
     if (value == null || shouldShow(value, isNested) === false) return acc
 
     acc[ label ] = <Value value={ displayValue(value, mapValue, isCurrency) } displayItalic={ italic }/>
-    
+
     return acc
 
   }, {} as Record<string, React.ReactNode>)
 
-  return <DefinitionList values={ displayValues } hasRowsSeperated={ false } />
-    
+  return <DefinitionList data={ displayValues } hasRowsSeperated={ false } />
+
 }
 
 export default EventData
