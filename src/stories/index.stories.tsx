@@ -1,12 +1,13 @@
 import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
 import { storiesOf } from "@storybook/react"
 import {
-  EventsTimeline,
+  CaseIdDisplay,
   DateDisplay,
   DayDisplay,
-  CaseIdDisplay,
   List,
   DefinitionList,
+  EventsTimeline,
+  FinancialDisplay,
   PersonNameDisplay,
   PersonRoleDisplay,
   TextWithLinebreaks,
@@ -15,11 +16,17 @@ import {
 import eventsTimelineData from "./eventsTimelineData"
 import definitionListData from "./definitionListData"
 
-// Timeline
-storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
+// CaseIdDisplay
+storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
   <ThemeProvider>
     <GlobalStyle />
-    <EventsTimeline events={ eventsTimelineData } spacingHorizontal={ 6 } hasTransparentBackground={ false } />
+    <CaseIdDisplay id="1234" />
+  </ThemeProvider>
+))
+storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <CaseIdDisplay />
   </ThemeProvider>
 ))
 
@@ -52,9 +59,7 @@ storiesOf("DateDisplay", module).add("Datum ongeldig", () => (
   </ThemeProvider>
 ))
 
-
 // DayDisplay
-
 storiesOf("DayDisplay", module).add("Dag, kleine letter", () => (
   <ThemeProvider>
     <GlobalStyle />
@@ -69,22 +74,6 @@ storiesOf("DayDisplay", module).add("Dag, hoofdletter", () => (
   </ThemeProvider>
 ))
 
-
-// CaseIdDisplay
-storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
-  <ThemeProvider>
-    <GlobalStyle />
-    <CaseIdDisplay id="1234" />
-  </ThemeProvider>
-))
-storiesOf("CaseIdDisplay", module).add("CaseId, undefined", () => (
-  <ThemeProvider>
-    <GlobalStyle />
-    <CaseIdDisplay />
-  </ThemeProvider>
-))
-
-
 // Data
 
 // List
@@ -96,7 +85,7 @@ storiesOf("List", module).add("Met titel", () => (
 ))
 
 // DefinitionList
-storiesOf("DefinitionList", module).add("Met titel", () => (
+storiesOf("DefinitionList", module).add("Default, met titel", () => (
   <ThemeProvider>
     <GlobalStyle />
     <DefinitionList
@@ -105,8 +94,44 @@ storiesOf("DefinitionList", module).add("Met titel", () => (
     />
   </ThemeProvider>
 ))
+storiesOf("DefinitionList", module).add("Default, zonder titel", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <DefinitionList
+      data={ definitionListData }
+    />
+  </ThemeProvider>
+))
+storiesOf("DefinitionList", module).add("Zonder borders", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <DefinitionList
+      title="Objectdetails"
+      data={ definitionListData }
+      hasRowsSeperated={ false }
+    />
+  </ThemeProvider>
+))
 
 
+// EventsTimeline
+storiesOf("EventsTimeline", module).add("Event Tijdlijn", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <EventsTimeline events={ eventsTimelineData } spacingHorizontal={ 6 } hasTransparentBackground={ false } />
+  </ThemeProvider>
+))
+
+// FinancialDisplay
+storiesOf("FinancialDisplay", module).add("default", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <FinancialDisplay amount={1250}/>
+  </ThemeProvider>
+))
+
+
+// PersonNameDisplay
 storiesOf("PersonNameDisplay", module).add("default", () => (
   <ThemeProvider>
     <GlobalStyle />
@@ -119,7 +144,7 @@ storiesOf("PersonNameDisplay", module).add("default", () => (
   </ThemeProvider>
 ))
 
-
+// PersonRoleDisplay
 storiesOf("PersonRoleDisplay", module).add("Eigenaar", () => (
   <ThemeProvider>
     <GlobalStyle />
