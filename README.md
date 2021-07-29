@@ -7,8 +7,13 @@ The package contains the following components:
 - CaseIdDisplay
 - DateDisplay
 - DayDisplay
-- FinancialDisplay
+- DefinitionList
 - EventsTimeline
+- FinancialDisplay
+- PersonNameDisplay
+- PersonRoleDisplay
+- TextWithLinebreaks
+- TextWithUrls
 
 ## Options
 ### TimelineEvents
@@ -42,12 +47,12 @@ npm install @amsterdam/wonen-ui@latest
 ## Storybook
 See [Storybook](https://amsterdam.github.io/wonen-ui/)
 
-You can check the behavior of the components locally in Storybook (styling is not working properly in Storybook)
+You can check the behavior of the components locally in Storybook
 ```
 npm run storybook
 ```
 
-Build Storybook in `/docs` folder
+Build Storybook locally in `/docs` folder. Then push and merge into master to update Storybook on Github
 ```
 npm run storybook:build
 ```
