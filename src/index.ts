@@ -4,6 +4,7 @@ import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DayDisplay from "./components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
+import FinancialDisplay from "./components/FinancialDisplay/FinancialDisplay"
 import DefinitionList from "./components/DefinitionList/DefinitionList"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
@@ -23,6 +24,7 @@ export {
   DayDisplay,
   EventsTimeline,
   CaseIdDisplay,
+  FinancialDisplay,
   DefinitionList,
   LoadingRows,
   PersonNameDisplay,
