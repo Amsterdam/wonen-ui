@@ -6,7 +6,6 @@
   "main": "index.js",
   "scripts": {
     "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test --watchAll=false",
-    "test:watch": "SKIP_PREFLIGHT_CHECK=true react-scripts test --watchAll=true",
     "test:coverage": "SKIP_PREFLIGHT_CHECK=true react-scripts test --coverage --watchAll=false",
     "lint": "eslint --max-warnings 0 --cache --ext .ts,.tsx src",
     "storybook:build": "build-storybook -o docs",
