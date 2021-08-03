@@ -2,7 +2,7 @@ import React from "react"
 import { shallow } from "enzyme"
 import PersonNameDisplay from "../PersonNameDisplay"
 
-describe("FinancialDisplay", () => {
+describe("PersonNameDisplay", () => {
   let component = shallow(<PersonNameDisplay sex="V" firstName="A." name="Beecee"/>)
 
   it("should render component with first- and lastname", () => {

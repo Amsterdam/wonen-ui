@@ -137,9 +137,9 @@ storiesOf("PersonNameDisplay", module).add("default", () => (
     <GlobalStyle />
     <PersonNameDisplay
         sex="V"
-        firstName="Gouderinge"
+        firstName="A.C."
         namePrefix="van"
-        name="A.C."
+        name="Gouderinge"
     />
   </ThemeProvider>
 ))
