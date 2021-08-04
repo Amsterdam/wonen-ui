@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import CaseIdDisplay from "../CaseIdDisplay"
 
 describe("DateDisplay", () => {
-  let component = shallow(<CaseIdDisplay />)
+  const component = shallow(<CaseIdDisplay />)
 
   it("should render component empty", () => {
     expect(component.text()).toContain("-")
