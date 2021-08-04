@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import PersonNameDisplay from "../PersonNameDisplay"
 
 describe("PersonNameDisplay", () => {
-  let component = shallow(<PersonNameDisplay sex="V" firstName="A." name="Beecee"/>)
+  const component = shallow(<PersonNameDisplay sex="V" firstName="A." name="Beecee"/>)
 
   it("should render component with first- and lastname", () => {
     expect(component.text()).toContain("A.")

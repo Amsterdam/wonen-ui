@@ -4,10 +4,10 @@ import List from "../List"
 import { Heading } from "@amsterdam/asc-ui"
 
 describe("List", () => {
-  let component = shallow(<List data={[]}/>)
+  const component = shallow(<List data={[]}/>)
   
   it("should render NO component with a listitem", () => {
-    expect(component.find(<ul></ul>).exists()).toEqual(false)
+    expect(component.find(<ul></ul>).exists()).toBeFalsy()
   })
 
   it("should render component", () => {  
@@ -18,11 +18,11 @@ describe("List", () => {
   })
 
   it("should render component without a title", () => {
-    expect(component.find(Heading).exists()).toEqual(false)
+    expect(component.find(Heading).exists()).toBeFalsy()
   })
 
   it("should render component with a title", () => {
     component.setProps({ title: "Titel" })
-    expect(component.find(Heading).exists()).toEqual(true)
+    expect(component.find(Heading).exists()).toBeTruthy()
   })
 })

@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import PersonRoleDisplay from "../PersonRoleDisplay"
 
 describe("PersonRoleDisplay", () => {
-  let component = shallow(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER"/>)
+  const component = shallow(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER"/>)
 
   it("should render component with role -eigenaar-", () => {
     expect(component.text()).toContain("eigenaar")

@@ -3,7 +3,7 @@ import { shallow } from "enzyme"
 import FinancialDisplay from "../FinancialDisplay"
 
 describe("FinancialDisplay", () => {
-  let component = shallow(<FinancialDisplay amount={ 1250 }/>)
+  const component = shallow(<FinancialDisplay amount={ 1250 }/>)
 
   it("should render component with eurosign", () => {
     expect(component.text()).toContain("€")
