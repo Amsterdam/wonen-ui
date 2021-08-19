@@ -32,7 +32,7 @@
     "dompurify": "^2.3.0"
   },
   "devDependencies": {
-    "@amsterdam/asc-assets": "^0.31.0",
+    "@amsterdam/asc-assets": "^0.32.0",
     "@amsterdam/asc-ui": "^0.32.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.1.21",
