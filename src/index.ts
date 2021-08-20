@@ -6,6 +6,7 @@ import DayDisplay from "./components/DayDisplay/DayDisplay"
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import List from "./components/Data/List/List"
 import DefinitionList from "./components/Data/DefinitionList/DefinitionList"
+import Table from "./components/Data/Table/Table"
 import FinancialDisplay from "./components/FinancialDisplay/FinancialDisplay"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
@@ -27,6 +28,7 @@ export {
   CaseIdDisplay,
   List,
   DefinitionList,
+  Table,
   LoadingRows,
   FinancialDisplay,
   PersonNameDisplay,

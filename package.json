@@ -29,7 +29,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
-    "dompurify": "^2.3.0"
+    "dompurify": "^2.3.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.31.0",
