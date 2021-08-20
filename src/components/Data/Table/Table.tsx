@@ -2,7 +2,7 @@ import { useState } from "react"
 import { breakpoint, themeColor } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 
-import SmallSkeleton from "../../Helpers/SmallSkeleton"
+import SmallSkeleton from "../components/SmallSkeleton"
 import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"

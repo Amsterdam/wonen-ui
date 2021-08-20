@@ -2,8 +2,8 @@ import React from "react"
 import { Heading } from "@amsterdam/asc-ui"
 import styled from "styled-components"
 
-import SmallSkeleton from "../../Helpers/SmallSkeleton"
-import LoadingRows from "../../Helpers/LoadingRows"
+import SmallSkeleton from "../components/SmallSkeleton"
+import LoadingRows from "../components/LoadingRows"
 import Definition from "./components/Definition"
 
 type Props = {
