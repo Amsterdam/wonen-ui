@@ -124,11 +124,12 @@ storiesOf("Table", module).add("loading", () => (
       columns={ [
         { header: "één" },
         { header: "twee" },
-        { header: "drie" }
+        { header: "drie", minWidth: 200 }
       ] }
       data={ undefined }
       loading={ true }
       numLoadingRows={ 6 }
+      hasFixedColumn={ true }
     />
   </ThemeProvider>
 ))

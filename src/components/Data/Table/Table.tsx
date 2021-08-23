@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, Fragment } from "react"
 import { breakpoint, themeColor } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 
@@ -133,7 +133,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
                       return hasFixedColumn && index === columns.length - 1
                         ? <FixedTableCell key={ index } width={ fixedColumnWidth }>{ node }</FixedTableCell>
                         : <TableCell key={ index }>
-                            { loading ? <SmallSkeleton maxRandomWidth={ (column.minWidth ?? 30) - 30 } /> : node }
+                            { loading ? <SmallSkeleton maxRandomWidth={ (column.minWidth ?? 30) } /> : node }
                           </TableCell>
 
                     }
@@ -143,9 +143,13 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
             }
             { loading && createLoadingData(columns.length, numLoadingRows).map((row, index) =>
               <Row key={ index }>
-                { row.map((cell, index) => hasFixedColumn && index === row.length - 1
-                    ? <FixedTableCell key={index} width={ fixedColumnWidth }>{ cell ?? <>&nbsp;</> }</FixedTableCell>
-                    : <TableCell key={index}>{ loading ? <SmallSkeleton maxRandomWidth={ (columns[index].minWidth ?? 30) - 30} /> : cell ?? <>&nbsp;</> }</TableCell>
+                { row.map((cell, index) =>
+                    <Fragment key={ index }>
+                    { hasFixedColumn && index === row.length - 1
+                      ? <FixedTableCell width={ fixedColumnWidth }><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></FixedTableCell>
+                      : <TableCell><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></TableCell>
+                    }
+                    </Fragment>
                 ) }
               </Row>
             ) }
