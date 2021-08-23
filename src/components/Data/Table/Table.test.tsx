@@ -1,5 +1,5 @@
 import { mount } from "enzyme"
-import { SmallSkeleton } from "@amsterdam/wonen-ui"
+import SmallSkeleton from "../components/SmallSkeleton"
 
 import TableCell from "./components/TableCell/TableCell"
 import Table from "./Table"
