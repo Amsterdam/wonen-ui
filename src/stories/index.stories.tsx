@@ -6,6 +6,7 @@ import {
   DayDisplay,
   List,
   DefinitionList,
+  Table,
   EventsTimeline,
   FinancialDisplay,
   PersonNameDisplay,
@@ -15,6 +16,8 @@ import {
 } from "../index"
 import eventsTimelineData from "./eventsTimelineData"
 import definitionListData from "./definitionListData"
+
+import { sortNumbers } from "../components/Data/Table/utils/sorters"
 
 // CaseIdDisplay
 storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
@@ -109,6 +112,62 @@ storiesOf("DefinitionList", module).add("Zonder borders", () => (
       title="Objectdetails"
       data={ definitionListData }
       hasRowsSeperated={ false }
+    />
+  </ThemeProvider>
+))
+
+// Table
+storiesOf("Table", module).add("loading", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <Table
+      columns={ [
+        { header: "één" },
+        { header: "twee" },
+        { header: "drie", minWidth: 200 }
+      ] }
+      data={ undefined }
+      loading={ true }
+      numLoadingRows={ 6 }
+      hasFixedColumn={ true }
+    />
+  </ThemeProvider>
+))
+
+storiesOf("Table", module).add("arrays", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <Table
+      columns={ [
+        { header: "number" },
+        { header: "string" },
+        { header: "ReactNode" }
+      ] }
+      data={ [
+        [1, "een", <span>span</span>],
+        [2, "twee", <>ReactFragment</>]
+      ] }
+    />
+  </ThemeProvider>
+))
+
+storiesOf("Table", module).add("objects", () => (
+  <ThemeProvider>
+    <GlobalStyle />
+    <Table
+      columns={ [
+        { header: "number", dataIndex: "num", sorter: sortNumbers, defaultSorting: "ASCEND" },
+        { header: "string", dataIndex: "str" },
+        { header: "ReactNode", dataIndex: "n", emptyValue: "Empty node" }
+      ] }
+      data={ [
+        { num: 1, str: "een", n: <span>span</span>, excess: true },
+        { num: 2, str: "twee", n: <>ReactFragment</> },
+        { num: 3, str: undefined, n: null, excess: false },
+        { num: 4, str: "vier", n: { value: "value", node: <span>node incl. value</span> } }
+      ] }
+      emptyValue="-"
+      onClickRow={ (data: any) => console.log(data) }
     />
   </ThemeProvider>
 ))

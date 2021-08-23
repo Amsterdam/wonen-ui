@@ -3,7 +3,7 @@ import { useUID } from "react-uid"
 import { Icon } from "@amsterdam/asc-ui"
 import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
 import { ButtonVariant } from "@amsterdam/asc-ui/lib/components/Button/Button"
-import { Check, ExpandMore } from "./Icons"
+import { Check, ExpandMore } from "../../../Icons"
 
 import {
   TimelineItem,

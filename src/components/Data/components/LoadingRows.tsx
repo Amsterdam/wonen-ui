@@ -1,7 +1,7 @@
 import React from "react"
-import RepeatChildren from "../Data/components/RepeatChildren"
+import RepeatChildren from "./RepeatChildren"
 import SmallSkeleton from "./SmallSkeleton"
-import Definition from "../Data/DefinitionList/components/Definition"
+import Definition from "../DefinitionList/components/Definition"
 
 type Props = {
   numRows: number
