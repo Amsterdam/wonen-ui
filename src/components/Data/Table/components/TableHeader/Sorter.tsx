@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import { Icon, themeSpacing, themeColor } from "@amsterdam/asc-ui"
 import { ArrowDownward, ArrowUpward } from "../../../../Icons"
