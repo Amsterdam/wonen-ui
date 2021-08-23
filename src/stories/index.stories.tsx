@@ -164,7 +164,7 @@ storiesOf("Table", module).add("objects", () => (
         { num: 1, str: "een", n: <span>span</span>, excess: true },
         { num: 2, str: "twee", n: <>ReactFragment</> },
         { num: 3, str: undefined, n: null, excess: false },
-        { num: 4, str: "vier", n: { value: "value", node: <span>node incl. value</span> } },
+        { num: 4, str: "vier", n: { value: "value", node: <span>node incl. value</span> } }
       ] }
       emptyValue="-"
       onClickRow={ (data: any) => console.log(data) }
