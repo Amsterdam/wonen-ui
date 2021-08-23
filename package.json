@@ -22,19 +22,21 @@
   "peerDependencies": {
     "@amsterdam/asc-assets": ">= 0.29",
     "@amsterdam/asc-ui": ">= 0.29",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "react": ">= 16",
     "react-dom": ">= 16",
     "styled-components": ">= 5"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
     "dompurify": "^2.3.0",
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@amsterdam/asc-assets": "^0.32.0",
     "@amsterdam/asc-ui": "^0.32.0",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.1.21",
     "@types/dompurify": "^2.2.3",
