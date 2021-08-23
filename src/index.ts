@@ -7,6 +7,7 @@ import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import List from "./components/Data/List/List"
 import DefinitionList from "./components/Data/DefinitionList/DefinitionList"
 import Table from "./components/Data/Table/Table"
+import * as tableSorters from "./components/Data/Table/utils/sorters"
 import FinancialDisplay from "./components/FinancialDisplay/FinancialDisplay"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
@@ -29,6 +30,7 @@ export {
   List,
   DefinitionList,
   Table,
+  tableSorters,
   LoadingRows,
   FinancialDisplay,
   PersonNameDisplay,
