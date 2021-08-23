@@ -1,5 +1,5 @@
 import { Button, Hidden } from "@amsterdam/asc-ui"
-import { ChevronRight } from "../../../../EventsTimeline/components/Timeline/Icons/"
+import { ChevronRight } from "../../../../Icons"
 import ButtonLink from "../ButtonLink/ButtonLink"
 
 type Props = React.ComponentProps<typeof Button> & {

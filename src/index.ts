@@ -15,10 +15,12 @@ import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import LoadingRows from "./components/Data/components/LoadingRows"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
 import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
+import * as Icons from "./components/Icons"
 
 export type { CaseEvent }
 
 export {
+  CaseIdDisplay,
   DateDisplay,
   displayDate,
   displayTime,
@@ -26,7 +28,6 @@ export {
   isDate,
   DayDisplay,
   EventsTimeline,
-  CaseIdDisplay,
   List,
   DefinitionList,
   Table,
@@ -37,5 +38,6 @@ export {
   PersonRoleDisplay,
   SmallSkeleton,
   TextWithLinebreaks,
-  TextWithURLs
+  TextWithURLs,
+  Icons
 }
