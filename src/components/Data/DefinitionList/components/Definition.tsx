@@ -1,6 +1,7 @@
 import React from "react"
 import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
+import TextWithLinebreaks from "../../../TextWithLinebreaks/TextWithLinebreaks"
 
 type Props = {
   term: React.ReactNode
@@ -80,7 +81,7 @@ const castValue = (value: React.ReactNode) => {
 const Definition: React.FC<Props> = ({ term, value, hasRowsSeperated }) => (
   <Div hasRowsSeperated={ hasRowsSeperated }>
     <Dt hasRowsSeperated={ hasRowsSeperated }>{ term }</Dt>
-    <Dd hasRowsSeperated={ hasRowsSeperated }>{ castValue(value) }</Dd>
+    <Dd hasRowsSeperated={ hasRowsSeperated }><TextWithLinebreaks>{ castValue(value) }</TextWithLinebreaks></Dd>
   </Div>
 )
 export default Definition
