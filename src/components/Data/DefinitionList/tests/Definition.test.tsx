@@ -1,6 +1,7 @@
 import React from "react"
 import { shallow } from "enzyme"
 import Definition from "../components/Definition"
+import TextWithLinebreaks from "components/TextWithLinebreaks/TextWithLinebreaks"
 
 describe("DefinitionList", () => {
   const component = shallow(<Definition term="Label" value="Value" />)
@@ -10,6 +11,6 @@ describe("DefinitionList", () => {
   })
 
   it("should render a value", () => {  
-    expect(component.text()).toContain("Value")
+    expect(component.find(TextWithLinebreaks).exists()).toBeTruthy()
   })
 })
