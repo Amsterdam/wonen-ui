@@ -8,12 +8,22 @@ The package contains the following components:
 - DateDisplay
 - DayDisplay
 - DefinitionList
+- displayDate
+- displayTime
 - EventsTimeline
 - FinancialDisplay
+- Icons
+- isValidDate
+- isDate
+- List
+- LoadingRows
 - PersonNameDisplay
 - PersonRoleDisplay
+- SmallSkeleton
+- Table
+- tableSorters
 - TextWithLinebreaks
-- TextWithUrls
+- TextWithURLs
 
 ## Options
 ### TimelineEvents

@@ -15,7 +15,7 @@ export const widthMobile = 48
 
 const StyledTd = styled.td<StyledTDProps>`
   padding: ${ themeSpacing(4) } ${ themeSpacing(3) };
-  vertical-align: top;
+  vertical-align: middle;
 
   position: absolute;
   right: 0;
