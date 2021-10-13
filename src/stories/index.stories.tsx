@@ -1,4 +1,4 @@
-import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
+import { GlobalStyle, ThemeProvider, Tag, Checkbox, Label } from "@amsterdam/asc-ui"
 import { storiesOf } from "@storybook/react"
 import {
   CaseIdDisplay,
@@ -17,7 +17,7 @@ import {
 import eventsTimelineData from "./eventsTimelineData"
 import definitionListData from "./definitionListData"
 
-import { sortNumbers } from "../components/Data/Table/utils/sorters"
+import { sortNumbers, sortStrings } from "../components/Data/Table/utils/sorters"
 
 // CaseIdDisplay
 storiesOf("CaseIdDisplay", module).add("CaseId, 6 cijfers", () => (
@@ -117,7 +117,31 @@ storiesOf("DefinitionList", module).add("Zonder borders", () => (
 ))
 
 // Table
-storiesOf("Table", module).add("loading", () => (
+storiesOf("Table", module).add("Default", () => (
+    <ThemeProvider>
+      <GlobalStyle />
+      <Table
+        columns={ [
+          { header: "number" },
+          { header: "string" },
+          { header: "ReactNode" }
+        ] }
+        data={ [
+          [1, "een", <span>Regular span</span>],
+          [2, "twee", <>ReactFragment</>],
+          [3, "drie", <Tag>Tag</Tag>],
+          [(
+            <Label htmlFor="default" label="Checkbox">
+              <Checkbox id="default" />
+            </Label>
+          ), "vier", "Whatever"
+          ]
+        ] }
+      />
+    </ThemeProvider>
+  ))
+
+storiesOf("Table", module).add("Loading", () => (
   <ThemeProvider>
     <GlobalStyle />
     <Table
@@ -134,30 +158,13 @@ storiesOf("Table", module).add("loading", () => (
   </ThemeProvider>
 ))
 
-storiesOf("Table", module).add("arrays", () => (
-  <ThemeProvider>
-    <GlobalStyle />
-    <Table
-      columns={ [
-        { header: "number" },
-        { header: "string" },
-        { header: "ReactNode" }
-      ] }
-      data={ [
-        [1, "een", <span>span</span>],
-        [2, "twee", <>ReactFragment</>]
-      ] }
-    />
-  </ThemeProvider>
-))
-
-storiesOf("Table", module).add("objects", () => (
+storiesOf("Table", module).add("Sorter", () => (
   <ThemeProvider>
     <GlobalStyle />
     <Table
       columns={ [
         { header: "number", dataIndex: "num", sorter: sortNumbers, defaultSorting: "ASCEND" },
-        { header: "string", dataIndex: "str" },
+        { header: "string", dataIndex: "str", sorter: sortStrings },
         { header: "ReactNode", dataIndex: "n", emptyValue: "Empty node" }
       ] }
       data={ [
