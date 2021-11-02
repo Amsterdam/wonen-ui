@@ -1,4 +1,4 @@
-import CaseEvent from "../components/EventsTimeline/CaseEvent"
+import CaseEvent from "../../components/EventsTimeline/CaseEvent"
 
 const eventsTimelineData: CaseEvent[] = [
   {

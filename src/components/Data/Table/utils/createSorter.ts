@@ -9,7 +9,7 @@ export default (index: DataIndex, sorter: Sorter) =>
     const b = indexValueNode(bs, index)
     const aValue = getValue(a)
     const bValue = getValue(b)
-    if (bValue == null) return 1
-    if (aValue == null) return -1
+    if (aValue == null) return 1
+    if (bValue == null) return -1
     return sorter(aValue, bValue)
   }
