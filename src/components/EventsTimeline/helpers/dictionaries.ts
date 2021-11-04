@@ -87,7 +87,8 @@ export const citizenReportLabelsMap = {
   "reporter_phone": "Telefoonnummer melder",
   "reporter_email": "E-mailadres melder",
   "description_citizenreport": "Samenvatting melding",
-  "advertisement_linklist": "Advertenties"
+  "advertisement_linklist": "Advertenties",
+  "nuisance": "Melding overlast"
 }
 // GENERIC EVENT
 export const genericLabelsMap = {
@@ -127,5 +128,10 @@ export const visitEventValuesMap = {
 export const visit_go_ahead = {
   "true": "Ja, doorlaten",
   "false": "Nee, tegenhouden"
+}
+
+export const nuisance = {
+  "true": "Ja",
+  "false": "Nee"
 }
 
