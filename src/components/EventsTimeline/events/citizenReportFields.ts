@@ -1,4 +1,5 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
+import { nuisance } from "../helpers/dictionaries"
 
 export default [
   {
@@ -15,5 +16,9 @@ export default [
   {
     key: "description_citizenreport",
     italic: true
+  },
+  {
+    key: "nuisance",
+    mapValue: (v: keyof typeof nuisance) => nuisance[v]
   }
 ]

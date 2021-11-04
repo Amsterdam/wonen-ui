@@ -30,7 +30,8 @@ const eventsTimelineData: CaseEvent[] = [
         "http://www.example.com"
       ],
       description_citizenreport: "Korte toelichting..",
-      author: "Adam"
+      author: "Adam",
+      nuisance: false
     },
     date_created: "2021-05-18T11:52:03+0200",
     type: "CITIZEN_REPORT",
