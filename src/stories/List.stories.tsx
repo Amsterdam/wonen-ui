@@ -20,7 +20,7 @@ export default {
         defaultValue: { summary: "h2" }
       }
     },
-    isLoading: {
+    loading: {
       description: "Loading status of list",
       table: {
         type: { summary: "boolean" },
@@ -49,7 +49,7 @@ Default.args = {
   title: "Lijst",
   data: ["Alfa", "Beta", "Gamma"],
   headingSize: "h2",
-  isLoading: false,
+  loading: false,
   numLoadingRows: 6,
   emptyPlaceholder: "empty"
 }

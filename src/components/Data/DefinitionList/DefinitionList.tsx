@@ -8,11 +8,11 @@ import Definition from "./components/Definition"
 
 type Props = {
   numLoadingRows?: number
-  isLoading?: boolean
+  loading?: boolean
   title?: React.ReactNode
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
   data: Record<string, React.ReactNode> | undefined
-  noValuesPlaceholder?: React.ReactNode
+  emptyPlaceholder?: React.ReactNode
   hasRowsSeperated?: boolean
 }
 
@@ -21,12 +21,12 @@ const Dl = styled.dl`
 `
 
 const DefinitionList: React.FC<Props> = ({
-  isLoading = false,
+  loading = false,
   numLoadingRows = 5,
   title,
   headingSize = "h2",
   data,
-  noValuesPlaceholder,
+  emptyPlaceholder,
   hasRowsSeperated = true
 }) => {
 
@@ -34,17 +34,28 @@ const DefinitionList: React.FC<Props> = ({
 
   return (
     <div>
-      { title &&
+      { title && (
         <Heading forwardedAs={ headingSize }>
-          { isLoading ? <SmallSkeleton height={10} /> : title }
+          { loading ? <SmallSkeleton height={10} /> : title }
         </Heading>
-      }
+      )}
       <Dl>
-        { isLoading ?
-            <LoadingRows numRows={ numLoadingRows } /> :
-          data === undefined && noValuesPlaceholder !== undefined ?
-            <>{ noValuesPlaceholder }</> :
-            <>{ rows.map(([term, value]) => <Definition key={ term } term={ term } value={ value } hasRowsSeperated={ hasRowsSeperated } />) }</>
+        { loading ? (
+          <LoadingRows numRows={ numLoadingRows } />
+        ) : (
+          data === undefined && emptyPlaceholder !== undefined) ? (
+            <>{ emptyPlaceholder }</>
+          ) : (
+            <>{ rows.map(([term, value]) => (
+              <Definition
+                key={ term }
+                term={ term }
+                value={ value }
+                hasRowsSeperated={ hasRowsSeperated }
+              />
+              ))}
+            </>
+          )
         }
       </Dl>
     </div>

@@ -13,8 +13,8 @@ export default {
       description: "Seperates the rows with borders"
     },
     headingSize: {},
-    isLoading: {},
-    noValuesPlaceholder: {},
+    loading: {},
+    emptyPlaceholder: {},
     numLoadingRows: {},
     title: {}
   }
@@ -32,8 +32,8 @@ Default.args = {
   data: definitionListData,
   hasRowsSeperated: true,
   headingSize: "h2",
-  isLoading: false,
-  noValuesPlaceholder: "empty",
+  loading: false,
+  emptyPlaceholder: "empty",
   numLoadingRows: 5,
   title: "Objectdetails"
 }

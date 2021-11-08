@@ -8,10 +8,10 @@ import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
 import { Sorting } from "./components/TableHeader/Sorter"
 import createSorter from "./utils/createSorter"
-import { getNode } from "./utils/getValue"
-import indexValueNode from "./utils/indexValueNode"
+// import { getNode } from "./utils/getValue"
+// import indexValueNode from "./utils/indexValueNode"
 
-export type Value = string | number | null | undefined
+export type Value = string | number | boolean | null | undefined
 export type WrappedValue = { value: Value, node: React.ReactNode }
 export type ValueNode = Value | WrappedValue | React.ReactNode
 export type ValueNodes = ValueNode[] | Record<string, ValueNode>
@@ -23,16 +23,15 @@ type Props<R> = {
   hasFixedColumn?: boolean
   columns: {
     header?: React.ReactNode
-    dataIndex?: number | keyof R
+    dataIndex: string
     sorter?: (a: Value, b: Value) => number
     defaultSorting?: Sorting["order"]
-    emptyValue?: React.ReactNode
     minWidth?: number
+    render?: (text: string, record?: any) => void
   }[]
   data?: R[]
-  noValuesPlaceholder?: React.ReactNode
+  emptyPlaceholder?: React.ReactNode
   showHeadWhenEmpty?: boolean
-  emptyValue?: React.ReactNode
   onClickRow?: (data: R, index: number, event: React.MouseEvent) => void
   className?: string
 }
@@ -90,8 +89,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     numLoadingRows = 5,
     hasFixedColumn,
     showHeadWhenEmpty = true,
-    noValuesPlaceholder = "",
-    emptyValue = <>&nbsp;</>,
+    emptyPlaceholder = "",
     onClickRow,
     className,
     data
@@ -115,51 +113,56 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     <Wrap className={ className }>
       <HorizontalScrollContainer fixedColumnWidth={ fixedColumnWidth }>
         <StyledTable>
-          { (showHeadWhenEmpty || !isEmpty) &&
+          {(showHeadWhenEmpty || !isEmpty) && (
             <TableHeader
               columns={ columns }
               hasFixedColumn={ hasFixedColumn }
               onChangeSorting={ setSorting }
               sorting={ sorting }
             />
-          }
+          )}
           <tbody>
-            { !loading && sortedData?.map((rowData, index) => (
-                <Row key={ index } onClick={ (event: React.MouseEvent) => onClickRow?.(rowData, index, event) } isClickable={ onClickRow !== undefined } >
-                  { columns.map((column, index) => {
-                      const valueNode = indexValueNode(rowData, column.dataIndex ?? index)
-                      const node = getNode(valueNode) ?? column.emptyValue ?? emptyValue
-
-                      return hasFixedColumn && index === columns.length - 1
-                        ? <FixedTableCell key={ index } width={ fixedColumnWidth }>{ node }</FixedTableCell>
-                        : <TableCell key={ index }>
-                            { loading ? <SmallSkeleton maxRandomWidth={ (column.minWidth ?? 30) } /> : node }
-                          </TableCell>
-
+            {!loading && sortedData?.map((rowData, index) => (
+              <Row key={ index } onClick={ (event: React.MouseEvent) => onClickRow?.(rowData, index, event) } isClickable={ onClickRow !== undefined } >
+                {columns.map((column, index) => {
+                    const node = column.render ? column.render(rowData[column.dataIndex], rowData) : rowData[column.dataIndex]
+                    if (hasFixedColumn && index === columns.length - 1) {
+                      return (
+                        <FixedTableCell key={ index } width={ fixedColumnWidth }>
+                          { node }
+                        </FixedTableCell>
+                      )
                     }
-                  ) }
-                </Row>
-              ))
-            }
-            { loading && createLoadingData(columns.length, numLoadingRows).map((row, index) =>
-              <Row key={ index }>
-                { row.map((cell, index) =>
-                    <Fragment key={ index }>
-                    { hasFixedColumn && index === row.length - 1
-                      ? <FixedTableCell width={ fixedColumnWidth }><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></FixedTableCell>
-                      : <TableCell><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></TableCell>
-                    }
-                    </Fragment>
-                ) }
+                    return (
+                      <TableCell key={ index }>
+                        {loading
+                          ? <SmallSkeleton maxRandomWidth={ column.minWidth ?? 30 } />
+                          : node
+                        }
+                      </TableCell>
+                    )
+                })}
               </Row>
-            ) }
-            { !loading && isEmpty && (
+            ))}
+            {loading && createLoadingData(columns.length, numLoadingRows).map((row, index) => (
+              <Row key={ index }>
+                {row.map((cell, index) =>
+                  <Fragment key={ index }>
+                  { hasFixedColumn && index === row.length - 1
+                    ? <FixedTableCell width={ fixedColumnWidth }><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></FixedTableCell>
+                    : <TableCell><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></TableCell>
+                  }
+                  </Fragment>
+                )}
+              </Row>
+            ))}
+            {!loading && isEmpty && (
               <tr>
                 <NoValuesPlaceholder colSpan={ columns.length }>
-                  { noValuesPlaceholder }
+                  { emptyPlaceholder }
                 </NoValuesPlaceholder>
               </tr>
-            ) }
+            )}
           </tbody>
         </StyledTable>
       </HorizontalScrollContainer>
