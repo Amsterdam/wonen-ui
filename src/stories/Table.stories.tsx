@@ -3,7 +3,6 @@ import { Story, Meta } from "@storybook/react"
 import { Tag } from "@amsterdam/asc-ui"
 
 import { Table } from "../index"
-import { sortNumbers, sortStrings } from "../components/Data/Table/utils/sorters"
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -75,6 +74,8 @@ for (let i = 1; i < 11; i++) {
   })
 }
 
+console.log("DATA", data)
+
 export const Default = StoryComponent.bind({})
 Default.args = {
   columns: [
@@ -106,9 +107,9 @@ Sorting.parameters =  {
 Sorting.args = {
   ...Default.args,
   columns: [
-    { header: "Name", dataIndex: "name", sorter: sortStrings, defaultSorting: "ASCEND" },
-    { header: "Age", dataIndex: "age", sorter: sortNumbers },
-    { header: "Address", dataIndex: "street", sorter: sortStrings, minWidth: 200 }
+    { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name), defaultSorting: "ASCEND" },
+    { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
+    { header: "Address", dataIndex: "street", sorter: (a: any, b: any) => a.street.localeCompare(b.street), minWidth: 200 }
   ]
 }
 
@@ -124,13 +125,13 @@ ReactNode.parameters =  {
 ReactNode.args = {
   ...Default.args,
   columns: [
-    { header: "Name", dataIndex: "name", sorter: sortStrings },
-    { header: "Age", dataIndex: "age", sorter: sortNumbers },
+    { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name) },
+    { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
     { header: "Address", dataIndex: "street", minWidth: 200 },
     {
       header: "Status",
       dataIndex: "name",
-      sorter: sortStrings,
+      sorter: (a: any, b: any) => a.available - b.available,
       defaultSorting: "DESCEND",
       render: (text: string, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
     }

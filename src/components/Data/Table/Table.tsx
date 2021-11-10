@@ -7,7 +7,7 @@ import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
 import { Sorting } from "./components/TableHeader/Sorter"
-import createSorter from "./utils/createSorter"
+// import createSorter from "./utils/createSorter"
 // import { getNode } from "./utils/getValue"
 // import indexValueNode from "./utils/indexValueNode"
 
@@ -24,7 +24,7 @@ type Props<R> = {
   columns: {
     header?: React.ReactNode
     dataIndex: string
-    sorter?: (a: Value, b: Value) => number
+    sorter?: (a: ValueNodes, b: ValueNodes) => number
     defaultSorting?: Sorting["order"]
     minWidth?: number
     render?: (text: string, record?: any) => void
@@ -106,7 +106,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
   const [sorting, setSorting] = useState<Sorting | undefined>(defaultSorting)
 
   const sorter = sorting ? columns[sorting.index].sorter : undefined
-  const sortedDataAscend = sorter !== undefined ? data?.sort(createSorter(sorting!.index, sorter)) : data
+  const sortedDataAscend = sorter !== undefined && typeof sorter === "function" ? data?.sort(sorter) : data
   const sortedData = sortedDataAscend !== undefined && sorting?.order === "DESCEND" ? [...sortedDataAscend].reverse() : sortedDataAscend
 
   return (
