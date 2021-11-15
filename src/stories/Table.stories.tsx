@@ -74,8 +74,6 @@ for (let i = 1; i < 11; i++) {
   })
 }
 
-console.log("DATA", data)
-
 export const Default = StoryComponent.bind({})
 Default.args = {
   columns: [
@@ -85,7 +83,7 @@ Default.args = {
       header: "Address",
       dataIndex: "street",
       minWidth: 200,
-      render: (text: string, record: any) => `${ text }, ${ record?.zipCode } ${ record?.city }`
+      render: (text: any, record: any) => `${ text }, ${ record?.zipCode } ${ record?.city }`
     }
   ],
   data,
@@ -133,7 +131,7 @@ ReactNode.args = {
       dataIndex: "name",
       sorter: (a: any, b: any) => a.available - b.available,
       defaultSorting: "DESCEND",
-      render: (text: string, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
+      render: (text: any, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
     }
   ]
 }

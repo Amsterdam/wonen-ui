@@ -28,7 +28,7 @@ type Props<R> = {
     sorter?: (a: ValueNodes, b: ValueNodes) => number
     defaultSorting?: Sorting["order"]
     minWidth?: number
-    render?: (text: Value, record?: any) => React.ReactNode
+    render?: (text: Value, record?: ValueNodes) => React.ReactNode
   }[]
   data?: R[]
   emptyPlaceholder?: React.ReactNode
