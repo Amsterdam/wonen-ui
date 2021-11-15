@@ -6,7 +6,7 @@ import SmallSkeleton from "../components/SmallSkeleton"
 
 type Props = {
   numLoadingRows?: number
-  isLoading?: boolean
+  loading?: boolean
   title?: React.ReactNode
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
   data?: React.ReactNode[]
@@ -23,25 +23,25 @@ const Ul = styled.ul`
   }
 `
 
-const List: React.FC<Props> = ({ numLoadingRows = 0, isLoading, title, headingSize = "h2", data, emptyPlaceholder }) => (
+const List: React.FC<Props> = ({ numLoadingRows = 0, loading, title, headingSize = "h2", data, emptyPlaceholder }) => (
   <>
-    { title &&
-      <Heading forwardedAs={ headingSize }>
-        { isLoading ? <SmallSkeleton height={ 10 } /> : title }
-      </Heading>
-    }
-    { isLoading && numLoadingRows > 0 &&
-      <Ul>
-        <RepeatChildren times={ numLoadingRows }>
-          <li><SmallSkeleton /></li>
-        </RepeatChildren>
-      </Ul>
-    }
-    { data !== undefined && data.length > 0 ?
-      <Ul>
-        { data.map((item, index) => <li key={ index }>{ item }</li>) }
-      </Ul> :
-      emptyPlaceholder
+    { title && (
+        <Heading forwardedAs={ headingSize }>
+          { loading ? <SmallSkeleton height={ 10 } /> : title }
+        </Heading>
+    )}
+    { loading && numLoadingRows > 0 && (
+        <Ul>
+          <RepeatChildren times={ numLoadingRows }>
+            <li><SmallSkeleton /></li>
+          </RepeatChildren>
+        </Ul>
+    )}
+    { data !== undefined && data.length > 0 ? (
+        <Ul>
+          { data.map((item, index) => <li key={ index }>{ item }</li>) }
+        </Ul>
+      ) : emptyPlaceholder
     }
   </>
 )
