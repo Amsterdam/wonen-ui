@@ -11,10 +11,11 @@ import { Sorting } from "./components/TableHeader/Sorter"
 // import { getNode } from "./utils/getValue"
 // import indexValueNode from "./utils/indexValueNode"
 
+export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
+export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
+
 export type Value = string | number | boolean | null | undefined
-export type WrappedValue = { value: Value, node: React.ReactNode }
-export type ValueNode = Value | WrappedValue | React.ReactNode
-export type ValueNodes = ValueNode[] | Record<string, ValueNode>
+export type ValueNodes = Record<string, Value>
 export type DataIndex = number | string | symbol
 
 type Props<R> = {
@@ -27,7 +28,7 @@ type Props<R> = {
     sorter?: (a: ValueNodes, b: ValueNodes) => number
     defaultSorting?: Sorting["order"]
     minWidth?: number
-    render?: (text: string, record?: any) => void
+    render?: (text: Value, record?: any) => React.ReactNode
   }[]
   data?: R[]
   emptyPlaceholder?: React.ReactNode
