@@ -7,9 +7,6 @@ import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
 import { Sorting } from "./components/TableHeader/Sorter"
-// import createSorter from "./utils/createSorter"
-// import { getNode } from "./utils/getValue"
-// import indexValueNode from "./utils/indexValueNode"
 
 export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
 export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
