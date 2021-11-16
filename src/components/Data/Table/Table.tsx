@@ -91,7 +91,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     emptyPlaceholder = "",
     onClickRow,
     className,
-    data
+    data = []
   } = props
 
   const isEmpty = (data?.length ?? 0) === 0
@@ -105,7 +105,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
   const [sorting, setSorting] = useState<Sorting | undefined>(defaultSorting)
 
   const sorter = sorting ? columns[sorting.index].sorter : undefined
-  const sortedDataAscend = sorter !== undefined && typeof sorter === "function" ? data?.sort(sorter) : data
+  const sortedDataAscend = sorter !== undefined && typeof sorter === "function" ? [...data].sort(sorter) : data
   const sortedData = sortedDataAscend !== undefined && sorting?.order === "DESCEND" ? [...sortedDataAscend].reverse() : sortedDataAscend
 
   return (
