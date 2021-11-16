@@ -67,9 +67,11 @@ for (let i = 1; i < 11; i++) {
   data.push({
     name: `John ${ lastNames[Math.floor(Math.random() * lastNames.length)] }`,
     age: i * 2 + 16,
-    street: `Weesperstraat ${ i }`,
-    zipCode: "1018 VN",
-    city: "Amsterdam",
+    address: {
+      street: `Weesperstraat ${ i }`,
+      zipCode: "1018 VN",
+      city: "Amsterdam"
+    },
     available: i % 2 === 0
   })
 }
@@ -81,9 +83,9 @@ Default.args = {
     { header: "Age", dataIndex: "age" },
     {
       header: "Address",
-      dataIndex: "street",
+      dataIndex: "address.street",
       minWidth: 200,
-      render: (text: any, record: any) => `${ text }, ${ record?.zipCode } ${ record?.city }`
+      render: (text: any, record: any) => `${ text }, ${ record?.address.zipCode } ${ record?.address.city }`
     }
   ],
   data,
@@ -107,7 +109,7 @@ Sorting.args = {
   columns: [
     { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name), defaultSorting: "ASCEND" },
     { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
-    { header: "Address", dataIndex: "street", sorter: (a: any, b: any) => a.street.localeCompare(b.street), minWidth: 200 }
+    { header: "Address", dataIndex: "address.street", sorter: (a: any, b: any) => a.street.localeCompare(b.street), minWidth: 200 }
   ]
 }
 
@@ -125,7 +127,7 @@ ReactNode.args = {
   columns: [
     { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name) },
     { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
-    { header: "Address", dataIndex: "street", minWidth: 200 },
+    { header: "Address", dataIndex: "address.street", minWidth: 200 },
     {
       header: "Status",
       dataIndex: "name",

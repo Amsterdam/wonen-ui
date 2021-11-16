@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from "react"
 import { breakpoint, themeColor } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
+import _get from "lodash.get"
 
 import SmallSkeleton from "../components/SmallSkeleton"
 import TableCell from "./components/TableCell/TableCell"
@@ -11,7 +12,7 @@ import { Sorting } from "./components/TableHeader/Sorter"
 export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
 export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
 
-export type Value = string | number | boolean | null | undefined
+export type Value = string | number | boolean | null | undefined | Record<string, any>
 export type ValueNodes = Record<string, Value>
 export type DataIndex = number | string | symbol
 
@@ -21,7 +22,7 @@ type Props<R> = {
   hasFixedColumn?: boolean
   columns: {
     header?: React.ReactNode
-    dataIndex: string
+    dataIndex?: string
     sorter?: (a: ValueNodes, b: ValueNodes) => number
     defaultSorting?: Sorting["order"]
     minWidth?: number
@@ -121,24 +122,29 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
           )}
           <tbody>
             {!loading && sortedData?.map((rowData, index) => (
-              <Row key={ index } onClick={ (event: React.MouseEvent) => onClickRow?.(rowData, index, event) } isClickable={ onClickRow !== undefined } >
+              <Row
+                key={ index }
+                onClick={ (event: React.MouseEvent) => onClickRow?.(rowData, index, event) }
+                isClickable={ onClickRow !== undefined }
+              >
                 {columns.map((column, index) => {
-                    const node = column.render ? column.render(rowData[column.dataIndex], rowData) : rowData[column.dataIndex]
-                    if (hasFixedColumn && index === columns.length - 1) {
-                      return (
-                        <FixedTableCell key={ index } width={ fixedColumnWidth }>
-                          { node }
-                        </FixedTableCell>
-                      )
-                    }
+                  const text = column.dataIndex ? _get(rowData, column.dataIndex) : null
+                  const node = column.render ? column.render(text, rowData) : text
+                  if (hasFixedColumn && index === columns.length - 1) {
                     return (
-                      <TableCell key={ index }>
-                        {loading
-                          ? <SmallSkeleton maxRandomWidth={ column.minWidth ?? 30 } />
-                          : node
-                        }
-                      </TableCell>
+                      <FixedTableCell key={ index } width={ fixedColumnWidth }>
+                        { node }
+                      </FixedTableCell>
                     )
+                  }
+                  return (
+                    <TableCell key={ index }>
+                      {loading
+                        ? <SmallSkeleton maxRandomWidth={ column.minWidth ?? 30 } />
+                        : node
+                      }
+                    </TableCell>
+                  )
                 })}
               </Row>
             ))}

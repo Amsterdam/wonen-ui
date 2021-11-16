@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "dompurify": "^2.3.0",
+    "lodash.get": "^4.4.2",
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
@@ -43,6 +44,7 @@
     "@types/enzyme": "^3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^27.0.1",
+    "@types/lodash.get": "^4.4.6",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.9",
