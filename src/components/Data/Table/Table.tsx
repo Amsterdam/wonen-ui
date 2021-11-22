@@ -13,7 +13,7 @@ export type WrappedValue = { value: Value, node: React.ReactNode } // Can be rem
 export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
 
 export type Value = string | number | boolean | null | undefined | Record<string, any>
-export type ValueNodes = Record<string, Value>
+export type ValueNodes = Record<string, any>
 export type DataIndex = number | string | symbol
 
 type Props<R> = {
