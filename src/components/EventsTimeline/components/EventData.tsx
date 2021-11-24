@@ -47,7 +47,14 @@ const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => {
 
   const displayValues =  fields.reduce((acc, { key, label, shouldShow, mapValue, italic, isCurrency }) => {
     const value = values[key]
-    if (value == null || shouldShow(value, isNested) === false) return acc
+    /**
+     * don't show label and value when
+     * - value == null
+     * - fn shouldshow returns false
+     * - value is an array and this array is empty, 
+     */
+    
+    if (value == null || (Array.isArray(value) && value.length === 0) || !shouldShow(value, isNested)) return acc
 
     acc[ label ] = <Value value={ displayValue(value, mapValue, isCurrency) } displayItalic={ italic }/>
 
