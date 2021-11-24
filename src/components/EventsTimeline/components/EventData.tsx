@@ -54,7 +54,7 @@ const EventData: React.FC<Props> = ({ fields, values, isNested = false }) => {
      * - value is an array and this array is empty, 
      */
     
-    if (value == null || shouldShow(value, isNested) === false || (Array.isArray(value) && value.length === 0)) return acc
+    if (value == null || (Array.isArray(value) && value.length === 0) || !shouldShow(value, isNested)) return acc
 
     acc[ label ] = <Value value={ displayValue(value, mapValue, isCurrency) } displayItalic={ italic }/>
 
