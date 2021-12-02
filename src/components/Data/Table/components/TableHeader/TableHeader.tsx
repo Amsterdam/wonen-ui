@@ -23,8 +23,9 @@ const TableHeader: React.FC<Props> = ({ columns, hasFixedColumn, onChangeSorting
           minWidth={ minWidth }
           isFixed={ hasFixedColumn && index === columns.length - 1 }
         >
-          { sorter ?
-            <Sorter header={ header } sorting={ sorting } onChangeSorting={ onChangeSorting } index={ index } /> : (
+          { sorter ? (
+              <Sorter header={ header } sorting={ sorting } onChangeSorting={ onChangeSorting } index={ index } />
+            ) : (
               header ?? <Hidden maxBreakpoint="laptopM">&nbsp;</Hidden>
             )
           }

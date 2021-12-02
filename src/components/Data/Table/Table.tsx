@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react"
+import React, { useState, Fragment, useMemo } from "react"
 import { breakpoint, themeColor } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 import _get from "lodash.get"
@@ -8,6 +8,8 @@ import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
 import { Sorting } from "./components/TableHeader/Sorter"
+import TablePagination, { PaginationProps, DEFAULT_PAGE_SIZE } from "./components/TablePagination/TablePagination"
+import devWarning from "../../../helpers/devWarning"
 
 export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
 export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
@@ -33,6 +35,8 @@ type Props<R> = {
   showHeadWhenEmpty?: boolean
   onClickRow?: (data: R, index: number, event: React.MouseEvent) => void
   className?: string
+  pagination?: PaginationProps
+  onChange?: (pagination: any, sorting: any) => void
 }
 
 const Wrap = styled.div`
@@ -68,7 +72,6 @@ const Row = styled.tr<ClickableRowProps>`
     }
   `
   }
-
   td {
     border-bottom: 1px solid ${ themeColor("tint", "level3") };
   }
@@ -91,7 +94,9 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     emptyPlaceholder = "",
     onClickRow,
     className,
-    data = []
+    data = [],
+    pagination,
+    onChange
   } = props
 
   const isEmpty = (data?.length ?? 0) === 0
@@ -100,14 +105,68 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     ? columns[columns.length - 1].minWidth
     : undefined
 
+  // ============================ Sorter =============================
   const defaultSortingIndex = columns.findIndex(({ defaultSorting }) => defaultSorting !== undefined)
   const defaultSorting = defaultSortingIndex > -1 ? { index: defaultSortingIndex, order: columns[defaultSortingIndex].defaultSorting! } : undefined
   const [sorting, setSorting] = useState<Sorting | undefined>(defaultSorting)
 
   const sorter = sorting ? columns[sorting.index].sorter : undefined
-  const sortedDataAscend = sorter !== undefined && typeof sorter === "function" ? [...data].sort(sorter) : data
-  const sortedData = sortedDataAscend !== undefined && sorting?.order === "DESCEND" ? [...sortedDataAscend].reverse() : sortedDataAscend
 
+  const getSortedData = () => ({
+    dataIndex: sorting?.index !== undefined ? columns?.[sorting?.index].dataIndex : undefined,
+    order: sorting?.order
+  })
+
+  const onChangeSorting = (sortingObj: any) => {
+    setSorting(sortingObj)
+    onChange?.(
+      getPaginationData(),
+      {
+        dataIndex: sortingObj?.index !== undefined ? columns?.[sortingObj?.index].dataIndex : undefined,
+        order: sortingObj?.order
+      }
+    )
+  }
+
+  const sortedDataAscend = useMemo(() => {
+    if (sorter !== undefined && typeof sorter === "function") {
+      return [...data].sort(sorter)
+    }
+    return data
+  }, [data, sorter])
+
+  const sortedData = useMemo(() => {
+    if (sortedDataAscend !== undefined && sorting?.order === "DESCEND") {
+      return [...sortedDataAscend].reverse()
+    }
+    return sortedDataAscend
+  },[sortedDataAscend, sorting?.order])
+
+  // ========================== Pagination ==========================
+  const onPaginationChange = (page: number) => {
+    pagination?.onPageChange?.(page)
+    onChange?.({ page, collectionSize: mergedPagination.collectionSize  }, getSortedData())
+  }
+
+  devWarning(
+    !(pagination?.page && typeof pagination.page == "number" && pagination.page > 0),
+    "Table",
+    "`page` of `pagination` must be greater than 0."
+  )
+
+  const mergedPagination = {
+    page: pagination?.page ?? 1,
+    pageSize: pagination?.pageSize ?? DEFAULT_PAGE_SIZE,
+    collectionSize: pagination?.collectionSize ?? 1,
+    onPageChange: onPaginationChange
+  }
+
+  const getPaginationData = () => ({
+    page: mergedPagination.page,
+    collectionSize: mergedPagination.collectionSize
+  })
+
+  // ============================ Render ============================
   return (
     <Wrap className={ className }>
       <HorizontalScrollContainer fixedColumnWidth={ fixedColumnWidth }>
@@ -116,7 +175,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
             <TableHeader
               columns={ columns }
               hasFixedColumn={ hasFixedColumn }
-              onChangeSorting={ setSorting }
+              onChangeSorting={ onChangeSorting }
               sorting={ sorting }
             />
           )}
@@ -170,6 +229,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
           </tbody>
         </StyledTable>
       </HorizontalScrollContainer>
+      {pagination && <TablePagination { ...mergedPagination } />}
     </Wrap>
   )
 }

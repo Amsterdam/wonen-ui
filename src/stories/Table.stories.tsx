@@ -63,7 +63,7 @@ const StoryComponent: Story<ComponentProps<typeof Table>> = (args) => <Table {..
 const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez",
   "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson"]
 const data = []
-for (let i = 1; i < 11; i++) {
+for (let i = 1; i < 13; i++) {
   data.push({
     name: `John ${ lastNames[Math.floor(Math.random() * lastNames.length)] }`,
     age: i * 2 + 16,
@@ -78,6 +78,7 @@ for (let i = 1; i < 11; i++) {
 
 export const Default = StoryComponent.bind({})
 Default.args = {
+  className: "name_of_a_class",
   columns: [
     { header: "Name", dataIndex: "name" },
     { header: "Age", dataIndex: "age" },
@@ -89,13 +90,18 @@ Default.args = {
     }
   ],
   data,
+  emptyPlaceholder: "Nothing found! :(",
+  hasFixedColumn: false,
   loading: false,
   numLoadingRows: 10,
-  hasFixedColumn: false,
-  showHeadWhenEmpty: true,
+  pagination: {
+    page: 1,
+    pageSize: 5,
+    collectionSize: data.length
+  },
   onClickRow: (data: any) => console.log(data),
-  emptyPlaceholder: "Nothing found! :(",
-  className: "name_of_a_class"
+  showHeadWhenEmpty: true,
+  onChange: (pagination: any, sorting: any) => console.log(pagination, sorting)
 }
 
 export const Sorting = StoryComponent.bind({})
@@ -130,7 +136,7 @@ ReactNode.args = {
     { header: "Address", dataIndex: "address.street", minWidth: 200 },
     {
       header: "Status",
-      dataIndex: "name",
+      dataIndex: "available",
       sorter: (a: any, b: any) => a.available - b.available,
       defaultSorting: "DESCEND",
       render: (text: any, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
