@@ -46,6 +46,9 @@ export default {
         defaultValue: { summary: 5 }
       }
     },
+    onChange: {
+      description: "Function executed when table sorting or pagination is touched"
+    },
     onClickRow: {
       description: "Function executed when row is clicked"
     },
@@ -99,9 +102,9 @@ Default.args = {
     pageSize: 5,
     collectionSize: data.length
   },
+  onChange: (pagination: any, sorting: any) => console.log(pagination, sorting),
   onClickRow: (data: any) => console.log(data),
-  showHeadWhenEmpty: true,
-  onChange: (pagination: any, sorting: any) => console.log(pagination, sorting)
+  showHeadWhenEmpty: true
 }
 
 export const Sorting = StoryComponent.bind({})
@@ -143,4 +146,3 @@ ReactNode.args = {
     }
   ]
 }
-
