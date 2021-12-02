@@ -32,10 +32,10 @@ const TimelineEventItem: React.FC<Props> = ({
   if (caseEvents.length === 0) return null
 
   const hasPluralEvents = caseEvents.length > 1
-  const titleWithCounter = `${ title } ${ showCount ? `(${ caseEvents.length })` : "" }`
+  const titleExtended = `${ title }${ hasPluralEvents ? "en" : "" } ${ showCount ? `(${ caseEvents.length })` : "" }`
 
   return (
-    <Timeline title={ titleWithCounter } isOpen={ isOpen } hasTransparentBackground={ hasTransparentBackground }>
+    <Timeline title={ titleExtended } isOpen={ isOpen } hasTransparentBackground={ hasTransparentBackground }>
       { caseEvents.map(caseEvent => {
 
           const variablesFields = variablesToFields(caseEvent.event_variables)

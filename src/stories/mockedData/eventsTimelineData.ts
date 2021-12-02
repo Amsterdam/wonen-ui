@@ -136,6 +136,21 @@ const eventsTimelineData: CaseEvent[] = [
       type: "Sluiting"
     },
     emitter_id: 213,
+    id: 4883,
+    type: "SUMMON"
+  },
+  {
+    case: 3898,
+    date_created: "2021-06-22T12:05:11+0200",
+    event_values: {
+      author: "Adam",
+      date_added: "2021-06-22T10:05:11.364215Z",
+      description: "Korte toelichting..",
+      number_of_accommodations: 6,
+      persons: [{ first_name: "Katrien", last_name: "Duck", person_role: "PERSON_ROLE_RESIDENT" }],
+      type: "Sluiting"
+    },
+    emitter_id: 213,
     id: 4884,
     type: "SUMMON"
   },
@@ -155,7 +170,7 @@ const eventsTimelineData: CaseEvent[] = [
   },
 
   {
-    id: 4040,
+    id: 4039,
     event_values: {
       date_added: "2021-05-20T12:31:45.232760Z",
       action: "Bezoek",
@@ -196,19 +211,6 @@ const eventsTimelineData: CaseEvent[] = [
     emitter_id: 137,
     case: 90
 	},
-  { id: 2532,
-    event_values: {
-      author: "A. Beecee",
-      date_added: "2021-03-26T19:19:26.345631Z",
-      violation: "SEND_TO_OTHER_THEME",
-      feedback: "Advertentie gevonden op https://www.example.com, en http://www.example.com/two.",
-      theme: "Kamerverhuur"
-    },
-	  date_created: "2021-03-26T20:19:26+0100",
-	  emitter_id: 317,
-	  case: 3394,
-	  type: "DEBRIEFING"
-  },
   {
     id: 2539,
     event_values: {
