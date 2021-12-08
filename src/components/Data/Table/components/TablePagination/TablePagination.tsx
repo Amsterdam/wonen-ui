@@ -2,12 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Pagination } from "@amsterdam/asc-ui"
 
-export const DEFAULT_PAGE_SIZE = 10
-
 export type PaginationProps = {
-  page: number
-  pageSize: number
-  collectionSize: number
+  page?: number
+  pageSize?: number
+  collectionSize?: number
   onPageChange?: (page: number) => void
 }
 

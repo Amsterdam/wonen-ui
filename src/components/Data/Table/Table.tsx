@@ -8,8 +8,9 @@ import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
 import { Sorting } from "./components/TableHeader/Sorter"
-import TablePagination, { PaginationProps, DEFAULT_PAGE_SIZE } from "./components/TablePagination/TablePagination"
+import TablePagination, { PaginationProps } from "./components/TablePagination/TablePagination"
 import devWarning from "../../../helpers/devWarning"
+import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination/usePagination"
 
 export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
 export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
@@ -35,7 +36,7 @@ type Props<R> = {
   showHeadWhenEmpty?: boolean
   onClickRow?: (data: R, index: number, event: React.MouseEvent) => void
   className?: string
-  pagination?: PaginationProps
+  pagination?: false | PaginationProps
   onChange?: (pagination: any, sorting: any) => void
 }
 
@@ -144,27 +145,54 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
 
   // ========================== Pagination ==========================
   const onPaginationChange = (page: number) => {
-    pagination?.onPageChange?.(page)
     onChange?.({ page, collectionSize: mergedPagination.collectionSize  }, getSortedData())
   }
 
+  // Set warning if pagination prop page is given but not higher than 0.
   devWarning(
-    !(pagination?.page && typeof pagination.page == "number" && pagination.page > 0),
+    pagination !== false && pagination?.page !== undefined  && typeof pagination.page == "number" && !(pagination.page > 0),
     "Table",
     "`page` of `pagination` must be greater than 0."
   )
 
-  const mergedPagination = {
-    page: pagination?.page ?? 1,
-    pageSize: pagination?.pageSize ?? DEFAULT_PAGE_SIZE,
-    collectionSize: pagination?.collectionSize ?? 1,
-    onPageChange: onPaginationChange
-  }
+  const [mergedPagination] = usePagination(
+    sortedData.length,
+    pagination,
+    onPaginationChange
+  )
 
   const getPaginationData = () => ({
     page: mergedPagination.page,
     collectionSize: mergedPagination.collectionSize
   })
+
+  // Get paged data...
+  const pageData = React.useMemo<R[]>(() => {
+    if (pagination === false || !mergedPagination.pageSize) {
+      return sortedData
+    }
+
+    const { page = 1, collectionSize, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination
+
+    // Dynamic table data
+    if (sortedData.length < collectionSize!) {
+      if (sortedData.length > pageSize) {
+        devWarning(
+          true,
+          "Table",
+          "`data` length is less than `pagination.collectionSize` but larger than `pagination.pageSize`. Please make sure your config is correct."
+        )
+        return sortedData.slice((page - 1) * pageSize, page * pageSize)
+      }
+      return sortedData
+    }
+
+    return sortedData.slice((page - 1) * pageSize, page * pageSize)
+  }, [
+    pagination,
+    sortedData,
+    mergedPagination
+  ])
 
   // ============================ Render ============================
   return (
@@ -180,7 +208,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
             />
           )}
           <tbody>
-            {!loading && sortedData?.map((rowData, index) => (
+            {!loading && pageData?.map((rowData, index) => (
               <Row
                 key={ index }
                 onClick={ (event: React.MouseEvent) => onClickRow?.(rowData, index, event) }
@@ -229,7 +257,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
           </tbody>
         </StyledTable>
       </HorizontalScrollContainer>
-      {pagination && <TablePagination { ...mergedPagination } />}
+      {pagination !== undefined && <TablePagination { ...mergedPagination } />}
     </Wrap>
   )
 }

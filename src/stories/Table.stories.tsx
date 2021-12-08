@@ -52,6 +52,12 @@ export default {
     onClickRow: {
       description: "Function executed when row is clicked"
     },
+    pagination: {
+      description: "`Pagination` defined in ASC. Can be a boolean for inner pagination or use external props for API requests",
+      table: {
+        defaultValue: { summary: false }
+      }
+    },
     showHeadWhenEmpty: {
       description: "Show the header of the table when data is empty",
       table: {
@@ -97,14 +103,25 @@ Default.args = {
   hasFixedColumn: false,
   loading: false,
   numLoadingRows: 10,
-  pagination: {
-    page: 1,
-    pageSize: 5,
-    collectionSize: data.length
-  },
   onChange: (pagination: any, sorting: any) => console.log(pagination, sorting),
   onClickRow: (data: any) => console.log(data),
   showHeadWhenEmpty: true
+}
+
+export const Pagination = StoryComponent.bind({})
+Pagination.parameters =  {
+  docs: {
+    storyDescription: "Add `pagination` as a boolean to use inner pagination of the `Table` or pass `pagination` props to have external (API) control."
+  }
+}
+Pagination.args = {
+  ...Default.args,
+  pagination: {
+    page: 1,
+    pageSize: 5,
+    collectionSize: data.length,
+    onPageChange: (page: number) => console.log("`onPageChange` from `pagination` prop called", page)
+  }
 }
 
 export const Sorting = StoryComponent.bind({})
@@ -118,7 +135,7 @@ Sorting.args = {
   columns: [
     { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name), defaultSorting: "ASCEND" },
     { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
-    { header: "Address", dataIndex: "address.street", sorter: (a: any, b: any) => a.street.localeCompare(b.street), minWidth: 200 }
+    { header: "Address", dataIndex: "address.street", sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street), minWidth: 200 }
   ]
 }
 
