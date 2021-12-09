@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useMemo } from "react"
+import React, { Fragment, useMemo } from "react"
 import { breakpoint, themeColor } from "@amsterdam/asc-ui"
 import styled, { css } from "styled-components"
 import _get from "lodash.get"
@@ -7,38 +7,11 @@ import SmallSkeleton from "../components/SmallSkeleton"
 import TableCell from "./components/TableCell/TableCell"
 import TableHeader from "./components/TableHeader/TableHeader"
 import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
-import { Sorting } from "./components/TableHeader/Sorter"
-import TablePagination, { PaginationProps } from "./components/TablePagination/TablePagination"
+import TablePagination from "./components/TablePagination/TablePagination"
 import devWarning from "../../../helpers/devWarning"
-import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination/usePagination"
-
-export type WrappedValue = { value: Value, node: React.ReactNode } // Can be removed
-export type ValueNode = Value | WrappedValue | React.ReactNode // Can be removed
-
-export type Value = string | number | boolean | null | undefined | Record<string, any>
-export type ValueNodes = Record<string, any>
-export type DataIndex = number | string | symbol
-
-type Props<R> = {
-  numLoadingRows?: number
-  loading?: boolean
-  hasFixedColumn?: boolean
-  columns: {
-    header?: React.ReactNode
-    dataIndex?: string
-    sorter?: (a: ValueNodes, b: ValueNodes) => number
-    defaultSorting?: Sorting["order"]
-    minWidth?: number
-    render?: (text: Value, record?: ValueNodes) => React.ReactNode
-  }[]
-  data?: R[]
-  emptyPlaceholder?: React.ReactNode
-  showHeadWhenEmpty?: boolean
-  onClickRow?: (data: R, index: number, event: React.MouseEvent) => void
-  className?: string
-  pagination?: false | PaginationProps
-  onChange?: (pagination: any, sorting: any) => void
-}
+import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination"
+import useSorter from "./hooks/useSorter"
+import { TableTypes, Sorting, DESCEND } from "./types"
 
 const Wrap = styled.div`
   position: relative;
@@ -85,7 +58,7 @@ const NoValuesPlaceholder = styled(TableCell)`
 const createLoadingData = (numColumns: number, numRows: number) =>
   [...Array(numRows)].map(_ => [...Array(numColumns)].map(_ => ""))
 
-const Table = <R extends ValueNodes>(props: Props<R>) => {
+const Table = <R extends object = any>(props: TableTypes<R>) => {
   const {
     columns,
     loading = false,
@@ -107,19 +80,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     : undefined
 
   // ============================ Sorter =============================
-  const defaultSortingIndex = columns.findIndex(({ defaultSorting }) => defaultSorting !== undefined)
-  const defaultSorting = defaultSortingIndex > -1 ? { index: defaultSortingIndex, order: columns[defaultSortingIndex].defaultSorting! } : undefined
-  const [sorting, setSorting] = useState<Sorting | undefined>(defaultSorting)
-
-  const sorter = sorting ? columns[sorting.index].sorter : undefined
-
-  const getSortedData = () => ({
-    dataIndex: sorting?.index !== undefined ? columns?.[sorting?.index].dataIndex : undefined,
-    order: sorting?.order
-  })
-
-  const onChangeSorting = (sortingObj: any) => {
-    setSorting(sortingObj)
+  const onSortingTrigger = (sortingObj: Sorting) => {
     onChange?.(
       getPaginationData(),
       {
@@ -129,23 +90,28 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
     )
   }
 
-  const sortedDataAscend = useMemo(() => {
+  const [mergedSorting, sorter, onChangeSorting, getSortingObj] = useSorter(
+    columns,
+    onSortingTrigger
+  )
+
+  const sortedDataAscend = useMemo<R[]>(() => {
     if (sorter !== undefined && typeof sorter === "function") {
       return [...data].sort(sorter)
     }
     return data
   }, [data, sorter])
 
-  const sortedData = useMemo(() => {
-    if (sortedDataAscend !== undefined && sorting?.order === "DESCEND") {
+  const sortedData = useMemo<R[]>(() => {
+    if (sortedDataAscend !== undefined && mergedSorting?.order === DESCEND) {
       return [...sortedDataAscend].reverse()
     }
     return sortedDataAscend
-  },[sortedDataAscend, sorting?.order])
+  },[sortedDataAscend, mergedSorting?.order])
 
   // ========================== Pagination ==========================
-  const onPaginationChange = (page: number) => {
-    onChange?.({ page, collectionSize: mergedPagination.collectionSize  }, getSortedData())
+  const onPaginationTrigger = (page: number) => {
+    onChange?.({ page, collectionSize: mergedPagination.collectionSize  }, getSortingObj())
   }
 
   // Set warning if pagination prop page is given but not higher than 0.
@@ -158,7 +124,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
   const [mergedPagination] = usePagination(
     sortedData.length,
     pagination,
-    onPaginationChange
+    onPaginationTrigger
   )
 
   const getPaginationData = () => ({
@@ -167,7 +133,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
   })
 
   // Get paged data...
-  const pageData = React.useMemo<R[]>(() => {
+  const pageData = useMemo<R[]>(() => {
     if (pagination === false || !mergedPagination.pageSize) {
       return sortedData
     }
@@ -204,7 +170,7 @@ const Table = <R extends ValueNodes>(props: Props<R>) => {
               columns={ columns }
               hasFixedColumn={ hasFixedColumn }
               onChangeSorting={ onChangeSorting }
-              sorting={ sorting }
+              sorting={ mergedSorting }
             />
           )}
           <tbody>

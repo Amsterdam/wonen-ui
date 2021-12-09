@@ -2,12 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Icon, themeSpacing, themeColor } from "@amsterdam/asc-ui"
 import { ArrowDownward, ArrowUpward } from "../../../../Icons"
-
-type SortingOrder = "ASCEND" | "DESCEND"
-export type Sorting = {
-  index: number
-  order: SortingOrder
-}
+import { Sorting, ASCEND, DESCEND } from "../../types"
 
 type Props = {
   header?: React.ReactNode
@@ -38,8 +33,9 @@ const StyledLabel = styled.div<LabelProps>`
     : ""
   }
   &:active span {
-    ${ ({ isSelected, sortOrder }) => isSelected &&
+    ${ ({ isSelected, sortOrder }) => isSelected && (
       `animation: ${ sortOrder === "DESCEND" ? "rotate-back" : "rotate" } 0.3s ease 0s;`
+      )
     }
   }
   @-webkit-keyframes rotate {
@@ -68,16 +64,16 @@ const StyledIcon = styled(Icon)<IconProps>`
 
 const Sorter: React.FC<Props> = ({ header, index, sorting, onChangeSorting }) => {
   const isSelected = sorting?.index === index
-  // Only show arrow down icon when order is "DESCEND" and sorting is already selected.
-  const Asset = isSelected && sorting?.order === "DESCEND" ? ArrowDownward : ArrowUpward
+  // Only show arrow down icon when order is DESCEND and sorting is already selected.
+  const Asset = isSelected && sorting?.order === DESCEND ? ArrowDownward : ArrowUpward
 
   const onSorterClick = () => {
-    const newOrder = isSelected && sorting?.order === "ASCEND" ? "DESCEND" : "ASCEND"
+    const newOrder = isSelected && sorting?.order === ASCEND ? DESCEND : ASCEND
     onChangeSorting({ index: index, order: newOrder })
   }
 
   return (
-    <StyledLabel isSelected={ isSelected } sortOrder={ sorting?.order ?? "ASCEND" } onClick={ onSorterClick }>
+    <StyledLabel isSelected={ isSelected } sortOrder={ sorting?.order ?? ASCEND } onClick={ onSorterClick }>
       { header ?? <>&nbsp;</> }
       <StyledIcon isSelected={ isSelected }><Asset /></StyledIcon>
     </StyledLabel>

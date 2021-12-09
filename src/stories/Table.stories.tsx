@@ -103,7 +103,7 @@ Default.args = {
   hasFixedColumn: false,
   loading: false,
   numLoadingRows: 10,
-  onChange: (pagination: any, sorting: any) => console.log(pagination, sorting),
+  onChange: (pagination: any, sorting: any) => console.log("Pagination:", pagination,"Sorting:", sorting),
   onClickRow: (data: any) => console.log(data),
   showHeadWhenEmpty: true
 }
@@ -111,31 +111,61 @@ Default.args = {
 export const Pagination = StoryComponent.bind({})
 Pagination.parameters =  {
   docs: {
-    storyDescription: "Add `pagination` as a boolean to use inner pagination of the `Table` or pass `pagination` props to have external (API) control."
+    storyDescription: "Add `pagination` and a sorter to use inner pagination and/or sorting of the `Table`. Set the sorter in the `columns` object like `(a: any, b: any) => a - b`"
   }
 }
 Pagination.args = {
+  ...Default.args,
+  pagination: {},
+  columns: [
+    {
+      header: "Name",
+      dataIndex: "name",
+      sorter: (a: any, b: any) => a.name.localeCompare(b.name)
+    }, {
+      header: "Age",
+      dataIndex: "age",
+      sorter: (a: any, b: any) => a.age - b.age,
+      defaultSortOrder: "DESCEND"
+    }, {
+      header: "Address",
+      dataIndex: "address.street",
+      sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street),
+      minWidth: 200
+    }
+  ]
+}
+
+export const Sorting = StoryComponent.bind({})
+Sorting.parameters =  {
+  docs: {
+    storyDescription: "Add `pagination` props to have external (API) control. Add `sortOrder` in a column to get external control of selected sorters."
+  }
+}
+Sorting.args = {
   ...Default.args,
   pagination: {
     page: 1,
     pageSize: 5,
     collectionSize: data.length,
     onPageChange: (page: number) => console.log("`onPageChange` from `pagination` prop called", page)
-  }
-}
-
-export const Sorting = StoryComponent.bind({})
-Sorting.parameters =  {
-  docs: {
-    storyDescription: "Add a default `sorter` function to the description of `columns`or create a custom one: `(a: any, b: any) => a - b`"
-  }
-}
-Sorting.args = {
-  ...Default.args,
+  },
   columns: [
-    { header: "Name", dataIndex: "name", sorter: (a: any, b: any) => a.name.localeCompare(b.name), defaultSorting: "ASCEND" },
-    { header: "Age", dataIndex: "age", sorter: (a: any, b: any) => a.age - b.age },
-    { header: "Address", dataIndex: "address.street", sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street), minWidth: 200 }
+    {
+      header: "Name",
+      dataIndex: "name",
+      sorter: (a: any, b: any) => a.name.localeCompare(b.name)
+    }, {
+      header: "Age",
+      dataIndex: "age",
+      sorter: (a: any, b: any) => a.age - b.age,
+      sortOrder: "DESCEND"
+    }, {
+      header: "Address",
+      dataIndex: "address.street",
+      sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street),
+      minWidth: 200
+    }
   ]
 }
 
@@ -158,7 +188,7 @@ ReactNode.args = {
       header: "Status",
       dataIndex: "available",
       sorter: (a: any, b: any) => a.available - b.available,
-      defaultSorting: "DESCEND",
+      defaultSortOrder: "DESCEND",
       render: (text: any, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
     }
   ]
