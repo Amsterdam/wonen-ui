@@ -53,9 +53,9 @@ export default {
       description: "Function executed when row is clicked"
     },
     pagination: {
-      description: "`Pagination` defined in ASC. Can be a boolean for inner pagination or use external props for API requests",
+      description: "Can be used internally in the table or use the ASC `Pagination` props for external control with API requests. Set `false` to hide pagination.",
       table: {
-        defaultValue: { summary: false }
+        defaultValue: { summary: {} }
       }
     },
     showHeadWhenEmpty: {
@@ -105,6 +105,7 @@ Default.args = {
   numLoadingRows: 10,
   onChange: (pagination: any, sorting: any) => console.log("Pagination:", pagination,"Sorting:", sorting),
   onClickRow: (data: any) => console.log(data),
+  pagination: false,
   showHeadWhenEmpty: true
 }
 

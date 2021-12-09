@@ -223,7 +223,7 @@ const Table = <R extends object = any>(props: TableTypes<R>) => {
           </tbody>
         </StyledTable>
       </HorizontalScrollContainer>
-      {pagination !== undefined && <TablePagination { ...mergedPagination } />}
+      {pagination !== false && <TablePagination { ...mergedPagination } />}
     </Wrap>
   )
 }
