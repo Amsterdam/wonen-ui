@@ -2,16 +2,13 @@ import React from "react"
 import { Hidden } from "@amsterdam/asc-ui"
 import StyledHeader from "./StyledHeader"
 import Sorter from "./Sorter"
+import { ColumnType, Sorting } from "../../types"
 
 type Props = {
   hasFixedColumn?: boolean
-  columns: {
-    header?: React.ReactNode
-    minWidth?: number
-    sorter?: (a: any, b: any) => number
-  }[]
-  onChangeSorting: (sorting?: any) => void
-  sorting: any
+  columns: ColumnType[]
+  onChangeSorting: (sorting: Sorting) => void
+  sorting?: Sorting
 }
 
 const TableHeader: React.FC<Props> = ({ columns, hasFixedColumn, onChangeSorting, sorting }) => (
