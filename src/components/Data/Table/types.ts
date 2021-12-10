@@ -1,7 +1,6 @@
 type Value = string | number | boolean | null | undefined | Record<string, any>
-// export type ValueNodes = Record<string, any>
 
-export type PaginationTypes = {
+export type PaginationType = {
   page?: number
   pageSize?: number
   collectionSize?: number
@@ -11,35 +10,35 @@ export type PaginationTypes = {
 export const ASCEND = "ASCEND"
 export const DESCEND = "DESCEND"
 
-type SortingOrder = typeof ASCEND | typeof DESCEND
+type SortOrder = typeof ASCEND | typeof DESCEND
 
 export type Sorting = {
   index: number
-  order: SortingOrder
+  order: SortOrder
 }
 
-export type Sorter<R> = (a: R, b: R) => number
+export type Sorter = (a: Value, b: Value) => number
 
-export type Columns<R> = {
+export type ColumnType = {
   header?: React.ReactNode
   dataIndex?: string
-  sorter?: Sorter<R>
-  sortOrder?: Sorting["order"]
-  defaultSortOrder?: Sorting["order"]
+  sorter?: Sorter
+  sortOrder?: SortOrder
+  defaultSortOrder?: SortOrder
   minWidth?: number
-  render?: (text: Value, record: R) => React.ReactNode
-}[]
+  render?: (text: Value, record: Value) => React.ReactNode
+}
 
-export type TableTypes<R> = {
+export type TableType<R> = {
   numLoadingRows?: number
   loading?: boolean
   hasFixedColumn?: boolean
-  columns: Columns<R>
+  columns: ColumnType[]
   data?: R[]
   emptyPlaceholder?: React.ReactNode
   showHeadWhenEmpty?: boolean
   onClickRow?: (record: R, index: number, event: React.MouseEvent) => void
   className?: string
-  pagination?: false | PaginationTypes
+  pagination?: false | PaginationType
   onChange?: (pagination: any, sorting: any) => void
 }

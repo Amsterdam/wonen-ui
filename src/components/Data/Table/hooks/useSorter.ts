@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { Columns, Sorting, Sorter } from "../types"
+import { ColumnType, Sorting, Sorter } from "../types"
 
-const useSorter = <R>(
-  columns: Columns<R>,
+const useSorter = (
+  columns: ColumnType[],
   onSortingTrigger: (sorting: Sorting) => void
 ): [
   Sorting | undefined,
-  Sorter<R> | undefined,
+  Sorter | undefined,
   (sortingObj: Sorting) => void,
   () => {}
 ] => {

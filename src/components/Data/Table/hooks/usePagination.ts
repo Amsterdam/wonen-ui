@@ -1,11 +1,10 @@
 import { useState } from "react"
-import { PaginationTypes } from "../types"
+import { PaginationType } from "../types"
 
 export const DEFAULT_PAGE_SIZE = 10
 
 const extendsObject = <T extends Object>(...list: T[]) => {
   const result: T = {} as T
-
   list.forEach(obj => {
     if (obj) {
       Object.keys(obj).forEach(key => {
@@ -16,15 +15,14 @@ const extendsObject = <T extends Object>(...list: T[]) => {
       })
     }
   })
-
   return result
 }
 
 const usePagination = (
   collectionSize: number,
-  pagination: PaginationTypes | false | undefined,
+  pagination: PaginationType | false | undefined,
   onPageChange: (page: number) => void
-): [PaginationTypes] => {
+): [PaginationType] => {
 
   const { collectionSize: paginationTotal = 0, ...paginationObj }
     = pagination && typeof pagination === "object" ? pagination : {}
@@ -38,7 +36,7 @@ const usePagination = (
   })
 
   // extendsObject is merging the inner table props with the external input.
-  const mergedPagination = extendsObject<Partial<PaginationTypes>>(
+  const mergedPagination = extendsObject<Partial<PaginationType>>(
     innerPagination,
     paginationObj,
     {
@@ -60,7 +58,7 @@ const usePagination = (
     })
   }
 
-  const onInternalChange: PaginationTypes["onPageChange"] = (page: number) => {
+  const onInternalChange: PaginationType["onPageChange"] = (page: number) => {
     if (pagination) {
       pagination.onPageChange?.(page)
     }

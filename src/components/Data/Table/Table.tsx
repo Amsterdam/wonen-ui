@@ -11,7 +11,7 @@ import TablePagination from "./components/TablePagination/TablePagination"
 import devWarning from "../../../helpers/devWarning"
 import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination"
 import useSorter from "./hooks/useSorter"
-import { TableTypes, Sorting, DESCEND } from "./types"
+import { TableType, Sorting, DESCEND } from "./types"
 
 const Wrap = styled.div`
   position: relative;
@@ -58,7 +58,7 @@ const NoValuesPlaceholder = styled(TableCell)`
 const createLoadingData = (numColumns: number, numRows: number) =>
   [...Array(numRows)].map(_ => [...Array(numColumns)].map(_ => ""))
 
-const Table = <R extends object = any>(props: TableTypes<R>) => {
+const Table = <R extends object = any>(props: TableType<R>) => {
   const {
     columns,
     loading = false,
