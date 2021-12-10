@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ColumnType, Sorting, Sorter } from "../types"
+import { ColumnType, Sorting, Sorter, ASCEND, DESCEND } from "../types"
 
 const useSorter = (
   columns: ColumnType[],
@@ -11,12 +11,12 @@ const useSorter = (
   () => {}
 ] => {
 
-  const defaultSortingIndex = columns.findIndex(({ defaultSortOrder }) => defaultSortOrder !== undefined)
+  const defaultSortingIndex = columns.findIndex(({ defaultSortOrder }) => defaultSortOrder === ASCEND || defaultSortOrder === DESCEND)
   const defaultSorting = defaultSortingIndex > -1 ? { index: defaultSortingIndex, order: columns[defaultSortingIndex].defaultSortOrder! } : undefined
 
   const [sorting, setSorting] = useState<Sorting | undefined>(defaultSorting)
 
-  const sortOrderIndex = columns.findIndex(({ sortOrder }) => sortOrder !== undefined)
+  const sortOrderIndex = columns.findIndex(({ sortOrder }) => sortOrder === ASCEND || sortOrder === DESCEND)
   const sortOrderObj = sortOrderIndex > -1 ? { index: sortOrderIndex, order: columns[sortOrderIndex].sortOrder! } : undefined
 
   const mergedSorting = sortOrderObj ?? sorting
