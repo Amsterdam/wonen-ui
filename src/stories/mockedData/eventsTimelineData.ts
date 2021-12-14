@@ -11,7 +11,8 @@ const eventsTimelineData: CaseEvent[] = [
       description: "19:31",
       author: "A. Beecee",
       identification: 123456,
-      advertisement_linklist: []
+      advertisement_linklist: [],
+      subjects:["Hennep", "Overige woonfraude"]
     },
     date_created: "2021-03-17T19:31:11+0100",
     type: "CASE",

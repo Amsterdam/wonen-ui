@@ -17,7 +17,8 @@ export const reasonLabelsMap = {
   "reason": "Aanleiding",
   "project": "Project",
   "advertisement_linklist": "Advertenties",
-  "description": "Toelichting"
+  "description": "Toelichting",
+  "subjects": "Onderwerp(en)"
 }
 
 // CASE_CLOSE

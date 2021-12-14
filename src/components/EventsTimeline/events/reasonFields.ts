@@ -7,6 +7,7 @@ export default [
   },
   "author",
   "reason",
+  "subjects",
   "project",
   "advertisement_linklist",
   {
