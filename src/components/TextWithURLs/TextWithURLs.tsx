@@ -6,6 +6,6 @@ type Props = {
   text: string
 }
 
-const TextWithURLs: React.FC<Props> = ({ text }) => <span dangerouslySetInnerHTML={ { __html: DOMPurify.sanitize(replaceURLs(text)) } } />
+const TextWithURLs: React.FC<Props> = ({ text = "" }) => <span dangerouslySetInnerHTML={ { __html: DOMPurify.sanitize(replaceURLs(text)) } } />
 
 export default TextWithURLs
