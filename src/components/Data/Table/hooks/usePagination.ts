@@ -44,12 +44,19 @@ const usePagination = (
     }
   )
 
+  console.log("mergedPagination 1", mergedPagination)
+
+  /*
+   ** TODO: If page is already known, but collectionSize is not. Page is 1.
+   ** If collectionSize is changing because of an API response, page is not changed if it was already set.
+   ** Find a solution.
+   */
   // Reset `page` if data length or pageSize changed
-  const maxPage = Math.ceil((paginationTotal || collectionSize) / mergedPagination.pageSize!)
-  if (mergedPagination.page! > maxPage) {
-    // Prevent a maximum page count of 0
-    mergedPagination.page = maxPage || 1
-  }
+  // const maxPage = Math.ceil((paginationTotal || collectionSize) / mergedPagination.pageSize!)
+  // if (mergedPagination.page! > maxPage) {
+  //   // Prevent a maximum page count of 0
+  //   mergedPagination.page = maxPage || 1
+  // }
 
   const refreshPagination = (page?: number) => {
     setInnerPagination({
