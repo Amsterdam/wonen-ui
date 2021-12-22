@@ -1,7 +1,8 @@
 import { displayDate, displayTime } from "../../DateDisplay/DateDisplay"
 import { visitLabelsMap, visitEventValuesMap, visit_go_ahead } from "../helpers/dictionaries"
 
-const mapValue = (v: keyof typeof visitEventValuesMap) => visitEventValuesMap[v]
+const mapValue = (v: keyof typeof visitEventValuesMap) => 
+  visitEventValuesMap[v] ?? v.toLowerCase().charAt(0).toUpperCase() + v.replace("_", " ").slice(1)
 
 export default [
   {
