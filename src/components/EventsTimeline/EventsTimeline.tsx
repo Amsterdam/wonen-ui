@@ -11,15 +11,16 @@ export type Props = {
 }
 
 const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground } ) => {
-  const items = useGroupedCaseEvents(events)
+  const { groupedEvents, groupedTimelineEventTotals } = useGroupedCaseEvents(events)
   return (
     <Div spacingHorizontal={ spacingHorizontal }>
-    { items.reverse().map((item, index) => (
+    { groupedEvents.reverse().map((item, index) => (
         <TimelineEvent
           key={ item.caseEvents[0].id }
           timelineEventItem={ item }
           isOpen={ index === 0 }
           hasTransparentBackground={ hasTransparentBackground }
+          groupedTimelineEventTotals={ groupedTimelineEventTotals }
         />
       ))
     }
