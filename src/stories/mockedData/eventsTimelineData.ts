@@ -48,7 +48,7 @@ const eventsTimelineData: CaseEvent[] = [
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
-      author: "Adam",
+      author: "John Doe",
       description: "Toelichting"
     },
     date_created: "2021-05-20T14:31:45+0200",
@@ -178,7 +178,7 @@ const eventsTimelineData: CaseEvent[] = [
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
-      author: "Adam",
+      author: "John Doe",
       description: "Toelichting"
     },
     date_created: "2021-05-20T14:31:45+0200",
@@ -217,7 +217,7 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
-      violation: "YES",
+      violation: "LIKELY_INHABITED",
       feedback: "Hier de opmerkingen..."
     },
     date_created: "2021-03-26T20:19:26+0100",
