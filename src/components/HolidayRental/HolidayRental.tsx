@@ -9,7 +9,7 @@ type Props = {
   hasRowsSeperated?: boolean
 }
 
-const TITLE = "Vakantieverhuur meldingen"
+export const TITLE = "Vakantieverhuur meldingen"
 
 const HolidayRental: React.FC<Props> = ({
   data, loading = false, hasRowsSeperated = true, showRecentYearOnly = false

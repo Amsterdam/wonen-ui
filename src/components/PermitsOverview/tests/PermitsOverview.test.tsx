@@ -1,4 +1,3 @@
-import React from "react"
 import { shallow, mount } from "enzyme"
 import { Heading, Paragraph, Spinner } from "@amsterdam/asc-ui"
 import PermitsOverview from "../PermitsOverview"
@@ -28,20 +27,22 @@ describe("PermitsOverview", () => {
   const wrapper = mount(<PermitsOverview permits={permitsOverviewData} />)
 
   it("should render B&B Permit", () => {
-    expect(wrapper.text().includes(permitsOverviewData[0].permit_type)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[0]?.details?.RESULT)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[0]?.details?.SUBJECT)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[0]?.details?.ADDRESS)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[0]?.details?.HOLDER)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[0]?.details?.PERMIT_NAME)).toBe(true)
+    const firstPermitData = permitsOverviewData[0]
+    expect(wrapper.text().includes(firstPermitData.permit_type)).toBe(true)
+    expect(wrapper.text().includes(firstPermitData?.details?.RESULT)).toBe(true)
+    expect(wrapper.text().includes(firstPermitData?.details?.SUBJECT)).toBe(true)
+    expect(wrapper.text().includes(firstPermitData?.details?.ADDRESS)).toBe(true)
+    expect(wrapper.text().includes(firstPermitData?.details?.HOLDER)).toBe(true)
+    expect(wrapper.text().includes(firstPermitData?.details?.PERMIT_NAME)).toBe(true)
   })
   it("should render Vakantieverhuurvergunning Permit", () => {
-    expect(wrapper.text().includes(permitsOverviewData[1].permit_type)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[1]?.details?.RESULT)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[1]?.details?.SUBJECT)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[1]?.details?.ADDRESS)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[1]?.details?.HOLDER)).toBe(false) // No holder
-    expect(wrapper.text().includes(permitsOverviewData[1]?.details?.PERMIT_NAME)).toBe(true)
+    const secondPermitData = permitsOverviewData[1]
+    expect(wrapper.text().includes(secondPermitData.permit_type)).toBe(true)
+    expect(wrapper.text().includes(secondPermitData?.details?.RESULT)).toBe(true)
+    expect(wrapper.text().includes(secondPermitData?.details?.SUBJECT)).toBe(true)
+    expect(wrapper.text().includes(secondPermitData?.details?.ADDRESS)).toBe(true)
+    expect(wrapper.text().includes(secondPermitData?.details?.HOLDER)).toBe(false) // No holder
+    expect(wrapper.text().includes(secondPermitData?.details?.PERMIT_NAME)).toBe(true)
   })
   it("should not render UNKNOWN permits", () => {
     wrapper.setProps({ showUnknown: false })
