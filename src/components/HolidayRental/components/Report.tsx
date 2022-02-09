@@ -1,3 +1,4 @@
+import React from "react"
 import styled  from "styled-components"
 import { themeSpacing } from "@amsterdam/asc-ui"
 import useNumberOfDaysBetweenDates from "./hooks/useNumberOfDaysBetweenDates"

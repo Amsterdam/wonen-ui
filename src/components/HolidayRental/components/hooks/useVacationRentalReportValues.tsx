@@ -1,3 +1,4 @@
+import React from "react"
 import DateDisplay  from "../../../DateDisplay/DateDisplay"
 
 export default (checkInDate: string, checkOutDate: string) => {

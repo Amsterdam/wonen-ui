@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Icon } from "@amsterdam/asc-ui"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"

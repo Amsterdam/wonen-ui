@@ -1,3 +1,4 @@
+import React from "react"
 import DateDisplay from "../../DateDisplay/DateDisplay"
 import type Permit from "../Permit"
 

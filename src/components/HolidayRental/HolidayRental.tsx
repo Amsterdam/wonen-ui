@@ -1,3 +1,4 @@
+import React from "react"
 import { Spinner, Paragraph, Heading } from "@amsterdam/asc-ui"
 import type VakantieverhuurReportInformation from "./VakantieverhuurReportInformation"
 import HolidayRentalReport from "./components/HolidayRentalReport"
