@@ -6,27 +6,28 @@ import useKnownPermits from "./hooks/useKnownPermits"
 
 export type Props = {
   permits: Permit[]
-  loading: boolean
-  showKnown: boolean
-  hasRowsSeperated: boolean
+  loading?: boolean
+  showUnknown?: boolean
+  hasRowsSeperated?: boolean
 }
 
 /**
- *  Detailed overview of permits
+ *  Detailed overview of permits.
+ *  Based on the Swagger definition of `Permit` in the AZA API.
  */
 
 const PermitsOverview: React.FC<Props> = ({
-  permits, loading = false, showKnown = true, hasRowsSeperated = true
+  permits, loading = false, showUnknown = false, hasRowsSeperated = true
 }) => {
   const knownPermits = useKnownPermits(permits)
-  const filteredPermits = showKnown ? knownPermits : permits
+  const filteredPermits = showUnknown ? permits : knownPermits
 
   if (loading) {
     return <Spinner />
   }
   return (
     <>
-      { filteredPermits === undefined ? (
+      { filteredPermits === undefined || filteredPermits.length === 0 ? (
           <>
             <Heading forwardedAs="h4">Vergunningen</Heading>
             <Paragraph>Geen vergunningen gevonden</Paragraph>

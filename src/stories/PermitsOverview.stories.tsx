@@ -21,5 +21,5 @@ Default.args = {
   hasRowsSeperated: true,
   loading: false,
   permits: permitsOverviewData,
-  showKnown: true
+  showUnknown: false
 }

@@ -13,7 +13,7 @@ export default (permit: Permit) => {
   const optionalValues = [
     ["Resultaat", details?.RESULT],
     ["Omschrijving zaak", details?.SUBJECT],
-    ["Soort vergunning", details?.PERMIT_TYPE],
+    ["Soort vergunning", details?.PERMIT_NAME],
     ["Aangevraagd door", details?.APPLICANT],
     permitIsForBAndB ? ["Vergunninghouder", details?.HOLDER] : undefined,
     ["Locatie", details?.ADDRESS],
