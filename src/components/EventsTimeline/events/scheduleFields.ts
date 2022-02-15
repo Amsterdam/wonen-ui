@@ -8,6 +8,10 @@ export default [
   "author",
   "week_segment",
   "day_segment",
+  {
+    key: "visit_from_datetime",
+    mapValue: (v: string) => displayDate(v)
+  },
   "priority",
   {
     key: "description",

@@ -43,70 +43,97 @@ const TimelineEvent: React.FC<Props> = ({
     isOpen,
     hasTransparentBackground
   }
-  return (
-    <div role="button" tabIndex={ -1 }>
-      { type === "CASE" ?
+
+  const getTimelineEventItem = () => {
+    switch (type) {
+      case "CASE":
+        return (
           <TimelineEventItem
             fields={ fields(reasonFields, reasonLabelsMap) }
             title={ caseTypesMap[type] }
             { ...props }
-          /> :
-        type === "CASE_CLOSE" ?
+          />
+        )
+      case "CASE_CLOSE":
+        return (
           <TimelineEventItem
             fields={ fields(caseCloseFields, caseCloseLabelsMap) }
             title={ caseTypesMap[type] }
             { ...props }
-          /> :
-        type === "SCHEDULE" ?
+          />
+        )
+      case "SCHEDULE":
+        return (
           <TimelineEventItem
             fields={ fields(scheduleFields, scheduleLabelsMap) }
             title={ caseTypesMap[type] }
             { ...props }
-          /> :
-        type === "VISIT" ?
+          />
+        )
+      case "VISIT":
+        return (
           <TimelineEventItem
             fields={ fields(visitFields, visitLabelsMap) }
             title={ caseTypesMap[type] }
             dateField="start_time"
             { ...props }
-          /> :
-        type === "DEBRIEFING" ?
+          />
+        )
+      case "DEBRIEFING":
+        return (
           <TimelineEventItem
             fields={ fields(debriefingFields, debriefLabelsMap) }
             title={ caseTypesMap[type] }
             { ...props }
             dateField="date_added"
-          /> :
-        type === "SUMMON" ?
+          />
+        )
+      case "SUMMON":
+        return (
           <TimelineEventItem
             fields={ fields(summonFields, summonLabelsMap) }
             title={ caseTypesMap[type] }
             dateField="date_added"
             { ...props }
-          /> :
-        type === "DECISION" ?
+          />
+        )
+      case "DECISION":
+        return (
           <TimelineEventItem
             fields={ fields(decisionFields, decisionLabelsMap) }
             title={ caseTypesMap[type] }
             dateField="date_added"
             { ...props }
-          /> :
-        type === "CITIZEN_REPORT" ?
+          />
+        )
+      case "CITIZEN_REPORT":
+        return (
           <TimelineEventItem
             fields={ fields(citizenReportFields, citizenReportLabelsMap) }
             title={ caseTypesMap[type] }
             dateField="date_added"
             { ...props }
-          /> :
-        type === "GENERIC_TASK" ?
+          />
+        )
+      case "GENERIC_TASK":
+        return (
           <TimelineEventItem
             fields={ fields(genericTaskFields, genericLabelsMap) }
             title={ typeof caseEvents[0]?.event_values.description === "string" ? caseEvents[0]?.event_values.description : "Generiek event" }
             dateField="date"
             { ...props }
-          /> :
-        null
-      }
+          />
+        )
+      default:
+        return null
+    }
+  }
+
+  const timeLineEventItem = getTimelineEventItem()
+
+  return (
+    <div role="button" tabIndex={ -1 }>
+      {timeLineEventItem}
     </div>
   )
 }
