@@ -37,7 +37,8 @@ export const scheduleLabelsMap = {
   "day_segment": "Dagdeel",
   "priority": "Urgentie",
   "author": "Projectmedewerker",
-  "description": "Toelichting"
+  "description": "Toelichting",
+  "visit_from_datetime": "Huisbezoek vanaf"
 }
 
 // DEBRIEF

@@ -44,12 +44,13 @@ const eventsTimelineData: CaseEvent[] = [
     id: 4040,
     event_values: {
       date_added: "2021-05-20T12:31:45.232760Z",
-      action: "Bezoek",
+      action: "Huisbezoek",
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
       author: "John Doe",
-      description: "Toelichting"
+      description: "Toelichting",
+      visit_from_datetime: "2022-06-16T22:00:00Z"
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
@@ -174,12 +175,13 @@ const eventsTimelineData: CaseEvent[] = [
     id: 4039,
     event_values: {
       date_added: "2021-05-20T12:31:45.232760Z",
-      action: "Bezoek",
+      action: "Huisbezoek",
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
       author: "John Doe",
-      description: "Toelichting"
+      description: "Toelichting",
+      visit_from_datetime: null
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
