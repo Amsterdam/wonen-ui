@@ -4,6 +4,7 @@ export type PaginationType = {
   page?: number
   pageSize?: number
   collectionSize?: number
+  paginationLength?: number
   onPageChange?: (page: number) => void
 }
 
