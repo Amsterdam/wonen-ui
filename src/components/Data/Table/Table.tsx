@@ -111,7 +111,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
 
   // ========================== Pagination ==========================
   const onPaginationTrigger = (page: number) => {
-    onChange?.({ page, collectionSize: mergedPagination.collectionSize  }, getSortingObj())
+    onChange?.({ page, pageSize: mergedPagination.pageSize, collectionSize: mergedPagination.collectionSize  }, getSortingObj())
   }
 
   // Set warning if pagination prop page is given but not higher than 0.
@@ -129,6 +129,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
 
   const getPaginationData = () => ({
     page: mergedPagination.page,
+    pageSize: mergedPagination.pageSize,
     collectionSize: mergedPagination.collectionSize
   })
 
