@@ -1,3 +1,4 @@
+import React from "react"
 import PersonRoleDisplay from "../../../components/PersonRoleDisplay/PersonRoleDisplay"
 import PersonNameDisplay from "../../../components/PersonNameDisplay/PersonNameDisplay"
 import PersonEntityDisplay from "../../../components/PersonEntityDisplay/PersonEntityDisplay"
