@@ -5,7 +5,7 @@ type Props = {
   personRole?: PersonRole | undefined | null
 }
 
-const PersonRoleDisplay: React.FC<Props> = ({ personRole }) => (
+const PersonRoleDisplay: React.FC<Props> = ({ personRole }: Props) => (
   <>{ personRole ? `${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
 )
 
