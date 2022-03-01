@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOMServer from "react-dom/server"
 import PersonRoleDisplay from "../../../components/PersonRoleDisplay/PersonRoleDisplay"
 import PersonNameDisplay from "../../../components/PersonNameDisplay/PersonNameDisplay"
 import PersonEntityDisplay from "../../../components/PersonEntityDisplay/PersonEntityDisplay"
@@ -14,12 +15,19 @@ export type Person = {
 }
 
 const DisplayPersonWithRole = (person: Person) => {
-  const { first_name, last_name, preposition, person_role, entity_name, function: personFunction } = person
-  return (
+  const { first_name, last_name, preposition, person_role, entity_name, function: person_function } = person
+  // TODO: convert this component and child components to helper functions that return a string
+  // OR make timeline events able to render JSX.
+  return ReactDOMServer.renderToString(
     <>
-      <PersonNameDisplay firstName={first_name} namePrefix={preposition} name={last_name || ""} />,
-      <PersonEntityDisplay personFunction={personFunction} entityName={entity_name} />,
-      <PersonRoleDisplay personRole={person_role} />
+      { last_name && <PersonNameDisplay firstName={first_name} namePrefix={preposition} name={last_name} /> }
+      { last_name && (person_function || entity_name) && <span>, </span> }
+      <PersonEntityDisplay personFunction={person_function} entityName={entity_name} />
+      { person_role && <>
+        <span> (</span>
+          <PersonRoleDisplay personRole={person_role} />
+        <span>)</span>
+      </> }
     </>
   )
 }

@@ -134,7 +134,13 @@ const eventsTimelineData: CaseEvent[] = [
       date_added: "2021-06-22T10:05:11.364215Z",
       description: "Korte toelichting..",
       number_of_accommodations: 6,
-      persons: [{ first_name: "Donald", last_name: "Duck", person_role: "PERSON_ROLE_OWNER" }],
+      persons: [{
+        first_name: "Donald",
+        last_name: "Duck",
+        person_role: "PERSON_ROLE_OWNER",
+        entity_name: "Duck B.V.",
+        function: "Managing director"
+      }],
       type: "Sluiting"
     },
     emitter_id: 213,
