@@ -13,6 +13,7 @@ import List from "./components/Data/List/List"
 import LoadingRows from "./components/Data/components/LoadingRows"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
+import PersonEntityDisplay from "./components/PersonEntityDisplay/PersonEntityDisplay"
 import PermitsOverview from "./components/PermitsOverview/PermitsOverview"
 import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import Table from "./components/Data/Table/Table"
@@ -40,6 +41,7 @@ export {
   PermitsOverview,
   PersonNameDisplay,
   PersonRoleDisplay,
+  PersonEntityDisplay,
   Table,
   SmallSkeleton,
   TextWithLinebreaks,
