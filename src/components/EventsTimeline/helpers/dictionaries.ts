@@ -18,7 +18,9 @@ export const reasonLabelsMap = {
   "project": "Project",
   "advertisement_linklist": "Advertenties",
   "description": "Toelichting",
-  "subjects": "Onderwerp(en)"
+  "subjects": "Onderwerp(en)",
+  "mma_number": "MMA-nummer",
+  "previous_case": "Overgedragen zaak"
 }
 
 // CASE_CLOSE

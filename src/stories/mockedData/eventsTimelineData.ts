@@ -6,13 +6,15 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       start_date: "2021-03-17",
       end_date: null,
-      reason: "Project",
+      reason: "MMA",
       project: "Levant",
       description: "19:31",
       author: "A. Beecee",
       identification: 123456,
       advertisement_linklist: [],
-      subjects:["Hennep", "Overige woonfraude"]
+      subjects:["Hennep", "Overige woonfraude"],
+      mma_number: 1111111,
+      previous_case: 2449
     },
     date_created: "2021-03-17T19:31:11+0100",
     type: "CASE",

@@ -7,11 +7,13 @@ export default [
   },
   "author",
   "reason",
+  "mma_number",
   "subjects",
   "project",
   "advertisement_linklist",
   {
     key: "description",
     italic: true
-  }
+  },
+  "previous_case"
 ]
