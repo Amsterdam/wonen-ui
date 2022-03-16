@@ -1,19 +1,26 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
 
-export default [
-  {
-    key: "start_date",
-    mapValue: (v: string) => displayDate(v)
-  },
-  "author",
-  "reason",
-  "mma_number",
-  "subjects",
-  "project",
-  "advertisement_linklist",
-  {
-    key: "description",
-    italic: true
-  },
-  "previous_case"
-]
+const reasonFields = (prefixUrl: string) => (
+  [
+    {
+      key: "start_date",
+      mapValue: (v: string) => displayDate(v)
+    },
+    "author",
+    "reason",
+    "mma_number",
+    "subjects",
+    "project",
+    "advertisement_linklist",
+    {
+      key: "description",
+      italic: true
+    },
+    {
+      key: "previous_case",
+      mapValue: (caseId: string) => `${ prefixUrl }${ caseId }`
+    }
+  ]
+)
+
+export default reasonFields

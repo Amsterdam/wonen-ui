@@ -8,9 +8,12 @@ export type Props = {
   events: CaseEvent[]
   spacingHorizontal?: number
   hasTransparentBackground?: boolean
+  prefixUrl?: string
 }
 
-const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTransparentBackground } ) => {
+const EventsTimeline: React.FC<Props> = ({
+  events, spacingHorizontal = 0, hasTransparentBackground, prefixUrl = ""
+}) => {
   const { groupedEvents, groupedTimelineEventTotals } = useGroupedCaseEvents(events)
   return (
     <Div spacingHorizontal={ spacingHorizontal }>
@@ -21,6 +24,7 @@ const EventsTimeline: React.FC<Props> = ({ events, spacingHorizontal = 0, hasTra
           isOpen={ index === 0 }
           hasTransparentBackground={ hasTransparentBackground }
           groupedTimelineEventTotals={ groupedTimelineEventTotals }
+          prefixUrl={ prefixUrl }
         />
       ))
     }
