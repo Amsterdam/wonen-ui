@@ -4,9 +4,9 @@ type Props = {
   id?: string | number
 }
 
-const CaseIdDisplay: React.FC<Props> = ({ id }) => {
-  const idLength = 6
-  return <>{ id?.toString().padStart(idLength, "0") ?? "-" }</>
-}
+  // const idLength = 6
+  // id?.toString().padStart(idLength, "0") to create an ID of 6 figures.
+
+const CaseIdDisplay: React.FC<Props> = ({ id }) => <>{ id ?? "-" }</>
 
 export default CaseIdDisplay
