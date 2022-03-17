@@ -30,5 +30,6 @@ Default.parameters =  {
 Default.args = {
   events: eventsTimelineData,
   spacingHorizontal: 6,
-  hasTransparentBackground: false
+  hasTransparentBackground: false,
+  prefixUrl: "https://acc.wonen.zaken.amsterdam.nl/zaken/"
 }

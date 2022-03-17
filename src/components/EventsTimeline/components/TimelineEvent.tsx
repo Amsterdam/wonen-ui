@@ -15,7 +15,7 @@ import {
   caseCloseLabelsMap
 } from "../helpers/dictionaries"
 import fields from "../helpers/fields"
-import reasonFields from "../events/reasonFields"
+import getReasonFields from "../events/reasonFields"
 import caseCloseFields from "../events/caseCloseFields"
 import scheduleFields from "../events/scheduleFields"
 import genericTaskFields from "../events/genericTaskFields"
@@ -31,10 +31,12 @@ type Props = {
   isOpen?: boolean
   hasTransparentBackground?: boolean
   itemCount?: number
+  prefixUrl: string
 }
 
 const TimelineEvent: React.FC<Props> = ({
-  timelineEventItem: { type, caseEvents }, groupedTimelineEventTotals, isOpen = false, hasTransparentBackground
+  timelineEventItem: { type, caseEvents }, groupedTimelineEventTotals, isOpen = false,
+  hasTransparentBackground, prefixUrl
 }) => {
   const props = {
     caseEvents,
@@ -43,6 +45,8 @@ const TimelineEvent: React.FC<Props> = ({
     isOpen,
     hasTransparentBackground
   }
+
+  const reasonFields = getReasonFields(prefixUrl)
 
   const getTimelineEventItem = () => {
     switch (type) {

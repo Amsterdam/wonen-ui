@@ -11,6 +11,6 @@ describe("DateDisplay", () => {
 
   it("should render component with a 6-digit id", () => {
     component.setProps({ id: "1234" })
-    expect(component.text()).toContain("001234")
+    expect(component.text()).toContain("1234")
   })
 })
