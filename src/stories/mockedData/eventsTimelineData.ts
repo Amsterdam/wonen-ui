@@ -105,7 +105,8 @@ const eventsTimelineData: CaseEvent[] = [
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
       violation: "ADDITIONAL_VISIT_WITH_AUTHORIZATION",
-      feedback: "Hier de opmerkingen..."
+      feedback: "Hier de opmerkingen...",
+      nuisance_detected: true
     },
     date_created: "2021-03-26T20:19:26+0100",
     emitter_id: 317,
@@ -228,7 +229,8 @@ const eventsTimelineData: CaseEvent[] = [
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
       violation: "LIKELY_INHABITED",
-      feedback: "Hier de opmerkingen..."
+      feedback: "Hier de opmerkingen...",
+      nuisance_detected: false
     },
     date_created: "2021-03-26T20:19:26+0100",
     emitter_id: 317,

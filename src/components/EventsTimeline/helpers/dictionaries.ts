@@ -49,7 +49,8 @@ export const debriefLabelsMap = {
   "author": "Projecthandhaver",
   "violation": "Uitkomst",
   "feedback": "Terugkoppeling",
-  "theme": "Thema"
+  "theme": "Thema",
+  "nuisance_detected": "Overlast geconstateerd"
 }
 
 export const debriefViolationMap = {

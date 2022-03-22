@@ -12,6 +12,7 @@ export default [
     mapValue: (v: keyof typeof debriefViolationMap) => debriefViolationMap[v]
   },
   "theme",
+  "nuisance_detected",
   {
     key: "feedback",
     italic: true
