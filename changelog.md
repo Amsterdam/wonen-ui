@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.21] 2022-03-22
+### Feature
+
+-  Added `nuisance_detected`
+
 ## [0.0.72] 2021-11-15
 ### Improvement
 
