@@ -52,7 +52,8 @@ const eventsTimelineData: CaseEvent[] = [
       priority: "Normaal",
       author: "John Doe",
       description: "Toelichting",
-      visit_from_datetime: "2022-06-16T22:00:00Z"
+      visit_from_datetime: "2022-06-16T22:00:00Z",
+      housing_corporation_combiteam: true
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
@@ -166,21 +167,6 @@ const eventsTimelineData: CaseEvent[] = [
     type: "SUMMON"
   },
   {
-    id: 2221,
-    event_values: {
-      author: "A. Beecee",
-      date_added: "2021-04-08T08:56:54.371354Z",
-      description: "Toelichting",
-      reason: "Reden..",
-      result: "Resultaat.."
-    },
-    date_created: "2021-04-08T10:56:54+0200",
-    type: "CASE_CLOSE",
-    emitter_id: 3394,
-    case: 3394
-  },
-
-  {
     id: 4039,
     event_values: {
       date_added: "2021-05-20T12:31:45.232760Z",
@@ -190,7 +176,8 @@ const eventsTimelineData: CaseEvent[] = [
       priority: "Normaal",
       author: "John Doe",
       description: "Toelichting",
-      visit_from_datetime: null
+      visit_from_datetime: null,
+      housing_corporation_combiteam: undefined
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
@@ -262,6 +249,20 @@ const eventsTimelineData: CaseEvent[] = [
     type: "GENERIC_TASK",
     emitter_id: 137,
     case: 90
+  },
+  {
+    id: 2221,
+    event_values: {
+      author: "A. Beecee",
+      date_added: "2021-04-08T08:56:54.371354Z",
+      description: "Toelichting",
+      reason: "Reden..",
+      result: "Resultaat.."
+    },
+    date_created: "2021-04-08T10:56:54+0200",
+    type: "CASE_CLOSE",
+    emitter_id: 3394,
+    case: 3394
   }
 ]
 

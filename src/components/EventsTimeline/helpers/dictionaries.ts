@@ -40,7 +40,8 @@ export const scheduleLabelsMap = {
   "priority": "Urgentie",
   "author": "Projectmedewerker",
   "description": "Toelichting",
-  "visit_from_datetime": "Huisbezoek vanaf"
+  "visit_from_datetime": "Huisbezoek vanaf",
+  "housing_corporation_combiteam": "Samenlopen met corporatie"
 }
 
 // DEBRIEF
@@ -136,7 +137,7 @@ export const visit_go_ahead = {
   "false": "Nee, tegenhouden"
 }
 
-export const nuisance = {
+export const booleanObj = {
   "true": "Ja",
   "false": "Nee"
 }

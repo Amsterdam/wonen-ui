@@ -1,4 +1,5 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
+import { booleanObj } from "../helpers/dictionaries"
 
 export default [
   {
@@ -13,6 +14,10 @@ export default [
     mapValue: (v: string) => displayDate(v)
   },
   "priority",
+  {
+    key: "housing_corporation_combiteam",
+    mapValue: (v: keyof typeof booleanObj) => booleanObj[v]
+  },
   {
     key: "description",
     italic: true

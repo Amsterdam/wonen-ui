@@ -1,5 +1,5 @@
 import { displayDate } from "../../DateDisplay/DateDisplay"
-import { nuisance } from "../helpers/dictionaries"
+import { booleanObj } from "../helpers/dictionaries"
 
 export default [
   {
@@ -19,6 +19,6 @@ export default [
   },
   {
     key: "nuisance",
-    mapValue: (v: keyof typeof nuisance) => nuisance[v]
+    mapValue: (v: keyof typeof booleanObj) => booleanObj[v]
   }
 ]
