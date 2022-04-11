@@ -25,7 +25,6 @@ describe("Residents", () => {
     expect(component.find(Resident)).toHaveLength(residentsData?._embedded?.ingeschrevenpersonen?.length)
   })
 
-
 })
 
 

@@ -16,4 +16,5 @@ describe("Resident", () => {
   it("should render a DefinitionList", () => {
     expect(component.find(DefinitionList).exists()).toBeTruthy()
   })
+
 })
