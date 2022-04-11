@@ -1,4 +1,3 @@
-import React from "react"
 import { shallow } from "enzyme"
 import { Spinner } from "@amsterdam/asc-ui"
 import Residents from "../Residents"
@@ -26,5 +25,3 @@ describe("Residents", () => {
   })
 
 })
-
-

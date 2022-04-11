@@ -1,3 +1,4 @@
+import React from "react"
 import { Accordion } from "@amsterdam/asc-ui"
 import DefinitionList from "../Data/DefinitionList/DefinitionList"
 import moment from "moment"

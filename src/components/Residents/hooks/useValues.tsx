@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import moment from "moment"
 import pickby from "lodash.pickby"
@@ -31,7 +32,7 @@ const getFamilyNames = (family: any[]) => {
   return familyNames || undefined
 }
 
-export default (resident: any) => {
+const useValues = (resident: any) => {
   const {
     leeftijd,
     geboorte: {
@@ -85,3 +86,5 @@ export default (resident: any) => {
 
   return filteredValues
 }
+
+export default useValues
