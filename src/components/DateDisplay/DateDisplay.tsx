@@ -38,9 +38,11 @@ const twoCharNum = (num: number) => `${ num < 10 ? "0" : "" }${ num }`
 export const displayDate = (date: string | Date, full = false, invalidDateText = invalidDateTextDefault) => {
   const d = typeof date === "string" ? new Date(date) : date
   if (!isValidDate(d)) return invalidDateText
-  return full ?
-    `${ twoCharNum(d.getDate()) } ${ months[d.getMonth()] } ${ d.getFullYear() }` :
-    `${ twoCharNum(d.getDate()) }-${ twoCharNum(d.getMonth() + 1) }-${ d.getFullYear() }`
+  return full ? (
+      `${ twoCharNum(d.getDate()) } ${ months[d.getMonth()] } ${ d.getFullYear() }`
+    ) : (
+      `${ twoCharNum(d.getDate()) }-${ twoCharNum(d.getMonth() + 1) }-${ d.getFullYear() }`
+    )
 }
 export const displayTime = (date: string | Date, addSuffix?: boolean, invalidDateText = invalidDateTextDefault) => {
   const d = typeof date === "string" ? new Date(date) : date

@@ -15,6 +15,7 @@ import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
 import PersonEntityDisplay from "./components/PersonEntityDisplay/PersonEntityDisplay"
 import PermitsOverview from "./components/PermitsOverview/PermitsOverview"
+import Residents from "./components/Residents/Residents"
 import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import Table from "./components/Data/Table/Table"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
@@ -42,8 +43,9 @@ export {
   PersonNameDisplay,
   PersonRoleDisplay,
   PersonEntityDisplay,
-  Table,
+  Residents,
   SmallSkeleton,
+  Table,
   TextWithLinebreaks,
   TextWithURLs
 }

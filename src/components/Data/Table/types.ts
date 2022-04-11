@@ -39,7 +39,6 @@ export type TableType<R> = {
   emptyPlaceholder?: React.ReactNode
   showHeadWhenEmpty?: boolean
   onClickRow?: (record: R, index: number, event: React.MouseEvent) => void
-  className?: string
   pagination?: false | PaginationType
   onChange?: (pagination: any, sorting: any) => void
 }

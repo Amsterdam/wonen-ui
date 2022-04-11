@@ -9,12 +9,6 @@ export default {
   title: "Table",
   component: Table,
   argTypes: {
-    className: {
-      description: "Class of the table",
-      control: {
-        type: null
-      }
-    },
     columns: {
       description: "Columns of table"
     },
@@ -87,7 +81,6 @@ for (let i = 1; i < 13; i++) {
 
 export const Default = StoryComponent.bind({})
 Default.args = {
-  className: "name_of_a_class",
   columns: [
     { header: "Name", dataIndex: "name" },
     { header: "Age", dataIndex: "age" },

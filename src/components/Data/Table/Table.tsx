@@ -67,7 +67,6 @@ const Table = <R extends object = any>(props: TableType<R>) => {
     showHeadWhenEmpty = true,
     emptyPlaceholder = "",
     onClickRow,
-    className,
     data = [],
     pagination,
     onChange
@@ -163,7 +162,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
 
   // ============================ Render ============================
   return (
-    <Wrap className={ className }>
+    <Wrap>
       <HorizontalScrollContainer fixedColumnWidth={ fixedColumnWidth }>
         <StyledTable>
           {(showHeadWhenEmpty || !isEmpty) && (
