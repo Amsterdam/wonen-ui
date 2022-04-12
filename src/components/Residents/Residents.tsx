@@ -29,15 +29,12 @@ const Residents: React.FC<Props> = ({ data, loading }) => {
   return (
     <>
       { residents?.length >= 0 ? (
-        <>
-          <Heading as="h2">Actueel ingeschreven personen ({ residents.length })</Heading>
           <Ul>
             {residents.map((resident: any, index: number) => (
               <Resident resident={ resident } key={ index } num={ index + 1 } />
               )
             )}
           </Ul>
-        </>
         ) : (
         <Heading as="h2">Oeps, er gaat iets mis...</Heading>
       )}

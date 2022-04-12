@@ -28,10 +28,7 @@ const PermitsOverview: React.FC<Props> = ({
   return (
     <>
       { filteredPermits === undefined || filteredPermits.length === 0 ? (
-          <>
-            <Heading forwardedAs="h4">Vergunningen</Heading>
-            <Paragraph>Geen vergunningen gevonden</Paragraph>
-          </>
+          <Paragraph>Geen vergunningen gevonden</Paragraph>
         ) : (
           <div>
             { filteredPermits.map(permit => (
