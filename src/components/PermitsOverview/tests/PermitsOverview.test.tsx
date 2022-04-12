@@ -1,16 +1,13 @@
 import { shallow, mount } from "enzyme"
-import { Heading, Paragraph, Spinner } from "@amsterdam/asc-ui"
+import { Paragraph, Spinner } from "@amsterdam/asc-ui"
 import PermitsOverview from "../PermitsOverview"
 import permitsOverviewData from "../../../stories/mockedData/permitsOverviewData"
 
 describe("PermitsOverview", () => {
   const component = shallow(<PermitsOverview permits={[]} />)
 
-  it("should render Heading", () => {
-    expect(component.find(Heading).shallow().text()).toEqual("Vergunningen")
-  })
   it("should render component with Heading and Paragraph", () => {
-    expect(component.text()).toEqual("<Heading /><Paragraph />")
+    expect(component.text()).toEqual("<Paragraph />")
   })
   it("No permits found", () => {
     expect(component.find(Paragraph).shallow().text()).toEqual("Geen vergunningen gevonden")
