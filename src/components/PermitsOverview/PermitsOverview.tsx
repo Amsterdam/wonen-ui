@@ -1,5 +1,5 @@
 import React from "react"
-import { Spinner, Heading, Paragraph } from "@amsterdam/asc-ui"
+import { Spinner, Paragraph } from "@amsterdam/asc-ui"
 import type Permit from "./Permit"
 import PermitDetails from "./components/PermitDetails"
 import useKnownPermits from "./hooks/useKnownPermits"
