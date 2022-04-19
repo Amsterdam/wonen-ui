@@ -37,7 +37,8 @@ const useValues = (resident: any) => {
     leeftijd,
     geboorte: {
       datum: {
-        datum: geboorteDatum
+        datum: geboorteDatum,
+        jaar
       }
     },
     verblijfplaats: {
@@ -65,12 +66,12 @@ const useValues = (resident: any) => {
     "Voorvoegsel": voorvoegsel,
     "Achternaam": geslachtsnaam,
     "Geslacht": geslachtsaanduiding,
-    "Geboren": (
+    "Geboren": geboorteDatum ? (
       <>
         <DateDisplay date={ geboorteDatum } />
         <Bold> ({ leeftijd } jaar)</Bold>
       </>
-    ),
+    ) : jaar,
     "Ingeschreven sinds": (
       <>
         <DateDisplay date={ ingeschrevenSinds } />
