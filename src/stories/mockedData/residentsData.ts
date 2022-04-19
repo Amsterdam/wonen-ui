@@ -23,14 +23,10 @@ const residentsData: ResidentsType = {
                       "omschrijving": "jonkvrouw"
                   }
               },
-              "leeftijd": 51,
               "burgerservicenummer": "307741928",
               "geboorte": {
                   "datum": {
-                      "datum": "1970-04-07",
-                      "jaar": 1970,
-                      "maand": 4,
-                      "dag": 7
+                      "jaar": 1970
                   }
               },
               "verblijfplaats": {
@@ -143,7 +139,6 @@ const residentsData: ResidentsType = {
                       "omschrijving": "jonkheer"
                   }
               },
-              "leeftijd": 49,
               "burgerservicenummer": "307741929",
               "geboorte": {
                   "datum": {

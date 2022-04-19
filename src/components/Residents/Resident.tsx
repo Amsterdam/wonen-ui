@@ -15,11 +15,34 @@ const getGenderSymbol = (gender: string) => {
   return gender
 }
 
+const getAge = (resident: any) => {
+  if (resident?.leeftijd) {
+    return resident?.leeftijd
+  }
+  if (resident?.geboorte?.datum?.datum) {
+    const now = moment()
+    const b = moment(resident?.geboorte?.datum?.datum)
+    return now.diff(b, "years")
+  }
+  return undefined
+}
+
+const getBirthInfo = (resident: any) => {
+  if (resident?.geboorte?.datum?.datum) {
+    return moment(resident?.geboorte?.datum?.datum).format("DD-MM-YYYY")
+  }
+  if (resident?.geboorte?.datum?.jaar) {
+    return resident?.geboorte?.datum?.jaar
+  }
+  return undefined
+}
+
 const Resident: React.FC<Props> = ({ resident, num }) => {
   const values = useValues(resident)
 
-  const dayOfBirth = moment(resident?.geboorte?.datum?.datum).format("DD-MM-YYYY")
-  const title = `${ num }. ${ resident?.naam?.aanschrijfwijze } ${ dayOfBirth } (${ resident?.leeftijd })
+  const age = getAge(resident)
+  const birthInfo = getBirthInfo(resident)
+  const title = `${ num }. ${ resident?.naam?.aanschrijfwijze } ${ birthInfo } ${ age ? `(${ age })` : "" }
     ${ getGenderSymbol(resident?.geslachtsaanduiding) } ${ resident?.overlijden ? "†" : "" }`
 
   return (
