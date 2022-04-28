@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.26] 2022-04-28
+### Bugfix
+
+- Updated visit dictionary
+
 ## [1.0.25] 2022-04-28
 ### Bugfix
 
