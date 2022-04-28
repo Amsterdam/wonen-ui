@@ -19,6 +19,16 @@ const getAge = (resident: any) => {
   if (resident?.leeftijd) {
     return resident?.leeftijd
   }
+  if (resident?.overlijden) {
+    // if person died and dates are known.
+    if (resident?.overlijden?.datum?.datum && resident?.geboorte?.datum?.datum) {
+      const born = moment(resident?.geboorte?.datum?.datum)
+      const died = moment(resident?.overlijden?.datum?.datum)
+      return died.diff(born, "years")
+    }
+    // Person died but dates are onknown
+    return undefined
+  }
   if (resident?.geboorte?.datum?.datum) {
     const now = moment()
     const b = moment(resident?.geboorte?.datum?.datum)

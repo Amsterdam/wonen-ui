@@ -148,6 +148,15 @@ const residentsData: ResidentsType = {
                       "dag": 31
                   }
               },
+              "overlijden":{
+                "indicatieOverleden":true,
+                "datum":{
+                   "datum":"2021-09-06",
+                   "jaar":2021,
+                   "maand":9,
+                   "dag":6
+                }
+             },
               "verblijfplaats": {
                   "functieAdres": "woonadres",
                   "adresseerbaarObjectIdentificatie": "0363010000805808",
@@ -158,21 +167,11 @@ const residentsData: ResidentsType = {
                   "woonplaatsnaam": "Amsterdam",
                   "straatnaam": "Schakelstraat",
                   "datumAanvangAdreshouding": {
-                      "datum": "2013-11-05",
-                      "jaar": 2013,
-                      "maand": 11,
-                      "dag": 5
-                  },
-                  "datumInschrijvingInGemeente": {
-                      "datum": "2013-11-05",
-                      "jaar": 2013,
-                      "maand": 11,
-                      "dag": 5
-                  },
-                  "gemeenteVanInschrijving": {
-                      "code": "0363",
-                      "omschrijving": "Amsterdam"
-                  },
+                    "gemeenteVanInschrijving": {
+                        "code": "0363",
+                        "omschrijving": "Amsterdam"
+                    }
+                },
                   "vanuitVertrokkenOnbekendWaarheen": false
               },
               "_embedded": {

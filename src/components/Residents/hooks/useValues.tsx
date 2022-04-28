@@ -41,11 +41,7 @@ const useValues = (resident: any) => {
         jaar
       }
     },
-    verblijfplaats: {
-      datumAanvangAdreshouding: {
-        datum: ingeschrevenSinds
-      }
-    },
+    verblijfplaats,
     naam: {
       voornamen,
       voorletters,
@@ -53,12 +49,15 @@ const useValues = (resident: any) => {
       voorvoegsel
     },
     geslachtsaanduiding,
+    overlijden,
     _embedded: {
       kinderen,
       ouders,
       partners
     }
   } = resident
+
+  const ingeschrevenSinds = verblijfplaats?.datumAanvangAdreshouding?.datum
 
   const values: any = {
     "Voornamen": voornamen,
@@ -69,15 +68,21 @@ const useValues = (resident: any) => {
     "Geboren": geboorteDatum ? (
       <>
         <DateDisplay date={ geboorteDatum } />
-        <Bold> ({ leeftijd } jaar)</Bold>
+        { overlijden ? null : <Bold> ({ leeftijd } jaar)</Bold> }
       </>
     ) : jaar,
-    "Ingeschreven sinds": (
+    "Overleden †": overlijden?.datum?.datum ? (
+      <>
+        <DateDisplay date={ overlijden?.datum?.datum } />
+        <Bold> ({ getTimeFromNow(overlijden?.datum?.datum) } geleden)</Bold>
+      </>
+      ) : undefined,
+    "Ingeschreven sinds": ingeschrevenSinds ? (
       <>
         <DateDisplay date={ ingeschrevenSinds } />
         <Bold> ({ getTimeFromNow(ingeschrevenSinds) })</Bold>
       </>
-    ),
+    ) : undefined,
     "Kinderen": getFamilyNames(kinderen),
     "Ouders": getFamilyNames(ouders),
     "Partner": getFamilyNames(partners)
