@@ -69,7 +69,7 @@ const eventsTimelineData: CaseEvent[] = [
         "Bob"
       ],
       situation: "access_denied",
-      observations: ["malfunctioning_doorbell", "mal_functioning_doorbel"],
+      observations: ["malfunctioning_doorbell", "mal_functioning_doorbel", "likely_sub_let"],
       can_next_visit_go_ahead: true,
       can_next_visit_go_ahead_description: null,
       suggest_next_visit: null,
