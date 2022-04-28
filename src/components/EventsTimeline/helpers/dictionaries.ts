@@ -118,18 +118,31 @@ export const visitLabelsMap = {
 }
 
 export const visitEventValuesMap = {
-  "malfunctioning_doorbell": "Bel functioneert niet",
-  "intercom": "Contact via intercom",
-  "hotel_furnished": "Hotelmatig ingericht",
-  "vacant": "Leegstaand",
-  "likely_inhabited": "Vermoedelijk bewoond",
-  "nobody_present": "Niemand aanwezig",
-  "no_cooperation": "Geen medewerking",
   "access_granted": "Toegang verleend",
+  "condensation_on_windows": "Condensvorming op ramen",
+  "contacted_neighbour": "Buren gesproken",
   "daytime": "Overdag",
-  "weekend": "Weekend",
   "evening": "'s Avonds",
-  "unknown": "Niet meer uitzetten"
+  "hotel_furnished": "Hotelmatig ingericht",
+  "house_for_sale": "Huis staat te koop",
+  "house_to_let": "Huis staat te huur",
+  "intercom": "Contact via intercom",
+  "likely_inhabited": "Vermoedelijk bewoond",
+  "likely_sub_let": "Vermoeden Onderhuur",
+  "likely_vacant": "Vermoedelijk leegstaand",
+  "mailbox_disabled": "Brievenbus buiten werking (dicht gemaakt)",
+  "malfunctioning_doorbell": "Bel functioneert niet",
+  "nat_card_deposited": "NAT kaartje achtergelaten",
+  "no_cooperation": "Geen medewerking",
+  "nobody_present": "Niemand aanwezig",
+  "other_use": "Ander gebruik",
+  "pied_a_terre": "Pied-à-terre",
+  "smells_fishy": "Bijzondere lucht waarneembaar",
+  "under_construction": "Renovatie/Verbouwing",
+  "unknown": "Niet meer uitzetten",
+  "vacant": "Leegstaand",
+  "weekend": "Weekend",
+  "windows_blinded": "Woning geblindeerd"
 }
 
 export const visit_go_ahead = {
