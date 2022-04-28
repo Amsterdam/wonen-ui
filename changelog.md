@@ -5,15 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.25] 2022-04-28
+### Bugfix
+
+- Bugfix `<Residents />` data structure
+
 ## [1.0.24] 2022-04-19
 ### Bugfix
 
--  Bugfix `<Residents>` component for age and day of birth
+-  Bugfix `<Residents />` component for age and day of birth
 
 ## [1.0.23] 2022-04-12
 ### Feature
 
--  Added `<Residents>` component
+-  Added `<Residents />` component
 -  Removed default permits Header
 
 ## [1.0.21] 2022-03-22
