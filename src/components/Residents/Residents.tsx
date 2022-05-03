@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { themeSpacing, Heading, Spinner } from "@amsterdam/asc-ui"
+import { themeSpacing, Spinner } from "@amsterdam/asc-ui"
 import ResidentsType from "./ResidentsType"
 import Resident from "./Resident"
 
@@ -26,20 +26,25 @@ const Residents: React.FC<Props> = ({ data, loading }) => {
   if (loading) {
     return <Spinner />
   }
-  return (
-    <>
-      { residents?.length >= 0 ? (
-          <Ul>
-            {residents.map((resident: any, index: number) => (
-              <Resident resident={ resident } key={ index } num={ index + 1 } />
-              )
-            )}
-          </Ul>
-        ) : (
-        <Heading as="h2">Oeps, er gaat iets mis...</Heading>
-      )}
-    </>
-  )
+  if (!(residents?.length >= 0)) {
+    return (
+      <Ul>Oeps, er gaat iets mis...</Ul>
+    )
+  }
+  if (residents?.length === 0) {
+    return (
+      <Ul>Geen ingeschreven personen gevonden</Ul>
+    )
+  } else {
+    return (
+      <Ul>
+        {residents.map((resident: any, index: number) => (
+          <Resident resident={ resident } key={ index } num={ index + 1 } />
+          )
+        )}
+      </Ul>
+    )
+  }
 }
 
 export default Residents
