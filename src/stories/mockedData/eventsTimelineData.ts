@@ -43,6 +43,27 @@ const eventsTimelineData: CaseEvent[] = [
     case: 3766
 	},
   {
+    id: 3956,
+    event_values: {
+      date_added: "2021-05-18T09:52:03.154320Z",
+      identification: 123456,
+      reporter_name: "Donald Duck",
+      reporter_phone: "1234567890",
+      reporter_email: "mail@mail.com",
+      advertisement_linklist: [
+        "http://www.example.com",
+        "http://www.example.com"
+      ],
+      description_citizenreport: "Korte toelichting..",
+      author: "Adam",
+      nuisance: false
+    },
+    date_created: "2021-05-18T11:52:03+0200",
+    type: "CITIZEN_REPORT",
+    emitter_id: 1,
+    case: 3766
+	},
+  {
     id: 4040,
     event_values: {
       date_added: "2021-05-20T12:31:45.232760Z",
@@ -59,6 +80,27 @@ const eventsTimelineData: CaseEvent[] = [
     type: "SCHEDULE",
     emitter_id: 219,
     case: 3785
+	},
+  {
+    id: 3956,
+    event_values: {
+      date_added: "2021-05-18T09:52:03.154320Z",
+      identification: 123456,
+      reporter_name: "Donald Duck",
+      reporter_phone: "1234567890",
+      reporter_email: "mail@mail.com",
+      advertisement_linklist: [
+        "http://www.example.com",
+        "http://www.example.com"
+      ],
+      description_citizenreport: "Korte toelichting..",
+      author: "Adam",
+      nuisance: false
+    },
+    date_created: "2021-05-18T11:52:03+0200",
+    type: "CITIZEN_REPORT",
+    emitter_id: 1,
+    case: 3766
 	},
   {
     id: 227,

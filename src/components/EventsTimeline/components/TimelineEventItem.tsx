@@ -34,7 +34,7 @@ const TimelineEventItem: React.FC<Props> = ({
 
   if (caseEvents.length === 0) return null
 
-  const hasPluralEvents = caseEvents.length > 1
+  const hasPluralEvents = caseEvents.length > 1 && !["CITIZEN_REPORT"].includes(type)
   let titleType = type
   if (type === "GENERIC_TASK") {
     titleType = typeof caseEvents[0]?.event_values.description === "string" ? caseEvents[0]?.event_values.description : "Generiek event"
