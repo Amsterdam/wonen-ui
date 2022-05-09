@@ -28,7 +28,7 @@ const getTimeFromNow = (date?: string) => {
 }
 
 const getFamilyNames = (family: any[]) => {
-  const familyNames = family.map((member: any) => `${ member?.naam?.voornamen } ${ member?.naam?.geslachtsnaam }`).join(", ")
+  const familyNames = family.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${ member?.naam?.voornamen } ${ member?.naam?.geslachtsnaam }`).join(", ")
   return familyNames || undefined
 }
 
