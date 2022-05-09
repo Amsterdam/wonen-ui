@@ -9,6 +9,10 @@ type Props = {
   num: number
 }
 
+const getName = (resident: any) => (
+  resident?.naam?.aanschrijfwijze ?? `${ resident?.naam?.voorletters } ${ resident?.naam?.geslachtsnaam }`
+)
+
 const getGenderSymbol = (gender: string) => {
   if (gender === "vrouw") return "V"
   if (gender === "man") return "M"
@@ -50,9 +54,10 @@ const getBirthInfo = (resident: any) => {
 const Resident: React.FC<Props> = ({ resident, num }) => {
   const values = useValues(resident)
 
+  const name = getName(resident)
   const age = getAge(resident)
   const birthInfo = getBirthInfo(resident)
-  const title = `${ num }. ${ resident?.naam?.aanschrijfwijze } ${ birthInfo } ${ age ? `(${ age })` : "" }
+  const title = `${ num }. ${ name } ${ birthInfo } ${ age ? `(${ age })` : "" }
     ${ getGenderSymbol(resident?.geslachtsaanduiding) } ${ resident?.overlijden ? "†" : "" }`
 
   return (

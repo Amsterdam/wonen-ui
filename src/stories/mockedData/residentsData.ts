@@ -360,7 +360,73 @@ const residentsData: ResidentsType = {
                       }
                   ]
               }
-          }
+          },
+          {
+            "geslachtsaanduiding": "man",
+            "naam": {
+                "voorletters": "J.",
+                "geslachtsnaam": "Doe"
+            },
+            "leeftijd": 24,
+            "burgerservicenummer": "307741929",
+            "geboorte": {
+                "datum": {
+                    "datum": "1998-09-02",
+                    "jaar": 1998,
+                    "maand": 9,
+                    "dag": 2
+                }
+            },
+            "verblijfplaats": {
+                "functieAdres": "woonadres",
+                "adresseerbaarObjectIdentificatie": "0363010000805808",
+                "identificatiecodeNummeraanduiding": "0363200000264604",
+                "naamOpenbareRuimte": "Schakelstraat",
+                "huisnummer": "16",
+                "postcode": "1014AW",
+                "woonplaatsnaam": "Amsterdam",
+                "straatnaam": "Schakelstraat",
+                "datumAanvangAdreshouding": {
+                    "datum": "2013-11-05",
+                    "jaar": 2013,
+                    "maand": 11,
+                    "dag": 5
+                },
+                "datumInschrijvingInGemeente": {
+                    "datum": "2008-03-17",
+                    "jaar": 2008,
+                    "maand": 3,
+                    "dag": 17
+                },
+                "gemeenteVanInschrijving": {
+                    "code": "0363",
+                    "omschrijving": "Amsterdam"
+                },
+                "vanuitVertrokkenOnbekendWaarheen": false
+            },
+            "_embedded": {
+                "partners": [],
+                "ouders": [
+                    {
+                        "naam": {
+                            "geslachtsnaam": "."
+                        }
+
+                    },
+                    {
+                        "naam": {
+                            "voornamen": "Anja",
+                            "voorletters": "A.",
+                            "geslachtsnaam": "Zon",
+                            "voorvoegsel": "van"
+                        }
+                    }
+                ],
+                "kinderen": []
+            }
+
+        }
+
 
       ]
   }
