@@ -57,7 +57,7 @@ const useValues = (resident: any) => {
     }
   } = resident
 
-  const ingeschrevenSinds = verblijfplaats?.datumAanvangAdreshouding?.datum
+  const ingeschrevenSinds = verblijfplaats?.datumAanvangAdreshouding?.datum ?? verblijfplaats?.datumInschrijvingInGemeente?.datum
 
   const values: any = {
     "Voornamen": voornamen,

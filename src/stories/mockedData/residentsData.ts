@@ -38,14 +38,8 @@ const residentsData: ResidentsType = {
                   "postcode": "1014AW",
                   "woonplaatsnaam": "Amsterdam",
                   "straatnaam": "Schakelstraat",
-                  "datumAanvangAdreshouding": {
-                      "datum": "2013-11-05",
-                      "jaar": 2013,
-                      "maand": 11,
-                      "dag": 5
-                  },
                   "datumInschrijvingInGemeente": {
-                      "datum": "2013-11-05",
+                      "datum": "2022-03-05",
                       "jaar": 2013,
                       "maand": 11,
                       "dag": 5
