@@ -1,8 +1,8 @@
 import React from "react"
 
 type Props = {
-  entityName?: string
-  personFunction?: string
+  entityName?: string | null
+  personFunction?: string | null
 }
 
 const PersonEntityDisplay = ({ entityName, personFunction }: Props) => {

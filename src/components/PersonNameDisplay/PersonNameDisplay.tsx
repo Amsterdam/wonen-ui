@@ -3,8 +3,8 @@ export type GeslachtsaanduidingEnum = "M" | "V" | "X";
 
 type Props = {
   sex?: GeslachtsaanduidingEnum
-  firstName?: string
-  namePrefix?: string
+  firstName?: string | null
+  namePrefix?: string | null
   name: string
 }
 
