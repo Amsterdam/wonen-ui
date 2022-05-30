@@ -28,7 +28,7 @@ const getTimeFromNow = (date?: string) => {
 }
 
 const getFamilyNames = (family: any[]) => {
-  const familyNames = family.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${ member?.naam?.voornamen } ${ member?.naam?.geslachtsnaam }`).join(", ")
+  const familyNames = family.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${ member?.naam?.voornamen ?? "" } ${ member?.naam?.geslachtsnaam }`).join(", ")
   return familyNames || undefined
 }
 
@@ -57,7 +57,8 @@ const useValues = (resident: any) => {
     }
   } = resident
 
-  const ingeschrevenSinds = verblijfplaats?.datumAanvangAdreshouding?.datum ?? verblijfplaats?.datumInschrijvingInGemeente?.datum
+  const ingeschrevenAdresSinds = verblijfplaats?.datumAanvangAdreshouding?.datum
+  const ingeschrevenGemeenteSinds = verblijfplaats?.datumInschrijvingInGemeente?.datum
 
   const values: any = {
     "Voornamen": voornamen,
@@ -77,10 +78,16 @@ const useValues = (resident: any) => {
         <Bold> ({ getTimeFromNow(overlijden?.datum?.datum) } geleden)</Bold>
       </>
       ) : undefined,
-    "Ingeschreven sinds": ingeschrevenSinds ? (
+    "Ingeschreven op adres sinds": ingeschrevenAdresSinds ? (
       <>
-        <DateDisplay date={ ingeschrevenSinds } />
-        <Bold> ({ getTimeFromNow(ingeschrevenSinds) })</Bold>
+        <DateDisplay date={ ingeschrevenAdresSinds } />
+        <Bold> ({ getTimeFromNow(ingeschrevenAdresSinds) })</Bold>
+      </>
+    ) : undefined,
+    "Ingeschreven bij gemeente sinds": ingeschrevenGemeenteSinds ? (
+      <>
+        <DateDisplay date={ ingeschrevenGemeenteSinds } />
+        <Bold> ({ getTimeFromNow(ingeschrevenGemeenteSinds) })</Bold>
       </>
     ) : undefined,
     "Kinderen": getFamilyNames(kinderen),

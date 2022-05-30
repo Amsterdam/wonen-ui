@@ -409,7 +409,6 @@ const residentsData: ResidentsType = {
                     },
                     {
                         "naam": {
-                            "voornamen": "Anja",
                             "voorletters": "A.",
                             "geslachtsnaam": "Zon",
                             "voorvoegsel": "van"
