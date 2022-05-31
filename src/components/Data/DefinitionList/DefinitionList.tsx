@@ -6,12 +6,14 @@ import SmallSkeleton from "../components/SmallSkeleton"
 import LoadingRows from "../components/LoadingRows"
 import Definition from "./components/Definition"
 
+export type DefinitionListData = Record<string, React.ReactNode> | undefined
+
 type Props = {
   numLoadingRows?: number
   loading?: boolean
   title?: React.ReactNode
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
-  data: Record<string, React.ReactNode> | undefined
+  data: DefinitionListData
   emptyPlaceholder?: React.ReactNode
   hasRowsSeperated?: boolean
 }

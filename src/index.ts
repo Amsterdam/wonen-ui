@@ -1,6 +1,7 @@
 import type CaseEvent from "./components/EventsTimeline/CaseEvent"
 import type Permit from "./components/PermitsOverview/Permit"
 import type VakantieverhuurReportInformation from "./components/HolidayRental/VakantieverhuurReportInformation"
+import type DefinitionListData from "./components/Data/DefinitionList/DefinitionList"
 
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
 import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
@@ -22,7 +23,7 @@ import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebrea
 import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
 import * as Icons from "./components/Icons"
 
-export type { CaseEvent, Permit, VakantieverhuurReportInformation }
+export type { CaseEvent, Permit, VakantieverhuurReportInformation, DefinitionListData }
 
 export {
   CaseIdDisplay,
