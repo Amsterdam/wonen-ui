@@ -8,6 +8,10 @@ const Bold = styled.span`
   font-weight: 600;
 `
 
+const Italic = styled.span`
+  font-style: italic;
+`
+
 const timeMapper: { [key: string]: string } = {
   "hours": "uur",
   "a day": "één dag",
@@ -58,7 +62,6 @@ const useValues = (resident: any) => {
   } = resident
 
   const ingeschrevenAdresSinds = verblijfplaats?.datumAanvangAdreshouding?.datum
-  const ingeschrevenGemeenteSinds = verblijfplaats?.datumInschrijvingInGemeente?.datum
 
   const values: any = {
     "Voornamen": voornamen,
@@ -78,18 +81,12 @@ const useValues = (resident: any) => {
         <Bold> ({ getTimeFromNow(overlijden?.datum?.datum) } geleden)</Bold>
       </>
       ) : undefined,
-    "Ingeschreven op adres sinds": ingeschrevenAdresSinds ? (
+    "Ingeschreven sinds": ingeschrevenAdresSinds ? (
       <>
         <DateDisplay date={ ingeschrevenAdresSinds } />
         <Bold> ({ getTimeFromNow(ingeschrevenAdresSinds) })</Bold>
       </>
-    ) : undefined,
-    "Ingeschreven bij gemeente sinds": ingeschrevenGemeenteSinds ? (
-      <>
-        <DateDisplay date={ ingeschrevenGemeenteSinds } />
-        <Bold> ({ getTimeFromNow(ingeschrevenGemeenteSinds) })</Bold>
-      </>
-    ) : undefined,
+    ) : <Italic>Niet beschikbaar</Italic>,
     "Kinderen": getFamilyNames(kinderen),
     "Ouders": getFamilyNames(ouders),
     "Partner": getFamilyNames(partners)
