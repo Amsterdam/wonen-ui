@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 
 const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, hasRowsSeperated }) => {
   const values = useVacationRentalValues(vakantieverhuurReport)
-  const { reports } = vakantieverhuurReport
+  const { reports, year } = vakantieverhuurReport
 
   return (
     <StyledDiv>
@@ -28,12 +28,11 @@ const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, h
         headingSize="h4"
         hasRowsSeperated={ hasRowsSeperated }
       />
-      { reports.map(({ check_in_date, check_out_date, is_cancellation }, index: number) =>
+      { reports.map((report, index: number) =>
           <Report
             key={ index }
-            checkInDate={ check_in_date }
-            checkOutDate={ check_out_date }
-            isCancellation={ is_cancellation }
+            report={ report }
+            year={ year }
             hasRowsSeperated={ hasRowsSeperated }
           />
       ) }

@@ -23,37 +23,31 @@ describe("PermitsOverview", () => {
 
   const wrapper = mount(<PermitsOverview permits={permitsOverviewData} />)
 
-  it("should render B&B Permit", () => {
-    const firstPermitData = permitsOverviewData[0]
-    expect(wrapper.text().includes(firstPermitData.permit_type)).toBe(true)
-    expect(wrapper.text().includes(firstPermitData?.details?.RESULT)).toBe(true)
-    expect(wrapper.text().includes(firstPermitData?.details?.SUBJECT)).toBe(true)
-    expect(wrapper.text().includes(firstPermitData?.details?.ADDRESS)).toBe(true)
-    expect(wrapper.text().includes(firstPermitData?.details?.HOLDER)).toBe(true)
-    expect(wrapper.text().includes(firstPermitData?.details?.PERMIT_NAME)).toBe(true)
+  it("should render Permit", () => {
+    const firstPermitData = permitsOverviewData.find((permitData) => permitData.permit_granted === "GRANTED")
+    if (firstPermitData) {
+      expect(wrapper.text().includes(firstPermitData.permit_type)).toBe(true)
+      expect(wrapper.text().includes(firstPermitData?.details?.RESULT)).toBe(true)
+      expect(wrapper.text().includes(firstPermitData?.details?.SUBJECT)).toBe(true)
+      expect(wrapper.text().includes(firstPermitData?.details?.ADDRESS)).toBe(true)
+      expect(wrapper.text().includes(firstPermitData?.details?.PERMIT_NAME)).toBe(true)
+    }
   })
-  it("should render Vakantieverhuurvergunning Permit", () => {
-    const secondPermitData = permitsOverviewData[1]
-    expect(wrapper.text().includes(secondPermitData.permit_type)).toBe(true)
-    expect(wrapper.text().includes(secondPermitData?.details?.RESULT)).toBe(true)
-    expect(wrapper.text().includes(secondPermitData?.details?.SUBJECT)).toBe(true)
-    expect(wrapper.text().includes(secondPermitData?.details?.ADDRESS)).toBe(true)
-    expect(wrapper.text().includes(secondPermitData?.details?.HOLDER)).toBe(false) // No holder
-    expect(wrapper.text().includes(secondPermitData?.details?.PERMIT_NAME)).toBe(true)
-  })
+
   it("should not render UNKNOWN permits", () => {
     wrapper.setProps({ showUnknown: false })
-    expect(wrapper.text().includes(permitsOverviewData[2].permit_type)).toBe(false)
-    expect(wrapper.text().includes(permitsOverviewData[3].permit_type)).toBe(false)
-    expect(wrapper.text().includes(permitsOverviewData[4].permit_type)).toBe(false)
-    expect(wrapper.text().includes(permitsOverviewData[5].permit_type)).toBe(false)
+    const unknownPermits = permitsOverviewData.filter((permitData) => permitData.permit_granted === "UNKNOWN")
+    unknownPermits.forEach((unknownPermit) => {
+      expect(wrapper.text().includes(unknownPermit.permit_type)).toBe(false)
+    })
   })
+
   it("should render UNKNOWN permits", () => {
     wrapper.setProps({ showUnknown: true })
-    expect(wrapper.text().includes(permitsOverviewData[2].permit_type)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[3].permit_type)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[4].permit_type)).toBe(true)
-    expect(wrapper.text().includes(permitsOverviewData[5].permit_type)).toBe(true)
+    const unknownPermits = permitsOverviewData.filter((permitData) => permitData.permit_granted === "UNKNOWN")
+    unknownPermits.forEach((unknownPermit) => {
+      expect(wrapper.text().includes(unknownPermit.permit_type)).toBe(true)
+    })
   })
 
 })
