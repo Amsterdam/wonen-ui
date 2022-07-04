@@ -9,7 +9,6 @@ const residentsData: ResidentsType = {
     "_embedded":{
         "ingeschrevenpersonen":[
             {
-                "geslachtsaanduiding":"vrouw",
                 "naam":{
                 "aanhef":"Geachte mevrouw Van Zon",
                 "aanschrijfwijze":"W. van Zon",

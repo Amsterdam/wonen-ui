@@ -16,7 +16,7 @@ const getName = (resident: any) => (
 const getGenderSymbol = (gender: string) => {
   if (gender === "vrouw") return "V"
   if (gender === "man") return "M"
-  return gender
+  return ""
 }
 
 const getAge = (resident: any) => {
