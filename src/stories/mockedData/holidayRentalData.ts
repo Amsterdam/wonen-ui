@@ -325,7 +325,7 @@ const holidayRentalData: VakantieverhuurReportInformation[] = [
       },
       {
         is_cancellation: false,
-        report_date: "2022-06-01T00:00:00",
+        report_date: "2022-06-02T00:00:00",
         check_in_date: "2022-06-04T00:00:00",
         check_out_date: "2022-06-07T00:00:00",
         days_count_per_year: {
@@ -345,7 +345,7 @@ const holidayRentalData: VakantieverhuurReportInformation[] = [
 
       {
         is_cancellation: true,
-        report_date: "2022-06-29T00:00:00",
+        report_date: "2022-05-21T00:00:00",
         check_in_date: "2022-05-22T00:00:00",
         check_out_date: "2022-05-26T00:00:00",
         days_count_per_year: {
