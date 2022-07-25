@@ -18,7 +18,7 @@ export default {
         type: { summary: "Array of arrays | Array of objects" }
       }
     },
-    hasFixedColumn: {
+    fixedLastColumn: {
       description: "Table has fixed column",
       table: {
         defaultValue: { summary: false }
@@ -93,7 +93,7 @@ Default.args = {
   ],
   data,
   emptyPlaceholder: "Nothing found! :(",
-  hasFixedColumn: false,
+  fixedLastColumn: false,
   loading: false,
   numLoadingRows: 10,
   onChange: (pagination: any, sorting: any) => console.log("Pagination:", pagination,"Sorting:", sorting),
