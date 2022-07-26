@@ -8,7 +8,7 @@ export type Props = {
   permits: Permit[]
   loading?: boolean
   showUnknown?: boolean
-  hasRowsSeperated?: boolean
+  horizontalBordered?: boolean
 }
 
 /**
@@ -17,7 +17,7 @@ export type Props = {
  */
 
 const PermitsOverview: React.FC<Props> = ({
-  permits, loading = false, showUnknown = false, hasRowsSeperated = true
+  permits, loading = false, showUnknown = false, horizontalBordered = true
 }) => {
   const knownPermits = useKnownPermits(permits)
   const filteredPermits = showUnknown ? permits : knownPermits
@@ -35,7 +35,7 @@ const PermitsOverview: React.FC<Props> = ({
                 <PermitDetails
                   key={ permit.permit_type }
                   permit={ permit }
-                  hasRowsSeperated={ hasRowsSeperated }
+                  horizontalBordered={ horizontalBordered }
                 />
               )
             )}

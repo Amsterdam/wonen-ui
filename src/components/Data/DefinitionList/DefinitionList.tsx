@@ -15,7 +15,7 @@ type Props = {
   headingSize?: React.ComponentProps<typeof Heading>["forwardedAs"]
   data: DefinitionListData
   emptyPlaceholder?: React.ReactNode
-  hasRowsSeperated?: boolean
+  horizontalBordered?: boolean
 }
 
 const Dl = styled.dl`
@@ -29,7 +29,7 @@ const DefinitionList: React.FC<Props> = ({
   headingSize = "h2",
   data,
   emptyPlaceholder,
-  hasRowsSeperated = true
+  horizontalBordered = true
 }) => {
 
   const rows = Object.entries(data ?? {})
@@ -53,7 +53,7 @@ const DefinitionList: React.FC<Props> = ({
                 key={ term }
                 term={ term }
                 value={ value }
-                hasRowsSeperated={ hasRowsSeperated }
+                horizontalBordered={ horizontalBordered }
               />
               ))}
             </>

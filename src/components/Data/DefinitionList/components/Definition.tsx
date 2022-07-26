@@ -6,18 +6,18 @@ import TextWithLinebreaks from "../../../TextWithLinebreaks/TextWithLinebreaks"
 type Props = {
   term: React.ReactNode
   value: React.ReactNode
-  hasRowsSeperated?: boolean
+  horizontalBordered?: boolean
 }
 
 type StyleProps = {
-  hasRowsSeperated?: boolean
+  horizontalBordered?: boolean
 }
 
 const Div = styled.div<StyleProps>`
   border-bottom: 0 solid ${ themeColor("tint","level3") };
-  
-  ${ ({ hasRowsSeperated }) => 
-    hasRowsSeperated && 
+
+  ${ ({ horizontalBordered }) =>
+    horizontalBordered &&
     css`
       padding: ${ themeSpacing(2) };
       border-width: 1px;
@@ -28,8 +28,8 @@ const Div = styled.div<StyleProps>`
   }
 
   max-width: 800px;
-  ${ ({ hasRowsSeperated }) => 
-    hasRowsSeperated ? 
+  ${ ({ horizontalBordered }) =>
+    horizontalBordered ?
     css`
       margin-bottom: 0;
     `
@@ -38,7 +38,7 @@ const Div = styled.div<StyleProps>`
       margin-bottom: ${ themeSpacing(2) };
     `
   }
-  
+
   @media ${ breakpoint("min-width", "tabletM") } {
     margin-bottom: 0;
     &:after {
@@ -68,7 +68,7 @@ const Dd = styled.dd<StyleProps>`
     float: right;
     clear: right;
     width: 70%;
-    
+
   }
 `
 
@@ -78,10 +78,10 @@ const castValue = (value: React.ReactNode) => {
   return value
 }
 
-const Definition: React.FC<Props> = ({ term, value, hasRowsSeperated }) => (
-  <Div hasRowsSeperated={ hasRowsSeperated }>
-    <Dt hasRowsSeperated={ hasRowsSeperated }>{ term }</Dt>
-    <Dd hasRowsSeperated={ hasRowsSeperated }><TextWithLinebreaks>{ castValue(value) }</TextWithLinebreaks></Dd>
+const Definition: React.FC<Props> = ({ term, value, horizontalBordered }) => (
+  <Div horizontalBordered={ horizontalBordered }>
+    <Dt horizontalBordered={ horizontalBordered }>{ term }</Dt>
+    <Dd horizontalBordered={ horizontalBordered }><TextWithLinebreaks>{ castValue(value) }</TextWithLinebreaks></Dd>
   </Div>
 )
 export default Definition

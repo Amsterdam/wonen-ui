@@ -63,7 +63,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
     columns,
     loading = false,
     numLoadingRows = 5,
-    hasFixedColumn,
+    lastColumnFixed,
     showHeadWhenEmpty = true,
     emptyPlaceholder = "",
     onClickRow,
@@ -74,7 +74,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
 
   const isEmpty = (data?.length ?? 0) === 0
 
-  const fixedColumnWidth = hasFixedColumn
+  const fixedColumnWidth = lastColumnFixed
     ? columns[columns.length - 1].minWidth
     : undefined
 
@@ -168,7 +168,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
           {(showHeadWhenEmpty || !isEmpty) && (
             <TableHeader
               columns={ columns }
-              hasFixedColumn={ hasFixedColumn }
+              lastColumnFixed={ lastColumnFixed }
               onChangeSorting={ onChangeSorting }
               sorting={ mergedSorting }
             />
@@ -183,7 +183,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
                 {columns.map((column, index) => {
                   const text = column.dataIndex ? _get(rowData, column.dataIndex) : null
                   const node = column.render ? column.render(text, rowData) : text
-                  if (hasFixedColumn && index === columns.length - 1) {
+                  if (lastColumnFixed && index === columns.length - 1) {
                     return (
                       <FixedTableCell key={ index } width={ fixedColumnWidth }>
                         { node }
@@ -205,7 +205,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
               <Row key={ index }>
                 {row.map((cell, index) =>
                   <Fragment key={ index }>
-                  { hasFixedColumn && index === row.length - 1
+                  { lastColumnFixed && index === row.length - 1
                     ? <FixedTableCell width={ fixedColumnWidth }><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></FixedTableCell>
                     : <TableCell><SmallSkeleton maxRandomWidth={ columns[index].minWidth ?? 30 } /></TableCell>
                   }

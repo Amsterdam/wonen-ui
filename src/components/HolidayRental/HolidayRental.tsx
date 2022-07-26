@@ -7,13 +7,13 @@ type Props = {
   data: VakantieverhuurReportInformation[]
   loading?: boolean
   showRecentYearOnly?: boolean
-  hasRowsSeperated?: boolean
+  horizontalBordered?: boolean
 }
 
 export const TITLE = "Vakantieverhuur meldingen"
 
 const HolidayRental: React.FC<Props> = ({
-  data, loading = false, hasRowsSeperated = true, showRecentYearOnly = false
+  data, loading = false, horizontalBordered = true, showRecentYearOnly = false
 }) => {
   const holidayRentalData = data !== undefined ? data : []
   holidayRentalData.sort((a, b) => b.year - a.year ) // Recent years on top.
@@ -38,7 +38,7 @@ const HolidayRental: React.FC<Props> = ({
             vakantieverhuurReport={ vakantieverhuurReport }
             title={ TITLE }
             key={ vakantieverhuurReport.year }
-            hasRowsSeperated={ hasRowsSeperated }
+            horizontalBordered={ horizontalBordered }
           />
         ))
       }

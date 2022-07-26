@@ -33,7 +33,7 @@ export type ColumnType = {
 export type TableType<R> = {
   numLoadingRows?: number
   loading?: boolean
-  hasFixedColumn?: boolean
+  lastColumnFixed?: boolean
   columns: ColumnType[]
   data?: R[]
   emptyPlaceholder?: React.ReactNode

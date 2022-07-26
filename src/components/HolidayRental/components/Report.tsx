@@ -8,14 +8,14 @@ import type { VakantieverhuurReportInformation, VakantieverhuurReport } from "..
 type Props = {
   report: VakantieverhuurReport
   year: VakantieverhuurReportInformation["year"]
-  hasRowsSeperated: boolean
+  horizontalBordered: boolean
 }
 
 const StyledDiv = styled.div`
   margin-top: ${ themeSpacing(3) };
 `
 
-const VactionRentalReport: React.FC<Props> = ({ report, year, hasRowsSeperated }) => {
+const VactionRentalReport: React.FC<Props> = ({ report, year, horizontalBordered }) => {
   const {
     check_in_date: checkInDate,
     check_out_date: checkOutDate,
@@ -34,7 +34,7 @@ const VactionRentalReport: React.FC<Props> = ({ report, year, hasRowsSeperated }
         title={ title }
         data={ values }
         headingSize="h4"
-        hasRowsSeperated={ hasRowsSeperated }
+        horizontalBordered={ horizontalBordered }
       />
     </StyledDiv>
   )
