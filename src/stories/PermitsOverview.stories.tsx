@@ -18,7 +18,7 @@ Default.parameters =  {
   }
 }
 Default.args = {
-  hasRowsSeperated: true,
+  horizontalBordered: true,
   loading: false,
   permits: permitsOverviewData,
   showUnknown: false

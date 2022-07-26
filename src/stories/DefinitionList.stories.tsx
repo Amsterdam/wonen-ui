@@ -9,7 +9,7 @@ export default {
   component: DefinitionList,
   argTypes: {
     data: {},
-    hasRowsSeperated: {
+    horizontalBordered: {
       description: "Seperates the rows with borders"
     },
     headingSize: {},
@@ -30,7 +30,7 @@ Default.parameters =  {
 }
 Default.args = {
   data: definitionListData,
-  hasRowsSeperated: true,
+  horizontalBordered: true,
   headingSize: "h2",
   loading: false,
   emptyPlaceholder: "empty",

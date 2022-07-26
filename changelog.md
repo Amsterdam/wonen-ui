@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.36] 2022-07-26
+### Improvement
+
+- Changed property `hasFixedColumn` to `lastColumnFixed` in `Table` component
+- Changed property `hasRowsSeperated` to `horizontalBordered` in `DefinitionList` component
+
 ## [1.0.34] 2022-06-21
 ### Bugfix
 

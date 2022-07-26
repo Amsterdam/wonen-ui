@@ -20,7 +20,7 @@ describe("Table", () => {
 
     describe("when given fixedColumnWidth", () => {
       it("should render fixed cells", () => {
-        const component = mount(<Table data={data} columns={columns} fixedLastColumn={true} emptyPlaceholder={"..."} />)
+        const component = mount(<Table data={data} columns={columns} lastColumnFixed={true} emptyPlaceholder={"..."} />)
         const fixedCells = component.find(FixedTableCell)
 
         expect(fixedCells.length).toEqual(2)

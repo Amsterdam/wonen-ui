@@ -8,7 +8,7 @@ import Permit from "../Permit"
 
 type Props = {
   permit: Permit
-  hasRowsSeperated: boolean
+  horizontalBordered: boolean
 }
 
 const Div = styled.div<{ isOpaque?: boolean }>`
@@ -28,7 +28,7 @@ const StyledIcon = styled(Icon)`
   margin-left: ${ themeSpacing(2) };
 `
 
-const PermitDetail: React.FC<Props> = ({ permit, hasRowsSeperated }) => {
+const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
   const values = useValues(permit)
   const { permit_type, permit_granted } = permit
   const isGranted = permit_granted === "GRANTED"
@@ -46,7 +46,7 @@ const PermitDetail: React.FC<Props> = ({ permit, hasRowsSeperated }) => {
         }
         headingSize="h4"
         data={ values }
-        hasRowsSeperated={ hasRowsSeperated }
+        horizontalBordered={ horizontalBordered }
       />
     </Div>
   )

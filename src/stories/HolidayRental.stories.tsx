@@ -19,7 +19,7 @@ Default.parameters =  {
 }
 Default.args = {
   data: holidayRentalData,
-  hasRowsSeperated: true,
+  horizontalBordered: true,
   loading: false,
   showRecentYearOnly: false
 }

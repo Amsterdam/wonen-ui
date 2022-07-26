@@ -9,14 +9,14 @@ import useVacationRentalValues from "./hooks/useVacationRentalValues"
 type Props = {
   vakantieverhuurReport: VakantieverhuurReportInformation
   title: string
-  hasRowsSeperated: boolean
+  horizontalBordered: boolean
 }
 
 const StyledDiv = styled.div`
   margin-bottom: ${ themeSpacing(12) };
 `
 
-const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, hasRowsSeperated }) => {
+const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, horizontalBordered }) => {
   const values = useVacationRentalValues(vakantieverhuurReport)
   const { reports, year } = vakantieverhuurReport
 
@@ -26,14 +26,14 @@ const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, h
         title={ `${ title } ${ vakantieverhuurReport.year }` }
         data={ values }
         headingSize="h4"
-        hasRowsSeperated={ hasRowsSeperated }
+        horizontalBordered={ horizontalBordered }
       />
       { reports.map((report, index: number) =>
           <Report
             key={ index }
             report={ report }
             year={ year }
-            hasRowsSeperated={ hasRowsSeperated }
+            horizontalBordered={ horizontalBordered }
           />
       ) }
     </StyledDiv>
