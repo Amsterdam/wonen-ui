@@ -3,11 +3,13 @@ import styled from "styled-components"
 import { themeSpacing, Spinner } from "@amsterdam/asc-ui"
 import moment from "moment"
 import ResidentsType from "./ResidentsType"
-import Resident from "./Resident"
+import ResidentsHeader from "./ResidentsHeader"
+import ResidentsView from "./ResidentsView"
 
 type Props = {
   data?: ResidentsType
   loading?: boolean
+  header?: boolean
 }
 
 const Ul = styled.ul`
@@ -22,43 +24,35 @@ const Ul = styled.ul`
 
 const NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE = 1
 
-const Residents: React.FC<Props> = ({ data, loading }) => {
+// Filter residents for deceased persons lon ago.
+const getResidents = (data?: ResidentsType) => {
+  let residents = data?._embedded?.ingeschrevenpersonen
 
-  const residents = data?._embedded?.ingeschrevenpersonen
+  if (residents?.length >= 0) {
+    residents = residents.filter((resident: any) => {
+      const deceased = resident?.overlijden?.datum?.datum
+      if (deceased) {
+        const deceasedDate = moment(deceased)
+        const dateDeceasedPersonIsVisible = moment().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "years")
+        const isDeceasedPersonVisible = deceasedDate.isSameOrAfter(dateDeceasedPersonIsVisible)
+        return isDeceasedPersonVisible
+      }
+      return true
+    })
+  }
+  return residents
+}
 
-  if (loading) {
-    return <Spinner />
-  }
-  if (!(residents?.length >= 0)) {
-    return (
-      <Ul>Oeps, er gaat iets mis...</Ul>
-    )
-  }
-  if (residents?.length === 0) {
-    return (
-      <Ul>Geen ingeschreven personen gevonden</Ul>
-    )
-  } else {
-    return (
-      <Ul>
-        {residents.map((resident: any, index: number) => {
-            // If person is deceased a long time ago, don't show person.
-            const deceased = resident?.overlijden?.datum?.datum
-            if (deceased) {
-              const deceasedDate = moment(deceased)
-              const dateDeceasedPersonIsVisible = moment().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "years")
-              const isDeceasedPersonVisible = deceasedDate.isSameOrAfter(dateDeceasedPersonIsVisible)
-              if (!isDeceasedPersonVisible) {
-                return null
-              }
-            }
-          return (
-            <Resident resident={ resident } key={ index } num={ index + 1 } />
-          )
-        })}
-      </Ul>
-    )
-  }
+const Residents: React.FC<Props> = ({ data, loading, header = false }) => {
+
+  const residents = getResidents(data)
+
+  return (
+    <>
+      { header && <ResidentsHeader residents={ residents } /> }
+      <ResidentsView residents={ residents } loading={ loading } />
+    </>
+  )
 }
 
 export default Residents
