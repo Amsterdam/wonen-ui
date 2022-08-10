@@ -1,6 +1,4 @@
 import React from "react"
-import styled from "styled-components"
-import { themeSpacing, Spinner } from "@amsterdam/asc-ui"
 import moment from "moment"
 import ResidentsType from "./ResidentsType"
 import ResidentsHeader from "./ResidentsHeader"
@@ -11,16 +9,6 @@ type Props = {
   loading?: boolean
   header?: boolean
 }
-
-const Ul = styled.ul`
-  margin-top: ${ themeSpacing(8) };
-  padding: 0;
-  list-style: none;
-
-  li {
-    margin-bottom: ${ themeSpacing(14) };
-  }
-`
 
 const NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE = 1
 
