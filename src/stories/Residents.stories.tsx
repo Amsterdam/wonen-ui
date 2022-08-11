@@ -18,5 +18,7 @@ Default.parameters =  {
   }
 }
 Default.args = {
-  data: residentsData
+  data: residentsData,
+  loading: false,
+  header: false
 }
