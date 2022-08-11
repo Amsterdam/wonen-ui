@@ -31,7 +31,7 @@ const getResidents = (data?: ResidentsType) => {
   return residents
 }
 
-const Residents: React.FC<Props> = ({ data, loading, header = false }) => {
+const Residents: React.FC<Props> = ({ data, loading = false, header = false }) => {
 
   const residents = getResidents(data)
 

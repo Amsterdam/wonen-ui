@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Not released yet
 
+- Added header option for Residents
 - Changed property `hasFixedColumn` to `lastColumnFixed` in `Table` component
 - Changed property `hasRowsSeperated` to `horizontalBordered` in `DefinitionList` component
 
