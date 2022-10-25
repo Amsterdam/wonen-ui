@@ -21,7 +21,7 @@ const useSorter = (
 
   const mergedSorting = sortOrderObj ?? sorting
 
-  const sorter = mergedSorting ? columns[mergedSorting.index].sorter : undefined
+  const sorter = mergedSorting ? columns[mergedSorting.index]?.sorter : undefined
 
   const onChangeSorting = (sortingObj: Sorting) => {
     setSorting(sortingObj)
