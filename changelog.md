@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -
 
+## [1.0.39] 2022-11-24
+### Improvement
+
+- Updated dependencies
+- Updated Amsterdam font
+
 ## [1.0.36] 2022-07-11
 ### Improvement
 
