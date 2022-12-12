@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 -
 
+## [1.0.40] 2022-12-12
+### Improvement
+
+- Added HolidayRentalReports to replace HolidayRental on Jan 1st
+
 ## [1.0.39] 2022-11-24
 ### Improvement
 
