@@ -1,6 +1,7 @@
 import type CaseEvent from "./components/EventsTimeline/CaseEvent"
 import type Permit from "./components/PermitsOverview/Permit"
 import type VakantieverhuurReportInformation from "./components/HolidayRental/VakantieverhuurReportInformation"
+import type { RentalReport } from "./components/HolidayRentalReports/types"
 import type { DefinitionListData } from "./components/Data/DefinitionList/DefinitionList"
 import type { ColumnType, Sorting } from "./components/Data/Table/types"
 
@@ -11,6 +12,7 @@ import DefinitionList from "./components/Data/DefinitionList/DefinitionList"
 import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import FinancialDisplay from "./components/FinancialDisplay/FinancialDisplay"
 import HolidayRental from "./components/HolidayRental/HolidayRental"
+import HolidayRentalReports from "./components/HolidayRentalReports/HolidayRentalReports"
 import List from "./components/Data/List/List"
 import LoadingRows from "./components/Data/components/LoadingRows"
 import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
@@ -28,6 +30,7 @@ export type {
   CaseEvent,
   Permit,
   VakantieverhuurReportInformation,
+  RentalReport,
   DefinitionListData,
   ColumnType,
   Sorting
@@ -43,6 +46,7 @@ export {
   EventsTimeline,
   FinancialDisplay,
   HolidayRental,
+  HolidayRentalReports,
   Icons,
   isValidDate,
   isDate,
