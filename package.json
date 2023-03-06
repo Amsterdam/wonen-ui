@@ -30,7 +30,7 @@
     "styled-components": ">= 5"
   },
   "dependencies": {
-    "dompurify": "^2.4.1",
+    "dompurify": "^3.0.1",
     "lodash.get": "^4.4.2",
     "lodash.pickby": "^4.6.0",
     "moment": "^2.29.4",
