@@ -61,8 +61,13 @@ export const debriefViolationMap = {
   "ADDITIONAL_VISIT_REQUIRED": "Aanvullend bezoek nodig",
   "SEND_TO_OTHER_THEME": "Naar ander thema",
   "ADDITIONAL_VISIT_WITH_AUTHORIZATION": "Machtiging benodigd",
-  "LIKELY_INHABITED": "Vermoeden bewoning/leegstand"
+  "LIKELY_INHABITED": "Vermoeden bewoning/leegstand",
+  "SERVICE_COSTS": "Narekenen onredelijke servicekosten",
+  "SCHEDULE_CONVERSATION": "Inplannen gesprek",
+  "ADVICE_OTHER_DISCIPLINE": "Afwachten advies andere discipline",
+  "REQUEST_DOCUMENTS": "Opvragen stukken"
 }
+
 
 // SUMMON
 export const summonLabelsMap = {
