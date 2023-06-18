@@ -28,20 +28,19 @@ const PermitsOverview: React.FC<Props> = ({
   return (
     <>
       { filteredPermits === undefined || filteredPermits.length === 0 ? (
-          <Paragraph>Geen vergunningen gevonden</Paragraph>
-        ) : (
-          <div>
-            { filteredPermits.map(permit => (
-                <PermitDetails
-                  key={ permit.permit_type }
-                  permit={ permit }
-                  horizontalBordered={ horizontalBordered }
-                />
-              )
-            )}
-          </div>
-        )
-      }
+        <Paragraph>Geen vergunningen gevonden</Paragraph>
+      ) : (
+        <div>
+          { filteredPermits.map(permit => (
+            <PermitDetails
+              key={ permit.permit_type }
+              permit={ permit }
+              horizontalBordered={ horizontalBordered }
+            />
+          )
+          )}
+        </div>
+      )}
     </>
   )
 }

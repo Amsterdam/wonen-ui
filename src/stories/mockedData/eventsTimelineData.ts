@@ -41,7 +41,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "CITIZEN_REPORT",
     emitter_id: 1,
     case: 3766
-	},
+  },
   {
     id: 3956,
     event_values: {
@@ -62,7 +62,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "CITIZEN_REPORT",
     emitter_id: 1,
     case: 3766
-	},
+  },
   {
     id: 4040,
     event_values: {
@@ -80,7 +80,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "SCHEDULE",
     emitter_id: 219,
     case: 3785
-	},
+  },
   {
     id: 3956,
     event_values: {
@@ -101,7 +101,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "CITIZEN_REPORT",
     emitter_id: 1,
     case: 3766
-	},
+  },
   {
     id: 227,
     event_values: {
@@ -147,7 +147,7 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
-      violation: "ADDITIONAL_VISIT_WITH_AUTHORIZATION",
+      violation: "REQUEST_DOCUMENTS",
       feedback: "Hier de opmerkingen...",
       nuisance_detected: true
     },
@@ -155,7 +155,7 @@ const eventsTimelineData: CaseEvent[] = [
     emitter_id: 317,
     case: 3394,
     type: "DEBRIEFING"
-	},
+  },
   {
     id: 222,
     event_values: {
@@ -171,8 +171,8 @@ const eventsTimelineData: CaseEvent[] = [
     type: "DECISION",
     emitter_id: 3394,
     case: 3394
-	},
-	{
+  },
+  {
     case: 3898,
     date_created: "2021-06-22T12:05:11+0200",
     event_values: {
@@ -225,7 +225,7 @@ const eventsTimelineData: CaseEvent[] = [
     type: "SCHEDULE",
     emitter_id: 219,
     case: 3785
-	},
+  },
   {
     id: 439,
     event_values: {
@@ -251,13 +251,13 @@ const eventsTimelineData: CaseEvent[] = [
     type: "GENERIC_TASK",
     emitter_id: 137,
     case: 90
-	},
+  },
   {
     id: 2539,
     event_values: {
       author: "A. Beecee",
       date_added: "2021-03-27T19:19:26.345631Z",
-      violation: "LIKELY_INHABITED",
+      violation: "SERVICE_COSTS",
       feedback: "Hier de opmerkingen...",
       nuisance_detected: false
     },
