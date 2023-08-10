@@ -9,7 +9,7 @@ export default {
   component: PermitsOverview
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof PermitsOverview>> = (args) => <PermitsOverview {...args} />
+const StoryComponent: Story<ComponentProps<typeof PermitsOverview>> = (args) => <PermitsOverview { ...args } />
 
 export const Default = StoryComponent.bind({})
 Default.parameters =  {

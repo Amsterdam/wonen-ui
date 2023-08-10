@@ -16,20 +16,20 @@ export default (permit: Permit) => {
     "Soort vergunning": details?.PERMIT_NAME,
     "Aangevraagd door": details?.APPLICANT,
     ...permitIsForBAndB ? {
-        "Vergunninghouder": details?.HOLDER
-      } : {},
+      "Vergunninghouder": details?.HOLDER
+    } : {},
     "Locatie": details?.ADDRESS,
     ...isGranted ? {
-        "Verleend per": <DateDisplay date={ details?.DATE_VALID_FROM } emptyText="-" />
-      } : {},
+      "Verleend per": <DateDisplay date={ details?.DATE_VALID_FROM } emptyText="-" />
+    } : {},
     ...isGranted && permitIsForBAndB && endDateBAndB ? {
-        "Geldig tot en met": <DateDisplay date={ endDateBAndB } />
-      } : {
-        "Geldig tot": <DateDisplay date={ endDate } emptyText="-" />
-      },
+      "Geldig tot en met": <DateDisplay date={ endDateBAndB } />
+    } : {
+      "Geldig tot": <DateDisplay date={ endDate } emptyText="-" />
+    },
     ...permit_granted === "NOT_GRANTED" ? {
       "Datum besluit": <DateDisplay date={ details?.DATE_DECISION } emptyText="-" />
-      } : {}
+    } : {}
   }
 
   return values
