@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Icon } from "@amsterdam/asc-ui"
+import moment from "moment"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
 import { Check, Close } from "../../Icons/index"
 import useValues from "../hooks/useValues"
@@ -28,19 +29,37 @@ const StyledIcon = styled(Icon)`
   margin-left: ${ themeSpacing(2) };
 `
 
+const isDateValid = (permit: Permit) => {
+  const details = permit?.details
+  const endDate = details?.DATE_VALID_TO ?? details?.DATE_VALID_UNTIL
+  const startDate = details?.DATE_VALID_FROM
+  const now = moment() // current date and time
+  // If there is a start date and it is in the future, it is not valid.
+  if (startDate && moment(startDate).isAfter(now)) {
+    return false
+  }
+  // If there is an end date, it cannot be in the past.
+  if (endDate && moment(endDate).isBefore(now)) {
+    return false
+  }
+  return true
+}
+
 const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
   const values = useValues(permit)
   const { permit_type, permit_granted } = permit
   const isGranted = permit_granted === "GRANTED"
+  const hasValidDate = isDateValid(permit)
+  const isValid = isGranted && hasValidDate
 
   return (
-    <Div isOpaque={ isGranted }>
+    <Div isOpaque={ isValid }>
       <DefinitionList
         title={
           <HeadingSpan>
             { permit_type }
-            <StyledIcon color={isGranted ? "#00a03c" : "#ec0000"} >
-              { isGranted ? <Check /> : <Close /> }
+            <StyledIcon color={ isValid ? "#00a03c" : "#ec0000" } >
+              { isValid ? <Check /> : <Close /> }
             </StyledIcon>
           </HeadingSpan>
         }
