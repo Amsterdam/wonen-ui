@@ -27,10 +27,7 @@ export default (permit: Permit) => {
       "Geldig tot en met": <DateDisplay date={ endDateBAndB } />
     } : {
       "Geldig tot": <DateDisplay date={ endDate } emptyText="-" />
-    },
-    ...permit_granted === "NOT_GRANTED" ? {
-      "Datum besluit": <DateDisplay date={ details?.DATE_DECISION } emptyText="-" />
-    } : {}
+    }
   }
 
   return values
