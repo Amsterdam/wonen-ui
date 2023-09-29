@@ -15,6 +15,7 @@ export default (permit: Permit) => {
     "Omschrijving zaak": details?.SUBJECT,
     "Soort vergunning": details?.PERMIT_NAME,
     "Aangevraagd door": details?.APPLICANT,
+    "Aangevraagd op": details?.REQUEST_DATE,
     ...permitIsForBAndB ? {
       "Vergunninghouder": details?.HOLDER
     } : {},
