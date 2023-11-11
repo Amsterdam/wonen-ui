@@ -19,6 +19,7 @@ import PersonNameDisplay from "./components/PersonNameDisplay/PersonNameDisplay"
 import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
 import PersonEntityDisplay from "./components/PersonEntityDisplay/PersonEntityDisplay"
 import PermitsOverview from "./components/PermitsOverview/PermitsOverview"
+import PermitsSynopsis from "./components/PermitsSynopsis/PermitsSynopsis"
 import Residents from "./components/Residents/Residents"
 import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import Table from "./components/Data/Table/Table"
@@ -53,6 +54,7 @@ export {
   List,
   LoadingRows,
   PermitsOverview,
+  PermitsSynopsis,
   PersonNameDisplay,
   PersonRoleDisplay,
   PersonEntityDisplay,
