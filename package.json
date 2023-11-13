@@ -41,7 +41,7 @@
     "@amsterdam/asc-ui": "^0.38.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-essentials": "^7.5.3",
     "@storybook/react": "^6.5.16",
     "@types/dompurify": "^3.0.4",
     "@types/enzyme": "^3.10.12",
