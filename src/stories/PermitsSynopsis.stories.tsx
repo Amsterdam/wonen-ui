@@ -21,5 +21,5 @@ Default.args = {
   horizontalBordered: true,
   loading: false,
   permits: PermitsSynopsisData,
-  showOnlyResults: false
+  displayOnlyValidPermits: false
 }

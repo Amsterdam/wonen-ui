@@ -4,8 +4,8 @@ import type PermitType from "../PermitType"
 
 export default (permit: PermitType) => {
   const {
-    resultaat, status, kenmerk, initator,
-    vergunninghouder, startdatum, einddatum
+    resultaat, status, kenmerk, vergunninghouder,
+    startdatum, einddatum, datuM_TOT, initator
   } = permit
 
   const values = {
@@ -13,9 +13,10 @@ export default (permit: PermitType) => {
     "Status": status,
     "Kenmerk": kenmerk,
     "Aangevraagd door": initator,
+    "Aangevraagd op": <DateDisplay date={ startdatum } emptyText="-" />,
     "Vergunninghouder": vergunninghouder,
-    "Startdatum": <DateDisplay date={ startdatum } emptyText="-" />,
-    "Einddatum": <DateDisplay date={ einddatum ?? undefined } emptyText="-" />
+    "Verleend per": <DateDisplay date={ einddatum ?? undefined } emptyText="-" />,
+    "Geldig tot en met": <DateDisplay date={ datuM_TOT ?? undefined } emptyText="-" />
   }
 
   return values

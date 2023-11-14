@@ -1,13 +1,14 @@
 import React from "react"
+import moment from "moment"
 import { Spinner, Paragraph } from "@amsterdam/asc-ui"
 import type PermitType from "./PermitType"
 import PermitDetails from "./components/PermitDetails"
-import usePermitsWithResults from "./hooks/usePermitsWithResults"
+import { getValidPermits } from "./utils"
 
 export type Props = {
   permits: PermitType[]
   loading?: boolean
-  showOnlyResults?: boolean
+  displayOnlyValidPermits?: boolean
   horizontalBordered?: boolean
 }
 
@@ -17,21 +18,22 @@ export type Props = {
  */
 
 const PermitsSynopsis: React.FC<Props> = ({
-  permits, loading = false, showOnlyResults = false, horizontalBordered = true
+  permits = [], loading = false, displayOnlyValidPermits = false, horizontalBordered = true
 }) => {
-  const permitsWithResults = usePermitsWithResults(permits)
-  const filteredPermits = showOnlyResults ? permitsWithResults : permits
+  const validPermits = getValidPermits(permits)
+  const filteredPermits = displayOnlyValidPermits ? validPermits : permits
+  const sortedPermits = filteredPermits.sort((a, b) => moment(b?.startdatum).diff(moment(a?.startdatum)))
 
   if (loading) {
     return <Spinner />
   }
   return (
     <>
-      { filteredPermits === undefined || filteredPermits.length === 0 ? (
-        <Paragraph>Geen vergunningen gevonden</Paragraph>
+      { sortedPermits === undefined || sortedPermits.length === 0 ? (
+        <Paragraph>{`Geen ${ permits.length > 0 ? "valide " : "" }vergunningen gevonden`}</Paragraph>
       ) : (
         <div>
-          { filteredPermits.map((permit, index) => (
+          { sortedPermits.map((permit, index) => (
             <PermitDetails
               key={ `${ permit.muT_DAT }${ index }` }
               permit={ permit }
