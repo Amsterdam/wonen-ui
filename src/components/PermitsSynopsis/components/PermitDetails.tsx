@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Icon } from "@amsterdam/asc-ui"
-import moment from "moment"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
 import { Check, Close } from "../../Icons/index"
 import useValues from "../hooks/useValues"
 import Permit from "../PermitType"
+import { isValidPermit } from "../utils"
 
 type Props = {
   permit: Permit
@@ -29,33 +29,16 @@ const StyledIcon = styled(Icon)`
   margin-left: ${ themeSpacing(2) };
 `
 
-const isDateValid = (permit: Permit) => {
-  const { startdatum, einddatum } = permit
-  const now = moment() // current date and time
-  // If there is a start date and it is in the future, it is not valid.
-  if (startdatum && moment(startdatum).isAfter(now)) {
-    return false
-  }
-  // If there is an end date, it cannot be in the past.
-  if (einddatum && moment(einddatum).isBefore(now)) {
-    return false
-  }
-  return true
-}
-
 const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
   const values = useValues(permit)
-  const { product, status, resultaat } = permit
-  const hasValidDate = isDateValid(permit)
-  // TODO: are these the right properties to define a legit permit?
-  const isValid = !!status && !!resultaat && hasValidDate
+  const isValid = isValidPermit(permit)
 
   return (
     <Div isOpaque={ isValid }>
       <DefinitionList
         title={
           <HeadingSpan>
-            { product }
+            { permit.product }
             <StyledIcon color={ isValid ? "#00a03c" : "#ec0000" } >
               { isValid ? <Check /> : <Close /> }
             </StyledIcon>

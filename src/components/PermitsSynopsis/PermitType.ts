@@ -9,6 +9,7 @@ type PermitType = {
   einddatum: string | null // date-time
   vergunninghouder: string | null
   initator: string | null
+  datuM_TOT: string | null // date-time
 }
 
 export default PermitType
