@@ -65,7 +65,9 @@ export const debriefViolationMap = {
   "SERVICE_COSTS": "Narekenen onredelijke servicekosten",
   "SCHEDULE_CONVERSATION": "Inplannen gesprek",
   "ADVICE_OTHER_DISCIPLINE": "Afwachten advies andere discipline",
-  "REQUEST_DOCUMENTS": "Opvragen stukken"
+  "REQUEST_DOCUMENTS": "Opvragen stukken",
+  "SEND_TO_WOON": "Doorsturen naar !Woon",
+  "SEND_TO_ANOTHER_EXTERNAL_PARTY": "Doorsturen naar andere externe partij"
 }
 
 
