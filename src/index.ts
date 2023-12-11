@@ -1,5 +1,6 @@
 import type CaseEvent from "./components/EventsTimeline/CaseEvent"
 import type Permit from "./components/PermitsOverview/Permit"
+import type PermitType from "./components/PermitsSynopsis/PermitType"
 import type VakantieverhuurReportInformation from "./components/HolidayRental/VakantieverhuurReportInformation"
 import type { RentalReport } from "./components/HolidayRentalReports/types"
 import type { DefinitionListData } from "./components/Data/DefinitionList/DefinitionList"
@@ -30,6 +31,7 @@ import * as Icons from "./components/Icons"
 export type {
   CaseEvent,
   Permit,
+  PermitType,
   VakantieverhuurReportInformation,
   RentalReport,
   DefinitionListData,
