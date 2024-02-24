@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 
 import { PermitsOverview } from "../index"
 import permitsOverviewData from "./mockedData/permitsOverviewData"
@@ -9,7 +9,7 @@ export default {
   component: PermitsOverview
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof PermitsOverview>> = (args) => <PermitsOverview { ...args } />
+const StoryComponent = (args) => <PermitsOverview { ...args } />
 
 export const Default = StoryComponent.bind({})
 Default.parameters =  {
