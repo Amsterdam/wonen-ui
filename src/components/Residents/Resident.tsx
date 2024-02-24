@@ -61,7 +61,7 @@ const Resident: React.FC<Props> = ({ resident, num }) => {
     ${ getGenderSymbol(resident?.geslachtsaanduiding) } ${ resident?.overlijden ? "†" : "" }`
 
   return (
-    <Accordion title={ title }>
+    <Accordion title={ title } data-testid="accordion">
       <DefinitionList data={ values } />
     </Accordion>
   )

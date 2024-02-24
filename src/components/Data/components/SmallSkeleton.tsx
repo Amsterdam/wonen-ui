@@ -31,7 +31,7 @@ type Props = {
 
 const SmallSkeleton: React.FC<Props> = ({ maxRandomWidth = 100, height = 5 }) => {
   const width = useMemo(() => Math.round(Math.random() * (maxRandomWidth - 50) ) + 50, [maxRandomWidth])
-  return <StyledDiv width={width} height={height} />
+  return <StyledDiv width={width} height={height} data-testid="small-skeleton"/>
 }
 
 export default SmallSkeleton

@@ -38,7 +38,7 @@ const List: React.FC<Props> = ({ numLoadingRows = 0, loading, title, headingSize
         </Ul>
     )}
     { data !== undefined && data.length > 0 ? (
-        <Ul>
+        <Ul data-testid="list">
           { data.map((item, index) => <li key={ index }>{ item }</li>) }
         </Ul>
       ) : emptyPlaceholder

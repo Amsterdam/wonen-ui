@@ -1,9 +1,7 @@
-import { mount } from "enzyme"
-import SmallSkeleton from "../components/SmallSkeleton"
-
-import TableCell from "./components/TableCell/TableCell"
+import React from "react"
+import { render } from "@testing-library/react"
 import Table from "./Table"
-import FixedTableCell from "./components/TableCell/FixedTableCell"
+
 
 describe("Table", () => {
   const columns = [{ header: "column1", minWidth: 100 }, { header: "column2", minWidth: 100 }]
@@ -14,15 +12,15 @@ describe("Table", () => {
 
   describe("when NOT loading", () => {
     it("should render 4 table cells", () => {
-      const component = mount(<Table data={data} columns={columns} emptyPlaceholder={"..."} />)
-      expect(component.find(TableCell).length).toEqual(4)
+      const { getAllByTestId } = render(<Table data={data} columns={columns} emptyPlaceholder={"..."} />)
+      const tableCells = getAllByTestId("table-cell")
+      expect(tableCells.length).toEqual(4)
     })
 
     describe("when given fixedColumnWidth", () => {
       it("should render fixed cells", () => {
-        const component = mount(<Table data={data} columns={columns} lastColumnFixed={true} emptyPlaceholder={"..."} />)
-        const fixedCells = component.find(FixedTableCell)
-
+        const { getAllByTestId } = render(<Table data={data} columns={columns} lastColumnFixed={true} emptyPlaceholder={"..."} />)
+        const fixedCells = getAllByTestId("table-cell")
         expect(fixedCells.length).toEqual(2)
       })
     })
@@ -30,9 +28,8 @@ describe("Table", () => {
 
   describe("when loading", () => {
     it("should render SmallSkeletons", () => {
-      const component = mount(<Table data={data} columns={columns} loading={true}  emptyPlaceholder={"..."} />)
-      // 5 * 2 = numLoadingRows * numColumns
-      expect(component.find(SmallSkeleton).length).toEqual(10)
+      const { getAllByTestId } = render(<Table data={data} columns={columns} loading={true} emptyPlaceholder={"..."} />)
+      expect(getAllByTestId("small-skeleton").length).toEqual(10) // 5 * 2 = numLoadingRows * numColumns
     })
   })
 })

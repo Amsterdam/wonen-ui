@@ -20,7 +20,7 @@ const Ul = styled.ul`
 
 const Residents: React.FC<Props> = ({ residents, loading }) => {
   if (loading) {
-    return <Spinner />
+    return <Spinner data-testid="spinner" />
   }
   if (!(residents?.length >= 0)) {
     return (
@@ -33,7 +33,7 @@ const Residents: React.FC<Props> = ({ residents, loading }) => {
     )
   } else {
     return (
-      <Ul>
+      <Ul data-testid="residents">
         { residents.map((resident: any, index: number) => (
             <Resident resident={ resident } key={ index } num={ index + 1 } />
           ))

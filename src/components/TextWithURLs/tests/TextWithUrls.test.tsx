@@ -1,17 +1,17 @@
 import React from "react"
-import { render, shallow } from "enzyme"
+import { render, screen } from "@testing-library/react"
 import TextWithUrls from "../TextWithURLs"
 
 describe("TextWithUrls", () => {
-  
   it("should render component with url", () => {
-    const component = render(<TextWithUrls text="http://example.com/"/>)
-    expect(component.find("a").prop("href")).toEqual("http://example.com/")
+    render(<TextWithUrls text="http://example.com/" />)
+    const linkElement = screen.getByRole("link", { name: "http://example.com/" })
+    expect(linkElement).toHaveAttribute("href", "http://example.com/")
   })
 
   it("should render component without url", () => {
-    const component = shallow(<TextWithUrls text="no url"/>)
-    expect(component.find("a").exists()).toBeFalsy()
+    render(<TextWithUrls text="no url" />)
+    const linkElement = screen.queryByRole("link")
+    expect(linkElement).toBeNull()
   })
-
 })

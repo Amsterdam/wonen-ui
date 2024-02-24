@@ -1,37 +1,46 @@
-import { shallow, mount } from "enzyme"
+import React from "react"
+import { render, screen } from "@testing-library/react"
 import moment from "moment"
-import { Heading, Paragraph, Spinner } from "@amsterdam/asc-ui"
 import HolidayRentalReports from "../HolidayRentalReports"
 import { TITLE } from "../components/ReportsPerYear"
 import holidayRentalReportsData from "../../../stories/mockedData/holidayRentalReportsData"
 
 describe("HolidayRentalReports", () => {
-  const component = shallow(<HolidayRentalReports data={[]} />)
-
   it("should render Heading", () => {
-    expect(component.find(Heading).shallow().text()).toEqual(TITLE)
-  })
-  it("should render component with Heading and Paragraph", () => {
-    expect(component.text()).toEqual("<Heading /><Paragraph />")
-  })
-  it("No data found", () => {
-    expect(component.find(Paragraph).shallow().text()).toEqual("Geen vakantieverhuur meldingen")
-  })
-  it("should load spinner", () => {
-    component.setProps({ loading: true })
-    expect(component.find(Spinner).exists()).toBeTruthy()
-  })
-  it("should not load spinner", () => {
-    component.setProps({ loading: false })
-    expect(component.find(Spinner).exists()).toBeFalsy()
+    render(<HolidayRentalReports data={[]} />)
+    expect(screen.getByText(TITLE)).toBeInTheDocument()
   })
 
-  const wrapper = mount(<HolidayRentalReports data={ holidayRentalReportsData } />)
+  it("should render component with Heading", () => {
+    render(<HolidayRentalReports data={[]} />)
+    expect(screen.getByRole("heading")).toBeInTheDocument()
+  })
+
+  it("No data found", () => {
+    render(<HolidayRentalReports data={[]} />)
+    expect(screen.getByText("Geen vakantieverhuur meldingen")).toBeInTheDocument()
+  })
+
+  it("should load spinner", () => {
+    render(<HolidayRentalReports data={[]} loading={true} />)
+    expect(screen.getByTestId("spinner")).toBeInTheDocument()
+  })
+
+  it("should not load spinner", () => {
+    render(<HolidayRentalReports data={[]} loading={false} />)
+    expect(screen.queryByTestId("spinner")).not.toBeInTheDocument()
+  })
 
   it("should render most recent year", () => {
+    render(<HolidayRentalReports data={holidayRentalReportsData} />)
     const rental = holidayRentalReportsData[0]
-    expect(wrapper.text().includes(`${ TITLE } ${ moment(rental.eindDatum).year() }`)).toBe(true)
-    expect(wrapper.text().includes(`${ rental.isVerwijderd ? "Afmelding (-" : "Melding (+" }${ rental.nachten } nachten)`)).toBe(true)
+    expect(
+      screen.getByText(`${ TITLE } ${ moment(rental.eindDatum).year() }`)
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        `${ rental.isVerwijderd ? "Afmelding (-" : "Melding (+"
+      }${ rental.nachten } nachten)`
+    )).toBeInTheDocument()
   })
-
 })

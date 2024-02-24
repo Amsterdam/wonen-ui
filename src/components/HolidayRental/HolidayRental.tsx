@@ -21,7 +21,7 @@ const HolidayRental: React.FC<Props> = ({
     ? [ { ...holidayRentalData[0] } ] : holidayRentalData
 
   if (loading) {
-    return <Spinner />
+    return <Spinner data-testid="spinner"/>
   }
   if (!(vakantieverhuurReports.length > 0)) {
     return (

@@ -1,6 +1,4 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "unused-imports"],
   extends: ["react-app", "plugin:storybook/recommended"],
   rules: {
     "arrow-body-style": ["error", "as-needed"],
@@ -16,7 +14,6 @@ module.exports = {
     "space-infix-ops": ["error"],
     "semi": ["error", "never"],
     "template-curly-spacing": ["error", "always"],
-    "unused-imports/no-unused-imports": "warn",
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/member-delimiter-style": ["error", {
       multiline: {

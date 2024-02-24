@@ -1,11 +1,11 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import TextWithLinebreaks from "../TextWithLinebreaks"
 
 describe("TextWithLinebreaks", () => {
-  const component = shallow(<TextWithLinebreaks>Value</TextWithLinebreaks>)
-  
-  it("should render a term", () => {  
-    expect(component.text()).toEqual("Value")
+  it("should render a term", () => {
+    const { getByText } = render(<TextWithLinebreaks>Value</TextWithLinebreaks>)
+    const termElement = getByText("Value")
+    expect(termElement).toBeInTheDocument()
   })
 })

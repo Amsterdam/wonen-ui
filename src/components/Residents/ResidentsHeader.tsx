@@ -10,7 +10,7 @@ const ResidentsHeader: React.FC<Props> = ({ residents }) => {
   const text = actualTotalResidents >= 0 ? `(${ actualTotalResidents })` : ""
 
   return (
-    <Heading as="h2">Actueel ingeschreven personen { text }</Heading>
+    <Heading as="h2" data-testid="header">Actueel ingeschreven personen { text }</Heading>
   )
 }
 

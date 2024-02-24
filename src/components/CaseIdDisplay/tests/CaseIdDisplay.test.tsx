@@ -1,16 +1,28 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import CaseIdDisplay from "../CaseIdDisplay"
 
-describe("DateDisplay", () => {
-  const component = shallow(<CaseIdDisplay />)
+const Wrapper: React.FC<{ id?: string }> = ({ id }) => (
+  <div data-testid="case-id-display">
+    <CaseIdDisplay id={id} />
+  </div>
+)
 
+describe("CaseIdDisplay", () => {
   it("should render component empty", () => {
-    expect(component.text()).toContain("-")
+    const { getByTestId } = render(<Wrapper />)
+    const caseIdDisplay = getByTestId("case-id-display")
+    expect(caseIdDisplay.textContent).toContain("-")
   })
 
   it("should render component with a 6-digit id", () => {
-    component.setProps({ id: "1234" })
-    expect(component.text()).toContain("1234")
+    const { getByTestId, rerender } = render(<Wrapper id="1234" />)
+    const caseIdDisplay = getByTestId("case-id-display")
+    expect(caseIdDisplay.textContent).toContain("1234")
+
+    // Rerender with a different id
+    rerender(<Wrapper id="567890" />)
+    expect(caseIdDisplay.textContent).toContain("567890")
   })
 })
+
