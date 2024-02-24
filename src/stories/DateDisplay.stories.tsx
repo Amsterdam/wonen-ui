@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 
 import { DateDisplay } from "../index"
 
@@ -8,7 +8,7 @@ export default {
   component: DateDisplay
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof DateDisplay>> = (args) => <DateDisplay {...args} />
+const StoryComponent = (args) => <DateDisplay {...args} />
 
 export const Default = StoryComponent.bind({})
 Default.parameters =  {

@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 
 import { TextWithLinebreaks } from "../index"
 
@@ -8,7 +8,7 @@ export default {
   component: TextWithLinebreaks
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof TextWithLinebreaks>> = (args, children) => (
+const StoryComponent = (args, children) => (
   <TextWithLinebreaks {...args} >{ `line 1
     line 2
 

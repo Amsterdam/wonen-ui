@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 import { Tag } from "@amsterdam/asc-ui"
 
 import { Table } from "../index"
@@ -61,11 +61,11 @@ export default {
   }
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof Table>> = (args) => <Table {...args} />
+const StoryComponent = (args) => <Table {...args} />
 
 const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez",
   "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson"]
-const data = []
+const data: any = []
 for (let i = 1; i < 13; i++) {
   data.push({
     name: `John ${ lastNames[Math.floor(Math.random() * lastNames.length)] }`,

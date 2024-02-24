@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 
 import { EventsTimeline } from "../index"
 import eventsTimelineData from "./mockedData/eventsTimelineData"
@@ -19,7 +19,7 @@ export default {
   }
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof EventsTimeline>> = (args) => <EventsTimeline {...args} />
+const StoryComponent = (args) => <EventsTimeline {...args} />
 
 export const Default = StoryComponent.bind({})
 Default.parameters =  {

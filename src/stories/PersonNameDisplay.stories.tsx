@@ -1,5 +1,5 @@
-import { ComponentProps } from "react"
-import { Story, Meta } from "@storybook/react"
+import React from "react"
+import { Meta } from "@storybook/react"
 
 import { PersonNameDisplay } from "../index"
 
@@ -8,7 +8,7 @@ export default {
   component: PersonNameDisplay
 } as Meta
 
-const StoryComponent: Story<ComponentProps<typeof PersonNameDisplay>> = (args) => <PersonNameDisplay {...args} />
+const StoryComponent = (args) => <PersonNameDisplay {...args} />
 
 export const Default = StoryComponent.bind({})
 Default.parameters =  {
