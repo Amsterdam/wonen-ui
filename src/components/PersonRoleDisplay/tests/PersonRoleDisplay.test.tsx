@@ -1,22 +1,22 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import PersonRoleDisplay from "../PersonRoleDisplay"
 
 describe("PersonRoleDisplay", () => {
-  const component = shallow(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER"/>)
-
   it("should render component with role -eigenaar-", () => {
-    expect(component.text()).toContain("eigenaar")
+    const { getByText } = render(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER" />)
+    expect(getByText("eigenaar")).toBeInTheDocument()
   })
 
   it("should render component with role -bewoner-", () => {
-    component.setProps({ personRole: "PERSON_ROLE_RESIDENT" })
-    expect(component.text()).toContain("bewoner")
+    const { getByText, rerender } = render(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER" />)
+    rerender(<PersonRoleDisplay personRole="PERSON_ROLE_RESIDENT" />)
+    expect(getByText("bewoner")).toBeInTheDocument()
   })
 
   it("should render component with role -tussenpersoon-", () => {
-    component.setProps({ personRole: "PERSON_ROLE_MIDDLEMAN" })
-    expect(component.text()).toContain("tussenpersoon")
+    const { getByText, rerender } = render(<PersonRoleDisplay personRole="PERSON_ROLE_OWNER" />)
+    rerender(<PersonRoleDisplay personRole="PERSON_ROLE_MIDDLEMAN" />)
+    expect(getByText("tussenpersoon")).toBeInTheDocument()
   })
-
 })

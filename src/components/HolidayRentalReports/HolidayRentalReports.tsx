@@ -15,7 +15,7 @@ const HolidayRentalReports: React.FC<Props> = ({
 }) => {
 
   if (loading) {
-    return <Spinner />
+    return <Spinner data-testid="spinner"/>
   }
   if (!(data.length > 0)) {
     return (

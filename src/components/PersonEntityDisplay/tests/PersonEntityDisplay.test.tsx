@@ -1,12 +1,10 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import PersonEntityDisplay from "../PersonEntityDisplay"
 
 describe("PersonEntityDisplay", () => {
-  const component = shallow(<PersonEntityDisplay entityName="Foo" personFunction="Bar" />)
-
   it("should render component with entity name and function", () => {
-    expect(component.text()).toContain("Foo")
-    expect(component.text()).toContain("Bar")
+    const { getByText } = render(<PersonEntityDisplay entityName="Foo" personFunction="Bar" />)
+    expect(getByText("Bar, Foo")).toBeInTheDocument()
   })
 })

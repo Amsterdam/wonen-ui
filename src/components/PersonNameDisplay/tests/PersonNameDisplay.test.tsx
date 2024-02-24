@@ -1,16 +1,17 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import PersonNameDisplay from "../PersonNameDisplay"
 
 describe("PersonNameDisplay", () => {
-  const component = shallow(<PersonNameDisplay sex="V" firstName="A." name="Beecee"/>)
-
   it("should render component with first- and lastname", () => {
-    expect(component.text()).toContain("A.")
-    expect(component.text()).toContain("Beecee")
+    const { getByText } = render(<PersonNameDisplay sex="V" firstName="A." name="Beecee" />)
+    expect(getByText("Mvr. A. Beecee")).toBeInTheDocument()
   })
+
   it("should render component with first- and lastname and prefix", () => {
-    component.setProps({ namePrefix: "van" })
-    expect(component.text()).toContain("van")
+    const { getByText, rerender } = render(<PersonNameDisplay sex="M" firstName="J." name="Doe" />)
+    expect(getByText("Dhr. J. Doe")).toBeInTheDocument()
+    rerender(<PersonNameDisplay sex="V" firstName="A." name="Beecee" namePrefix="van" />)
+    expect(getByText("Mvr. A. van Beecee")).toBeInTheDocument()
   })
 })

@@ -38,7 +38,7 @@ For instance, when you want a spacing of 16 pixels on both sides you can do:
 
 Install dependencies:
 ```
-npm install .
+npm install
 ```
 
 ## Pulish the package to npm

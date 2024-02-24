@@ -21,7 +21,7 @@ const VacationRentalReport: React.FC<Props> = ({ vakantieverhuurReport, title, h
   const { reports, year } = vakantieverhuurReport
 
   return (
-    <StyledDiv>
+    <StyledDiv data-testid="holiday-rental">
       <DefinitionList
         title={ `${ title } ${ vakantieverhuurReport.year }` }
         data={ values }

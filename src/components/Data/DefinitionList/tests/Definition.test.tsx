@@ -1,16 +1,15 @@
 import React from "react"
-import { shallow } from "enzyme"
+import { render } from "@testing-library/react"
 import Definition from "../components/Definition"
-import TextWithLinebreaks from "components/TextWithLinebreaks/TextWithLinebreaks"
 
 describe("DefinitionList", () => {
-  const component = shallow(<Definition term="Label" value="Value" />)
-
   it("should render a term", () => {
-    expect(component.text()).toContain("Label")
+    const { getByText } = render(<Definition term="Label" value="Value" />)
+    expect(getByText("Label")).toBeInTheDocument()
   })
 
   it("should render a value", () => {
-    expect(component.find(TextWithLinebreaks).exists()).toBeTruthy()
+    const { getByTestId } = render(<Definition term="Label" value="Value" />)
+    expect(getByTestId("definition")).toBeInTheDocument()
   })
 })

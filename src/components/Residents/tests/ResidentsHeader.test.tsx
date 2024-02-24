@@ -1,34 +1,39 @@
-import { shallow, mount } from "enzyme"
-import { Heading } from "@amsterdam/asc-ui"
+import React from "react"
+import { render } from "@testing-library/react"
 import ResidentsHeader from "../ResidentsHeader"
 
 describe("ResidentsHeader", () => {
-  const component = shallow(<ResidentsHeader residents={ undefined } />)
-
-  it("should render a Heading", () => {
-    expect(component.find(Heading).exists()).toBeTruthy()
-  })
-
-  const wrapper = mount(<ResidentsHeader residents={ undefined } />)
-
   it("should render specific title", () => {
-    expect(wrapper.text().includes("Actueel ingeschreven personen")).toBe(true)
+    const { getByText } = render(<ResidentsHeader residents={undefined} />)
+    expect(getByText("Actueel ingeschreven personen")).toBeInTheDocument()
   })
 
   it("should render title with 0 residents", () => {
-    expect(wrapper.text().includes("Actueel ingeschreven personen (0)")).toBe(false)
-    wrapper.setProps({ residents: [] })
-    expect(wrapper.text().includes("Actueel ingeschreven personen (0)")).toBe(true)
+    const { getByText, rerender } = render(
+      <ResidentsHeader residents={undefined} />
+    )
+    expect(getByText("Actueel ingeschreven personen")).toBeInTheDocument()
+    rerender(<ResidentsHeader residents={[]} />)
+    expect(getByText("Actueel ingeschreven personen (0)")).toBeInTheDocument()
   })
 
   it("should render title with 2 residents", () => {
-    wrapper.setProps({ residents: [{}, {}] })
-    expect(wrapper.text().includes("Actueel ingeschreven personen (2)")).toBe(true)
+    const { getByText } = render(
+      <ResidentsHeader residents={[{}, {}]} />
+    )
+    expect(
+      getByText("Actueel ingeschreven personen (2)")
+    ).toBeInTheDocument()
   })
 
   it("should render title with deceased residents", () => {
-    wrapper.setProps({ residents: [{}, {}, {}, { overlijden: { datum: { datum: "x" } } }] })
-    expect(wrapper.text().includes("Actueel ingeschreven personen (3)")).toBe(true)
+    const { getByText } = render(
+      <ResidentsHeader
+        residents={[{}, {}, {}, { overlijden: { datum: { datum: "x" } } }]}
+      />
+    )
+    expect(
+      getByText("Actueel ingeschreven personen (3)")
+    ).toBeInTheDocument()
   })
-
 })

@@ -25,7 +25,7 @@ const PermitsSynopsis: React.FC<Props> = ({
   const sortedPermits = filteredPermits.sort((a, b) => moment(b?.startdatum).diff(moment(a?.startdatum)))
 
   if (loading) {
-    return <Spinner />
+    return <Spinner data-testid="spinner" />
   }
   return (
     <>

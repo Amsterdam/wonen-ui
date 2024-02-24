@@ -79,7 +79,7 @@ const castValue = (value: React.ReactNode) => {
 }
 
 const Definition: React.FC<Props> = ({ term, value, horizontalBordered }) => (
-  <Div horizontalBordered={ horizontalBordered }>
+  <Div horizontalBordered={ horizontalBordered } data-testid="definition">
     <Dt horizontalBordered={ horizontalBordered }>{ term }</Dt>
     <Dd horizontalBordered={ horizontalBordered }><TextWithLinebreaks>{ castValue(value) }</TextWithLinebreaks></Dd>
   </Div>
