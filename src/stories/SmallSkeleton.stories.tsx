@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 
 import { SmallSkeleton } from "../index"
