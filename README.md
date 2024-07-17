@@ -68,7 +68,7 @@ You can check the behavior of the components locally in Storybook
 npm run storybook
 ```
 
-Build Storybook locally in `/docs` folder. Then push and merge into master to update Storybook on Github
+Build Storybook locally in `/docs` folder. Then push and merge into main to update Storybook on Github
 ```bash
 npm run storybook:build
 ```
