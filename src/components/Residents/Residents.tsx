@@ -21,8 +21,8 @@ const getResidents = (data?: ResidentsType) => {
       const deceased = resident?.overlijden?.datum?.datum
       if (deceased) {
         const deceasedDate = dayjs(deceased)
-        const dateDeceasedPersonIsVisible = dayjs().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "years")
-        const isDeceasedPersonVisible = deceasedDate.isSameOrAfter(dateDeceasedPersonIsVisible)
+        const dateDeceasedPersonIsVisible = dayjs().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "year")
+        const isDeceasedPersonVisible = deceasedDate.isAfter(dateDeceasedPersonIsVisible) || deceasedDate.isSame(dateDeceasedPersonIsVisible)
         return isDeceasedPersonVisible
       }
       return true

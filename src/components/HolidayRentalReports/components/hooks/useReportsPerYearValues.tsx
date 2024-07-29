@@ -13,7 +13,11 @@ export default (data: RentalReport[]) => {
         totals[yearStart] = item.nachten + (totals[yearStart] || 0)
       } else {
         // Count number of days. January 1 counts as night for the previous year so subtract 1.
-        const nightsNextYear = dayjs(item.eindDatum).dayOfYear() - 1
+        const today = dayjs()
+        // Get the first day of the current year
+        const firstDayOfYear = dayjs().startOf("year")
+       // Count number of days. January 1 counts as night for the previous year so subtract 1.
+        const nightsNextYear = today.diff(firstDayOfYear, "day") - 1
         // Count difference between last day of year end startDatum
         // New years eve counts for the previous year so add 1 day!
         const nightsPreviousYear = dayjs(item.startDatum).endOf("year").diff(dayjs(item.startDatum), "days") + 1

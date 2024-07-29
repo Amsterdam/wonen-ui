@@ -1,8 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
 import pickby from "lodash.pickby"
 import DateDisplay from "../../DateDisplay/DateDisplay"
+
+// Load the plugin
+dayjs.extend(relativeTime)
 
 const Bold = styled.span`
   font-weight: 600;
