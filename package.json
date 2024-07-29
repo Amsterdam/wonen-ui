@@ -17,10 +17,10 @@
     "build": "rm -Rf ./dist && tsc ./src/index.ts --strict --esModuleInterop --declaration --skipLibCheck --jsx react --outDir dist && cp ./package.json ./dist/package.json"
   },
   "dependencies": {
+    "dayjs": "^1.11.12",
     "dompurify": "^3.0.1",
     "lodash.get": "^4.4.2",
     "lodash.pickby": "^4.6.0",
-    "moment": "^2.29.4",
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Icon } from "@amsterdam/asc-ui"
-import moment from "moment"
+import dayjs from "dayjs"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
 import { Check, Close } from "../../Icons/index"
 import useValues from "../hooks/useValues"
@@ -33,13 +33,13 @@ const isDateValid = (permit: Permit) => {
   const details = permit?.details
   const endDate = details?.DATE_VALID_TO ?? details?.DATE_VALID_UNTIL
   const startDate = details?.DATE_VALID_FROM
-  const now = moment() // current date and time
+  const now = dayjs() // current date and time
   // If there is a start date and it is in the future, it is not valid.
-  if (startDate && moment(startDate).isAfter(now)) {
+  if (startDate && dayjs(startDate).isAfter(now)) {
     return false
   }
   // If there is an end date, it cannot be in the past.
-  if (endDate && moment(endDate).isBefore(now)) {
+  if (endDate && dayjs(endDate).isBefore(now)) {
     return false
   }
   return true

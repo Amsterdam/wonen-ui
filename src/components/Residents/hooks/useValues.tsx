@@ -1,8 +1,12 @@
 import React from "react"
 import styled from "styled-components"
-import moment from "moment"
+import dayjs from "dayjs"
+import relativeTime from "dayjs/plugin/relativeTime"
 import pickby from "lodash.pickby"
 import DateDisplay from "../../DateDisplay/DateDisplay"
+
+// Load the plugin
+dayjs.extend(relativeTime)
 
 const Bold = styled.span`
   font-weight: 600;
@@ -26,7 +30,7 @@ const getTimeFromNow = (date?: string) => {
   if (!date) {
     return ""
   }
-  const fromNowString = moment(date).fromNow(true)
+  const fromNowString = dayjs(date).fromNow(true)
   const str = fromNowString.replace(/\b(?:hours|a day|days|a month|months|a year|years)\b/gi, (matched) => timeMapper[matched])
   return str
 }

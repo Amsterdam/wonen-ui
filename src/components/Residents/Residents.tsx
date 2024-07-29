@@ -1,5 +1,5 @@
 import React from "react"
-import moment from "moment"
+import dayjs from "dayjs"
 import ResidentsType from "./ResidentsType"
 import ResidentsHeader from "./ResidentsHeader"
 import ResidentsView from "./ResidentsView"
@@ -20,9 +20,9 @@ const getResidents = (data?: ResidentsType) => {
     residents = residents.filter((resident: any) => {
       const deceased = resident?.overlijden?.datum?.datum
       if (deceased) {
-        const deceasedDate = moment(deceased)
-        const dateDeceasedPersonIsVisible = moment().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "years")
-        const isDeceasedPersonVisible = deceasedDate.isSameOrAfter(dateDeceasedPersonIsVisible)
+        const deceasedDate = dayjs(deceased)
+        const dateDeceasedPersonIsVisible = dayjs().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "year")
+        const isDeceasedPersonVisible = deceasedDate.isAfter(dateDeceasedPersonIsVisible) || deceasedDate.isSame(dateDeceasedPersonIsVisible)
         return isDeceasedPersonVisible
       }
       return true
