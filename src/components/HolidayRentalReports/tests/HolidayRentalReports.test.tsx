@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import moment from "moment"
+import dayjs from "dayjs"
 import HolidayRentalReports from "../HolidayRentalReports"
 import { TITLE } from "../components/ReportsPerYear"
 import holidayRentalReportsData from "../../../stories/mockedData/holidayRentalReportsData"
@@ -35,7 +35,7 @@ describe("HolidayRentalReports", () => {
     render(<HolidayRentalReports data={holidayRentalReportsData} />)
     const rental = holidayRentalReportsData[0]
     expect(
-      screen.getByText(`${ TITLE } ${ moment(rental.eindDatum).year() }`)
+      screen.getByText(`${ TITLE } ${ dayjs(rental.eindDatum).year() }`)
     ).toBeInTheDocument()
     expect(
       screen.getByText(

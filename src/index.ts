@@ -21,6 +21,7 @@ import PersonRoleDisplay from "./components/PersonRoleDisplay/PersonRoleDisplay"
 import PersonEntityDisplay from "./components/PersonEntityDisplay/PersonEntityDisplay"
 import PermitsOverview from "./components/PermitsOverview/PermitsOverview"
 import PermitsSynopsis from "./components/PermitsSynopsis/PermitsSynopsis"
+import { getValidPermits } from "./components/PermitsSynopsis/utils"
 import Residents from "./components/Residents/Residents"
 import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import Table from "./components/Data/Table/Table"
@@ -48,6 +49,7 @@ export {
   displayTime,
   EventsTimeline,
   FinancialDisplay,
+  getValidPermits,
   HolidayRental,
   HolidayRentalReports,
   Icons,

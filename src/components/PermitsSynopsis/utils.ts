@@ -1,4 +1,4 @@
-import moment from "moment"
+import dayjs from "dayjs"
 import PermitType from "./PermitType"
 
 // Specific for B&B
@@ -7,13 +7,13 @@ const GRANTED_STATUS = "verleend"
 
 // Check if the permit date is valid
 const isDateValid = ({ einddatum, datuM_TOT }: PermitType): boolean => {
-  const now = moment() // current date and time
+  const now = dayjs() // current date and time
   // If there is a startdate(einddatum) and it is in the future, it is not valid.
-  if (einddatum && moment(einddatum).isAfter(now)) {
+  if (einddatum && dayjs(einddatum).isAfter(now)) {
     return false
   }
   // If there is an end date (datuM_TOT), it cannot be in the past.
-  if (datuM_TOT && moment(datuM_TOT).isBefore(now)) {
+  if (datuM_TOT && dayjs(datuM_TOT).isBefore(now)) {
     return false
   }
   return true

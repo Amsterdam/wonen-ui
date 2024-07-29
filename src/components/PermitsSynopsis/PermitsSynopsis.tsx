@@ -1,5 +1,5 @@
 import React from "react"
-import moment from "moment"
+import dayjs from "dayjs"
 import { Spinner, Paragraph } from "@amsterdam/asc-ui"
 import type PermitType from "./PermitType"
 import PermitDetails from "./components/PermitDetails"
@@ -22,7 +22,7 @@ const PermitsSynopsis: React.FC<Props> = ({
 }) => {
   const validPermits = getValidPermits(permits)
   const filteredPermits = displayOnlyValidPermits ? validPermits : permits
-  const sortedPermits = filteredPermits.sort((a, b) => moment(b?.startdatum).diff(moment(a?.startdatum)))
+  const sortedPermits = filteredPermits.sort((a, b) => dayjs(b?.startdatum).diff(dayjs(a?.startdatum)))
 
   if (loading) {
     return <Spinner data-testid="spinner" />
