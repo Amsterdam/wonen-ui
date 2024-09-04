@@ -1,3 +1,4 @@
+import React from "react"
 import { GlobalStyle, ThemeProvider } from "@amsterdam/asc-ui"
 
 export const decorators = [
@@ -9,4 +10,4 @@ export const decorators = [
       </div>
     </ThemeProvider>
   ),
-];
+]
