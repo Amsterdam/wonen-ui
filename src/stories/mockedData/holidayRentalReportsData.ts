@@ -7,7 +7,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 3,
     "gasten": 4,
     "isAangepast": true,
-    "isVerwijderd": true
+    "isVerwijderd": true,
+    "gemaaktOp": "2024-06-26T18:08:46.5666577Z"
   },
   {
     "startDatum": "2023-01-20T00:00:00Z",
@@ -15,7 +16,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 2,
     "gasten": 1,
     "isAangepast": false,
-    "isVerwijderd": false
+    "isVerwijderd": false,
+    "gemaaktOp": "2024-06-26T18:07:11.3316885Z"
   },
   {
     "startDatum": "2023-01-12T00:00:00Z",
@@ -23,7 +25,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 2,
     "gasten": 4,
     "isAangepast": true,
-    "isVerwijderd": false
+    "isVerwijderd": false,
+    "gemaaktOp": "2024-06-26T18:08:46.5666577Z"
   },
   {
     "startDatum": "2023-01-09T00:00:00Z",
@@ -31,7 +34,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 2,
     "gasten": 3,
     "isAangepast": false,
-    "isVerwijderd": false
+    "isVerwijderd": false,
+    "gemaaktOp": "2024-06-26T18:08:46.5666577Z"
   },
   {
     "startDatum": "2023-01-02T00:00:00Z",
@@ -39,7 +43,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 3,
     "gasten": 4,
     "isAangepast": false,
-    "isVerwijderd": false
+    "isVerwijderd": false,
+    "gemaaktOp": "2024-05-20T09:29:37.4990796Z"
   },
   {
     "startDatum": "2022-12-30T00:00:00Z",
@@ -47,7 +52,8 @@ const holidayRentalData: RentalReport[] = [
     "nachten": 5,
     "gasten": 4,
     "isAangepast": true,
-    "isVerwijderd": false
+    "isVerwijderd": false,
+    "gemaaktOp": "2024-06-26T18:07:11.3316885Z"
   }
 ]
 
