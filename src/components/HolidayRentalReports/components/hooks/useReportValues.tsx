@@ -7,5 +7,6 @@ export default (report: RentalReport) => ({
   "Check out": <DateDisplay date={ report?.eindDatum } />,
   "Gasten": report?.gasten,
   "Gewijzigd": report?.isAangepast ? "Ja" : "Nee",
-  "Verwijderd": report?.isVerwijderd ? "Ja" : "Nee"
+  "Verwijderd": report?.isVerwijderd ? "Ja" : "Nee",
+  "Aangemaakt op": <DateDisplay date={ report?.gemaaktOp } />
 })

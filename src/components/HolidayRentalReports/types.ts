@@ -5,4 +5,5 @@ export type RentalReport = {
   gasten: number
   isAangepast: Boolean
   isVerwijderd: Boolean
+  gemaaktOp: string // date-time
 }
