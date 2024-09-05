@@ -1,8 +1,9 @@
 import React from "react"
-import { Spinner, Paragraph } from "@amsterdam/asc-ui"
+import { Spinner } from "@amsterdam/asc-ui"
 import type Permit from "./Permit"
 import PermitDetails from "./components/PermitDetails"
 import useKnownPermits from "./hooks/useKnownPermits"
+import Placeholder from "../Data/components/Placeholder"
 
 export type Props = {
   permits: Permit[]
@@ -28,7 +29,7 @@ const PermitsOverview: React.FC<Props> = ({
   return (
     <>
       { filteredPermits === undefined || filteredPermits.length === 0 ? (
-        <Paragraph>Geen vergunningen gevonden</Paragraph>
+        <Placeholder>Geen vergunningen gevonden</Placeholder>
       ) : (
         <div>
           { filteredPermits.map(permit => (

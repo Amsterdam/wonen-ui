@@ -1,9 +1,10 @@
 import React from "react"
 import dayjs from "dayjs"
-import { Spinner, Paragraph } from "@amsterdam/asc-ui"
+import { Spinner } from "@amsterdam/asc-ui"
 import type PermitType from "./PermitType"
 import PermitDetails from "./components/PermitDetails"
 import { getValidPermits } from "./utils"
+import Placeholder from "../Data/components/Placeholder"
 
 export type Props = {
   permits: PermitType[]
@@ -30,7 +31,7 @@ const PermitsSynopsis: React.FC<Props> = ({
   return (
     <>
       { sortedPermits === undefined || sortedPermits.length === 0 ? (
-        <Paragraph>{`Geen ${ permits.length > 0 ? "valide " : "" }vergunningen gevonden`}</Paragraph>
+        <Placeholder>{`Geen ${ permits.length > 0 ? "valide " : "" }vergunningen gevonden`}</Placeholder>
       ) : (
         <div>
           { sortedPermits.map((permit, index) => (

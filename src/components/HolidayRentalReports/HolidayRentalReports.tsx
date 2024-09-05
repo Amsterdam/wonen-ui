@@ -1,8 +1,9 @@
 import React from "react"
-import { Spinner, Paragraph, Heading } from "@amsterdam/asc-ui"
+import { Spinner } from "@amsterdam/asc-ui"
 import type { RentalReport } from "./types"
-import ReportsPerYear, { TITLE } from "./components/ReportsPerYear"
+import ReportsPerYear from "./components/ReportsPerYear"
 import Report from "./components/Report"
+import Placeholder from "../Data/components/Placeholder"
 
 type Props = {
   data: RentalReport[]
@@ -19,10 +20,7 @@ const HolidayRentalReports: React.FC<Props> = ({
   }
   if (!(data.length > 0)) {
     return (
-      <>
-        <Heading forwardedAs="h4">{ TITLE }</Heading>
-        <Paragraph>Geen vakantieverhuur meldingen</Paragraph>
-      </>
+      <Placeholder>Geen vakantieverhuur meldingen</Placeholder>
     )
   }
   return (
