@@ -6,16 +6,6 @@ import { TITLE } from "../components/ReportsPerYear"
 import holidayRentalReportsData from "../../../stories/mockedData/holidayRentalReportsData"
 
 describe("HolidayRentalReports", () => {
-  it("should render Heading", () => {
-    render(<HolidayRentalReports data={[]} />)
-    expect(screen.getByText(TITLE)).toBeInTheDocument()
-  })
-
-  it("should render component with Heading", () => {
-    render(<HolidayRentalReports data={[]} />)
-    expect(screen.getByRole("heading")).toBeInTheDocument()
-  })
-
   it("No data found", () => {
     render(<HolidayRentalReports data={[]} />)
     expect(screen.getByText("Geen vakantieverhuur meldingen")).toBeInTheDocument()

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Spinner } from "@amsterdam/asc-ui"
 import Resident from "./Resident"
+import Placeholder from "../Data/components/Placeholder"
 
 type Props = {
   residents?: any
@@ -24,12 +25,12 @@ const Residents: React.FC<Props> = ({ residents, loading }) => {
   }
   if (!(residents?.length >= 0)) {
     return (
-      <Ul>Oeps, er gaat iets mis...</Ul>
+      <Placeholder>Oeps, er gaat iets mis...</Placeholder>
     )
   }
   if (residents?.length === 0) {
     return (
-      <Ul>Geen ingeschreven personen gevonden</Ul>
+      <Placeholder>Geen ingeschreven personen gevonden</Placeholder>
     )
   } else {
     return (
