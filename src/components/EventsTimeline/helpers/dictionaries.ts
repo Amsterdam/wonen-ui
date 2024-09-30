@@ -7,7 +7,7 @@ export const caseTypesMap = {
   "SUMMON": "Aanschrijving",
   "VISIT": "Bezoek",
   "DECISION": "Besluit",
-  "CITIZEN_REPORT": "SIA melding verwerken"
+  "CITIZEN_REPORT": "SIG melding verwerken"
 }
 
 // REASON
@@ -96,7 +96,7 @@ export const decisionLabelsMap = {
 export const citizenReportLabelsMap = {
   "date_added": "Datum",
   "author": "Projectmedewerker",
-  "identification": "SIA-nummer",
+  "identification": "SIG-nummer",
   "reporter_name": "Naam melder",
   "reporter_phone": "Telefoonnummer melder",
   "reporter_email": "E-mailadres melder",
