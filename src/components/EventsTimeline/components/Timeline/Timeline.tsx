@@ -88,7 +88,7 @@ const Timeline: React.FC<
             size={13}
             {...{ largeCircle }}
           >
-            <Icon size={16}><Check /></Icon>
+            <Icon size={16} color="white"><Check /></Icon>
           </CircleStyle>
         </CircleWrapperStyle>
         <TimelineItem>
