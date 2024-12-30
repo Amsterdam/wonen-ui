@@ -1,6 +1,7 @@
 import type CaseEvent from "./components/EventsTimeline/CaseEvent"
 import type Permit from "./components/PermitsOverview/Permit"
 import type PermitType from "./components/PermitsSynopsis/PermitType"
+import type { HolidayRentalRegistration } from "./components/HolidayRentalRegistrations/types"
 import type { RentalReport } from "./components/HolidayRentalReports/types"
 import type { DefinitionListData } from "./components/Data/DefinitionList/DefinitionList"
 import type { ColumnType, Sorting } from "./components/Data/Table/types"
@@ -26,9 +27,11 @@ import Table from "./components/Data/Table/Table"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
 import TextWithURLs from "./components/TextWithURLs/TextWithURLs"
 import * as Icons from "./components/Icons"
+import HolidayRentalRegistrations from "./components/HolidayRentalRegistrations/HolidayRentalRegistrations"
 
 export type {
   CaseEvent,
+  HolidayRentalRegistration,
   Permit,
   PermitType,
   RentalReport,
@@ -47,6 +50,7 @@ export {
   EventsTimeline,
   FinancialDisplay,
   getValidPermits,
+  HolidayRentalRegistrations,
   HolidayRentalReports,
   Icons,
   isValidDate,
