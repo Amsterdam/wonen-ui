@@ -33,7 +33,7 @@ const PermitsSynopsis: React.FC<Props> = ({
   )
 
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   return (
     <>

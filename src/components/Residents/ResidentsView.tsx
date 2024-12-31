@@ -21,7 +21,7 @@ const Ul = styled.ul`
 
 const Residents: React.FC<Props> = ({ residents, loading, loadingRows }) => {
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   if (!(residents?.length >= 0)) {
     return <Placeholder>Oeps, er gaat iets mis...</Placeholder>

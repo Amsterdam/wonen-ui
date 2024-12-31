@@ -23,7 +23,7 @@ const HolidayRentalReports: React.FC<Props> = ({
   loadingRows
 }) => {
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   if (!(data.length > 0)) {
     return <Placeholder>Geen vakantieverhuur meldingen</Placeholder>
