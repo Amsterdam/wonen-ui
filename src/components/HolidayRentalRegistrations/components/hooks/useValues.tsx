@@ -10,7 +10,6 @@ const formatRequester = (requester: HolidayRentalRegistration["requester"]) => {
 
 export default (registration: HolidayRentalRegistration) => {
   const {
-    registrationNumber,
     requester,
     agreementDate,
     createdAt,
@@ -20,7 +19,6 @@ export default (registration: HolidayRentalRegistration) => {
   const requesterName = formatRequester(requester)
 
   const values = {
-    "Registratienummer": registrationNumber,
     "Aanvrager": requesterName,
     "E-mail": requester?.email,
     "Aangemaakt": <DateDisplay date={createdAt} emptyText="-" />,

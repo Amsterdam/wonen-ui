@@ -18,7 +18,7 @@ const Registration: React.FC<Props> = ({ registration, horizontalBordered }) => 
   return (
     <StyledDiv>
       <DefinitionList 
-        title="Registratie"
+        title={ `Registratie (${ registration.registrationNumber })` }
         data={ values }
         horizontalBordered={ horizontalBordered }
         headingSize="h4"

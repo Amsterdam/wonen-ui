@@ -8,7 +8,7 @@ type Props = {
   numRows?: number
 }
 
-const LoadingRows: React.FC<Props> = ({ loading = true, numRows = 1 }) => loading ? (
+export const LoadingRows: React.FC<Props> = ({ loading = true, numRows = 1 }) => loading ? (
   <RepeatChildren times={ numRows }>
     <Definition term={ <SmallSkeleton /> } value={ <SmallSkeleton /> } />
   </RepeatChildren>

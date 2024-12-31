@@ -2,43 +2,38 @@ import React from "react"
 import styled from "styled-components"
 import { themeSpacing, Spinner } from "@amsterdam/asc-ui"
 import Resident from "./Resident"
-import Placeholder from "../Data/components/Placeholder"
+import { Placeholder, LoadingRows } from "../Data/components"
 
 type Props = {
-  residents?: any
   loading?: boolean
+  loadingRows?: number
+  residents?: any
 }
 
 const Ul = styled.ul`
   margin-top: ${ themeSpacing(8) };
   padding: 0;
   list-style: none;
-
   li {
     margin-bottom: ${ themeSpacing(14) };
   }
 `
 
-const Residents: React.FC<Props> = ({ residents, loading }) => {
+const Residents: React.FC<Props> = ({ residents, loading, loadingRows }) => {
   if (loading) {
-    return <Spinner data-testid="spinner" />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   if (!(residents?.length >= 0)) {
-    return (
-      <Placeholder>Oeps, er gaat iets mis...</Placeholder>
-    )
+    return <Placeholder>Oeps, er gaat iets mis...</Placeholder>
   }
   if (residents?.length === 0) {
-    return (
-      <Placeholder>Geen ingeschreven personen gevonden</Placeholder>
-    )
+    return <Placeholder>Geen ingeschreven personen gevonden</Placeholder>
   } else {
     return (
       <Ul data-testid="residents">
-        { residents.map((resident: any, index: number) => (
-            <Resident resident={ resident } key={ index } num={ index + 1 } />
-          ))
-        }
+        {residents.map((resident: any, index: number) => (
+          <Resident resident={resident} key={index} num={index + 1} />
+        ))}
       </Ul>
     )
   }

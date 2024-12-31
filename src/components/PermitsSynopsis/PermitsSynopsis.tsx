@@ -4,13 +4,14 @@ import { Spinner } from "@amsterdam/asc-ui"
 import type PermitType from "./PermitType"
 import PermitDetails from "./components/PermitDetails"
 import { getValidPermits } from "./utils"
-import Placeholder from "../Data/components/Placeholder"
+import { Placeholder, LoadingRows } from "../Data/components"
 
 export type Props = {
-  permits: PermitType[]
-  loading?: boolean
   displayOnlyValidPermits?: boolean
   horizontalBordered?: boolean
+  loading?: boolean
+  loadingRows?: number
+  permits: PermitType[]
 }
 
 /**
@@ -19,29 +20,34 @@ export type Props = {
  */
 
 const PermitsSynopsis: React.FC<Props> = ({
-  permits = [], loading = false, displayOnlyValidPermits = false, horizontalBordered = true
+  displayOnlyValidPermits = false,
+  horizontalBordered = true,
+  loading = false,
+  loadingRows,
+  permits = []
 }) => {
   const validPermits = getValidPermits(permits)
   const filteredPermits = displayOnlyValidPermits ? validPermits : permits
-  const sortedPermits = filteredPermits.sort((a, b) => dayjs(b?.startdatum).diff(dayjs(a?.startdatum)))
+  const sortedPermits = filteredPermits.sort((a, b) =>
+    dayjs(b?.startdatum).diff(dayjs(a?.startdatum))
+  )
 
   if (loading) {
-    return <Spinner data-testid="spinner" />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   return (
     <>
-      { sortedPermits === undefined || sortedPermits.length === 0 ? (
+      {sortedPermits === undefined || sortedPermits.length === 0 ? (
         <Placeholder>{`Geen ${ permits.length > 0 ? "valide " : "" }vergunningen gevonden`}</Placeholder>
       ) : (
         <div>
-          { sortedPermits.map((permit, index) => (
+          {sortedPermits.map((permit, index) => (
             <PermitDetails
-              key={ `${ permit.muT_DAT }${ index }` }
-              permit={ permit }
-              horizontalBordered={ horizontalBordered }
+              key={`${ permit.muT_DAT }${ index }`}
+              permit={permit}
+              horizontalBordered={horizontalBordered}
             />
-          )
-          )}
+          ))}
         </div>
       )}
     </>
