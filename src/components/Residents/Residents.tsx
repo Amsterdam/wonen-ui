@@ -6,8 +6,9 @@ import ResidentsView from "./ResidentsView"
 
 type Props = {
   data?: ResidentsType
-  loading?: boolean
   header?: boolean
+  loading?: boolean
+  loadingRows?: number
 }
 
 const NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE = 1
@@ -21,8 +22,13 @@ const getResidents = (data?: ResidentsType) => {
       const deceased = resident?.overlijden?.datum?.datum
       if (deceased) {
         const deceasedDate = dayjs(deceased)
-        const dateDeceasedPersonIsVisible = dayjs().subtract(NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE, "year")
-        const isDeceasedPersonVisible = deceasedDate.isAfter(dateDeceasedPersonIsVisible) || deceasedDate.isSame(dateDeceasedPersonIsVisible)
+        const dateDeceasedPersonIsVisible = dayjs().subtract(
+          NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE,
+          "year"
+        )
+        const isDeceasedPersonVisible =
+          deceasedDate.isAfter(dateDeceasedPersonIsVisible) ||
+          deceasedDate.isSame(dateDeceasedPersonIsVisible)
         return isDeceasedPersonVisible
       }
       return true
@@ -31,14 +37,22 @@ const getResidents = (data?: ResidentsType) => {
   return residents
 }
 
-const Residents: React.FC<Props> = ({ data, loading = false, header = false }) => {
-
+const Residents: React.FC<Props> = ({
+  data,
+  loading = false,
+  header = false,
+  loadingRows
+}) => {
   const residents = getResidents(data)
 
   return (
     <>
-      { header && <ResidentsHeader residents={ residents } /> }
-      <ResidentsView residents={ residents } loading={ loading } />
+      {header && <ResidentsHeader residents={residents} />}
+      <ResidentsView
+        residents={residents}
+        loading={loading}
+        loadingRows={loadingRows}
+      />
     </>
   )
 }

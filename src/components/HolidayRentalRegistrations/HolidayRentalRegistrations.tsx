@@ -1,13 +1,14 @@
 import React from "react"
-import Placeholder from "../Data/components/Placeholder"
+import { Spinner } from "@amsterdam/asc-ui"
 import type { HolidayRentalRegistration } from "./types"
 import Registration from "./components/Registration"
-import LoadingRows from "../Data/components/LoadingRows"
+import { Placeholder, LoadingRows } from "../Data/components"
 
 type Props = {
   data: HolidayRentalRegistration[]
-  loading?: boolean
   horizontalBordered?: boolean
+  loading?: boolean
+  loadingRows?: number
 }
 
 /**
@@ -15,26 +16,27 @@ type Props = {
  */
 
 const HolidayRentalRegistrations: React.FC<Props> = ({
-  data, loading = false, horizontalBordered = true
+  data,
+  horizontalBordered = true,
+  loading = false,
+  loadingRows
 }) => {
-
   if (loading) {
-    return <LoadingRows numRows={ 6 } />
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner />
   }
   return (
     <>
-      { data === undefined || data.length === 0 ? (
+      {data === undefined || data.length === 0 ? (
         <Placeholder>Geen registraties gevonden</Placeholder>
       ) : (
         <>
-          { data.map(registration => (
+          {data.map((registration) => (
             <Registration
-              key={ registration.registrationNumber }
-              registration={ registration }
-              horizontalBordered={ horizontalBordered }
+              key={registration.registrationNumber}
+              registration={registration}
+              horizontalBordered={horizontalBordered}
             />
-          )
-          )}
+          ))}
         </>
       )}
     </>
