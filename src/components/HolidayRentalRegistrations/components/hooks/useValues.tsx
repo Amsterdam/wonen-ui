@@ -22,8 +22,8 @@ export default (registration: HolidayRentalRegistration) => {
     "Aanvrager": requesterName,
     "E-mail": requester?.email,
     "Aangemaakt": <DateDisplay date={createdAt} emptyText="-" />,
-    "Overeenkomstdatum": <DateDisplay date={agreementDate} emptyText="-" />,
-    "Verzoek voor B&B": requestForBedAndBreakfast ? "Ja" : "Nee"
+    "Overeenkomst": <DateDisplay date={agreementDate} emptyText="-" />,
+    "B&B verzoek": requestForBedAndBreakfast ? "Ja" : "Nee"
   }
 
   return values
