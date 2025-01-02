@@ -2,11 +2,11 @@ import React from "react"
 import styled  from "styled-components"
 import { themeSpacing } from "@amsterdam/asc-ui"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
-import type { RentalReport } from "../types"
+import type { HolidayRentalReport } from "../types"
 import useReportsPerYearValues from "./hooks/useReportsPerYearValues"
 
 type Props = {
-  data: RentalReport[]
+  data: HolidayRentalReport[]
 }
 
 export const TITLE = "Vakantieverhuur meldingen"

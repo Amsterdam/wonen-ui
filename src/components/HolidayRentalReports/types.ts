@@ -1,4 +1,4 @@
-export type RentalReport = {
+export type HolidayRentalReport = {
   startDatum: string // date-time
   eindDatum: string // date-time
   nachten: number

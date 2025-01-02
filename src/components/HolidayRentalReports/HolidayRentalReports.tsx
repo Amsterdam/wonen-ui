@@ -1,12 +1,12 @@
 import React from "react"
 import { Spinner } from "@amsterdam/asc-ui"
-import type { RentalReport } from "./types"
+import type { HolidayRentalReport } from "./types"
 import ReportsPerYear from "./components/ReportsPerYear"
 import Report from "./components/Report"
 import { Placeholder, LoadingRows } from "../Data/components"
 
 type Props = {
-  data: RentalReport[]
+  data: HolidayRentalReport[]
   horizontalBordered?: boolean
   loading?: boolean
   loadingRows?: number

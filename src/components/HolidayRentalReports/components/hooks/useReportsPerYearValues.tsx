@@ -1,7 +1,7 @@
 import dayjs from "dayjs"
-import type { RentalReport } from "../../types"
+import type { HolidayRentalReport } from "../../types"
 
-export default (data: RentalReport[]) => {
+export default (data: HolidayRentalReport[]) => {
   let totals: { [key: string]: number } = {}
   data.forEach((item) => {
     // Don't count removed items
