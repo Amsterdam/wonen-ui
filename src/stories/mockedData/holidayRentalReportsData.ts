@@ -1,6 +1,6 @@
-import { RentalReport } from "../../components/HolidayRentalReports/types"
+import { HolidayRentalReport } from "../../components/HolidayRentalReports/types"
 
-const holidayRentalData: RentalReport[] = [
+const holidayRentalData: HolidayRentalReport[] = [
   {
     "startDatum": "2023-04-01T00:00:00Z",
     "eindDatum": "2023-04-04T00:00:00Z",

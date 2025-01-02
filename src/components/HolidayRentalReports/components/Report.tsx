@@ -3,10 +3,10 @@ import styled  from "styled-components"
 import { themeSpacing } from "@amsterdam/asc-ui"
 import useReportValues from "./hooks/useReportValues"
 import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
-import type { RentalReport } from "../types"
+import type { HolidayRentalReport } from "../types"
 
 type Props = {
-  report: RentalReport
+  report: HolidayRentalReport
   horizontalBordered: boolean
 }
 
