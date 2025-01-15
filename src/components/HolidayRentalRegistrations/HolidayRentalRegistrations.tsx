@@ -9,6 +9,7 @@ type Props = {
   horizontalBordered?: boolean
   loading?: boolean
   loadingRows?: number
+  defaultOpen?: boolean 
 }
 
 /**
@@ -19,7 +20,8 @@ const HolidayRentalRegistrations: React.FC<Props> = ({
   data,
   horizontalBordered = true,
   loading = false,
-  loadingRows
+  loadingRows,
+  defaultOpen
 }) => {
   if (loading) {
     return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
@@ -35,6 +37,7 @@ const HolidayRentalRegistrations: React.FC<Props> = ({
               key={registration.registrationNumber}
               registration={registration}
               horizontalBordered={horizontalBordered}
+              defaultOpen={defaultOpen}
             />
           ))}
         </>

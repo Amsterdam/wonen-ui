@@ -1,29 +1,28 @@
 import React from "react"
-import styled from "styled-components"
-import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
+import DefinitionList from "../../Data/DefinitionList/DefinitionList"
+import ExpandableContainer from "../../Data/ExpandableContainer/ExpandableContainer"
 import useValues from "./hooks/useValues"
 import type { HolidayRentalRegistration } from "../types"
 
 type Props = {
   registration: HolidayRentalRegistration
   horizontalBordered?: boolean
+  defaultOpen?: boolean
 }
 
-const StyledDiv = styled.div`
-  margin-top: 12px;
-`
+const Registration: React.FC<Props> = ({ registration, horizontalBordered, defaultOpen }) => {
+  const values = useValues(registration)
 
-const Registration: React.FC<Props> = ({ registration, horizontalBordered }) => {
-  const values = useValues(registration) 
   return (
-    <StyledDiv>
-      <DefinitionList 
-        title={ `Registratie (${ registration.registrationNumber })` }
-        data={ values }
-        horizontalBordered={ horizontalBordered }
-        headingSize="h4"
-      /> 
-    </StyledDiv>    
+    <ExpandableContainer 
+      title={`Registratie (${ registration.registrationNumber })`}  
+      defaultOpen={defaultOpen}
+    >
+      <DefinitionList
+        data={values}
+        horizontalBordered={horizontalBordered}
+      />
+    </ExpandableContainer>
   )
 }
 
