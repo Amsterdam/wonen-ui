@@ -15,6 +15,7 @@ export const Default: Story = {
   args: {
     data: holidayRentalRegistrationsData,
     horizontalBordered: true,
-    loading: false
+    loading: false,
+    defaultOpen: true
   }
 }

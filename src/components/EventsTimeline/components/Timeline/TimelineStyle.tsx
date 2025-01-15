@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
 import { themeColor, themeSpacing, breakpoint, Icon, Button } from "@amsterdam/asc-ui"
-import { IconStyle } from "@amsterdam/asc-ui/lib/components/Icon"
 
 export type Props = {
   isOpen?: boolean
@@ -106,11 +105,12 @@ const NestedContainer = styled.div<Props>`
 `
 
 const TimelineContent = styled.div<Props>`
-  transition: border-color 0.1s ease-in-out;
-  border: none;
-  padding: ${ themeSpacing(4) } 0;
+  transition: opacity 0.3s ease-in-out, max-height 0.5s ease-in-out;
+  opacity: ${ ({ isOpen }) => (isOpen ? 1 : 0) };
+  max-height: ${ ({ isOpen }) => (isOpen ? "1000px" : "0") }; /* Adjust 500px based on your content */
+  overflow: hidden;
+  padding: ${ ({ isOpen }) => (isOpen ? "16px 0" : "0") };
   position: relative;
-  display: ${ ({ isOpen }) => !isOpen && "none" };
 `
 
 const TimelineButtonContent = styled.span`
@@ -137,12 +137,11 @@ const TimelineButton = styled(Button)<Props>`
       border: 0;
     }
   }
-  // TODO This doesn't seem to do anything
-  ${ IconStyle } {
-    align-self: flex-start;
-    transform: rotate(${ ({ isOpen }) => (isOpen ? "180deg" : "0deg") });
-    transition: transform 0.3s ease;
-    width: 14px;
+  span {
+    span {
+      transform: rotate(${ ({ isOpen }) => (isOpen ? "180deg" : "0deg") });
+      transition: transform 0.3s ease;
+    }
   }
 `
 
