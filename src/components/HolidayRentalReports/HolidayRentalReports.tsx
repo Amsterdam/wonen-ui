@@ -1,39 +1,43 @@
 import React from "react"
 import { Spinner } from "@amsterdam/asc-ui"
-import type { RentalReport } from "./types"
+import type { HolidayRentalReport } from "./types"
 import ReportsPerYear from "./components/ReportsPerYear"
 import Report from "./components/Report"
-import Placeholder from "../Data/components/Placeholder"
+import { Placeholder, LoadingRows } from "../Data/components"
 
 type Props = {
-  data: RentalReport[]
-  loading?: boolean
+  data: HolidayRentalReport[]
   horizontalBordered?: boolean
+  loading?: boolean
+  loadingRows?: number
 }
 
-const HolidayRentalReports: React.FC<Props> = ({
-  data = [], loading = false, horizontalBordered = true
-}) => {
+/**
+ *  Overview of Vakantieverhuur meldingen.
+ */
 
+const HolidayRentalReports: React.FC<Props> = ({
+  data = [],
+  horizontalBordered = true,
+  loading = false,
+  loadingRows
+}) => {
   if (loading) {
-    return <Spinner data-testid="spinner"/>
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
   }
   if (!(data.length > 0)) {
-    return (
-      <Placeholder>Geen vakantieverhuur meldingen</Placeholder>
-    )
+    return <Placeholder>Geen vakantieverhuur meldingen</Placeholder>
   }
   return (
     <>
-      <ReportsPerYear data={ data } />
-      { data.map((report) => (
-          <Report
-            report={ report }
-            key={ `${ report.startDatum }-${ report.eindDatum } `}
-            horizontalBordered={ horizontalBordered }
-          />
-        ))
-      }
+      <ReportsPerYear data={data} />
+      {data.map((report) => (
+        <Report
+          report={report}
+          key={`${ report.startDatum }-${ report.eindDatum } `}
+          horizontalBordered={horizontalBordered}
+        />
+      ))}
     </>
   )
 }

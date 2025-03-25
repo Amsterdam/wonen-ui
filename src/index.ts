@@ -2,7 +2,7 @@ import type CaseEvent from "./components/EventsTimeline/CaseEvent"
 import type Permit from "./components/PermitsOverview/Permit"
 import type PermitType from "./components/PermitsSynopsis/PermitType"
 import type { HolidayRentalRegistration } from "./components/HolidayRentalRegistrations/types"
-import type { RentalReport } from "./components/HolidayRentalReports/types"
+import type { HolidayRentalReport } from "./components/HolidayRentalReports/types"
 import type { DefinitionListData } from "./components/Data/DefinitionList/DefinitionList"
 import type { ColumnType, Sorting } from "./components/Data/Table/types"
 
@@ -34,7 +34,7 @@ export type {
   HolidayRentalRegistration,
   Permit,
   PermitType,
-  RentalReport,
+  HolidayRentalReport,
   DefinitionListData,
   ColumnType,
   Sorting
