@@ -34,7 +34,7 @@
     "@storybook/react": "^8.4.7",
     "@storybook/react-webpack5": "^8.4.7",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^16.3.0",
     "@types/jest": "^29.5.14",
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.pickby": "^4.6.7",
