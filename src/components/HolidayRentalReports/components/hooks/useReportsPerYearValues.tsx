@@ -12,20 +12,26 @@ export default (data: HolidayRentalReport[]) => {
       if (yearStart === yearEnd) {
         totals[yearStart] = item.nachten + (totals[yearStart] || 0)
       } else {
-        // Count number of days. January 1 counts as night for the previous year so subtract 1.
-        const today = dayjs()
-        // Get the first day of the current year
-        const firstDayOfYear = dayjs().startOf("year")
-       // Count number of days. January 1 counts as night for the previous year so subtract 1.
-        const nightsNextYear = today.diff(firstDayOfYear, "day") - 1
-        // Count difference between last day of year end startDatum
+        // Count the difference between last day of year and startDatum
         // New years eve counts for the previous year so add 1 day!
-        const nightsPreviousYear = dayjs(item.startDatum).endOf("year").diff(dayjs(item.startDatum), "days") + 1
+        const nightsPreviousYear =
+          dayjs(item.startDatum)
+            .endOf("year")
+            .diff(dayjs(item.startDatum), "days") + 1
+        // Count the difference between eindDatum and first day of year
+        const nightsNextYear = dayjs(item.eindDatum).diff(
+          dayjs(item.eindDatum).startOf("year"),
+          "days"
+        )
 
         totals[yearStart] = nightsPreviousYear + (totals[yearStart] || 0)
         totals[yearEnd] = nightsNextYear + (totals[yearEnd] || 0)
       }
     }
   })
-  return totals
+
+  const sortedTotals = Object.entries(totals).sort(
+    ([yearA], [yearB]) => Number(yearB) - Number(yearA)
+  )
+  return sortedTotals
 }
