@@ -4,7 +4,7 @@ const reasonFields = (prefixUrl: string) => (
   [
     {
       key: "start_date",
-      mapValue: (v: string) => displayDate(v)
+      mapValue: (v: string) => displayDate(v, true)
     },
     "author",
     "reason",

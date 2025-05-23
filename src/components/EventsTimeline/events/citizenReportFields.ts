@@ -4,7 +4,7 @@ import { booleanObj } from "../helpers/dictionaries"
 export default [
   {
     key: "date_added",
-    mapValue: (v: string) => displayDate(v),
+    mapValue: (v: string) => displayDate(v, true),
     shouldShow: (value: any, isNested: boolean) => !isNested
   },
   "author",

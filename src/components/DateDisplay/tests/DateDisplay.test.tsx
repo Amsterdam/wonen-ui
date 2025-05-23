@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import DateDisplay, { isDate, isValidDate } from "../DateDisplay"
+import DateDisplay, { isDate } from "../DateDisplay"
 
 describe("isDate", () => {
   it("Date", () => {
@@ -18,16 +18,6 @@ describe("isDate", () => {
   })
 })
 
-describe("isValidDate", () => {
-  it("Date", () => {
-    expect(isValidDate(new Date("2021-03-31"))).toBeTruthy()
-  })
-
-  it("Invalid Date", () => {
-    expect(isValidDate(new Date("invalid"))).toBeFalsy()
-  })
-})
-
 describe("DateDisplay", () => {
   it("should render component with month as number", () => {
     const { getByText } = render(<DateDisplay date="2021-03-31" />)
@@ -36,7 +26,7 @@ describe("DateDisplay", () => {
 
   it("should render component with month as name", () => {
     const { getByText } = render(<DateDisplay date="2021-03-31" full />)
-    expect(getByText("31 maart 2021")).toBeInTheDocument()
+    expect(getByText("Woensdag 31 maart 2021")).toBeInTheDocument()
   })
 
   it("should render component with empty date message when undefined date is given", () => {

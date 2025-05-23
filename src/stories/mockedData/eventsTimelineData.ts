@@ -43,7 +43,7 @@ const eventsTimelineData: CaseEvent[] = [
     case: 3766
   },
   {
-    id: 3956,
+    id: 3957,
     event_values: {
       date_added: "2021-05-18T09:52:03.154320Z",
       identification: 123456,
@@ -251,6 +251,26 @@ const eventsTimelineData: CaseEvent[] = [
     type: "GENERIC_TASK",
     emitter_id: 137,
     case: 90
+  },
+  {
+    id: 227,
+    event_values: {
+      start_time: "2021-01-01T11:34:00Z",
+      authors: [
+        "Alice",
+        "Bob"
+      ],
+      situation: "access_denied",
+      observations: ["malfunctioning_doorbell", "mal_functioning_doorbel", "likely_sub_let"],
+      can_next_visit_go_ahead: true,
+      can_next_visit_go_ahead_description: null,
+      suggest_next_visit: null,
+      suggest_next_visit_description: null
+    },
+    date_created: "2021-04-08T11:25:07+0200",
+    type: "VISIT",
+    emitter_id: 81,
+    case: 3394
   },
   {
     id: 2539,
