@@ -4,14 +4,14 @@ import { booleanObj } from "../helpers/dictionaries"
 export default [
   {
     key: "date_added",
-    mapValue: (v: string) => displayDate(v)
+    mapValue: (v: string) => displayDate(v, true)
   },
   "author",
   "week_segment",
   "day_segment",
   {
     key: "visit_from_datetime",
-    mapValue: (v: string) => displayDate(v)
+    mapValue: (v: string) => displayDate(v, true)
   },
   "priority",
   {

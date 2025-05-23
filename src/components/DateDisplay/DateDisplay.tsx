@@ -1,8 +1,8 @@
 import React from "react"
-import styled from "styled-components"
+import dayjs, { Dayjs } from "dayjs"
+import "dayjs/locale/nl"
 
-export const emptyTextDefault = "-"
-export const invalidDateTextDefault = "Ongeldige datum"
+dayjs.locale("nl") // Global setting for Dutch locale
 
 type Props = {
   date: string | undefined
@@ -12,49 +12,62 @@ type Props = {
   invalidDateText?: string
 }
 
-const months = [
-  "januari",
-  "februari",
-  "maart",
-  "april",
-  "mei",
-  "juni",
-  "juli",
-  "augustus",
-  "september",
-  "oktober",
-  "november",
-  "december"
-]
+const emptyTextDefault = "-"
+const invalidDateTextDefault = "Ongeldige datum"
 
-export const isDate = (d: unknown) => {
-  if (d instanceof Date) return isValidDate(d)
-  if (typeof d === "string") return isValidDate(new Date(d))
-  return false
-}
-export const isValidDate = (d: Date) => !Number.isNaN(d.getFullYear())
-
-const twoCharNum = (num: number) => `${ num < 10 ? "0" : "" }${ num }`
-export const displayDate = (date: string | Date, full = false, invalidDateText = invalidDateTextDefault) => {
-  const d = typeof date === "string" ? new Date(date) : date
-  if (!isValidDate(d)) return invalidDateText
-  return full ? (
-      `${ twoCharNum(d.getDate()) } ${ months[d.getMonth()] } ${ d.getFullYear() }`
-    ) : (
-      `${ twoCharNum(d.getDate()) }-${ twoCharNum(d.getMonth() + 1) }-${ d.getFullYear() }`
-    )
-}
-export const displayTime = (date: string | Date, addSuffix?: boolean, invalidDateText = invalidDateTextDefault) => {
-  const d = typeof date === "string" ? new Date(date) : date
-  if (!isValidDate(d)) return invalidDateText
-  return `${ twoCharNum(d.getHours()) }:${ twoCharNum(d.getMinutes()) }${ addSuffix ? " uur" : "" }`
+export const isDate = (
+  d: string | number | Date | Dayjs | null | undefined
+): boolean => {
+  if (d === undefined || d === null) return false
+  if (typeof d === "number") return false
+  return dayjs(d).isValid()
 }
 
-const Span = styled.span`
-  white-space: nowrap;
-`
+const formatDate = (date: string | Date, format?: string): string => {
+  const d = dayjs(date)
+  if (!d.isValid()) return invalidDateTextDefault
+  return d.format(format || "DD-MM-YYYY")
+}
 
-const DateDisplay: React.FC<Props> = ({ date, full = false, emptyText = emptyTextDefault, invalidDateText = invalidDateTextDefault, className }) =>
-  <Span className={ className }>{ date !== undefined ? displayDate(date, full, invalidDateText) : emptyText }</Span>
+const capitalizeFirst = (text: string) =>
+  text.charAt(0).toUpperCase() + text.slice(1)
+
+const formatLongDate = (date: string | Date): string => {
+  const d = dayjs(date)
+  if (!d.isValid()) return invalidDateTextDefault
+  const formatted = d.format("dddd D MMMM YYYY")
+  return capitalizeFirst(formatted)
+}
+
+export const displayDate = (
+  date: string | Date,
+  longFormat = false,
+  invalidDateText = invalidDateTextDefault
+) => {
+  if (!dayjs(date).isValid()) return invalidDateText
+  return longFormat ? formatLongDate(date) : formatDate(date)
+}
+
+export const displayTime = (
+  date: string | Date,
+  addSuffix?: boolean,
+  invalidDateText = invalidDateTextDefault
+) => {
+  const d = dayjs(date)
+  if (!d.isValid()) return invalidDateText
+  return `${d.format("HH:mm")}${addSuffix ? " uur" : ""}`
+}
+
+const DateDisplay: React.FC<Props> = ({
+  date,
+  full = false,
+  emptyText = emptyTextDefault,
+  invalidDateText = invalidDateTextDefault,
+  className
+}) => (
+  <span style={{ whiteSpace: "nowrap" }} className={className}>
+    {date !== undefined ? displayDate(date, full, invalidDateText) : emptyText}
+  </span>
+)
 
 export default DateDisplay

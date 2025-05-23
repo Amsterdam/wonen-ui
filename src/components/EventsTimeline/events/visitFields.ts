@@ -8,7 +8,7 @@ export default [
   {
     key: "start_time",
     label: visitLabelsMap["date"],
-    mapValue: (v: string) => displayDate(v),
+    mapValue: (v: string) => displayDate(v, true),
     shouldShow: (value: any, isNested: boolean) => !isNested
   },
   {

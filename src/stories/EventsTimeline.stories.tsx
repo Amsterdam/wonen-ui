@@ -1,10 +1,8 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-
+import { Meta, StoryObj } from "@storybook/react"
 import { EventsTimeline } from "../index"
 import eventsTimelineData from "./mockedData/eventsTimelineData"
 
-export default {
+const meta: Meta<typeof EventsTimeline> = {
   title: "EventsTimeline",
   component: EventsTimeline,
   argTypes: {
@@ -17,19 +15,22 @@ export default {
       description: "Default is a grey background"
     }
   }
-} as Meta
-
-const StoryComponent = (args) => <EventsTimeline {...args} />
-
-export const Default = StoryComponent.bind({})
-Default.parameters =  {
-  docs: {
-    storyDescription: "Timeline of collapsible events."
-  }
 }
-Default.args = {
-  events: eventsTimelineData,
-  spacingHorizontal: 6,
-  hasTransparentBackground: false,
-  prefixUrl: "https://acc.wonen.zaken.amsterdam.nl/zaken/"
+
+export default meta
+
+type Story = StoryObj<typeof EventsTimeline>
+
+export const Default: Story = {
+  parameters: {
+    docs: {
+      storyDescription: "Timeline of collapsible events."
+    }
+  },
+  args: {
+    events: eventsTimelineData,
+    spacingHorizontal: 6,
+    hasTransparentBackground: false,
+    prefixUrl: "https://acc.wonen.zaken.amsterdam.nl/zaken/"
+  }
 }

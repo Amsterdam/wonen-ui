@@ -7,8 +7,7 @@ import type { DefinitionListData } from "./components/Data/DefinitionList/Defini
 import type { ColumnType, Sorting } from "./components/Data/Table/types"
 
 import CaseIdDisplay from "./components/CaseIdDisplay/CaseIdDisplay"
-import DateDisplay, { isValidDate, isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
-import DayDisplay from "./components/DayDisplay/DayDisplay"
+import DateDisplay, { isDate, displayDate, displayTime } from "./components/DateDisplay/DateDisplay"
 import DefinitionList from "./components/Data/DefinitionList/DefinitionList"
 import EventsTimeline from "./components/EventsTimeline/EventsTimeline"
 import FinancialDisplay from "./components/FinancialDisplay/FinancialDisplay"
@@ -43,7 +42,6 @@ export type {
 export {
   CaseIdDisplay,
   DateDisplay,
-  DayDisplay,
   DefinitionList,
   displayDate,
   displayTime,
@@ -53,7 +51,6 @@ export {
   HolidayRentalRegistrations,
   HolidayRentalReports,
   Icons,
-  isValidDate,
   isDate,
   List,
   LoadingRows,
