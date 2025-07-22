@@ -74,14 +74,20 @@ const Dd = styled.dd<StyleProps>`
 
 const castValue = (value: React.ReactNode) => {
   if (value == null) return "-"
-  if (typeof value === "number") return `${ value }`
+  if (typeof value === "number") return `${value}`
+  if (typeof value === "string") {
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
   return value
 }
 
 const Definition: React.FC<Props> = ({ term, value, horizontalBordered }) => (
-  <Div horizontalBordered={ horizontalBordered } data-testid="definition">
-    <Dt horizontalBordered={ horizontalBordered }>{ term }</Dt>
-    <Dd horizontalBordered={ horizontalBordered }><TextWithLinebreaks>{ castValue(value) }</TextWithLinebreaks></Dd>
+  <Div horizontalBordered={horizontalBordered} data-testid="definition">
+    <Dt horizontalBordered={horizontalBordered}>{term}</Dt>
+    <Dd horizontalBordered={horizontalBordered}>
+      <TextWithLinebreaks>{castValue(value)}</TextWithLinebreaks>
+    </Dd>
   </Div>
 )
 export default Definition
+

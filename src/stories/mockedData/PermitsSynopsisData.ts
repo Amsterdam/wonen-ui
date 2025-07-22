@@ -12,20 +12,21 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2023-09-25T12:25:44.0000000Z",
     "vergunninghouder": null,
     "initator": "Visser",
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
+    "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
+    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten"
   },
   {
-    "kenmerk": "Z/23/1234567",
+    "kenmerk": "Z/24/1239529",
     "baG_ID": "0363010012143319",
-    "einddatum": null,
-    "muT_DAT": "2023-09-13T12:55:40.0000000Z",
-    "product": "Bed & Breakfast",
-    "status": "Intake",
-    "resultaat": null,
-    "startdatum": "2023-09-13T12:53:19.0000000Z",
+    "einddatum": "2025-01-28T23:00:00.0000000Z",
+    "muT_DAT": "2025-05-26T11:23:47.0000000Z",
+    "product": "Omzetting kamerverhuur",
+    "status": "Gereed",
+    "resultaat": "verleend obv wijkquotum",
+    "startdatum": "2024-12-16T23:00:00.0000000Z",
     "vergunninghouder": null,
-    "initator": null,
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
+    "initator": "Henkie",
+    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten"
   },
   {
     "kenmerk": "Z/23/1234567",
