@@ -14,9 +14,9 @@ describe("DefinitionList", () => {
       <DefinitionList data={{ "label A": "value A", "label B": "value B" }} />
     )
     expect(getByText("label A")).toBeInTheDocument()
-    expect(getByText("value A")).toBeInTheDocument()
+    expect(getByText("Value A")).toBeInTheDocument()
     expect(getByText("label B")).toBeInTheDocument()
-    expect(getByText("value B")).toBeInTheDocument()
+    expect(getByText("Value B")).toBeInTheDocument()
   })
 
   it("should render component without a title", () => {
