@@ -115,7 +115,8 @@ const eventsTimelineData: CaseEvent[] = [
       can_next_visit_go_ahead: true,
       can_next_visit_go_ahead_description: null,
       suggest_next_visit: null,
-      suggest_next_visit_description: null
+      suggest_next_visit_description: null,
+      is_additional: true
     },
     date_created: "2021-04-08T11:25:07+0200",
     type: "VISIT",
@@ -219,7 +220,8 @@ const eventsTimelineData: CaseEvent[] = [
       author: "John Doe",
       description: "Toelichting",
       visit_from_datetime: null,
-      housing_corporation_combiteam: undefined
+      housing_corporation_combiteam: undefined,
+      is_additional: true
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",

@@ -1,6 +1,10 @@
 import React from "react"
 
-import type { GroupedTimelineEventItem, GroupedTimelineEventTotals } from "../hooks/useGroupedCaseEvents"
+import type {
+  GroupedTimelineEventItem,
+  GroupedTimelineEventTotals
+} from "../hooks/useGroupedCaseEvents"
+import type CaseEvent from "../CaseEvent"
 import TimelineEventItem from "./TimelineEventItem"
 import {
   caseTypesMap,
@@ -34,9 +38,15 @@ type Props = {
   prefixUrl: string
 }
 
+const hasIsAdditional = (events: CaseEvent[]): boolean =>
+  events.some((event) => "is_additional" in event.event_values)
+
 const TimelineEvent: React.FC<Props> = ({
-  timelineEventItem: { type, caseEvents }, groupedTimelineEventTotals, isOpen = false,
-  hasTransparentBackground, prefixUrl
+  timelineEventItem: { type, caseEvents },
+  groupedTimelineEventTotals,
+  isOpen = false,
+  hasTransparentBackground,
+  prefixUrl
 }) => {
   const props = {
     caseEvents,
@@ -53,79 +63,93 @@ const TimelineEvent: React.FC<Props> = ({
       case "CASE":
         return (
           <TimelineEventItem
-            fields={ fields(reasonFields, reasonLabelsMap) }
-            title={ caseTypesMap[type] }
-            { ...props }
+            fields={fields(reasonFields, reasonLabelsMap)}
+            title={caseTypesMap[type]}
+            {...props}
           />
         )
       case "CASE_CLOSE":
         return (
           <TimelineEventItem
-            fields={ fields(caseCloseFields, caseCloseLabelsMap) }
-            title={ caseTypesMap[type] }
-            { ...props }
+            fields={fields(caseCloseFields, caseCloseLabelsMap)}
+            title={caseTypesMap[type]}
+            {...props}
           />
         )
       case "SCHEDULE":
+        const isAdditionalSchedule = hasIsAdditional(props.caseEvents)
         return (
           <TimelineEventItem
-            fields={ fields(scheduleFields, scheduleLabelsMap) }
-            title={ caseTypesMap[type] }
-            { ...props }
+            fields={fields(scheduleFields, scheduleLabelsMap)}
+            title={
+              isAdditionalSchedule
+                ? caseTypesMap["SCHEDULE_ADDITIONAL"]
+                : caseTypesMap[type]
+            }
+            {...props}
           />
         )
       case "VISIT":
+        const isAdditionalVisit = hasIsAdditional(props.caseEvents)
         return (
           <TimelineEventItem
-            fields={ fields(visitFields, visitLabelsMap) }
-            title={ caseTypesMap[type] }
+            fields={fields(visitFields, visitLabelsMap)}
+            title={
+              isAdditionalVisit
+                ? caseTypesMap["VISIT_ADDITIONAL"]
+                : caseTypesMap[type]
+            }
             dateField="start_time"
-            { ...props }
+            {...props}
           />
         )
       case "DEBRIEFING":
         return (
           <TimelineEventItem
-            fields={ fields(debriefingFields, debriefLabelsMap) }
-            title={ caseTypesMap[type] }
-            { ...props }
+            fields={fields(debriefingFields, debriefLabelsMap)}
+            title={caseTypesMap[type]}
+            {...props}
             dateField="date_added"
           />
         )
       case "SUMMON":
         return (
           <TimelineEventItem
-            fields={ fields(summonFields, summonLabelsMap) }
-            title={ caseTypesMap[type] }
+            fields={fields(summonFields, summonLabelsMap)}
+            title={caseTypesMap[type]}
             dateField="date_added"
-            { ...props }
+            {...props}
           />
         )
       case "DECISION":
         return (
           <TimelineEventItem
-            fields={ fields(decisionFields, decisionLabelsMap) }
-            title={ caseTypesMap[type] }
+            fields={fields(decisionFields, decisionLabelsMap)}
+            title={caseTypesMap[type]}
             dateField="date_added"
-            { ...props }
+            {...props}
           />
         )
       case "CITIZEN_REPORT":
         return (
           <TimelineEventItem
-            fields={ fields(citizenReportFields, citizenReportLabelsMap) }
-            title={ caseTypesMap[type] }
+            fields={fields(citizenReportFields, citizenReportLabelsMap)}
+            title={caseTypesMap[type]}
             dateField="date_added"
-            { ...props }
+            {...props}
           />
         )
       case "GENERIC_TASK":
         return (
           <TimelineEventItem
-            fields={ fields(genericTaskFields, genericLabelsMap) }
-            title={ typeof caseEvents[0]?.event_values.description === "string" ? caseEvents[0]?.event_values.description : "Generiek event" }
+            fields={fields(genericTaskFields, genericLabelsMap)}
+            title={
+              typeof caseEvents[0]?.event_values.description === "string"
+                ? caseEvents[0]?.event_values.description
+                : "Generiek event"
+            }
             dateField="date"
-            { ...props }
+            {...props}
           />
         )
       default:
@@ -136,7 +160,7 @@ const TimelineEvent: React.FC<Props> = ({
   const timeLineEventItem = getTimelineEventItem()
 
   return (
-    <div role="button" tabIndex={ -1 }>
+    <div role="button" tabIndex={-1}>
       {timeLineEventItem}
     </div>
   )
