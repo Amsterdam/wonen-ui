@@ -91,7 +91,6 @@ const TimelineEvent: React.FC<Props> = ({
         )
       case "VISIT":
         const isAdditionalVisit = hasIsAdditional(props.caseEvents)
-        console.log("PROPS", props)
         return (
           <TimelineEventItem
             fields={fields(visitFields, visitLabelsMap)}
