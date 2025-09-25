@@ -39,7 +39,7 @@ type Props = {
 }
 
 const hasIsAdditional = (events: CaseEvent[]): boolean =>
-  events.some((event) => "is_additional" in event.event_values)
+  events.some((event) => event?.event_values?.is_additional === true)
 
 const TimelineEvent: React.FC<Props> = ({
   timelineEventItem: { type, caseEvents },

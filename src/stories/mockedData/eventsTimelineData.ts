@@ -71,10 +71,11 @@ const eventsTimelineData: CaseEvent[] = [
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
-      author: "John Doe",
+      author: "John Doe 2",
       description: "Toelichting",
       visit_from_datetime: "2022-06-16T22:00:00Z",
-      housing_corporation_combiteam: true
+      housing_corporation_combiteam: true,
+      is_additional: false
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
@@ -217,7 +218,7 @@ const eventsTimelineData: CaseEvent[] = [
       week_segment: "Doordeweeks",
       day_segment: "Overdag",
       priority: "Normaal",
-      author: "John Doe",
+      author: "John Doe 1",
       description: "Toelichting",
       visit_from_datetime: null,
       housing_corporation_combiteam: undefined,
@@ -259,8 +260,8 @@ const eventsTimelineData: CaseEvent[] = [
     event_values: {
       start_time: "2021-01-01T11:34:00Z",
       authors: [
-        "Alice",
-        "Bob"
+        "Boba Fett",
+        "Darth Vader"
       ],
       situation: "access_denied",
       observations: ["malfunctioning_doorbell", "mal_functioning_doorbel", "likely_sub_let"],
