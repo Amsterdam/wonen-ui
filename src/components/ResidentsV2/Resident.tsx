@@ -13,12 +13,6 @@ const getName = (resident: any) => (
   `${ resident?.naam?.voorletters } ${ resident?.naam?.geslachtsnaam }`
 )
 
-const getGenderSymbol = (gender: string) => {
-  if (gender === "vrouw") return "V"
-  if (gender === "man") return "M"
-  return ""
-}
-
 const getAge = (resident: any) => {
   if (resident?.leeftijd) {
     return resident?.leeftijd
