@@ -1,3 +1,4 @@
+import dayjs from "dayjs"
 import { ResidentsResponse } from "../../components/ResidentsV2/types"
 
 const residentsData: ResidentsResponse = {
@@ -70,7 +71,7 @@ const residentsData: ResidentsResponse = {
           "type": "JaarMaandDatum",
           "jaar": 2008,
           "maand": 7,
-          "langFormaat": "juli 2008"
+          "langFormaat": dayjs().subtract(4, "month").format("MMMM YYYY")
         }
       },
       "verblijfplaats": {
@@ -179,6 +180,39 @@ const residentsData: ResidentsResponse = {
           }
         }
       ]
+    },
+    {
+      "burgerservicenummer": "999996915",
+      "geboorte": {
+        "datum": {
+          "type": "Datum",
+          "datum": "1994-03-31",
+          "langFormaat": "31 maart 1994"
+        }
+      },
+      "geslacht": {
+        "code": "M",
+        "omschrijving": "man"
+      },
+      "leeftijd": 31,
+      "naam": {
+        "voornamen": "Guus",
+        "geslachtsnaam": "Geluk",
+        "voorletters": "G.",
+        "volledigeNaam": "Guus Geluk"
+      },
+      "adressering": {
+        "adresregel1": "Aalbersestraat 281",
+        "adresregel2": "1067 MD  AMSTERDAM"
+      },
+      "overlijden": {
+        "datum": {
+          "type": "JaarMaandDatum",
+          "jaar": 2008,
+          "maand": 7,
+          "langFormaat": "juli 2008"
+        }
+      }
     },
     {
       "burgerservicenummer": "999996915",

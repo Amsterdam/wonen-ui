@@ -19,7 +19,7 @@ const getResidents = (data?: ResidentsResponse) => {
 
   if (residents?.length >= 0) {
     residents = residents.filter((resident: any) => {
-      const deceased = resident?.overlijden?.datum?.datum
+      const deceased = resident?.overlijden?.datum?.langFormaat
       if (deceased) {
         const deceasedDate = dayjs(deceased)
         const dateDeceasedPersonIsVisible = dayjs().subtract(

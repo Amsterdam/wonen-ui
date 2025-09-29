@@ -32,8 +32,13 @@ const getTimeFromNow = (date?: string) => {
 }
 
 const getFamilyNames = (family: any[]) => {
-  const familyNames = family?.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${ member?.naam?.voornamen ?? "" } ${ member?.naam?.geslachtsnaam }`).join(", ")
+  const familyNames = family?.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${member?.naam?.voornamen ?? ""} ${member?.naam?.geslachtsnaam}`).join(", ")
   return familyNames || undefined
+}
+
+const capitalizeFirstLetter = (str?: string): string | undefined => {
+  if (!str) return undefined
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 const useValues = (resident: any) => {
@@ -62,27 +67,29 @@ const useValues = (resident: any) => {
   const values: any = {
     "Voornamen": voornamen,
     "Initialen": voorletters,
-    "Voorvoegsel": voorvoegsel,
+    "Voorvoegsel": voorvoegsel || undefined,
     "Achternaam": geslachtsnaam,
     "Geslacht": geslachtOmschrijving,
     "Geboren": geboorteDatum ? (
       <>
-        <DateDisplay date={ geboorteDatum } />
-        { overlijden ? null : <Bold> ({ leeftijd } jaar)</Bold> }
+        <DateDisplay date={geboorteDatum} />
+        {overlijden ? null : <Bold> ({leeftijd} jaar)</Bold>}
       </>
     ) : leeftijd,
     "Overleden †": overlijden?.datum?.langFormaat ? (
       <>
-        {overlijden?.datum?.langFormaat}
-        <Bold> ({ getTimeFromNow(overlijden?.datum?.langFormaat) } geleden)</Bold>
+        {capitalizeFirstLetter(overlijden.datum.langFormaat)}
+        <Bold> ({getTimeFromNow(overlijden?.datum?.langFormaat)} geleden)</Bold>
       </>
-      ) : undefined,
+    ) : undefined,
     "Kinderen": getFamilyNames(kinderen),
     "Ouders": getFamilyNames(ouders),
     "Partner": getFamilyNames(partners)
   }
 
   const filteredValues = pickby(values, e => e !== undefined)
+
+  console.log("filteredValues", filteredValues)
 
   return filteredValues
 }
