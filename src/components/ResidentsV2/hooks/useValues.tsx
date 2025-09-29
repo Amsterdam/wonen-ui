@@ -89,8 +89,6 @@ const useValues = (resident: any) => {
 
   const filteredValues = pickby(values, e => e !== undefined)
 
-  console.log("filteredValues", filteredValues)
-
   return filteredValues
 }
 
