@@ -13,13 +13,13 @@ const Bold = styled.span`
 `
 
 const timeMapper: { [key: string]: string } = {
-  "hours": "uur",
+  hours: "uur",
   "a day": "één dag",
-  "days": "dagen",
+  days: "dagen",
   "a month": "één maand",
-  "months": "maanden",
+  months: "maanden",
   "a year": "één jaar",
-  "years": "jaar"
+  years: "jaar"
 }
 
 const getTimeFromNow = (date?: string) => {
@@ -27,12 +27,23 @@ const getTimeFromNow = (date?: string) => {
     return ""
   }
   const fromNowString = dayjs(date).fromNow(true)
-  const str = fromNowString.replace(/\b(?:hours|a day|days|a month|months|a year|years)\b/gi, (matched) => timeMapper[matched])
+  const str = fromNowString.replace(
+    /\b(?:hours|a day|days|a month|months|a year|years)\b/gi,
+    (matched) => timeMapper[matched]
+  )
   return str
 }
 
 const getFamilyNames = (family: any[]) => {
-  const familyNames = family?.map((member: any) => member?.naam?.geslachtsnaam === "." ? "onbekend" : `${member?.naam?.voornamen ?? ""} ${member?.naam?.geslachtsnaam}`).join(", ")
+  const familyNames = family?.map((member: any) => {
+    if (!member?.naam || Object.keys(member.naam).length === 0) {
+      return "onbekend"
+    }
+    const voornamen = member.naam.voornamen ?? ""
+    const geslachtsnaam = member.naam.geslachtsnaam ?? "onbekend"
+    return geslachtsnaam === "." ? "onbekend" : `${voornamen} ${geslachtsnaam}`
+  }).join(", ")
+
   return familyNames || undefined
 }
 
@@ -45,19 +56,10 @@ const useValues = (resident: any) => {
   const {
     leeftijd,
     geboorte: {
-      datum: {
-        datum: geboorteDatum
-      }
+      datum: { datum: geboorteDatum }
     },
-    geslacht: {
-      omschrijving: geslachtOmschrijving
-    },
-    naam: {
-      voornamen,
-      voorletters,
-      geslachtsnaam,
-      voorvoegsel
-    },
+    geslacht: { omschrijving: geslachtOmschrijving },
+    naam: { voornamen, voorletters, geslachtsnaam, voorvoegsel },
     overlijden,
     kinderen,
     ouders,
@@ -65,29 +67,31 @@ const useValues = (resident: any) => {
   } = resident
 
   const values: any = {
-    "Voornamen": voornamen,
-    "Initialen": voorletters,
-    "Voorvoegsel": voorvoegsel || undefined,
-    "Achternaam": geslachtsnaam,
-    "Geslacht": geslachtOmschrijving,
-    "Geboren": geboorteDatum ? (
+    Voornamen: voornamen,
+    Initialen: voorletters,
+    Voorvoegsel: voorvoegsel || undefined,
+    Achternaam: geslachtsnaam,
+    Geslacht: geslachtOmschrijving,
+    Geboren: geboorteDatum ? (
       <>
         <DateDisplay date={geboorteDatum} />
         {overlijden ? null : <Bold> ({leeftijd} jaar)</Bold>}
       </>
-    ) : leeftijd,
+    ) : (
+      leeftijd
+    ),
     "Overleden †": overlijden?.datum?.langFormaat ? (
       <>
         {capitalizeFirstLetter(overlijden.datum.langFormaat)}
         <Bold> ({getTimeFromNow(overlijden?.datum?.langFormaat)} geleden)</Bold>
       </>
     ) : undefined,
-    "Kinderen": getFamilyNames(kinderen),
-    "Ouders": getFamilyNames(ouders),
-    "Partner": getFamilyNames(partners)
+    Kinderen: getFamilyNames(kinderen),
+    Ouders: getFamilyNames(ouders),
+    Partner: getFamilyNames(partners)
   }
 
-  const filteredValues = pickby(values, e => e !== undefined)
+  const filteredValues = pickby(values, (e) => e !== undefined)
 
   return filteredValues
 }

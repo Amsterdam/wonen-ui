@@ -462,7 +462,26 @@ const residentsData: ResidentsResponse = {
       "adressering": {
         "adresregel1": "Aalbersestraat 281",
         "adresregel2": "1067 MD  AMSTERDAM"
-      }
+      },
+      "kinderen": [],
+      "ouders": [
+        {
+          "naam": {
+            "voornamen": "Priscilla",
+            "geslachtsnaam": "Precise",
+            "voorletters": "P."
+          },
+          "geboorte": {
+            "datum": {
+              "type": "Datum",
+              "datum": "1990-01-14",
+              "langFormaat": "14 januari 1990"
+            }
+          },
+          "ouderAanduiding": "1"
+        }
+      ],
+      "partners": []
     },
     {
       "burgerservicenummer": "999996861",
@@ -487,7 +506,19 @@ const residentsData: ResidentsResponse = {
       "adressering": {
         "adresregel1": "Aalbersestraat 281",
         "adresregel2": "1067 MD  AMSTERDAM"
-      }
+      },
+      "kinderen": [],
+      "ouders": [
+        {
+          "naam": {},
+          "ouderAanduiding": "1"
+        },
+        {
+          "naam": {},
+          "ouderAanduiding": "2"
+        }
+      ],
+      "partners": []
     }
 
   ]
