@@ -5,14 +5,13 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import pickby from "lodash.pickby"
 import DateDisplay from "../../DateDisplay/DateDisplay"
 
-// Load the plugin
 dayjs.extend(relativeTime)
 
 const Bold = styled.span`
   font-weight: 600;
 `
 
-const timeMapper: { [key: string]: string } = {
+const timeMapper: Record<string, string> = {
   hours: "uur",
   "a day": "één dag",
   days: "dagen",
@@ -23,77 +22,79 @@ const timeMapper: { [key: string]: string } = {
 }
 
 const getTimeFromNow = (date?: string) => {
-  if (!date) {
-    return ""
-  }
-  const fromNowString = dayjs(date).fromNow(true)
-  const str = fromNowString.replace(
+  if (!date) return ""
+  const fromNow = dayjs(date).fromNow(true)
+  return fromNow.replace(
     /\b(?:hours|a day|days|a month|months|a year|years)\b/gi,
-    (matched) => timeMapper[matched]
+    m => timeMapper[m]
   )
-  return str
+}
+
+export const formatName = (naam: any, opts: { useInitials?: boolean } = {}) => {
+  if (!naam || Object.keys(naam).length === 0) return "onbekend"
+
+  const first = opts.useInitials ? naam.voorletters : naam.voornamen
+  const prefix = naam.voorvoegsel
+  const last = naam.geslachtsnaam
+
+  if (!last || last === ".") return "onbekend"
+
+  return [first, prefix, last].filter(Boolean).join(" ")
 }
 
 const getFamilyNames = (family: any[]) => {
-  const familyNames = family?.map((member: any) => {
-    if (!member?.naam || Object.keys(member.naam).length === 0) {
-      return "onbekend"
-    }
-    const voornamen = member.naam.voornamen ?? ""
-    const geslachtsnaam = member.naam.geslachtsnaam ?? "onbekend"
-    return geslachtsnaam === "." ? "onbekend" : `${voornamen} ${geslachtsnaam}`
-  }).join(", ")
+  if (!Array.isArray(family) || family.length === 0) return undefined
 
-  return familyNames || undefined
+  const names = family
+    .map(m => formatName(m?.naam))
+    .join(", ")
+
+  return names || undefined
 }
 
-const capitalizeFirstLetter = (str?: string): string | undefined => {
+const capitalizeFirstLetter = (str?: string) => {
   if (!str) return undefined
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 const useValues = (resident: any) => {
-  const {
-    leeftijd,
-    geboorte: {
-      datum: { datum: geboorteDatum }
-    },
-    geslacht: { omschrijving: geslachtOmschrijving },
-    naam: { voornamen, voorletters, geslachtsnaam, voorvoegsel },
-    overlijden,
-    kinderen,
-    ouders,
-    partners
-  } = resident
+  const geboorteDatum = resident?.geboorte?.datum?.datum
+  const overlijdenDatum = resident?.overlijden?.datum?.langFormaat
 
-  const values: any = {
-    Voornamen: voornamen,
-    Initialen: voorletters,
-    Voorvoegsel: voorvoegsel || undefined,
-    Achternaam: geslachtsnaam,
-    Geslacht: geslachtOmschrijving,
+  const values: Record<string, any> = {
+    Voornamen: resident?.naam?.voornamen,
+    Initialen: resident?.naam?.voorletters,
+    Voorvoegsel: resident?.naam?.voorvoegsel || undefined,
+    Achternaam: resident?.naam?.geslachtsnaam,
+    Geslacht: resident?.geslacht?.omschrijving,
     Geboren: geboorteDatum ? (
       <>
         <DateDisplay date={geboorteDatum} />
-        {overlijden ? null : <Bold> ({leeftijd} jaar)</Bold>}
+        {!resident?.overlijden && (
+          <Bold> ({resident?.leeftijd} jaar)</Bold>
+        )}
       </>
     ) : (
-      leeftijd
+      resident?.leeftijd
     ),
-    "Overleden †": overlijden?.datum?.langFormaat ? (
+    "Overleden †": overlijdenDatum ? (
       <>
-        {capitalizeFirstLetter(overlijden.datum.langFormaat)}
-        <Bold> ({getTimeFromNow(overlijden?.datum?.langFormaat)} geleden)</Bold>
+        {capitalizeFirstLetter(overlijdenDatum)}
+        <Bold> ({getTimeFromNow(overlijdenDatum)} geleden)</Bold>
       </>
     ) : undefined,
-    Kinderen: getFamilyNames(kinderen),
-    Ouders: getFamilyNames(ouders),
-    Partner: getFamilyNames(partners)
+    "Ingeschreven sinds": (
+      <>
+        <DateDisplay date={resident?.verblijfplaats?.datumVan?.datum} />
+        <Bold> ({getTimeFromNow(resident?.verblijfplaats?.datumVan?.datum)})</Bold>
+      </>
+    ),
+    Kinderen: getFamilyNames(resident?.kinderen),
+    Ouders: getFamilyNames(resident?.ouders),
+    Partner: getFamilyNames(resident?.partners)
   }
 
-  const filteredValues = pickby(values, (e) => e !== undefined)
-
-  return filteredValues
+  return pickby(values, v => v !== undefined)
 }
 
 export default useValues
