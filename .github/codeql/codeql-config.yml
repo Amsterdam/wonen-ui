@@ -1,0 +1,7 @@
+name: "CodeQL Config"
+
+paths-ignore:
+  - "docs/**"
+  - "coverage/**"
+  - "node_modules/**"
+  - "dist/**"
