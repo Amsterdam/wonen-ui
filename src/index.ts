@@ -21,7 +21,6 @@ import PermitsOverview from "./components/PermitsOverview/PermitsOverview"
 import PermitsSynopsis from "./components/PermitsSynopsis/PermitsSynopsis"
 import { getValidPermits } from "./components/PermitsSynopsis/utils"
 import Residents from "./components/Residents/Residents"
-import ResidentsV2 from "./components/ResidentsV2/Residents"
 import SmallSkeleton from "./components/Data/components/SmallSkeleton"
 import Table from "./components/Data/Table/Table"
 import TextWithLinebreaks from "./components/TextWithLinebreaks/TextWithLinebreaks"
@@ -61,7 +60,6 @@ export {
   PersonRoleDisplay,
   PersonEntityDisplay,
   Residents,
-  ResidentsV2,
   SmallSkeleton,
   Table,
   TextWithLinebreaks,

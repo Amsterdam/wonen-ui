@@ -6,7 +6,7 @@ type Props = {
 }
 
 const ResidentsHeader: React.FC<Props> = ({ residents }) => {
-  const actualTotalResidents = residents?.filter((resident: any) => !resident?.overlijden?.datum?.datum)?.length
+  const actualTotalResidents = residents?.filter((resident: any) => !resident?.overlijden?.datum?.langFormaat)?.length
   const text = actualTotalResidents >= 0 ? `(${ actualTotalResidents })` : ""
 
   return (
