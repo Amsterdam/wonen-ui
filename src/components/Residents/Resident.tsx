@@ -2,52 +2,42 @@ import React from "react"
 import { Accordion } from "@amsterdam/asc-ui"
 import DefinitionList from "../Data/DefinitionList/DefinitionList"
 import dayjs from "dayjs"
-import useValues from "./hooks/useValues"
+import useValues, { formatName } from "./hooks/useValues"
 
 type Props = {
   resident: any
   num: number
 }
 
-const getName = (resident: any) => (
-  resident?.naam?.aanschrijfwijze ?? `${ resident?.naam?.voorletters } ${ resident?.naam?.geslachtsnaam }`
-)
-
-const getGenderSymbol = (gender: string) => {
-  if (gender === "vrouw") return "V"
-  if (gender === "man") return "M"
-  return ""
-}
+const getName = (resident: any) => formatName(resident?.naam, { useInitials: true })
 
 const getAge = (resident: any) => {
-  if (resident?.leeftijd) {
-    return resident?.leeftijd
+  const explicit = resident?.leeftijd
+  if (explicit) return explicit
+
+  const birth = resident?.geboorte?.datum?.datum
+  const death = resident?.overlijden?.datum?.langFormaat
+
+  if (!birth) return undefined
+
+  const birthDate = dayjs(birth)
+  if (!birthDate.isValid()) return undefined
+
+  if (death) {
+    const deathDate = dayjs(death)
+    if (!deathDate.isValid()) return undefined
+    return deathDate.diff(birthDate, "years")
   }
-  if (resident?.overlijden) {
-    // if person died and dates are known.
-    if (resident?.overlijden?.datum?.datum && resident?.geboorte?.datum?.datum) {
-      const born = dayjs(resident?.geboorte?.datum?.datum)
-      const died = dayjs(resident?.overlijden?.datum?.datum)
-      return died.diff(born, "years")
-    }
-    // Person died but dates are onknown
-    return undefined
-  }
-  if (resident?.geboorte?.datum?.datum) {
-    const now = dayjs()
-    const b = dayjs(resident?.geboorte?.datum?.datum)
-    return now.diff(b, "years")
-  }
-  return undefined
+
+  return dayjs().diff(birthDate, "years")
 }
 
 const getBirthInfo = (resident: any) => {
-  if (resident?.geboorte?.datum?.datum) {
-    return dayjs(resident?.geboorte?.datum?.datum).format("DD-MM-YYYY")
-  }
-  if (resident?.geboorte?.datum?.jaar) {
-    return resident?.geboorte?.datum?.jaar
-  }
+  const full = resident?.geboorte?.datum?.datum
+  const yearOnly = resident?.geboorte?.datum?.jaar
+
+  if (full) return dayjs(full).format("DD-MM-YYYY")
+  if (yearOnly) return String(yearOnly)
   return undefined
 }
 
@@ -57,12 +47,22 @@ const Resident: React.FC<Props> = ({ resident, num }) => {
   const name = getName(resident)
   const age = getAge(resident)
   const birthInfo = getBirthInfo(resident)
-  const title = `${ num }. ${ name } ${ birthInfo } ${ age ? `(${ age })` : "" }
-    ${ getGenderSymbol(resident?.geslachtsaanduiding) } ${ resident?.overlijden ? "†" : "" }`
+  const gender = resident?.geslacht?.code || ""
+
+  const titleParts = [
+    `${num}.`,
+    name,
+    birthInfo,
+    age ? `(${age})` : "",
+    gender,
+    resident?.overlijden ? "†" : ""
+  ]
+
+  const title = titleParts.filter(Boolean).join(" ")
 
   return (
-    <Accordion title={ title } data-testid="accordion">
-      <DefinitionList data={ values } />
+    <Accordion title={title} data-testid="accordion">
+      <DefinitionList data={values} />
     </Accordion>
   )
 }

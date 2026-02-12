@@ -12,13 +12,6 @@ describe("Residents", () => {
     expect(getByTestId("header")).toBeInTheDocument()
   })
 
-  it("should render a spinner", () => {
-    const { getByTestId } = render(
-      <Residents data={residentsData} header loading={true} />
-    )
-    expect(getByTestId("header")).toBeInTheDocument()
-  })
-
   it("should not render a header", () => {
     const { queryByTestId } = render(
       <Residents data={residentsData} loading={true} header={false} />

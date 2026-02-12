@@ -29,7 +29,7 @@ describe("ResidentsHeader", () => {
   it("should render title with deceased residents", () => {
     const { getByText } = render(
       <ResidentsHeader
-        residents={[{}, {}, {}, { overlijden: { datum: { datum: "x" } } }]}
+        residents={[{}, {}, {}, { overlijden: { datum: { langFormaat: "x" } } }]}
       />
     )
     expect(

@@ -1,40 +1,32 @@
 import React from "react"
 import dayjs from "dayjs"
-import ResidentsType from "./ResidentsType"
+import type { ResidentsResponse }  from "./types"
 import ResidentsHeader from "./ResidentsHeader"
 import ResidentsView from "./ResidentsView"
 
 type Props = {
-  data?: ResidentsType
+  data?: ResidentsResponse
   header?: boolean
   loading?: boolean
   loadingRows?: number
 }
 
-const NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE = 1
+const YEARS_VISIBLE_AFTER_DECEASE = 1
 
-// Filter residents for deceased persons lon ago.
-const getResidents = (data?: ResidentsType) => {
-  let residents = data?._embedded?.ingeschrevenpersonen
+const isRecentDeceased = (resident: ResidentsResponse["personen"][0]) => {
+  const raw = resident?.overlijden?.datum?.langFormaat
+  if (!raw) return true
 
-  if (residents?.length >= 0) {
-    residents = residents.filter((resident: any) => {
-      const deceased = resident?.overlijden?.datum?.datum
-      if (deceased) {
-        const deceasedDate = dayjs(deceased)
-        const dateDeceasedPersonIsVisible = dayjs().subtract(
-          NUMBER_OF_YEARS_DECEASED_PERSON_IS_VISIBLE,
-          "year"
-        )
-        const isDeceasedPersonVisible =
-          deceasedDate.isAfter(dateDeceasedPersonIsVisible) ||
-          deceasedDate.isSame(dateDeceasedPersonIsVisible)
-        return isDeceasedPersonVisible
-      }
-      return true
-    })
-  }
-  return residents
+  const deceasedDate = dayjs(raw)
+  if (!deceasedDate.isValid()) return true
+
+  const cutoff = dayjs().subtract(YEARS_VISIBLE_AFTER_DECEASE, "year")
+  return deceasedDate.isSame(cutoff) || deceasedDate.isAfter(cutoff)
+}
+
+const getResidents = (data?: ResidentsResponse) => {
+  const list = data?.personen || []
+  return list.filter(isRecentDeceased)
 }
 
 const Residents: React.FC<Props> = ({
