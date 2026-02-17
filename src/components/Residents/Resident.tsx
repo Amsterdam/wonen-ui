@@ -55,7 +55,8 @@ const Resident: React.FC<Props> = ({ resident, num }) => {
     birthInfo,
     age ? `(${age})` : "",
     gender,
-    resident?.overlijden ? "†" : ""
+    resident?.overlijden ? "†" : "",
+    resident?.verblijfplaats?.functieAdres?.omschrijving === "briefadres" ? "(Briefadres)" : ""
   ]
 
   const title = titleParts.filter(Boolean).join(" ")

@@ -373,8 +373,8 @@ export const residentsData: ResidentsResponse = {
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
-          code: "W",
-          omschrijving: "woonadres"
+          code: "B",
+          omschrijving: "briefadres"
         },
         datumVan: {
           type: "Datum",
