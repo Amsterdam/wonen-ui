@@ -1,11 +1,11 @@
-import { displayDate } from "../../DateDisplay/DateDisplay"
-import { booleanObj } from "../helpers/dictionaries"
+import { displayDate } from "../../DateDisplay/DateDisplay";
+import { booleanObj } from "../helpers/dictionaries";
 
 export default [
   {
     key: "date_added",
     mapValue: (v: string) => displayDate(v, true),
-    shouldShow: (value: any, isNested: boolean) => !isNested
+    shouldShow: (value: any, isNested: boolean) => !isNested,
   },
   "author",
   "identification",
@@ -15,10 +15,10 @@ export default [
   "advertisement_linklist",
   {
     key: "description_citizenreport",
-    italic: true
+    italic: true,
   },
   {
     key: "nuisance",
-    mapValue: (v: keyof typeof booleanObj) => booleanObj[v]
-  }
-]
+    mapValue: (v: keyof typeof booleanObj) => booleanObj[v],
+  },
+];

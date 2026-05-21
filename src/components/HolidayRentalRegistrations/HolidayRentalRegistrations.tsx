@@ -1,8 +1,8 @@
-import React from "react"
-import { Spinner } from "@amsterdam/asc-ui"
-import type { HolidayRentalRegistration } from "./types"
-import Registration from "./components/Registration"
-import { Placeholder, LoadingRows } from "../Data/components"
+import React from "react";
+import { Spinner } from "@amsterdam/asc-ui";
+import type { HolidayRentalRegistration } from "./types";
+import Registration from "./components/Registration";
+import { Placeholder, LoadingRows } from "../Data/components";
 
 type Props = {
   data: HolidayRentalRegistration[]
@@ -21,10 +21,10 @@ const HolidayRentalRegistrations: React.FC<Props> = ({
   horizontalBordered = true,
   loading = false,
   loadingRows,
-  defaultOpen
+  defaultOpen,
 }) => {
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>;
   }
   return (
     <>
@@ -43,7 +43,7 @@ const HolidayRentalRegistrations: React.FC<Props> = ({
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default HolidayRentalRegistrations
+export default HolidayRentalRegistrations;

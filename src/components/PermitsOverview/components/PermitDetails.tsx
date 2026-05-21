@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { themeSpacing, Icon } from "@amsterdam/asc-ui"
-import dayjs from "dayjs"
-import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
-import { Check, Close } from "../../Icons/index"
-import useValues from "../hooks/useValues"
-import Permit from "../Permit"
+import React from "react";
+import styled from "styled-components";
+import { themeSpacing, Icon } from "@amsterdam/asc-ui";
+import dayjs from "dayjs";
+import DefinitionList  from "../../Data/DefinitionList/DefinitionList";
+import { Check, Close } from "../../Icons/index";
+import useValues from "../hooks/useValues";
+import Permit from "../Permit";
 
 type Props = {
   permit: Permit
@@ -17,40 +17,40 @@ const Div = styled.div<{ isOpaque?: boolean }>`
   dl {
     opacity: ${ ({ isOpaque = true }) => isOpaque ? 1 : 0.3 };
   }
-`
+`;
 
 const HeadingSpan = styled.span`
   display: flex;
   justify-content: start;
   align-items: center;
-`
+`;
 
 const StyledIcon = styled(Icon)`
   margin-left: ${ themeSpacing(2) };
-`
+`;
 
 const isDateValid = (permit: Permit) => {
-  const details = permit?.details
-  const endDate = details?.DATE_VALID_TO ?? details?.DATE_VALID_UNTIL
-  const startDate = details?.DATE_VALID_FROM
-  const now = dayjs() // current date and time
+  const details = permit?.details;
+  const endDate = details?.DATE_VALID_TO ?? details?.DATE_VALID_UNTIL;
+  const startDate = details?.DATE_VALID_FROM;
+  const now = dayjs(); // current date and time
   // If there is a start date and it is in the future, it is not valid.
   if (startDate && dayjs(startDate).isAfter(now)) {
-    return false
+    return false;
   }
   // If there is an end date, it cannot be in the past.
   if (endDate && dayjs(endDate).isBefore(now)) {
-    return false
+    return false;
   }
-  return true
-}
+  return true;
+};
 
 const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
-  const values = useValues(permit)
-  const { permit_type, permit_granted } = permit
-  const isGranted = permit_granted === "GRANTED"
-  const hasValidDate = isDateValid(permit)
-  const isValid = isGranted && hasValidDate
+  const values = useValues(permit);
+  const { permit_type, permit_granted } = permit;
+  const isGranted = permit_granted === "GRANTED";
+  const hasValidDate = isDateValid(permit);
+  const isValid = isGranted && hasValidDate;
 
   return (
     <Div isOpaque={ isValid }>
@@ -68,7 +68,7 @@ const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
         horizontalBordered={ horizontalBordered }
       />
     </Div>
-  )
-}
+  );
+};
 
-export default PermitDetail
+export default PermitDetail;

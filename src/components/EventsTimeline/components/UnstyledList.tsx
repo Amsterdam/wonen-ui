@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { themeSpacing } from "@amsterdam/asc-ui"
+import styled from "styled-components";
+import { themeSpacing } from "@amsterdam/asc-ui";
 
 export default styled.ul`
   list-style: none;
@@ -8,4 +8,4 @@ export default styled.ul`
   li {
     padding: 0 0 ${ themeSpacing(1) } 0;
   }
-`
+`;

@@ -1,7 +1,7 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from "react";
+import { Meta } from "@storybook/react";
 
-import { CaseIdDisplay } from "../index"
+import { CaseIdDisplay } from "../index";
 
 export default {
   title: "CaseIdDisplay",
@@ -10,21 +10,21 @@ export default {
     id: {
       description: "Id of a case",
       table: {
-        type: { summary: "string | number" }
+        type: { summary: "string | number" },
       },
-      control: { type: "number" }
-    }
-  }
-} as Meta
+      control: { type: "number" },
+    },
+  },
+} as Meta;
 
-const StoryComponent = (args) => <CaseIdDisplay {...args} />
+const StoryComponent = (args) => <CaseIdDisplay {...args} />;
 
-export const Default = StoryComponent.bind({})
+export const Default = StoryComponent.bind({});
 Default.parameters =  {
   docs: {
-    storyDescription: "Displays a case id with a minimum of 6 figures."
-  }
-}
+    storyDescription: "Displays a case id with a minimum of 6 figures.",
+  },
+};
 Default.args = {
-  id: 1234
-}
+  id: 1234,
+};

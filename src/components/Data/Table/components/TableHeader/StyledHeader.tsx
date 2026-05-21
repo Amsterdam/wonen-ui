@@ -1,9 +1,9 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui"
+import React from "react";
+import styled, { css } from "styled-components";
+import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
-import useNodeDimensions from "../../../hooks/useNodeDimensions/useNodeDimensions"
-import useNodeByReference from "../../../hooks/useNodeByReference/useNodeByReference"
+import useNodeDimensions from "../../../hooks/useNodeDimensions/useNodeDimensions";
+import useNodeByReference from "../../../hooks/useNodeByReference/useNodeByReference";
 
 type StyledProps = {
   isFixed?: boolean
@@ -33,7 +33,7 @@ const StyledTableHeader = styled.th<StyledProps>`
       }
   ` }
 
-`
+`;
 
 type Props = {
   width?: number
@@ -52,9 +52,9 @@ type Props = {
 
  const StyledHeader: React.FC<Props> = ({ children, width, minWidth, isFixed }) => {
   // Grab parent node, a table-row element (TR).
-  const { ref, node } = useNodeByReference<HTMLTableCellElement>(node => node?.parentElement ?? undefined)
+  const { ref, node } = useNodeByReference<HTMLTableCellElement>(node => node?.parentElement ?? undefined);
   // Grab dimensions of the table-row.
-  const dimensions = useNodeDimensions(node)
+  const dimensions = useNodeDimensions(node);
   // Pass height of the table-row.
   return (
     <StyledTableHeader
@@ -66,7 +66,7 @@ type Props = {
     >
       { children }
     </StyledTableHeader>
-  )
-}
+  );
+};
 
-export default StyledHeader
+export default StyledHeader;

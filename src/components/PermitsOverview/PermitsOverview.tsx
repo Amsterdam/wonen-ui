@@ -1,9 +1,9 @@
-import React from "react"
-import { Spinner } from "@amsterdam/asc-ui"
-import type Permit from "./Permit"
-import PermitDetails from "./components/PermitDetails"
-import useKnownPermits from "./hooks/useKnownPermits"
-import { Placeholder, LoadingRows } from "../Data/components"
+import React from "react";
+import { Spinner } from "@amsterdam/asc-ui";
+import type Permit from "./Permit";
+import PermitDetails from "./components/PermitDetails";
+import useKnownPermits from "./hooks/useKnownPermits";
+import { Placeholder, LoadingRows } from "../Data/components";
 
 export type Props = {
   horizontalBordered?: boolean
@@ -23,13 +23,13 @@ const PermitsOverview: React.FC<Props> = ({
   loading = false,
   showUnknown = false,
   horizontalBordered = true,
-  loadingRows
+  loadingRows,
 }) => {
-  const knownPermits = useKnownPermits(permits)
-  const filteredPermits = showUnknown ? permits : knownPermits
+  const knownPermits = useKnownPermits(permits);
+  const filteredPermits = showUnknown ? permits : knownPermits;
 
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>;
   }
   return (
     <>
@@ -47,7 +47,7 @@ const PermitsOverview: React.FC<Props> = ({
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default PermitsOverview
+export default PermitsOverview;

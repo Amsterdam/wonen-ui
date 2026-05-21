@@ -1,9 +1,9 @@
-import Permit from "../../components/PermitsOverview/Permit"
+import Permit from "../../components/PermitsOverview/Permit";
 
 const permitsOverviewData: Permit[] = [
   {
     "permit_granted": "UNKNOWN",
-    "permit_type": "B&B - vergunning"
+    "permit_type": "B&B - vergunning",
   },
   {
     "permit_granted": "GRANTED",
@@ -26,7 +26,7 @@ const permitsOverviewData: Permit[] = [
       "date7": "2022-03-31T00:00:00",
       "itemtype_key": "FOLDER",
       "parentKey": "1C0D0EBF55EE49EE872AE1D61433DC21",
-      "itemrel_key": "B3B640734A8144118111457F4756699E"
+      "itemrel_key": "B3B640734A8144118111457F4756699E",
     },
     "details": {
       "PERMIT_NAME": "Vakantieverhuur vergunningsaanvraag",
@@ -34,25 +34,25 @@ const permitsOverviewData: Permit[] = [
       "ADDRESS": "Duckstadstraat 34 2 1074BT Amsterdam",
       "RESULT": "Verleend",
       "DATE_VALID_FROM": "2021-06-08T00:00:00",
-      "DATE_VALID_UNTIL": "2022-03-31T00:00:00"
-    }
+      "DATE_VALID_UNTIL": "2022-03-31T00:00:00",
+    },
   },
   {
     "permit_granted": "UNKNOWN",
-    "permit_type": "Omzettingsvergunning"
+    "permit_type": "Omzettingsvergunning",
   },
   {
     "permit_granted": "UNKNOWN",
-    "permit_type": "Splitsingsvergunning"
+    "permit_type": "Splitsingsvergunning",
   },
   {
     "permit_granted": "UNKNOWN",
-    "permit_type": "Onttrekking- vorming en samenvoegingsvergunning"
+    "permit_type": "Onttrekking- vorming en samenvoegingsvergunning",
   },
   {
     "permit_granted": "UNKNOWN",
-    "permit_type": "Ligplaatsvergunning"
-  }
-]
+    "permit_type": "Ligplaatsvergunning",
+  },
+];
 
-export default permitsOverviewData
+export default permitsOverviewData;

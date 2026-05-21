@@ -1,6 +1,6 @@
-import React from "react"
-import DateDisplay  from "../../../DateDisplay/DateDisplay"
-import type { HolidayRentalReport } from "../../types"
+import React from "react";
+import DateDisplay  from "../../../DateDisplay/DateDisplay";
+import type { HolidayRentalReport } from "../../types";
 
 export default (report: HolidayRentalReport) => ({
   "Check in": <DateDisplay date={ report?.startDatum } />,
@@ -8,5 +8,5 @@ export default (report: HolidayRentalReport) => ({
   "Gasten": report?.gasten,
   "Gewijzigd": report?.isAangepast ? "Ja" : "Nee",
   "Verwijderd": report?.isVerwijderd ? "Ja" : "Nee",
-  "Aangemaakt": <DateDisplay date={ report?.gemaaktOp } />
-})
+  "Aangemaakt": <DateDisplay date={ report?.gemaaktOp } />,
+});

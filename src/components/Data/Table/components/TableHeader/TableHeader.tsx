@@ -1,8 +1,8 @@
-import React from "react"
-import { Hidden } from "@amsterdam/asc-ui"
-import StyledHeader from "./StyledHeader"
-import Sorter from "./Sorter"
-import { ColumnType, Sorting } from "../../types"
+import React from "react";
+import { Hidden } from "@amsterdam/asc-ui";
+import StyledHeader from "./StyledHeader";
+import Sorter from "./Sorter";
+import { ColumnType, Sorting } from "../../types";
 
 type Props = {
   lastColumnFixed?: boolean
@@ -26,10 +26,10 @@ const TableHeader: React.FC<Props> = ({ columns, lastColumnFixed, onChangeSortin
               header ?? <Hidden maxBreakpoint="laptopM">&nbsp;</Hidden>
             )
           }
-        </StyledHeader>
+        </StyledHeader>,
       ) }
     </tr>
   </thead>
-)
+);
 
-export default TableHeader
+export default TableHeader;

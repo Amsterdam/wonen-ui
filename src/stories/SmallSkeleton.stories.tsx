@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import React from "react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import { SmallSkeleton } from "../index"
+import { SmallSkeleton } from "../index";
 
 const meta: Meta<typeof SmallSkeleton> = {
   title: "SmallSkeleton",
@@ -11,25 +11,25 @@ const meta: Meta<typeof SmallSkeleton> = {
     height: {
       description: "Height of the skeleton",
       table: {
-        type: { summary: "number" }
+        type: { summary: "number" },
       },
-      control: { type: "number" }
-    }
-  }
-}
-export default meta
+      control: { type: "number" },
+    },
+  },
+};
+export default meta;
 
 type Story = StoryObj<typeof SmallSkeleton>;
 
 export const Default: Story = {
   parameters:  {
     docs: {
-      storyDescription: "A small skeleton for loading data."
-    }
+      storyDescription: "A small skeleton for loading data.",
+    },
   },
   args: {
     loading: true,
     height: 5,
-    maxRandomWidth: 100
-  }
-}
+    maxRandomWidth: 100,
+  },
+};

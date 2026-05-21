@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react"
-import ResizeObserver from "resize-observer-polyfill"
+import { useEffect, useMemo, useState } from "react";
+import ResizeObserver from "resize-observer-polyfill";
 
 /**
  * Returns dimensions of the given node.
@@ -21,25 +21,25 @@ import ResizeObserver from "resize-observer-polyfill"
  *
  */
 const useNodeDimensions = (node?: Element) => {
-  const [ dimensions, setDimensions ] = useState<DOMRectReadOnly>()
+  const [ dimensions, setDimensions ] = useState<DOMRectReadOnly>();
 
   const resizeObserver = useMemo(() => new ResizeObserver((entries: any) => {
-    setDimensions(entries[0].contentRect as DOMRectReadOnly)
-  }), [ setDimensions ])
+    setDimensions(entries[0].contentRect as DOMRectReadOnly);
+  }), [ setDimensions ]);
 
   useEffect(() => {
     if (node) {
-      resizeObserver.observe(node)
+      resizeObserver.observe(node);
     }
 
     return () => {
       if (node) {
-        resizeObserver.unobserve(node)
+        resizeObserver.unobserve(node);
       }
-    }
-  }, [node, resizeObserver])
+    };
+  }, [node, resizeObserver]);
 
-  return dimensions
-}
+  return dimensions;
+};
 
-export default useNodeDimensions
+export default useNodeDimensions;

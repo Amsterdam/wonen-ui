@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import { Heading, themeSpacing } from "@amsterdam/asc-ui"
-import RepeatChildren from "../components/RepeatChildren"
-import SmallSkeleton from "../components/SmallSkeleton"
+import React from "react";
+import styled from "styled-components";
+import { Heading, themeSpacing } from "@amsterdam/asc-ui";
+import RepeatChildren from "../components/RepeatChildren";
+import SmallSkeleton from "../components/SmallSkeleton";
 
 type Props = {
   numLoadingRows?: number
@@ -21,7 +21,7 @@ const Ul = styled.ul`
     padding: 0 0 ${ themeSpacing(1) } 0;
     line-height: 1.15;
   }
-`
+`;
 
 const List: React.FC<Props> = ({ numLoadingRows = 0, loading, title, headingSize = "h2", data, emptyPlaceholder }) => (
   <>
@@ -44,6 +44,6 @@ const List: React.FC<Props> = ({ numLoadingRows = 0, loading, title, headingSize
       ) : emptyPlaceholder
     }
   </>
-)
+);
 
-export default List
+export default List;

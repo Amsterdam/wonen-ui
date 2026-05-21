@@ -1,7 +1,7 @@
-import React, { ReactNode, useState } from "react"
-import styled from "styled-components"
-import { Button, Icon } from "@amsterdam/asc-ui"
-import { ExpandMore } from "../../Icons"
+import React, { ReactNode, useState } from "react";
+import styled from "styled-components";
+import { Button, Icon } from "@amsterdam/asc-ui";
+import { ExpandMore } from "../../Icons";
 
 export type StyleProps = {
   isOpen?: boolean
@@ -25,7 +25,7 @@ export const StyledExpandableButton = styled(Button)<StyleProps>`
       transition: transform 0.3s ease;
     }
   }
-` 
+`; 
 
 export const StyledExpandableContent = styled.div<StyleProps>`
   transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
@@ -33,11 +33,11 @@ export const StyledExpandableContent = styled.div<StyleProps>`
   max-height: ${ ({ isOpen }) => (isOpen ? "1000px" : "0") }; 
   overflow: hidden;
   position: relative;
-`
+`;
 
 const StyledDiv = styled.div`
   margin-bottom: 12px;
-`
+`;
 
 type Props = {
   title: string
@@ -46,11 +46,11 @@ type Props = {
 }
 
 const ExpandableContainer: React.FC<Props> = ({ title, children, defaultOpen = false }) => {
-  const [open, setOpen] = useState(defaultOpen)
+  const [open, setOpen] = useState(defaultOpen);
 
   const onClick = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
 
   return (
     <StyledDiv>
@@ -68,7 +68,7 @@ const ExpandableContainer: React.FC<Props> = ({ title, children, defaultOpen = f
         { children }
       </StyledExpandableContent>
     </StyledDiv>    
-  )
-}
+  );
+};
 
-export default ExpandableContainer
+export default ExpandableContainer;

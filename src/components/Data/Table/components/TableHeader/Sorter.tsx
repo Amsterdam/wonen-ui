@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import { Icon, themeSpacing, themeColor } from "@amsterdam/asc-ui"
-import { ArrowDownward, ArrowUpward } from "../../../../Icons"
-import { Sorting, ASCEND, DESCEND } from "../../types"
+import React from "react";
+import styled from "styled-components";
+import { Icon, themeSpacing, themeColor } from "@amsterdam/asc-ui";
+import { ArrowDownward, ArrowUpward } from "../../../../Icons";
+import { Sorting, ASCEND, DESCEND } from "../../types";
 
 type Props = {
   header?: React.ReactNode
@@ -54,30 +54,30 @@ const StyledLabel = styled.div<LabelProps>`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(-180deg); }
   }
-`
+`;
 
 const StyledIcon = styled(Icon)<IconProps>`
   margin: -${ themeSpacing(0.5) } ${ themeSpacing(1) } 0 ${ themeSpacing(2) };
   visibility: ${ ({ isSelected }) => isSelected ? "visible" : "hidden" };
   color: ${ themeColor("tint", "level6") };
-`
+`;
 
 const Sorter: React.FC<Props> = ({ header, index, sorting, onChangeSorting }) => {
-  const isSelected = sorting?.index === index
+  const isSelected = sorting?.index === index;
   // Only show arrow down icon when order is DESCEND and sorting is already selected.
-  const Asset = isSelected && sorting?.order === DESCEND ? ArrowDownward : ArrowUpward
+  const Asset = isSelected && sorting?.order === DESCEND ? ArrowDownward : ArrowUpward;
 
   const onSorterClick = () => {
-    const newOrder = isSelected && sorting?.order === ASCEND ? DESCEND : ASCEND
-    onChangeSorting({ index: index, order: newOrder })
-  }
+    const newOrder = isSelected && sorting?.order === ASCEND ? DESCEND : ASCEND;
+    onChangeSorting({ index: index, order: newOrder });
+  };
 
   return (
     <StyledLabel isSelected={ isSelected } sortOrder={ sorting?.order ?? ASCEND } onClick={ onSorterClick }>
       { header ?? <>&nbsp;</> }
       <StyledIcon isSelected={ isSelected }><Asset /></StyledIcon>
     </StyledLabel>
-  )
-}
+  );
+};
 
-export default Sorter
+export default Sorter;

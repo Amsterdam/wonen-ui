@@ -1,12 +1,12 @@
-import React from "react"
-import { Meta } from "@storybook/react"
+import React from "react";
+import { Meta } from "@storybook/react";
 
-import { TextWithLinebreaks } from "../index"
+import { TextWithLinebreaks } from "../index";
 
 export default {
   title: "TextWithLinebreaks",
-  component: TextWithLinebreaks
-} as Meta
+  component: TextWithLinebreaks,
+} as Meta;
 
 const StoryComponent = (args, children) => (
   <TextWithLinebreaks {...args} >{ `line 1
@@ -16,12 +16,12 @@ const StoryComponent = (args, children) => (
 
     }
   </TextWithLinebreaks>
-)
+);
 
-export const Default = StoryComponent.bind({})
+export const Default = StoryComponent.bind({});
 Default.parameters =  {
   docs: {
-    storyDescription: "Displays text with linebreaks."
-  }
-}
+    storyDescription: "Displays text with linebreaks.",
+  },
+};
 

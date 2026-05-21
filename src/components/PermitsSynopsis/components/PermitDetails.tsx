@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { themeSpacing, Icon } from "@amsterdam/asc-ui"
-import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
-import { Check, Close } from "../../Icons/index"
-import useValues from "../hooks/useValues"
-import Permit from "../PermitType"
-import { isValidPermit } from "../utils"
+import React from "react";
+import styled from "styled-components";
+import { themeSpacing, Icon } from "@amsterdam/asc-ui";
+import DefinitionList  from "../../Data/DefinitionList/DefinitionList";
+import { Check, Close } from "../../Icons/index";
+import useValues from "../hooks/useValues";
+import Permit from "../PermitType";
+import { isValidPermit } from "../utils";
 
 type Props = {
   permit: Permit
@@ -17,21 +17,21 @@ const Div = styled.div<{ isOpaque?: boolean }>`
   dl {
     opacity: ${ ({ isOpaque = true }) => isOpaque ? 1 : 0.3 };
   }
-`
+`;
 
 const HeadingSpan = styled.span`
   display: flex;
   justify-content: start;
   align-items: center;
-`
+`;
 
 const StyledIcon = styled(Icon)`
   margin-left: ${ themeSpacing(2) };
-`
+`;
 
 const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
-  const values = useValues(permit)
-  const isValid = isValidPermit(permit)
+  const values = useValues(permit);
+  const isValid = isValidPermit(permit);
 
   return (
     <Div isOpaque={ isValid }>
@@ -49,7 +49,7 @@ const PermitDetail: React.FC<Props> = ({ permit, horizontalBordered }) => {
         horizontalBordered={ horizontalBordered }
       />
     </Div>
-  )
-}
+  );
+};
 
-export default PermitDetail
+export default PermitDetail;

@@ -1,4 +1,4 @@
-import PermitType from "../../components/PermitsSynopsis/PermitType"
+import PermitType from "../../components/PermitsSynopsis/PermitType";
 
 const PermitsSynopsisData: PermitType[] = [
   {
@@ -13,7 +13,7 @@ const PermitsSynopsisData: PermitType[] = [
     "vergunninghouder": null,
     "initator": "Visser",
     "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
-    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten"
+    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten",
   },
   {
     "kenmerk": "Z/24/1239529",
@@ -26,7 +26,7 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2024-12-16T23:00:00.0000000Z",
     "vergunninghouder": null,
     "initator": "Henkie",
-    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten"
+    "omschrijvinG_KORT": "omzetten van 1 zelfstandige woonruimte in 5 onzelfstandige woonruimten",
   },
   {
     "kenmerk": "Z/23/1234567",
@@ -39,7 +39,7 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2023-09-13T13:29:28.0000000Z",
     "vergunninghouder": null,
     "initator": null,
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
+    "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
   },
   {
     "kenmerk": "Z/23/1234567",
@@ -52,7 +52,7 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2023-09-13T14:12:21.0000000Z",
     "vergunninghouder": null,
     "initator": null,
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
+    "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
   },
   {
     "kenmerk": "Z/23/1234567",
@@ -65,7 +65,7 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2023-10-04T11:52:37.0000000Z",
     "vergunninghouder": null,
     "initator": null,
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
+    "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
   },
   {
     "kenmerk": "Z/23/1234567",
@@ -78,8 +78,8 @@ const PermitsSynopsisData: PermitType[] = [
     "startdatum": "2023-10-11T12:14:11.0000000Z",
     "vergunninghouder": null,
     "initator": "Jansen",
-    "datuM_TOT": "2028-06-30T22:00:00.0000000Z"
-  }
-]
+    "datuM_TOT": "2028-06-30T22:00:00.0000000Z",
+  },
+];
 
-export default PermitsSynopsisData
+export default PermitsSynopsisData;

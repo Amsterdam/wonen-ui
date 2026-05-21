@@ -11,4 +11,4 @@ type Permit = {
   } | null
 }
 
-export default Permit
+export default Permit;

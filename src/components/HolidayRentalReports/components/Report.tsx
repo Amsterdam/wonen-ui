@@ -1,9 +1,9 @@
-import React from "react"
-import styled  from "styled-components"
-import { themeSpacing } from "@amsterdam/asc-ui"
-import useReportValues from "./hooks/useReportValues"
-import DefinitionList  from "../../Data/DefinitionList/DefinitionList"
-import type { HolidayRentalReport } from "../types"
+import React from "react";
+import styled  from "styled-components";
+import { themeSpacing } from "@amsterdam/asc-ui";
+import useReportValues from "./hooks/useReportValues";
+import DefinitionList  from "../../Data/DefinitionList/DefinitionList";
+import type { HolidayRentalReport } from "../types";
 
 type Props = {
   report: HolidayRentalReport
@@ -12,11 +12,11 @@ type Props = {
 
 const StyledDiv = styled.div`
   margin-top: ${ themeSpacing(3) };
-`
+`;
 
 const Report: React.FC<Props> = ({ report, horizontalBordered }) => {
-  const title = `${ report.isVerwijderd ? "Afmelding (-" : "Melding (+" }${ report?.nachten } nachten)`
-  const values = useReportValues(report)
+  const title = `${ report.isVerwijderd ? "Afmelding (-" : "Melding (+" }${ report?.nachten } nachten)`;
+  const values = useReportValues(report);
 
   return (
     <StyledDiv>
@@ -27,7 +27,7 @@ const Report: React.FC<Props> = ({ report, horizontalBordered }) => {
         horizontalBordered={ horizontalBordered }
       />
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default Report
+export default Report;

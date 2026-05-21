@@ -1,5 +1,5 @@
-import dayjs from "dayjs"
-import { ResidentsResponse } from "../../components/Residents/types"
+import dayjs from "dayjs";
+import { ResidentsResponse } from "../../components/Residents/types";
 
 export const residentsData: ResidentsResponse = {
   type: "RaadpleegMetBurgerservicenummer",
@@ -10,55 +10,55 @@ export const residentsData: ResidentsResponse = {
       burgerservicenummer: "999993008",
       geslacht: {
         code: "V",
-        omschrijving: "vrouw"
+        omschrijving: "vrouw",
       },
       naam: {
         voornamen: "Katrien",
         voorvoegsel: "",
         geslachtsnaam: "Duck",
         voorletters: "K.",
-        volledigeNaam: "Katrien Duck"
+        volledigeNaam: "Katrien Duck",
       },
       leeftijd: 38,
       nationaliteiten: [
         {
           nationaliteit: {
-            omschrijving: "Nederlandse"
-          }
-        }
+            omschrijving: "Nederlandse",
+          },
+        },
       ],
       geboorte: {
         land: {
-          omschrijving: "Marokko"
+          omschrijving: "Marokko",
         },
         plaats: {
-          omschrijving: "Tétouan"
+          omschrijving: "Tétouan",
         },
         datum: {
           datum: "1975-05-01",
-          langFormaat: "1 mei 1975"
-        }
+          langFormaat: "1 mei 1975",
+        },
       },
       adressering: {
         aanhef: "Geachte mevrouw Duck",
         aanschrijfwijze: {
-          naam: "K. Duck"
+          naam: "K. Duck",
         },
         gebruikInLopendeTekst: "mevrouw Duck",
         adresregel1: "Afrikanerplein 1",
-        adresregel2: "1091 PN  AMSTERDAM"
+        adresregel2: "1091 PN  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "1994-01-20",
-          langFormaat: "20 januari 1994"
-        }
+          langFormaat: "20 januari 1994",
+        },
       },
       kinderen: [
         {
@@ -66,134 +66,134 @@ export const residentsData: ResidentsResponse = {
             voornamen: "Kwik",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwik Duck"
+            volledigeNaam: "Kwik Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
+              langFormaat: "24 juni 2016",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Kwek",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwek Duck"
+            volledigeNaam: "Kwek Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
+              langFormaat: "24 juni 2016",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Kwak",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwak Duck"
+            volledigeNaam: "Kwak Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
-        }
+              langFormaat: "24 juni 2016",
+            },
+          },
+        },
       ],
       ouders: [
         {
           naam: {
             voornamen: "Hortense",
             geslachtsnaam: "Duck",
-            voorletters: "H."
+            voorletters: "H.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1926-10-27",
-              langFormaat: "27 oktober 1926"
-            }
+              langFormaat: "27 oktober 1926",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Dagobert",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1923-04-12",
-              langFormaat: "12 april 1923"
-            }
+              langFormaat: "12 april 1923",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
       partners: [
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
+              langFormaat: "7 juli 1974",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2023-08-11",
-              langFormaat: "11 augustus 2023"
-            }
-          }
+              langFormaat: "11 augustus 2023",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Guus Johannes",
             geslachtsnaam: "Geluk",
-            voorletters: "G.J."
+            voorletters: "G.J.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1979-12-07",
-              langFormaat: "7 december 1979"
-            }
+              langFormaat: "7 december 1979",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2010-12-08",
-              langFormaat: "8 december 2010"
-            }
+              langFormaat: "8 december 2010",
+            },
           },
           ontbindingHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2022-06-03",
-              langFormaat: "3 juni 2022"
-            }
+              langFormaat: "3 juni 2022",
+            },
           },
           soortVerbintenis: {
             code: "P",
-            omschrijving: "geregistreerd partnerschap"
-          }
-        }
-      ]
+            omschrijving: "geregistreerd partnerschap",
+          },
+        },
+      ],
     },
 
     // Donald Duck
@@ -203,38 +203,38 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1974-07-07",
-          langFormaat: "7 juli 1974"
-        }
+          langFormaat: "7 juli 1974",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 48,
       naam: {
         voornamen: "Donald",
         geslachtsnaam: "Duck",
         voorletters: "D.",
-        volledigeNaam: "Donald Duck"
+        volledigeNaam: "Donald Duck",
       },
       adressering: {
         aanhef: "Geachte heer Duck",
         aanschrijfwijze: {
-          naam: "D. Duck"
+          naam: "D. Duck",
         },
-        gebruikInLopendeTekst: "heer Duck"
+        gebruikInLopendeTekst: "heer Duck",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "1994-01-20",
-          langFormaat: "20 januari 1994"
-        }
+          langFormaat: "20 januari 1994",
+        },
       },
       kinderen: [
         {
@@ -242,102 +242,102 @@ export const residentsData: ResidentsResponse = {
             voornamen: "Kwik",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwik Duck"
+            volledigeNaam: "Kwik Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
+              langFormaat: "24 juni 2016",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Kwek",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwek Duck"
+            volledigeNaam: "Kwek Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
+              langFormaat: "24 juni 2016",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Kwak",
             geslachtsnaam: "Duck",
             voorletters: "K.",
-            volledigeNaam: "Kwak Duck"
+            volledigeNaam: "Kwak Duck",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "2016-06-24",
-              langFormaat: "24 juni 2016"
-            }
-          }
-        }
+              langFormaat: "24 juni 2016",
+            },
+          },
+        },
       ],
       ouders: [
         {
           naam: {
             voornamen: "Hortense",
             geslachtsnaam: "Duck",
-            voorletters: "H."
+            voorletters: "H.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1926-10-27",
-              langFormaat: "27 oktober 1926"
-            }
+              langFormaat: "27 oktober 1926",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Dagobert",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1923-04-12",
-              langFormaat: "12 april 1923"
-            }
+              langFormaat: "12 april 1923",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
       partners: [
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
+              langFormaat: "1 mei 1975",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2023-08-11",
-              langFormaat: "11 augustus 2023"
-            }
-          }
-        }
-      ]
+              langFormaat: "11 augustus 2023",
+            },
+          },
+        },
+      ],
     },
 
     // Kwik Duck
@@ -347,74 +347,74 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "2016-06-24",
-          langFormaat: "24 juni 2016"
-        }
+          langFormaat: "24 juni 2016",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 10,
       naam: {
         voornamen: "Kwik",
         geslachtsnaam: "Duck",
         voorletters: "K.",
-        volledigeNaam: "Kwik Duck"
+        volledigeNaam: "Kwik Duck",
       },
       adressering: {
         aanhef: "Beste Kwik Duck",
         aanschrijfwijze: {
-          naam: "K. Duck"
+          naam: "K. Duck",
         },
         gebruikInLopendeTekst: "Kwik Duck",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "B",
-          omschrijving: "briefadres"
+          omschrijving: "briefadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       ouders: [
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
+              langFormaat: "1 mei 1975",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
+              langFormaat: "7 juli 1974",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
-      partners: []
+      partners: [],
     },
 
     // Kwek Duck
@@ -424,74 +424,74 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "2016-06-24",
-          langFormaat: "24 juni 2016"
-        }
+          langFormaat: "24 juni 2016",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 10,
       naam: {
         voornamen: "Kwek",
         geslachtsnaam: "Duck",
         voorletters: "K.",
-        volledigeNaam: "Kwek Duck"
+        volledigeNaam: "Kwek Duck",
       },
       adressering: {
         aanhef: "Beste Kwek Duck",
         aanschrijfwijze: {
-          naam: "K. Duck"
+          naam: "K. Duck",
         },
         gebruikInLopendeTekst: "Kwek Duck",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       ouders: [
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
+              langFormaat: "1 mei 1975",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
+              langFormaat: "7 juli 1974",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
-      partners: []
+      partners: [],
     },
 
     // Kwak Duck
@@ -501,74 +501,74 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "2016-06-24",
-          langFormaat: "24 juni 2016"
-        }
+          langFormaat: "24 juni 2016",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 10,
       naam: {
         voornamen: "Kwak",
         geslachtsnaam: "Duck",
         voorletters: "K.",
-        volledigeNaam: "Kwak Duck"
+        volledigeNaam: "Kwak Duck",
       },
       adressering: {
         aanhef: "Beste Kwak Duck",
         aanschrijfwijze: {
-          naam: "K. Duck"
+          naam: "K. Duck",
         },
         gebruikInLopendeTekst: "Kwak Duck",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       ouders: [
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
+              langFormaat: "1 mei 1975",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
+              langFormaat: "7 juli 1974",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
-      partners: []
+      partners: [],
     },
 
     // Dagobert Duck
@@ -578,95 +578,95 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1923-04-12",
-          langFormaat: "12 april 1923"
-        }
+          langFormaat: "12 april 1923",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 103,
       naam: {
         voornamen: "Dagobert",
         geslachtsnaam: "Duck",
         voorletters: "D.",
-        volledigeNaam: "Dagobert Duck"
+        volledigeNaam: "Dagobert Duck",
       },
       adressering: {
         aanhef: "Geachte heer Duck",
         aanschrijfwijze: {
-          naam: "D. Duck"
+          naam: "D. Duck",
         },
         gebruikInLopendeTekst: "heer Duck",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "1906-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
-          }
+              langFormaat: "7 juli 1974",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
-          }
-        }
+              langFormaat: "1 mei 1975",
+            },
+          },
+        },
       ],
       partners: [
         {
           naam: {
             voornamen: "Hortense",
             geslachtsnaam: "Duck",
-            voorletters: "H."
+            voorletters: "H.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1926-10-27",
-              langFormaat: "27 oktober 1926"
-            }
+              langFormaat: "27 oktober 1926",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "1950-05-15",
-              langFormaat: "15 mei 1950"
-            }
-          }
-        }
+              langFormaat: "15 mei 1950",
+            },
+          },
+        },
       ],
-      ouders: []
+      ouders: [],
     },
 
     // Hortense Duck
@@ -676,95 +676,95 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1926-10-27",
-          langFormaat: "27 oktober 1926"
-        }
+          langFormaat: "27 oktober 1926",
+        },
       },
       geslacht: {
         code: "V",
-        omschrijving: "vrouw"
+        omschrijving: "vrouw",
       },
       leeftijd: 97,
       naam: {
         voornamen: "Hortense",
         geslachtsnaam: "Duck",
         voorletters: "H.",
-        volledigeNaam: "Hortense Duck"
+        volledigeNaam: "Hortense Duck",
       },
       adressering: {
         aanhef: "Geachte mevrouw Duck",
         aanschrijfwijze: {
-          naam: "H. Duck"
+          naam: "H. Duck",
         },
         gebruikInLopendeTekst: "mevrouw Duck",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [
         {
           naam: {
             voornamen: "Donald",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1974-07-07",
-              langFormaat: "7 juli 1974"
-            }
-          }
+              langFormaat: "7 juli 1974",
+            },
+          },
         },
         {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
-          }
-        }
+              langFormaat: "1 mei 1975",
+            },
+          },
+        },
       ],
       partners: [
         {
           naam: {
             voornamen: "Dagobert",
             geslachtsnaam: "Duck",
-            voorletters: "D."
+            voorletters: "D.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1923-04-12",
-              langFormaat: "12 april 1923"
-            }
+              langFormaat: "12 april 1923",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "1950-05-15",
-              langFormaat: "15 mei 1950"
-            }
-          }
-        }
+              langFormaat: "15 mei 1950",
+            },
+          },
+        },
       ],
-      ouders: []
+      ouders: [],
     },
 
     // Guus Geluk
@@ -774,40 +774,40 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1979-12-07",
-          langFormaat: "7 december 1979"
-        }
+          langFormaat: "7 december 1979",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 47,
       naam: {
         voornamen: "Guus Johannes",
         geslachtsnaam: "Geluk",
         voorletters: "G.J.",
-        volledigeNaam: "Guus Johannes Geluk"
+        volledigeNaam: "Guus Johannes Geluk",
       },
       adressering: {
         aanhef: "Geachte heer Geluk",
         aanschrijfwijze: {
-          naam: "G.J. Geluk"
+          naam: "G.J. Geluk",
         },
         gebruikInLopendeTekst: "heer Geluk",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
@@ -816,35 +816,35 @@ export const residentsData: ResidentsResponse = {
           naam: {
             voornamen: "Katrien",
             geslachtsnaam: "Duck",
-            voorletters: "K."
+            voorletters: "K.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1975-05-01",
-              langFormaat: "1 mei 1975"
-            }
+              langFormaat: "1 mei 1975",
+            },
           },
           aangaanHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2010-12-08",
-              langFormaat: "8 december 2010"
-            }
+              langFormaat: "8 december 2010",
+            },
           },
           ontbindingHuwelijkPartnerschap: {
             datum: {
               type: "Datum",
               datum: "2022-06-03",
-              langFormaat: "3 juni 2022"
-            }
+              langFormaat: "3 juni 2022",
+            },
           },
           soortVerbintenis: {
             code: "P",
-            omschrijving: "geregistreerd partnerschap"
-          }
-        }
-      ]
+            omschrijving: "geregistreerd partnerschap",
+          },
+        },
+      ],
     },
 
     // Guus de Gans
@@ -854,12 +854,12 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1989-08-20",
-          langFormaat: "20 augustus 1989"
-        }
+          langFormaat: "20 augustus 1989",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 37,
       naam: {
@@ -867,32 +867,32 @@ export const residentsData: ResidentsResponse = {
         geslachtsnaam: "Gans",
         voorvoegsel: "de",
         voorletters: "G.",
-        volledigeNaam: "Guus de Gans"
+        volledigeNaam: "Guus de Gans",
       },
       adressering: {
         aanhef: "Beste Guus de Gans",
         aanschrijfwijze: {
-          naam: "G. de Gans"
+          naam: "G. de Gans",
         },
         gebruikInLopendeTekst: "Guus de Gans",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Willem Beentjes
@@ -902,44 +902,44 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1992-02-12",
-          langFormaat: "12 februari 1992"
-        }
+          langFormaat: "12 februari 1992",
+        },
       },
       geslacht: {
         code: "N",
-        omschrijving: "non-binair"
+        omschrijving: "non-binair",
       },
       leeftijd: 34,
       naam: {
         voornamen: "Willem",
         geslachtsnaam: "Beentjes",
         voorletters: "W.",
-        volledigeNaam: "Willem Beentjes"
+        volledigeNaam: "Willem Beentjes",
       },
       adressering: {
         aanhef: "Beste Willem Beentjes",
         aanschrijfwijze: {
-          naam: "W. Beentjes"
+          naam: "W. Beentjes",
         },
         gebruikInLopendeTekst: "Willem Beentjes",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Buurvrouw Buis
@@ -949,44 +949,44 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1988-07-24",
-          langFormaat: "24 juli 1988"
-        }
+          langFormaat: "24 juli 1988",
+        },
       },
       geslacht: {
         code: "V",
-        omschrijving: "vrouw"
+        omschrijving: "vrouw",
       },
       leeftijd: 38,
       naam: {
         voornamen: "Buurvrouw",
         geslachtsnaam: "Buis",
         voorletters: "B.",
-        volledigeNaam: "Buurvrouw Buis"
+        volledigeNaam: "Buurvrouw Buis",
       },
       adressering: {
         aanhef: "Beste Buurvrouw Buis",
         aanschrijfwijze: {
-          naam: "B. Buis"
+          naam: "B. Buis",
         },
         gebruikInLopendeTekst: "Buurvrouw Buis",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Juffrouw Ans
@@ -996,44 +996,44 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1984-02-23",
-          langFormaat: "23 februari 1984"
-        }
+          langFormaat: "23 februari 1984",
+        },
       },
       geslacht: {
         code: "V",
-        omschrijving: "vrouw"
+        omschrijving: "vrouw",
       },
       leeftijd: 42,
       naam: {
         voornamen: "Juffrouw",
         geslachtsnaam: "Ans",
         voorletters: "J.",
-        volledigeNaam: "Juffrouw Ans"
+        volledigeNaam: "Juffrouw Ans",
       },
       adressering: {
         aanhef: "Beste Juffrouw Ans",
         aanschrijfwijze: {
-          naam: "J. Ans"
+          naam: "J. Ans",
         },
         gebruikInLopendeTekst: "Juffrouw Ans",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Boris Boef
@@ -1043,44 +1043,44 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1987-06-05",
-          langFormaat: "5 juni 1987"
-        }
+          langFormaat: "5 juni 1987",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 39,
       naam: {
         voornamen: "Boris",
         geslachtsnaam: "Boef",
         voorletters: "B.",
-        volledigeNaam: "Boris Boef"
+        volledigeNaam: "Boris Boef",
       },
       adressering: {
         aanhef: "Beste Boris Boef",
         aanschrijfwijze: {
-          naam: "B. Boef"
+          naam: "B. Boef",
         },
         gebruikInLopendeTekst: "Boris Boef",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Inspecteur van der Willighagen
@@ -1090,12 +1090,12 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1993-11-12",
-          langFormaat: "12 november 1993"
-        }
+          langFormaat: "12 november 1993",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       leeftijd: 33,
       naam: {
@@ -1103,28 +1103,28 @@ export const residentsData: ResidentsResponse = {
         geslachtsnaam: "Willighagen",
         voorvoegsel: "van der",
         voorletters: "I.",
-        volledigeNaam: "Inspecteur van der Willighagen"
+        volledigeNaam: "Inspecteur van der Willighagen",
       },
       adressering: {
         aanhef: "Beste Inspecteur van der Willighagen",
         aanschrijfwijze: {
-          naam: "I. van der Willighagen"
+          naam: "I. van der Willighagen",
         },
         gebruikInLopendeTekst: "Inspecteur van der Willighagen",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [
@@ -1132,19 +1132,19 @@ export const residentsData: ResidentsResponse = {
           naam: {
             voornamen: "Priscilla",
             geslachtsnaam: "Precise",
-            voorletters: "P."
+            voorletters: "P.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1990-01-14",
-              langFormaat: "14 januari 1990"
-            }
+              langFormaat: "14 januari 1990",
+            },
           },
-          ouderAanduiding: "1"
-        }
+          ouderAanduiding: "1",
+        },
       ],
-      partners: []
+      partners: [],
     },
 
     // Priscilla Precise
@@ -1154,40 +1154,40 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1990-01-14",
-          langFormaat: "14 januari 1990"
-        }
+          langFormaat: "14 januari 1990",
+        },
       },
       geslacht: {
         code: "V",
-        omschrijving: "vrouw"
+        omschrijving: "vrouw",
       },
       leeftijd: 36,
       naam: {
         voornamen: "Priscilla",
         geslachtsnaam: "Precise",
         voorletters: "P.",
-        volledigeNaam: "Priscilla Precise"
+        volledigeNaam: "Priscilla Precise",
       },
       adressering: {
         aanhef: "Beste Priscilla Precise",
         aanschrijfwijze: {
-          naam: "P. Precise"
+          naam: "P. Precise",
         },
         gebruikInLopendeTekst: "Priscilla Precise",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [
         {
@@ -1195,19 +1195,19 @@ export const residentsData: ResidentsResponse = {
             voornamen: "Inspecteur",
             geslachtsnaam: "Willighagen",
             voorvoegsel: "van der",
-            voorletters: "I."
+            voorletters: "I.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1993-11-12",
-              langFormaat: "12 november 1993"
-            }
-          }
-        }
+              langFormaat: "12 november 1993",
+            },
+          },
+        },
       ],
       ouders: [],
-      partners: []
+      partners: [],
     },
 
     // Professor Eppo Epsilon
@@ -1217,45 +1217,45 @@ export const residentsData: ResidentsResponse = {
         datum: {
           type: "Datum",
           datum: "1991-03-08",
-          langFormaat: "8 maart 1991"
-        }
+          langFormaat: "8 maart 1991",
+        },
       },
       geslacht: {
         code: "M",
-        omschrijving: "man"
+        omschrijving: "man",
       },
       overlijden: {
         datum: {
           jaar: 2025,
-          langFormaat: dayjs().subtract(4, "month").format("MMMM YYYY")
-        }
+          langFormaat: dayjs().subtract(4, "month").format("MMMM YYYY"),
+        },
       },
       naam: {
         voornamen: "Professor",
         geslachtsnaam: "Eppo Epsilon",
         voorletters: "P.",
-        volledigeNaam: "Professor Eppo Epsilon"
+        volledigeNaam: "Professor Eppo Epsilon",
       },
       adressering: {
         aanhef: "Geachte Professor Eppo Epsilon",
         aanschrijfwijze: {
-          naam: "P. Eppo Epsilon"
+          naam: "P. Eppo Epsilon",
         },
         gebruikInLopendeTekst: "Professor Eppo Epsilon",
         adresregel1: "Aalbersestraat 281",
-        adresregel2: "1067 MD  AMSTERDAM"
+        adresregel2: "1067 MD  AMSTERDAM",
       },
       verblijfplaats: {
         type: "Adres",
         functieAdres: {
           code: "W",
-          omschrijving: "woonadres"
+          omschrijving: "woonadres",
         },
         datumVan: {
           type: "Datum",
           datum: "2016-01-20",
-          langFormaat: "20 januari 2016"
-        }
+          langFormaat: "20 januari 2016",
+        },
       },
       kinderen: [],
       ouders: [
@@ -1263,36 +1263,36 @@ export const residentsData: ResidentsResponse = {
           naam: {
             voornamen: "Onbekend",
             geslachtsnaam: "Epsilon",
-            voorletters: "O."
+            voorletters: "O.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1960-01-01",
-              langFormaat: "1 januari 1960"
-            }
+              langFormaat: "1 januari 1960",
+            },
           },
-          ouderAanduiding: "1"
+          ouderAanduiding: "1",
         },
         {
           naam: {
             voornamen: "Onbekend",
             geslachtsnaam: "Epsilon",
-            voorletters: "O."
+            voorletters: "O.",
           },
           geboorte: {
             datum: {
               type: "Datum",
               datum: "1960-01-01",
-              langFormaat: "1 januari 1960"
-            }
+              langFormaat: "1 januari 1960",
+            },
           },
-          ouderAanduiding: "2"
-        }
+          ouderAanduiding: "2",
+        },
       ],
-      partners: []
-    }
-  ]
-}
+      partners: [],
+    },
+  ],
+};
 
-export default residentsData
+export default residentsData;

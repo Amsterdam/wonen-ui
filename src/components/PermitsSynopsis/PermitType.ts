@@ -13,4 +13,4 @@ type PermitType = {
   vergunninghouder: string | null
 }
 
-export default PermitType
+export default PermitType;

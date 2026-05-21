@@ -1,8 +1,8 @@
-import React from "react"
-import DefinitionList from "../../Data/DefinitionList/DefinitionList"
-import ExpandableContainer from "../../Data/ExpandableContainer/ExpandableContainer"
-import useValues from "./hooks/useValues"
-import type { HolidayRentalRegistration } from "../types"
+import React from "react";
+import DefinitionList from "../../Data/DefinitionList/DefinitionList";
+import ExpandableContainer from "../../Data/ExpandableContainer/ExpandableContainer";
+import useValues from "./hooks/useValues";
+import type { HolidayRentalRegistration } from "../types";
 
 type Props = {
   registration: HolidayRentalRegistration
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Registration: React.FC<Props> = ({ registration, horizontalBordered, defaultOpen }) => {
-  const values = useValues(registration)
+  const values = useValues(registration);
 
   return (
     <ExpandableContainer 
@@ -23,7 +23,7 @@ const Registration: React.FC<Props> = ({ registration, horizontalBordered, defau
         horizontalBordered={horizontalBordered}
       />
     </ExpandableContainer>
-  )
-}
+  );
+};
 
-export default Registration
+export default Registration;
