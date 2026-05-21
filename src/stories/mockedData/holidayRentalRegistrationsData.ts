@@ -37,7 +37,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             }
         },
         "requestForOther": true,
-        "requestForBedAndBreakfast": true,
         "createdAt": "2024-11-20T11:25:13.2947715Z",
         "agreementDate": "2024-11-20T11:25:13.2947715Z"
     },
@@ -71,7 +70,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             "owner": null
         },
         "requestForOther": false,
-        "requestForBedAndBreakfast": true,
         "createdAt": "2021-07-13T13:49:11.3915875Z",
         "agreementDate": "2021-07-13T13:49:11.3915875Z"
     },
@@ -105,7 +103,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             "owner": null
         },
         "requestForOther": false,
-        "requestForBedAndBreakfast": false,
         "createdAt": "2022-08-24T09:20:46.4590698Z",
         "agreementDate": "2022-08-24T09:20:46.4590698Z"
     },
@@ -139,7 +136,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             "owner": null
         },
         "requestForOther": false,
-        "requestForBedAndBreakfast": true,
         "createdAt": "2022-09-15T09:23:01.324015Z",
         "agreementDate": "2022-09-15T09:23:01.324015Z"
     },
@@ -173,7 +169,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             "owner": null
         },
         "requestForOther": false,
-        "requestForBedAndBreakfast": true,
         "createdAt": "2022-11-23T13:40:06.3829529Z",
         "agreementDate": "2022-11-23T13:40:06.3829529Z"
     },
@@ -207,7 +202,6 @@ const holidayRentalRegistrationsData: HolidayRentalRegistration[] = [
             "owner": null
         },
         "requestForOther": false,
-        "requestForBedAndBreakfast": true,
         "createdAt": "2024-11-28T10:43:23.0953603Z",
         "agreementDate": "2024-11-28T10:43:23.0953603Z"
     }

@@ -14,7 +14,6 @@ export default (registration: HolidayRentalRegistration) => {
     requester,
     agreementDate,
     createdAt,
-    requestForBedAndBreakfast,
     rentalHouse: { owner }
   } = registration
 
@@ -22,8 +21,7 @@ export default (registration: HolidayRentalRegistration) => {
     "Aanvrager": formatPersonName(requester?.personalDetails),
     "E-mail": requester?.email,
     "Aangemaakt": <DateDisplay date={createdAt} emptyText="-" />,
-    "Overeenkomst": <DateDisplay date={agreementDate} emptyText="-" />,
-    "B&B verzoek": requestForBedAndBreakfast ? "Ja" : "Nee"
+    "Overeenkomst": <DateDisplay date={agreementDate} emptyText="-" />
   }
 
   if (owner?.personalDetails) {
