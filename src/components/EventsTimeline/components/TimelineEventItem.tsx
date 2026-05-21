@@ -1,18 +1,18 @@
-import React from "react"
+import React from "react";
 
-import type CaseEvent from "../CaseEvent"
-import { Field } from "../helpers/fields"
+import type CaseEvent from "../CaseEvent";
+import { Field } from "../helpers/fields";
 import {
   variablesToFields,
-  variablesToValues
-} from "../helpers/variablesMappings"
+  variablesToValues,
+} from "../helpers/variablesMappings";
 import type {
   GroupedTimelineEventItem,
-  GroupedTimelineEventTotals
-} from "../hooks/useGroupedCaseEvents"
-import Timeline from "./Timeline/Timeline"
-import { displayDate } from "../../DateDisplay/DateDisplay"
-import EventData from "./EventData"
+  GroupedTimelineEventTotals,
+} from "../hooks/useGroupedCaseEvents";
+import Timeline from "./Timeline/Timeline";
+import { displayDate } from "../../DateDisplay/DateDisplay";
+import EventData from "./EventData";
 
 type Props = {
   fields: Field[]
@@ -33,22 +33,22 @@ const TimelineEventItem: React.FC<Props> = ({
   isOpen = false,
   hasTransparentBackground = false,
   groupedTimelineEventTotals,
-  type
+  type,
 }) => {
-  if (caseEvents.length === 0) return null
+  if (caseEvents.length === 0) return null;
 
   const hasPluralEvents =
-    caseEvents.length > 1 && !["CITIZEN_REPORT"].includes(type)
-  let titleType = type
+    caseEvents.length > 1 && !["CITIZEN_REPORT"].includes(type);
+  let titleType = type;
   if (type === "GENERIC_TASK") {
     titleType =
       typeof caseEvents[0]?.event_values.description === "string"
         ? caseEvents[0]?.event_values.description
-        : "Generiek event"
+        : "Generiek event";
   }
-  const eventsTotal = groupedTimelineEventTotals[titleType]
-  const eventsCount = `(${caseEvents.length}/${eventsTotal})`
-  const titleExtended = `${title}${hasPluralEvents ? "en" : ""} ${eventsTotal === 1 ? "" : eventsCount}`
+  const eventsTotal = groupedTimelineEventTotals[titleType];
+  const eventsCount = `(${caseEvents.length}/${eventsTotal})`;
+  const titleExtended = `${title}${hasPluralEvents ? "en" : ""} ${eventsTotal === 1 ? "" : eventsCount}`;
 
   return (
     <Timeline
@@ -57,13 +57,13 @@ const TimelineEventItem: React.FC<Props> = ({
       hasTransparentBackground={hasTransparentBackground}
     >
       {caseEvents.map((caseEvent) => {
-        const variablesFields = variablesToFields(caseEvent.event_variables)
-        const variablesValues = variablesToValues(caseEvent.event_variables)
+        const variablesFields = variablesToFields(caseEvent.event_variables);
+        const variablesValues = variablesToValues(caseEvent.event_variables);
         const showVariables =
-          variablesFields !== undefined && variablesValues !== undefined
-        const date = caseEvent.event_values[dateField]
+          variablesFields !== undefined && variablesValues !== undefined;
+        const date = caseEvent.event_values[dateField];
         const titleDisplay =
-          typeof date === "string" ? displayDate(date, true) : title
+          typeof date === "string" ? displayDate(date, true) : title;
 
         return (
           <div key={caseEvent.id}>
@@ -99,10 +99,10 @@ const TimelineEventItem: React.FC<Props> = ({
               </>
             )}
           </div>
-        )
+        );
       })}
     </Timeline>
-  )
-}
+  );
+};
 
-export default TimelineEventItem
+export default TimelineEventItem;

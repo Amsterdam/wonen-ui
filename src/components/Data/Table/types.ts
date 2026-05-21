@@ -8,8 +8,8 @@ export type PaginationType = {
   onPageChange?: (page: number) => void
 }
 
-export const ASCEND = "ASCEND"
-export const DESCEND = "DESCEND"
+export const ASCEND = "ASCEND";
+export const DESCEND = "DESCEND";
 
 type SortOrder = typeof ASCEND | typeof DESCEND
 

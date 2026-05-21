@@ -1,17 +1,17 @@
 
-import React from "react"
-import styled from "styled-components"
-import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui"
+import React from "react";
+import styled from "styled-components";
+import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
-import useNodeDimensions from "../../../hooks/useNodeDimensions/useNodeDimensions"
-import useNodeByReference from "../../../hooks/useNodeByReference/useNodeByReference"
+import useNodeDimensions from "../../../hooks/useNodeDimensions/useNodeDimensions";
+import useNodeByReference from "../../../hooks/useNodeByReference/useNodeByReference";
 
 type StyledTDProps = {
   w?: number
   h?: number
 }
 
-export const widthMobile = 48
+export const widthMobile = 48;
 
 const StyledTd = styled.td<StyledTDProps>`
   padding: ${ themeSpacing(4) } ${ themeSpacing(3) };
@@ -28,7 +28,7 @@ const StyledTd = styled.td<StyledTDProps>`
   }
 
   height: ${ ({ h }) => h ? `${ h }px;` : "auto" };
-`
+`;
 
 type Props = {
   width?: number
@@ -44,14 +44,14 @@ type Props = {
  */
 const FixedTableCell: React.FC<Props> = ({ children, width }) => {
   // Grab parent node, a table-row element (TR).
-  const { ref, node } = useNodeByReference<HTMLTableCellElement>(node => node?.parentElement ?? undefined)
+  const { ref, node } = useNodeByReference<HTMLTableCellElement>(node => node?.parentElement ?? undefined);
   // Grab dimensions of the table-row.
-  const dimensions = useNodeDimensions(node)
+  const dimensions = useNodeDimensions(node);
   // Pass height of the table-row.
   return <StyledTd ref={ref} h={dimensions?.height} w={width}>
     { children }
-  </StyledTd>
-}
+  </StyledTd>;
+};
 
 
-export default FixedTableCell
+export default FixedTableCell;

@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import { themeColor, themeSpacing, breakpoint, Icon, Button } from "@amsterdam/asc-ui"
+import styled, { css } from "styled-components";
+import { themeColor, themeSpacing, breakpoint, Icon, Button } from "@amsterdam/asc-ui";
 
 export type Props = {
   isOpen?: boolean
@@ -11,13 +11,13 @@ export type Props = {
 const circleSize = {
   desktop: {
     large: "30px",
-    small: "20px"
+    small: "20px",
   },
   mobile: {
     large: "24px",
-    small: "18px"
-  }
-}
+    small: "18px",
+  },
+};
 
 const CircleWrapperStyle = styled.div<Props>`
   position: relative;
@@ -49,7 +49,7 @@ const CircleWrapperStyle = styled.div<Props>`
       top: ${ ({ isNested }) => isNested ? themeSpacing(-5.5) : themeSpacing(3) };
     }
   }
-`
+`;
 const CircleStyle = styled(Icon)<Props>`
   position: relative;
   width: ${ circleSize.mobile.large };
@@ -79,12 +79,12 @@ const CircleStyle = styled(Icon)<Props>`
       }
     ` }
 
-`
+`;
 
 const TimelineItem = styled.div`
   flex: 1;
   max-width: calc(100% - 40px);
-`
+`;
 
 const NestedContainer = styled.div<Props>`
   display: flex;
@@ -102,7 +102,7 @@ const NestedContainer = styled.div<Props>`
     }
   }
 
-`
+`;
 
 const TimelineContent = styled.div<Props>`
   transition: opacity 0.3s ease-in-out, max-height 0.5s ease-in-out;
@@ -111,7 +111,7 @@ const TimelineContent = styled.div<Props>`
   overflow: hidden;
   padding: ${ ({ isOpen }) => (isOpen ? "16px 0" : "0") };
   position: relative;
-`
+`;
 
 const TimelineButtonContent = styled.span`
   text-align: left;
@@ -119,7 +119,7 @@ const TimelineButtonContent = styled.span`
   font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
-`
+`;
 
 const TimelineButton = styled(Button)<Props>`
   position: relative;
@@ -143,7 +143,7 @@ const TimelineButton = styled(Button)<Props>`
       transition: transform 0.3s ease;
     }
   }
-`
+`;
 
 const Background = styled.div<Props>`
   position: absolute;
@@ -155,6 +155,6 @@ const Background = styled.div<Props>`
   background-color: ${ ({ isOpen }) => isOpen ? themeColor("tint","level2") : "transparent" };
   pointer-events: none;
   z-index: -1;
-`
+`;
 
-export { TimelineItem, TimelineButton, TimelineContent, TimelineButtonContent, CircleWrapperStyle, CircleStyle, Background, NestedContainer }
+export { TimelineItem, TimelineButton, TimelineContent, TimelineButtonContent, CircleWrapperStyle, CircleStyle, Background, NestedContainer };

@@ -1,21 +1,21 @@
-import React, { Fragment, useMemo } from "react"
-import { breakpoint, themeColor } from "@amsterdam/asc-ui"
-import styled, { css } from "styled-components"
-import _get from "lodash.get"
+import React, { Fragment, useMemo } from "react";
+import { breakpoint, themeColor } from "@amsterdam/asc-ui";
+import styled, { css } from "styled-components";
+import _get from "lodash.get";
 
-import SmallSkeleton from "../components/SmallSkeleton"
-import TableCell from "./components/TableCell/TableCell"
-import TableHeader from "./components/TableHeader/TableHeader"
-import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell"
-import TablePagination from "./components/TablePagination/TablePagination"
-import devWarning from "../../../helpers/devWarning"
-import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination"
-import useSorter from "./hooks/useSorter"
-import { TableType, Sorting, DESCEND } from "./types"
+import SmallSkeleton from "../components/SmallSkeleton";
+import TableCell from "./components/TableCell/TableCell";
+import TableHeader from "./components/TableHeader/TableHeader";
+import FixedTableCell, { widthMobile as fixedColumnWidthMobile } from "./components/TableCell/FixedTableCell";
+import TablePagination from "./components/TablePagination/TablePagination";
+import devWarning from "../../../helpers/devWarning";
+import usePagination, { DEFAULT_PAGE_SIZE } from "./hooks/usePagination";
+import useSorter from "./hooks/useSorter";
+import { TableType, Sorting, DESCEND } from "./types";
 
 const Wrap = styled.div`
   position: relative;
-`
+`;
 
 type HorizontalScrollContainerProps = {
   fixedColumnWidth?: number
@@ -27,12 +27,12 @@ const HorizontalScrollContainer = styled.div<HorizontalScrollContainerProps>`
   @media screen and ${ breakpoint("min-width", "laptopM") } {
     margin-right: ${ ({ fixedColumnWidth }) => fixedColumnWidth ? `${ fixedColumnWidth }px` : "auto" };
   }
-`
+`;
 
 const StyledTable = styled.table`
   border-spacing: 0px;
   width: 100%;
-`
+`;
 
 type ClickableRowProps = {
   isClickable?: boolean
@@ -49,14 +49,14 @@ const Row = styled.tr<ClickableRowProps>`
   td {
     border-bottom: 1px solid ${ themeColor("tint", "level3") };
   }
-`
+`;
 
 const NoValuesPlaceholder = styled(TableCell)`
   font-style: italic;
-`
+`;
 
 const createLoadingData = (numColumns: number, numRows: number) =>
-  [...Array(numRows)].map(_ => [...Array(numColumns)].map(_ => ""))
+  [...Array(numRows)].map(_ => [...Array(numColumns)].map(_ => ""));
 
 const Table = <R extends object = any>(props: TableType<R>) => {
   const {
@@ -69,14 +69,14 @@ const Table = <R extends object = any>(props: TableType<R>) => {
     onClickRow,
     data = [],
     pagination,
-    onChange
-  } = props
+    onChange,
+  } = props;
 
-  const isEmpty = (data?.length ?? 0) === 0
+  const isEmpty = (data?.length ?? 0) === 0;
 
   const fixedColumnWidth = lastColumnFixed
     ? columns[columns.length - 1].minWidth
-    : undefined
+    : undefined;
 
   // ============================ Sorter =============================
   const onSortingTrigger = (sortingObj: Sorting) => {
@@ -84,61 +84,61 @@ const Table = <R extends object = any>(props: TableType<R>) => {
       getPaginationData(),
       {
         dataIndex: sortingObj?.index !== undefined ? columns?.[sortingObj?.index].dataIndex : undefined,
-        order: sortingObj?.order
-      }
-    )
-  }
+        order: sortingObj?.order,
+      },
+    );
+  };
 
   const [mergedSorting, sorter, onChangeSorting, getSortingObj] = useSorter(
     columns,
-    onSortingTrigger
-  )
+    onSortingTrigger,
+  );
 
   const sortedDataAscend = useMemo<R[]>(() => {
     if (sorter !== undefined && typeof sorter === "function") {
-      return [...data].sort(sorter)
+      return [...data].sort(sorter);
     }
-    return data
-  }, [data, sorter])
+    return data;
+  }, [data, sorter]);
 
   const sortedData = useMemo<R[]>(() => {
     if (sortedDataAscend !== undefined && mergedSorting?.order === DESCEND) {
-      return [...sortedDataAscend].reverse()
+      return [...sortedDataAscend].reverse();
     }
-    return sortedDataAscend
-  },[sortedDataAscend, mergedSorting?.order])
+    return sortedDataAscend;
+  },[sortedDataAscend, mergedSorting?.order]);
 
   // ========================== Pagination ==========================
   const onPaginationTrigger = (page: number) => {
-    onChange?.({ page, pageSize: mergedPagination.pageSize, collectionSize: mergedPagination.collectionSize  }, getSortingObj())
-  }
+    onChange?.({ page, pageSize: mergedPagination.pageSize, collectionSize: mergedPagination.collectionSize  }, getSortingObj());
+  };
 
   // Set warning if pagination prop page is given but not higher than 0.
   devWarning(
     pagination !== false && pagination?.page !== undefined  && typeof pagination.page == "number" && !(pagination.page > 0),
     "Table",
-    "`page` of `pagination` must be greater than 0."
-  )
+    "`page` of `pagination` must be greater than 0.",
+  );
 
   const [mergedPagination] = usePagination(
     sortedData.length,
     pagination,
-    onPaginationTrigger
-  )
+    onPaginationTrigger,
+  );
 
   const getPaginationData = () => ({
     page: mergedPagination.page,
     pageSize: mergedPagination.pageSize,
-    collectionSize: mergedPagination.collectionSize
-  })
+    collectionSize: mergedPagination.collectionSize,
+  });
 
   // Get paged data...
   const pageData = useMemo<R[]>(() => {
     if (pagination === false || !mergedPagination.pageSize) {
-      return sortedData
+      return sortedData;
     }
 
-    const { page = 1, collectionSize, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination
+    const { page = 1, collectionSize, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
 
     // Dynamic table data
     if (sortedData.length < collectionSize!) {
@@ -146,19 +146,19 @@ const Table = <R extends object = any>(props: TableType<R>) => {
         devWarning(
           true,
           "Table",
-          "`data` length is less than `pagination.collectionSize` but larger than `pagination.pageSize`. Please make sure your config is correct."
-        )
-        return sortedData.slice((page - 1) * pageSize, page * pageSize)
+          "`data` length is less than `pagination.collectionSize` but larger than `pagination.pageSize`. Please make sure your config is correct.",
+        );
+        return sortedData.slice((page - 1) * pageSize, page * pageSize);
       }
-      return sortedData
+      return sortedData;
     }
 
-    return sortedData.slice((page - 1) * pageSize, page * pageSize)
+    return sortedData.slice((page - 1) * pageSize, page * pageSize);
   }, [
     pagination,
     sortedData,
-    mergedPagination
-  ])
+    mergedPagination,
+  ]);
 
   // ============================ Render ============================
   return (
@@ -181,8 +181,8 @@ const Table = <R extends object = any>(props: TableType<R>) => {
                 isClickable={ onClickRow !== undefined }
               >
                 {columns.map((column, index) => {
-                  const text = column.dataIndex ? _get(rowData, column.dataIndex) : null
-                  const node = column.render ? column.render(text, rowData) : text
+                  const text = column.dataIndex ? _get(rowData, column.dataIndex) : null;
+                  const node = column.render ? column.render(text, rowData) : text;
                   if (lastColumnFixed && index === columns.length - 1) {
                     return (
                       <FixedTableCell
@@ -192,7 +192,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
                       >
                         { node }
                       </FixedTableCell>
-                    )
+                    );
                   }
                   return (
                     <TableCell key={ index } data-testid="table-cell">
@@ -201,7 +201,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
                         : node
                       }
                     </TableCell>
-                  )
+                  );
                 })}
               </Row>
             ))}
@@ -220,7 +220,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
                       </TableCell>
                     )
                   }
-                  </Fragment>
+                  </Fragment>,
                 )}
               </Row>
             ))}
@@ -236,7 +236,7 @@ const Table = <R extends object = any>(props: TableType<R>) => {
       </HorizontalScrollContainer>
       {pagination !== false && !isEmpty && <TablePagination { ...mergedPagination } />}
     </Wrap>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;

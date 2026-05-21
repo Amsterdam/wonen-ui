@@ -1,2 +1,2 @@
-export * from "./LoadingRows"
-export * from "./Placeholder"
+export * from "./LoadingRows";
+export * from "./Placeholder";

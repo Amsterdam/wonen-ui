@@ -1,11 +1,11 @@
-import { displayDate } from "../../DateDisplay/DateDisplay"
-import DisplayPersonWithRole, { Person } from "../helpers/DisplayPersonWithRole"
+import { displayDate } from "../../DateDisplay/DateDisplay";
+import DisplayPersonWithRole, { Person } from "../helpers/DisplayPersonWithRole";
 
 export default [
   {
     key: "date_added",
     mapValue: (v: string) => displayDate(v, true),
-    shouldShow: (value: any, isNested: boolean) => !isNested
+    shouldShow: (value: any, isNested: boolean) => !isNested,
   },
   "author",
   "type",
@@ -13,10 +13,10 @@ export default [
   {
     key: "persons",
     mapValue: (v: string | Person ) => 
-       typeof v === "string" ? v : v !== undefined ? DisplayPersonWithRole(v) : "-"
+       typeof v === "string" ? v : v !== undefined ? DisplayPersonWithRole(v) : "-",
   },
   {
     key: "description",
-    italic: true
-  }
-]
+    italic: true,
+  },
+];

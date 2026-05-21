@@ -9,8 +9,8 @@ export const caseTypesMap = {
   "VISIT": "Bezoek",
   "VISIT_ADDITIONAL": "Aanvullend bezoek",
   "DECISION": "Besluit",
-  "CITIZEN_REPORT": "SIG melding verwerken"
-}
+  "CITIZEN_REPORT": "SIG melding verwerken",
+};
 
 // REASON
 export const reasonLabelsMap = {
@@ -22,8 +22,8 @@ export const reasonLabelsMap = {
   "description": "Toelichting",
   "subjects": "Onderwerp(en)",
   "mma_number": "MMA-nummer",
-  "previous_case": "Overgedragen zaak"
-}
+  "previous_case": "Overgedragen zaak",
+};
 
 // CASE_CLOSE
 export const caseCloseLabelsMap = {
@@ -31,8 +31,8 @@ export const caseCloseLabelsMap = {
   "author": "Projectmedewerker",
   "reason": "Reden",
   "result": "Resultaat",
-  "description": "Toelichting"
-}
+  "description": "Toelichting",
+};
 
 // SCHEDULE
 export const scheduleLabelsMap = {
@@ -43,8 +43,8 @@ export const scheduleLabelsMap = {
   "author": "Projectmedewerker",
   "description": "Toelichting",
   "visit_from_datetime": "Huisbezoek vanaf",
-  "housing_corporation_combiteam": "Samenlopen met corporatie"
-}
+  "housing_corporation_combiteam": "Samenlopen met corporatie",
+};
 
 // DEBRIEF
 export const debriefLabelsMap = {
@@ -53,8 +53,8 @@ export const debriefLabelsMap = {
   "violation": "Uitkomst",
   "feedback": "Terugkoppeling",
   "theme": "Thema",
-  "nuisance_detected": "Overlast geconstateerd"
-}
+  "nuisance_detected": "Overlast geconstateerd",
+};
 
 export const debriefViolationMap = {
   "YES": "Overtreding",
@@ -69,8 +69,8 @@ export const debriefViolationMap = {
   "ADVICE_OTHER_DISCIPLINE": "Afwachten advies andere discipline",
   "REQUEST_DOCUMENTS": "Opvragen stukken",
   "SEND_TO_WOON": "Doorsturen naar !Woon",
-  "SEND_TO_ANOTHER_EXTERNAL_PARTY": "Doorsturen naar andere externe partij"
-}
+  "SEND_TO_ANOTHER_EXTERNAL_PARTY": "Doorsturen naar andere externe partij",
+};
 
 
 // SUMMON
@@ -80,8 +80,8 @@ export const summonLabelsMap = {
   "persons": "Aangeschrevene(n)",
   "description": "Toelichting",
   "type": "Aanschrijving",
-  "number_of_accommodations": "Aantal gesloten logiesverblijven"
-}
+  "number_of_accommodations": "Aantal gesloten logiesverblijven",
+};
 
 // DECISION
 export const decisionLabelsMap = {
@@ -91,8 +91,8 @@ export const decisionLabelsMap = {
   "description": "Toelichting",
   "type": "Besluit",
   "sanction_amount": "Bedrag",
-  "sanction_id": "Invorderingskenmerk"
-}
+  "sanction_id": "Invorderingskenmerk",
+};
 
 // CITIZENREPORT
 export const citizenReportLabelsMap = {
@@ -104,13 +104,13 @@ export const citizenReportLabelsMap = {
   "reporter_email": "E-mailadres melder",
   "description_citizenreport": "Samenvatting melding",
   "advertisement_linklist": "Advertenties",
-  "nuisance": "Melding overlast"
-}
+  "nuisance": "Melding overlast",
+};
 // GENERIC EVENT
 export const genericLabelsMap = {
   "date_added": "Datum",
-  "author": "Uitvoerder"
-}
+  "author": "Uitvoerder",
+};
 
 // VISIT
 export const visitLabelsMap = {
@@ -123,8 +123,8 @@ export const visitLabelsMap = {
   "can_next_visit_go_ahead_description": "Toelichting",
   "suggest_next_visit": "Volgend bezoek",
   "suggest_next_visit_description": "Toelichting",
-  "notes": "Toelichting"
-}
+  "notes": "Toelichting",
+};
 
 export const visitEventValuesMap = {
   "access_granted": "Toegang verleend",
@@ -151,16 +151,16 @@ export const visitEventValuesMap = {
   "unknown": "Niet meer uitzetten",
   "vacant": "Leegstaand",
   "weekend": "Weekend",
-  "windows_blinded": "Woning geblindeerd"
-}
+  "windows_blinded": "Woning geblindeerd",
+};
 
 export const visit_go_ahead = {
   "true": "Ja, doorlaten",
-  "false": "Nee, tegenhouden"
-}
+  "false": "Nee, tegenhouden",
+};
 
 export const booleanObj = {
   "true": "Ja",
-  "false": "Nee"
-}
+  "false": "Nee",
+};
 

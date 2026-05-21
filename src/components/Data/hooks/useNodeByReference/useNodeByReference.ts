@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react"
+import { useCallback, useState } from "react";
 
-const defaultNodeModifier = <NODE extends HTMLElement>(node: NODE) => node
+const defaultNodeModifier = <NODE extends HTMLElement>(node: NODE) => node;
 type NodeModifier<NODE> = (node: NODE) => HTMLElement | undefined
 
 /**
@@ -26,9 +26,9 @@ type NodeModifier<NODE> = (node: NODE) => HTMLElement | undefined
  * ```
  */
 const useNodeByReference = <NODE extends HTMLElement>(modifier: NodeModifier<NODE> = defaultNodeModifier) => {
-  const [ node, setNode ] = useState<HTMLElement | undefined>()
-  const ref = useCallback((node: NODE) => setNode(modifier(node)), [ setNode, modifier ])
-  return { ref, node }
-}
+  const [ node, setNode ] = useState<HTMLElement | undefined>();
+  const ref = useCallback((node: NODE) => setNode(modifier(node)), [ setNode, modifier ]);
+  return { ref, node };
+};
 
-export default useNodeByReference
+export default useNodeByReference;

@@ -1,6 +1,6 @@
-import React, { useMemo } from "react"
-import styled, { keyframes } from "styled-components"
-import { themeColor, themeSpacing } from "@amsterdam/asc-ui"
+import React, { useMemo } from "react";
+import styled, { keyframes } from "styled-components";
+import { themeColor, themeSpacing } from "@amsterdam/asc-ui";
 
 type StyledDivProps = {
   height: number
@@ -11,7 +11,7 @@ const backgroundAnimation = keyframes`
     0% { background-position:40%; }
     50% { background-position:100%; }
     100% { background-position:40%; }
-`
+`;
 
 const StyledDiv = styled.div<StyledDivProps>`
   height: ${ props => themeSpacing(props.height) };
@@ -20,7 +20,7 @@ const StyledDiv = styled.div<StyledDivProps>`
   background: linear-gradient(270deg, ${ themeColor("tint", "level3") }, ${ themeColor("tint", "level4") });
   background-size: 400% 400%;
   animation: ${ backgroundAnimation } 4s linear infinite;
-`
+`;
 
 type Props = {
   loading?: boolean
@@ -29,14 +29,14 @@ type Props = {
 }
 
 const SmallSkeleton: React.FC<Props> = ({ loading = true, maxRandomWidth = 100, height = 5 }) => {
-  const width = useMemo(() => Math.round(Math.random() * (maxRandomWidth - 50) ) + 50, [maxRandomWidth])
+  const width = useMemo(() => Math.round(Math.random() * (maxRandomWidth - 50) ) + 50, [maxRandomWidth]);
   return loading ? (
     <StyledDiv 
       width={ width } 
       height={ height } 
       data-testid="small-skeleton"
     />
-  ) : <></>
-}
+  ) : <></>;
+};
 
-export default SmallSkeleton
+export default SmallSkeleton;

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 type Props = {
   entityName?: string | null
@@ -6,8 +6,8 @@ type Props = {
 }
 
 const PersonEntityDisplay = ({ entityName, personFunction }: Props) => {
-  const displayName = [personFunction, entityName].filter(x => !!x)
-  return <>{displayName.join(", ")}</>
-}
+  const displayName = [personFunction, entityName].filter(x => !!x);
+  return <>{displayName.join(", ")}</>;
+};
 
-export default PersonEntityDisplay
+export default PersonEntityDisplay;

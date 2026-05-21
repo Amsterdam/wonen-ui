@@ -1,10 +1,10 @@
-import { displayDate } from "../../DateDisplay/DateDisplay"
+import { displayDate } from "../../DateDisplay/DateDisplay";
 
 const reasonFields = (prefixUrl: string) => (
   [
     {
       key: "start_date",
-      mapValue: (v: string) => displayDate(v, true)
+      mapValue: (v: string) => displayDate(v, true),
     },
     "author",
     "reason",
@@ -14,13 +14,13 @@ const reasonFields = (prefixUrl: string) => (
     "advertisement_linklist",
     {
       key: "description",
-      italic: true
+      italic: true,
     },
     {
       key: "previous_case",
-      mapValue: (caseId: string) => `${ prefixUrl }${ caseId }`
-    }
+      mapValue: (caseId: string) => `${ prefixUrl }${ caseId }`,
+    },
   ]
-)
+);
 
-export default reasonFields
+export default reasonFields;

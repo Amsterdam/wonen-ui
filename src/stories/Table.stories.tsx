@@ -1,8 +1,8 @@
-import React from "react"
-import { Meta } from "@storybook/react"
-import { Tag } from "@amsterdam/asc-ui"
+import React from "react";
+import { Meta } from "@storybook/react";
+import { Tag } from "@amsterdam/asc-ui";
 
-import { Table } from "../index"
+import { Table } from "../index";
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -10,62 +10,62 @@ export default {
   component: Table,
   argTypes: {
     columns: {
-      description: "Columns of table"
+      description: "Columns of table",
     },
     data: {
       description: "Data record array to be displayed",
       table: {
-        type: { summary: "Array of arrays | Array of objects" }
-      }
+        type: { summary: "Array of arrays | Array of objects" },
+      },
     },
     lastColumnFixed: {
       description: "Table has fixed column",
       table: {
-        defaultValue: { summary: false }
-      }
+        defaultValue: { summary: false },
+      },
     },
     loading: {
       description: "Loading status of table",
       table: {
         type: { summary: "boolean" },
-        defaultValue: { summary: false }
-      }
+        defaultValue: { summary: false },
+      },
     },
     emptyPlaceholder: {
-      description: "Placeholder when data has no values"
+      description: "Placeholder when data has no values",
     },
     numLoadingRows: {
       description: "Number of rows to be skeletonized when the table is loading",
       table: {
-        defaultValue: { summary: 5 }
-      }
+        defaultValue: { summary: 5 },
+      },
     },
     onChange: {
-      description: "Function executed when table sorting or pagination is touched"
+      description: "Function executed when table sorting or pagination is touched",
     },
     onClickRow: {
-      description: "Function executed when row is clicked"
+      description: "Function executed when row is clicked",
     },
     pagination: {
       description: "Can be used internally in the table or use the ASC `Pagination` props for external control with API requests. Set `false` to hide pagination.",
       table: {
-        defaultValue: { summary: {} }
-      }
+        defaultValue: { summary: {} },
+      },
     },
     showHeadWhenEmpty: {
       description: "Show the header of the table when data is empty",
       table: {
-        defaultValue: { summary: true }
-      }
-    }
-  }
-} as Meta
+        defaultValue: { summary: true },
+      },
+    },
+  },
+} as Meta;
 
-const StoryComponent = (args) => <Table {...args} />
+const StoryComponent = (args) => <Table {...args} />;
 
 const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez",
-  "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson"]
-const data: any = []
+  "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson"];
+const data: any = [];
 for (let i = 1; i < 13; i++) {
   data.push({
     name: `John ${ lastNames[Math.floor(Math.random() * lastNames.length)] }`,
@@ -73,13 +73,13 @@ for (let i = 1; i < 13; i++) {
     address: {
       street: `Weesperstraat ${ i }`,
       zipCode: "1018 VN",
-      city: "Amsterdam"
+      city: "Amsterdam",
     },
-    available: i % 2 === 0
-  })
+    available: i % 2 === 0,
+  });
 }
 
-export const Default = StoryComponent.bind({})
+export const Default = StoryComponent.bind({});
 Default.args = {
   columns: [
     { header: "Name", dataIndex: "name" },
@@ -88,8 +88,8 @@ Default.args = {
       header: "Address",
       dataIndex: "address.street",
       minWidth: 200,
-      render: (text: any, record: any) => `${ text }, ${ record?.address.zipCode } ${ record?.address.city }`
-    }
+      render: (text: any, record: any) => `${ text }, ${ record?.address.zipCode } ${ record?.address.city }`,
+    },
   ],
   data,
   emptyPlaceholder: "Nothing found! :(",
@@ -99,15 +99,15 @@ Default.args = {
   onChange: (pagination: any, sorting: any) => console.log("Pagination:", pagination,"Sorting:", sorting),
   onClickRow: (data: any) => console.log(data),
   pagination: false,
-  showHeadWhenEmpty: true
-}
+  showHeadWhenEmpty: true,
+};
 
-export const Pagination = StoryComponent.bind({})
+export const Pagination = StoryComponent.bind({});
 Pagination.parameters =  {
   docs: {
-    storyDescription: "Add `pagination` and a sorter to use inner pagination and/or sorting of the `Table`. Set the sorter in the `columns` object like `(a: any, b: any) => a - b`"
-  }
-}
+    storyDescription: "Add `pagination` and a sorter to use inner pagination and/or sorting of the `Table`. Set the sorter in the `columns` object like `(a: any, b: any) => a - b`",
+  },
+};
 Pagination.args = {
   ...Default.args,
   pagination: {},
@@ -115,63 +115,63 @@ Pagination.args = {
     {
       header: "Name",
       dataIndex: "name",
-      sorter: (a: any, b: any) => a.name.localeCompare(b.name)
+      sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     }, {
       header: "Age",
       dataIndex: "age",
       sorter: (a: any, b: any) => a.age - b.age,
-      defaultSortOrder: "DESCEND"
+      defaultSortOrder: "DESCEND",
     }, {
       header: "Address",
       dataIndex: "address.street",
       sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street),
-      minWidth: 200
-    }
-  ]
-}
+      minWidth: 200,
+    },
+  ],
+};
 
-export const Sorting = StoryComponent.bind({})
+export const Sorting = StoryComponent.bind({});
 Sorting.parameters =  {
   docs: {
-    storyDescription: "Add `pagination` props to have external (API) control. Add `sortOrder` in a column to get external control of selected sorters."
-  }
-}
+    storyDescription: "Add `pagination` props to have external (API) control. Add `sortOrder` in a column to get external control of selected sorters.",
+  },
+};
 Sorting.args = {
   ...Default.args,
   pagination: {
     page: 1,
     pageSize: 5,
     collectionSize: data.length,
-    onPageChange: (page: number) => console.log("`onPageChange` from `pagination` prop called", page)
+    onPageChange: (page: number) => console.log("`onPageChange` from `pagination` prop called", page),
   },
   columns: [
     {
       header: "Name",
       dataIndex: "name",
-      sorter: (a: any, b: any) => a.name.localeCompare(b.name)
+      sorter: (a: any, b: any) => a.name.localeCompare(b.name),
     }, {
       header: "Age",
       dataIndex: "age",
       sorter: (a: any, b: any) => a.age - b.age,
-      sortOrder: "DESCEND"
+      sortOrder: "DESCEND",
     }, {
       header: "Address",
       dataIndex: "address.street",
       sorter: (a: any, b: any) => a.address.street.localeCompare(b.address.street),
-      minWidth: 200
-    }
-  ]
-}
+      minWidth: 200,
+    },
+  ],
+};
 
 /**
  * Only use me once per page for the preferred user action.
  */
-export const ReactNode = StoryComponent.bind({})
+export const ReactNode = StoryComponent.bind({});
 ReactNode.parameters =  {
   docs: {
-    storyDescription: "You can add a `ReactNode` to `data` and define the sorting value."
-  }
-}
+    storyDescription: "You can add a `ReactNode` to `data` and define the sorting value.",
+  },
+};
 ReactNode.args = {
   ...Default.args,
   columns: [
@@ -183,7 +183,7 @@ ReactNode.args = {
       dataIndex: "available",
       sorter: (a: any, b: any) => a.available - b.available,
       defaultSortOrder: "DESCEND",
-      render: (text: any, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>
-    }
-  ]
-}
+      render: (text: any, record: any) => !record.available && <Tag colorType="secondary">Unavailable</Tag>,
+    },
+  ],
+};

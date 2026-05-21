@@ -1,4 +1,4 @@
-import CaseEvent from "../../components/EventsTimeline/CaseEvent"
+import CaseEvent from "../../components/EventsTimeline/CaseEvent";
 
 const eventsTimelineData: CaseEvent[] = [
   {
@@ -14,12 +14,12 @@ const eventsTimelineData: CaseEvent[] = [
       advertisement_linklist: [],
       subjects:["Hennep", "Overige woonfraude"],
       mma_number: 1111111,
-      previous_case: 2449
+      previous_case: 2449,
     },
     date_created: "2021-03-17T19:31:11+0100",
     type: "CASE",
     emitter_id: 3394,
-    case: 3394
+    case: 3394,
   },
   {
     id: 3956,
@@ -31,16 +31,16 @@ const eventsTimelineData: CaseEvent[] = [
       reporter_email: "mail@mail.com",
       advertisement_linklist: [
         "http://www.example.com",
-        "http://www.example.com"
+        "http://www.example.com",
       ],
       description_citizenreport: "Korte toelichting..",
       author: "Adam",
-      nuisance: false
+      nuisance: false,
     },
     date_created: "2021-05-18T11:52:03+0200",
     type: "CITIZEN_REPORT",
     emitter_id: 1,
-    case: 3766
+    case: 3766,
   },
   {
     id: 3957,
@@ -52,16 +52,16 @@ const eventsTimelineData: CaseEvent[] = [
       reporter_email: "mail@mail.com",
       advertisement_linklist: [
         "http://www.example.com",
-        "http://www.example.com"
+        "http://www.example.com",
       ],
       description_citizenreport: "Korte toelichting..",
       author: "Adam",
-      nuisance: false
+      nuisance: false,
     },
     date_created: "2021-05-18T11:52:03+0200",
     type: "CITIZEN_REPORT",
     emitter_id: 1,
-    case: 3766
+    case: 3766,
   },
   {
     id: 4040,
@@ -75,12 +75,12 @@ const eventsTimelineData: CaseEvent[] = [
       description: "Toelichting",
       visit_from_datetime: "2022-06-16T22:00:00Z",
       housing_corporation_combiteam: true,
-      is_additional: false
+      is_additional: false,
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
     emitter_id: 219,
-    case: 3785
+    case: 3785,
   },
   {
     id: 3956,
@@ -92,16 +92,16 @@ const eventsTimelineData: CaseEvent[] = [
       reporter_email: "mail@mail.com",
       advertisement_linklist: [
         "http://www.example.com",
-        "http://www.example.com"
+        "http://www.example.com",
       ],
       description_citizenreport: "Korte toelichting..",
       author: "Adam",
-      nuisance: false
+      nuisance: false,
     },
     date_created: "2021-05-18T11:52:03+0200",
     type: "CITIZEN_REPORT",
     emitter_id: 1,
-    case: 3766
+    case: 3766,
   },
   {
     id: 227,
@@ -109,7 +109,7 @@ const eventsTimelineData: CaseEvent[] = [
       start_time: "2021-01-01T11:34:00Z",
       authors: [
         "Alice",
-        "Bob"
+        "Bob",
       ],
       situation: "access_denied",
       observations: ["malfunctioning_doorbell", "mal_functioning_doorbel", "likely_sub_let"],
@@ -117,12 +117,12 @@ const eventsTimelineData: CaseEvent[] = [
       can_next_visit_go_ahead_description: null,
       suggest_next_visit: null,
       suggest_next_visit_description: null,
-      is_additional: true
+      is_additional: true,
     },
     date_created: "2021-04-08T11:25:07+0200",
     type: "VISIT",
     emitter_id: 81,
-    case: 3394
+    case: 3394,
   },
   {
     id: 228,
@@ -130,19 +130,19 @@ const eventsTimelineData: CaseEvent[] = [
       start_time: "2021-01-02T11:34:00Z",
       authors: [
         "Adam",
-        "Eva"
+        "Eva",
       ],
       situation: "access_granted",
       observations: [],
       can_next_visit_go_ahead: true,
       can_next_visit_go_ahead_description: null,
       suggest_next_visit: null,
-      suggest_next_visit_description: null
+      suggest_next_visit_description: null,
     },
     date_created: "2021-04-08T11:25:07+0200",
     type: "VISIT",
     emitter_id: 81,
-    case: 3394
+    case: 3394,
   },
   {
     id: 2533,
@@ -151,12 +151,12 @@ const eventsTimelineData: CaseEvent[] = [
       date_added: "2021-03-27T19:19:26.345631Z",
       violation: "REQUEST_DOCUMENTS",
       feedback: "Hier de opmerkingen...",
-      nuisance_detected: true
+      nuisance_detected: true,
     },
     date_created: "2021-03-26T20:19:26+0100",
     emitter_id: 317,
     case: 3394,
-    type: "DEBRIEFING"
+    type: "DEBRIEFING",
   },
   {
     id: 222,
@@ -167,12 +167,12 @@ const eventsTimelineData: CaseEvent[] = [
       description: "Toelichting",
       type: "Boete",
       sanction_amount: 45678,
-      sanction_id: "AZA30-4"
+      sanction_id: "AZA30-4",
     },
     date_created: "2021-04-08T10:56:54+0200",
     type: "DECISION",
     emitter_id: 3394,
-    case: 3394
+    case: 3394,
   },
   {
     case: 3898,
@@ -187,13 +187,13 @@ const eventsTimelineData: CaseEvent[] = [
         last_name: "Duck",
         person_role: "PERSON_ROLE_OWNER",
         entity_name: "Duck B.V.",
-        function: "Managing director"
+        function: "Managing director",
       }],
-      type: "Sluiting"
+      type: "Sluiting",
     },
     emitter_id: 213,
     id: 4883,
-    type: "SUMMON"
+    type: "SUMMON",
   },
   {
     case: 3898,
@@ -204,11 +204,11 @@ const eventsTimelineData: CaseEvent[] = [
       description: "Korte toelichting..",
       number_of_accommodations: 6,
       persons: [{ first_name: "Katrien", last_name: "Duck", person_role: "PERSON_ROLE_RESIDENT" }],
-      type: "Sluiting"
+      type: "Sluiting",
     },
     emitter_id: 213,
     id: 4884,
-    type: "SUMMON"
+    type: "SUMMON",
   },
   {
     id: 4039,
@@ -222,38 +222,38 @@ const eventsTimelineData: CaseEvent[] = [
       description: "Toelichting",
       visit_from_datetime: null,
       housing_corporation_combiteam: undefined,
-      is_additional: true
+      is_additional: true,
     },
     date_created: "2021-05-20T14:31:45+0200",
     type: "SCHEDULE",
     emitter_id: 219,
-    case: 3785
+    case: 3785,
   },
   {
     id: 439,
     event_values: {
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
-      description: "Dynamisch formulier 1"
+      description: "Dynamisch formulier 1",
     },
     event_variables: {
       field_1: {
         label: "Dit is het label",
-        value: "Eerste veld"
+        value: "Eerste veld",
       },
       field_2: {
         label: "Dit is het label voor een boolean",
-        value: true
+        value: true,
       },
       field_3: {
         label: "Label Enum",
-        value: "waarde_2"
-      }
+        value: "waarde_2",
+      },
     },
     date_created: "2021-05-11T14:54:04+0200",
     type: "GENERIC_TASK",
     emitter_id: 137,
-    case: 90
+    case: 90,
   },
   {
     id: 227,
@@ -261,19 +261,19 @@ const eventsTimelineData: CaseEvent[] = [
       start_time: "2021-01-01T11:34:00Z",
       authors: [
         "Boba Fett",
-        "Darth Vader"
+        "Darth Vader",
       ],
       situation: "access_denied",
       observations: ["malfunctioning_doorbell", "mal_functioning_doorbel", "likely_sub_let"],
       can_next_visit_go_ahead: true,
       can_next_visit_go_ahead_description: null,
       suggest_next_visit: null,
-      suggest_next_visit_description: null
+      suggest_next_visit_description: null,
     },
     date_created: "2021-04-08T11:25:07+0200",
     type: "VISIT",
     emitter_id: 81,
-    case: 3394
+    case: 3394,
   },
   {
     id: 2539,
@@ -282,38 +282,38 @@ const eventsTimelineData: CaseEvent[] = [
       date_added: "2021-03-27T19:19:26.345631Z",
       violation: "SERVICE_COSTS",
       feedback: "Hier de opmerkingen...",
-      nuisance_detected: false
+      nuisance_detected: false,
     },
     date_created: "2021-03-26T20:19:26+0100",
     emitter_id: 317,
     case: 3394,
-    type: "DEBRIEFING"
+    type: "DEBRIEFING",
   },
   {
     id: 437,
     event_values: {
       author: "Local User",
       date_added: "2021-05-11T12:54:04.349717Z",
-      description: "Dynamisch formulier 1"
+      description: "Dynamisch formulier 1",
     },
     event_variables: {
       field_1: {
         label: "Dit is het label",
-        value: "Eerste veld"
+        value: "Eerste veld",
       },
       field_2: {
         label: "Dit is het label voor een boolean",
-        value: false
+        value: false,
       },
       field_3: {
         label: "Label Enum",
-        value: "waarde_2"
-      }
+        value: "waarde_2",
+      },
     },
     date_created: "2021-05-11T14:54:04+0200",
     type: "GENERIC_TASK",
     emitter_id: 137,
-    case: 90
+    case: 90,
   },
   {
     id: 2221,
@@ -322,13 +322,13 @@ const eventsTimelineData: CaseEvent[] = [
       date_added: "2021-04-08T08:56:54.371354Z",
       description: "Toelichting",
       reason: "Reden..",
-      result: "Resultaat.."
+      result: "Resultaat..",
     },
     date_created: "2021-04-08T10:56:54+0200",
     type: "CASE_CLOSE",
     emitter_id: 3394,
-    case: 3394
-  }
-]
+    case: 3394,
+  },
+];
 
-export default eventsTimelineData
+export default eventsTimelineData;

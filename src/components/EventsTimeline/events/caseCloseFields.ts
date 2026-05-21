@@ -1,15 +1,15 @@
-import { displayDate } from "../../DateDisplay/DateDisplay"
+import { displayDate } from "../../DateDisplay/DateDisplay";
 
 export default [
   {
     key: "date_added",
-    mapValue: (v: string) => displayDate(v, true)
+    mapValue: (v: string) => displayDate(v, true),
   },
   "author",
   "reason",
   "result",
   {
     key: "description",
-    italic: true
-  }
-]
+    italic: true,
+  },
+];

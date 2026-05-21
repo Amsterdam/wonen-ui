@@ -12,18 +12,18 @@ const defaultField = {
   italic: false,
   isCurrency: false,
   mapValue: (v: any) => v,
-  shouldShow: () => true
-}
+  shouldShow: () => true,
+};
 
 export default (fields: Array<FieldConfig | string>, translations: Record<string, string>) =>
   fields.map(field => {
-    const o = typeof field === "string" ? { key: field } : field
-    const label = translations[o.key] ?? ""
-    return { ...defaultField, label, ...o }
-  })
+    const o = typeof field === "string" ? { key: field } : field;
+    const label = translations[o.key] ?? "";
+    return { ...defaultField, label, ...o };
+  });
 
 export const variableToField = (key: string, label: string) => ({
   key,
   label,
-  ...defaultField
-})
+  ...defaultField,
+});

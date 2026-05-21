@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from "@storybook/react"
-import { PermitsSynopsis } from "../index"
-import PermitsSynopsisData from "./mockedData/PermitsSynopsisData"
+import { Meta, StoryObj } from "@storybook/react";
+import { PermitsSynopsis } from "../index";
+import PermitsSynopsisData from "./mockedData/PermitsSynopsisData";
 
 const meta: Meta<typeof PermitsSynopsis> = {
   title: "PermitsSynopsis",
-  component: PermitsSynopsis
-}
+  component: PermitsSynopsis,
+};
 
-export default meta
+export default meta;
 
 type Story = StoryObj<typeof PermitsSynopsis>
 
@@ -16,6 +16,6 @@ export const Default: Story = {
     horizontalBordered: true,
     loading: false,
     permits: PermitsSynopsisData,
-    displayOnlyValidPermits: false
-  }
-}
+    displayOnlyValidPermits: false,
+  },
+};

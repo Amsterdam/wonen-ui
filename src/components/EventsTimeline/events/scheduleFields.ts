@@ -1,25 +1,25 @@
-import { displayDate } from "../../DateDisplay/DateDisplay"
-import { booleanObj } from "../helpers/dictionaries"
+import { displayDate } from "../../DateDisplay/DateDisplay";
+import { booleanObj } from "../helpers/dictionaries";
 
 export default [
   {
     key: "date_added",
-    mapValue: (v: string) => displayDate(v, true)
+    mapValue: (v: string) => displayDate(v, true),
   },
   "author",
   "week_segment",
   "day_segment",
   {
     key: "visit_from_datetime",
-    mapValue: (v: string) => displayDate(v, true)
+    mapValue: (v: string) => displayDate(v, true),
   },
   "priority",
   {
     key: "housing_corporation_combiteam",
-    mapValue: (v: keyof typeof booleanObj) => booleanObj[v]
+    mapValue: (v: keyof typeof booleanObj) => booleanObj[v],
   },
   {
     key: "description",
-    italic: true
-  }
-]
+    italic: true,
+  },
+];

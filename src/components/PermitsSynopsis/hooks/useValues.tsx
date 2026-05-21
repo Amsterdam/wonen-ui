@@ -1,6 +1,6 @@
-import React from "react"
-import DateDisplay from "../../DateDisplay/DateDisplay"
-import type PermitType from "../PermitType"
+import React from "react";
+import DateDisplay from "../../DateDisplay/DateDisplay";
+import type PermitType from "../PermitType";
 
 export default (permit: PermitType) => {
   const {
@@ -12,8 +12,8 @@ export default (permit: PermitType) => {
     einddatum,
     datuM_TOT,
     initator,
-    omschrijvinG_KORT
-  } = permit
+    omschrijvinG_KORT,
+  } = permit;
 
   const values = {
     Resultaat: resultaat ?? undefined,
@@ -26,8 +26,8 @@ export default (permit: PermitType) => {
     "Verleend per": <DateDisplay date={einddatum ?? undefined} emptyText="-" />,
     "Geldig tot en met": (
       <DateDisplay date={datuM_TOT ?? undefined} emptyText="-" />
-    )
-  }
+    ),
+  };
 
-  return values
-}
+  return values;
+};

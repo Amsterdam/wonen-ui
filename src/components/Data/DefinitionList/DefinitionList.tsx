@@ -1,10 +1,10 @@
-import React from "react"
-import { Heading } from "@amsterdam/asc-ui"
-import styled from "styled-components"
+import React from "react";
+import { Heading } from "@amsterdam/asc-ui";
+import styled from "styled-components";
 
-import SmallSkeleton from "../components/SmallSkeleton"
-import LoadingRows from "../components/LoadingRows"
-import Definition from "./components/Definition"
+import SmallSkeleton from "../components/SmallSkeleton";
+import LoadingRows from "../components/LoadingRows";
+import Definition from "./components/Definition";
 
 export type DefinitionListData = Record<string, React.ReactNode> | undefined
 
@@ -20,7 +20,7 @@ type Props = {
 
 const Dl = styled.dl`
   margin: 0;
-`
+`;
 
 const DefinitionList: React.FC<Props> = ({
   loading = false,
@@ -29,10 +29,10 @@ const DefinitionList: React.FC<Props> = ({
   headingSize = "h2",
   data,
   emptyPlaceholder,
-  horizontalBordered = true
+  horizontalBordered = true,
 }) => {
 
-  const rows = Object.entries(data ?? {})
+  const rows = Object.entries(data ?? {});
 
   return (
     <div>
@@ -61,7 +61,7 @@ const DefinitionList: React.FC<Props> = ({
         }
       </Dl>
     </div>
-  )
-}
+  );
+};
 
-export default DefinitionList
+export default DefinitionList;

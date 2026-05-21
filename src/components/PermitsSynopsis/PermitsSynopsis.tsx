@@ -1,10 +1,10 @@
-import React from "react"
-import dayjs from "dayjs"
-import { Spinner } from "@amsterdam/asc-ui"
-import type PermitType from "./PermitType"
-import PermitDetails from "./components/PermitDetails"
-import { getValidPermits } from "./utils"
-import { Placeholder, LoadingRows } from "../Data/components"
+import React from "react";
+import dayjs from "dayjs";
+import { Spinner } from "@amsterdam/asc-ui";
+import type PermitType from "./PermitType";
+import PermitDetails from "./components/PermitDetails";
+import { getValidPermits } from "./utils";
+import { Placeholder, LoadingRows } from "../Data/components";
 
 export type Props = {
   displayOnlyValidPermits?: boolean
@@ -24,16 +24,16 @@ const PermitsSynopsis: React.FC<Props> = ({
   horizontalBordered = true,
   loading = false,
   loadingRows,
-  permits = []
+  permits = [],
 }) => {
-  const validPermits = getValidPermits(permits)
-  const filteredPermits = displayOnlyValidPermits ? validPermits : permits
+  const validPermits = getValidPermits(permits);
+  const filteredPermits = displayOnlyValidPermits ? validPermits : permits;
   const sortedPermits = filteredPermits.sort((a, b) =>
-    dayjs(b?.startdatum).diff(dayjs(a?.startdatum))
-  )
+    dayjs(b?.startdatum).diff(dayjs(a?.startdatum)),
+  );
 
   if (loading) {
-    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>
+    return loadingRows ? <LoadingRows numRows={loadingRows} /> : <Spinner data-testid="spinner"/>;
   }
   return (
     <>
@@ -51,7 +51,7 @@ const PermitsSynopsis: React.FC<Props> = ({
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default PermitsSynopsis
+export default PermitsSynopsis;

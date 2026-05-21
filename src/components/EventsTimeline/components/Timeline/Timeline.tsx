@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react"
-import { useUID } from "react-uid"
-import { Icon } from "@amsterdam/asc-ui"
-import { Theme } from "@amsterdam/asc-ui/es/types/Theme"
-import { ButtonVariant } from "@amsterdam/asc-ui/lib/components/Button/Button"
-import { Check, ExpandMore } from "../../../Icons"
+import React, { useCallback, useEffect, useState } from "react";
+import { useUID } from "react-uid";
+import { Icon } from "@amsterdam/asc-ui";
+import { Theme } from "@amsterdam/asc-ui/es/types/Theme";
+import { ButtonVariant } from "@amsterdam/asc-ui/lib/components/Button/Button";
+import { Check, ExpandMore } from "../../../Icons";
 
 import {
   TimelineItem,
@@ -14,8 +14,8 @@ import {
   CircleStyle,
   Background,
   NestedContainer,
-  Props as StyleProps
-} from "./TimelineStyle"
+  Props as StyleProps,
+} from "./TimelineStyle";
 
 type Props = {
   onToggle?: (open: boolean) => void
@@ -63,21 +63,21 @@ const Timeline: React.FC<
   ...otherProps
 
 }) => {
-  const uid = useUID()
-  const id = idProp || uid
-  const [open, setOpen] = useState(isOpen ?? false)
+  const uid = useUID();
+  const id = idProp || uid;
+  const [open, setOpen] = useState(isOpen ?? false);
 
   useEffect(() => {
-    setOpen(isOpen ?? false)
-  }, [isOpen, setOpen])
+    setOpen(isOpen ?? false);
+  }, [isOpen, setOpen]);
 
   const handleClick = useCallback(() => {
-    const newOpenState = !open
+    const newOpenState = !open;
     if (onToggle) {
-      onToggle(newOpenState)
+      onToggle(newOpenState);
     }
-    setOpen(newOpenState)
-  }, [open, onToggle])
+    setOpen(newOpenState);
+  }, [open, onToggle]);
 
   return (
     <>
@@ -114,7 +114,7 @@ const Timeline: React.FC<
         </TimelineItem>
       </NestedContainer>
     </>
-  )
-}
+  );
+};
 
-export default Timeline
+export default Timeline;

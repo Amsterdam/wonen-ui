@@ -1,5 +1,5 @@
-import React from "react"
-import { PersonRole, personRoleMap } from "../../helpers/dictionaries"
+import React from "react";
+import { PersonRole, personRoleMap } from "../../helpers/dictionaries";
 
 type Props = {
   personRole?: PersonRole | undefined | null
@@ -7,6 +7,6 @@ type Props = {
 
 const PersonRoleDisplay: React.FC<Props> = ({ personRole }) => (
   <>{ personRole ? `${ (personRoleMap[personRole]).toLowerCase() }` : "" }</>
-)
+);
 
-export default PersonRoleDisplay
+export default PersonRoleDisplay;

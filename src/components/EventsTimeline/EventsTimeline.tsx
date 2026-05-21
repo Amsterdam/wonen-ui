@@ -1,8 +1,8 @@
-import React from "react"
-import type CaseEvent from "./CaseEvent"
-import Div from "./components/Timeline/EventsTimeline"
-import TimelineEvent from "./components/TimelineEvent"
-import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents"
+import React from "react";
+import type CaseEvent from "./CaseEvent";
+import Div from "./components/Timeline/EventsTimeline";
+import TimelineEvent from "./components/TimelineEvent";
+import useGroupedCaseEvents from "./hooks/useGroupedCaseEvents";
 
 export type Props = {
   events: CaseEvent[]
@@ -12,9 +12,9 @@ export type Props = {
 }
 
 const EventsTimeline: React.FC<Props> = ({
-  events, spacingHorizontal = 0, hasTransparentBackground, prefixUrl = ""
+  events, spacingHorizontal = 0, hasTransparentBackground, prefixUrl = "",
 }) => {
-  const { groupedEvents, groupedTimelineEventTotals } = useGroupedCaseEvents(events)
+  const { groupedEvents, groupedTimelineEventTotals } = useGroupedCaseEvents(events);
   return (
     <Div spacingHorizontal={ spacingHorizontal }>
     { groupedEvents.reverse().map((item, index) => (
@@ -29,7 +29,7 @@ const EventsTimeline: React.FC<Props> = ({
       ))
     }
     </Div>
-  )
-}
+  );
+};
 
-export default EventsTimeline
+export default EventsTimeline;

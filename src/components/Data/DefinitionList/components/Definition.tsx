@@ -1,7 +1,7 @@
-import React from "react"
-import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui"
-import styled, { css } from "styled-components"
-import TextWithLinebreaks from "../../../TextWithLinebreaks/TextWithLinebreaks"
+import React from "react";
+import { breakpoint, themeColor, themeSpacing } from "@amsterdam/asc-ui";
+import styled, { css } from "styled-components";
+import TextWithLinebreaks from "../../../TextWithLinebreaks/TextWithLinebreaks";
 
 type Props = {
   term: React.ReactNode
@@ -47,7 +47,7 @@ const Div = styled.div<StyleProps>`
       display: table;
     }
   }
-`
+`;
 
 const Dt = styled.dt<StyleProps>`
   color: ${ themeColor("tint","level5") };
@@ -59,7 +59,7 @@ const Dt = styled.dt<StyleProps>`
     width: 30%;
     padding-right: ${ themeSpacing(3) };
   }
-`
+`;
 
 const Dd = styled.dd<StyleProps>`
   margin: 0;
@@ -70,16 +70,16 @@ const Dd = styled.dd<StyleProps>`
     width: 70%;
 
   }
-`
+`;
 
 const castValue = (value: React.ReactNode) => {
-  if (value == null) return "-"
-  if (typeof value === "number") return `${value}`
+  if (value == null) return "-";
+  if (typeof value === "number") return `${value}`;
   if (typeof value === "string") {
-    return value.charAt(0).toUpperCase() + value.slice(1)
+    return value.charAt(0).toUpperCase() + value.slice(1);
   }
-  return value
-}
+  return value;
+};
 
 const Definition: React.FC<Props> = ({ term, value, horizontalBordered }) => (
   <Div horizontalBordered={horizontalBordered} data-testid="definition">
@@ -88,6 +88,6 @@ const Definition: React.FC<Props> = ({ term, value, horizontalBordered }) => (
       <TextWithLinebreaks>{castValue(value)}</TextWithLinebreaks>
     </Dd>
   </Div>
-)
-export default Definition
+);
+export default Definition;
 

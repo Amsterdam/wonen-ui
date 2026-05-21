@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { themeSpacing, breakpoint } from "@amsterdam/asc-ui"
+import styled from "styled-components";
+import { themeSpacing, breakpoint } from "@amsterdam/asc-ui";
 
 type Props = {
   spacingHorizontal: number
@@ -31,4 +31,4 @@ export default styled.div<Props>`
   button {
     outline: none;
   }
-`
+`;

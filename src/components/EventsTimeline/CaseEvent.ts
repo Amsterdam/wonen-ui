@@ -7,4 +7,4 @@ type CaseEvent = {
   emitter_id: number
   case: number
 }
-export default CaseEvent
+export default CaseEvent;
